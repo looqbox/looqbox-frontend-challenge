@@ -20,6 +20,8 @@ But you can use Node and Npm if you prefer :)
 # Guidelines
 You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
 
+The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please mind how many times you request data
+
 In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
 
 Searching and pressing enter on the search bar will show the result instead of the list
