@@ -34,7 +34,7 @@ You can use any dependency you want, (jquery, bootstrap, materialize...)
 - Unit Testing
 - Linting
 - Nice UI
-- Code architecture
+- Explain Code architecture
 - Documentation
 
 ## Useful links
