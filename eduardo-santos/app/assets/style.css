@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Assistant:200');
+
+*{font-family: 'Assistant', sans-serif; font-size:18px;}
+
+body{
+  background-color: #fff;
+  color: #333;   
+}
+
+.mouse-pointer{
+  cursor: pointer;
+}
+
+.form-control{
+  font-size:18px;
+  padding:10px 10px 10px 5px;  
+  outline: none;
+  border: none;
+  box-shadow: none !important;
+  border-bottom:1px solid #757575;
+  background-color: #fff;
+}
+
+.form-control:focus{
+  border-color: #333;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: #53d893;
+  color: #fff;
+}
+
+.fa-search {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  z-index: 9;
+}
+
+.table-hover td {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.table{
+  margin-bottom: 0px;
+  color: #6d6e71;
+}
+
+.panel, .list-group-item{
+  background-color: transparent;
+}
+
+.button-default {
+  color: #fff;
+  background-color: transparent;
+  border-color: #ccc;
+}
+
+.button-link{
+  background: #333;
+  color: #53d893;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.button-link:hover{
+  color: #fff;
+  font-size: 16px;
+  background: #53d893;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.button-link:focus{
+  outline: none;
+  border: none;
+  text-decoration: none;  
+  background: #53d893;
+}
+
+.mt15{
+  margin: 15px 0;
+}
+
+i{
+  color: #333;
+}
+
+i:hover{
+  color: #53d893;
+}
+
+
+@media only screen and (max-width: 768px){
+  a img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

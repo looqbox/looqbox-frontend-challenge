@@ -1,0 +1,25 @@
+<form>
+	<div class="input-group col-xs-12">
+		<input class="form-control" placeholder="Search by name" type="text" ng-model="txtSearch.name" name="txtSearch" id="txtSearch" ng-change="searchAllPeople(txtSearch.name)">
+		<i class="fas fa-search"></i>
+	</div>
+</form>
+<br>
+<table class="table table-hover table-bordered">
+	<thead>
+		<tr class="mouse-pointer">
+			<th ng-click="sortBy('name')">Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-click="getCharacterDetails(person.url)" ng-repeat="person in peopleList | filter: txtSearch | orderBy:orderWith:orderDirection" class="mouse-pointer">
+			<td ng-bind="person.name"></td>
+		</tr>
+	</tbody>
+</table>
+<div class="text-center">
+	<button type="button" class="btn btn-link" ng-click="getAllPeoplePreviousPage(previousPage)" ng-disabled="currentPage <= 1"><i class="fas fa-chevron-left"></i></button>
+	<span ng-bind="currentPage"></span>/
+	<span ng-bind="numberOfPages"></span>
+	<button type="button" class="btn btn-link" ng-click="getAllPeopleNextPage(nextPage)" ng-disabled="currentPage == numberOfPages"><i class="fas fa-chevron-right"></i></button>
+</div>

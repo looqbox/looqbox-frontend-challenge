@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-md-12">
+		<h2>Person Details</h2>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h3 ng-bind="personDetails.name"></h3>
+				<ul class="list-group">
+					<li class="list-group-item" ng-bind="'Height: ' + personDetails.height"></li>
+					<li class="list-group-item" >
+						<span ng-repeat="ablities in abilityName" ng-bind="ablities.name + ' '"></span>
+					</li>
+					<li class="list-group-item" ng-bind="'Weight: ' + personDetails.weight"></li>
+				</ul>
+			</div>
+		</div>
+		<div><a href="#" class="btn button-link">Back</a></div>
+	</div>
+</div>

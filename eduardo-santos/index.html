@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="swApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéApi</title>
+    <link rel="icon" href="app/assets/img/icon.png">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="app/assets/style.css">
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="src/index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt15">
+            <div class="">
+                <div class="col-md-3">
+                    <a href="#"><img src="app/assets/img/logo.png" alt="looqbox" class="img-responsive"></a>
+                </div>
+                <div class="col-md-9">
+                    <h4>
+                        Simple and minimalist designed website using an <a href="https://pokeapi.co/" target="_blank" class="btn-link">Pokémon API</a>
+                        to display some information about the movie franchise. Here you will find info from all pokémons.
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <ng-view></ng-view>
+    </div>
+</body>
+</html>
