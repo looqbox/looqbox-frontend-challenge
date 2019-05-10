@@ -1,7 +1,7 @@
 /* ACTION TYPES */
 import { UPDATE_DATA, ADD_DATA } from './action-types'
 
-const searchResults = (state = [], action) => {
+const searchResults = (state = null, action) => {
   const { data } = action
 
   switch (action.type) {

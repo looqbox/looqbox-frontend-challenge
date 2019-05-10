@@ -69,7 +69,7 @@ class Search extends Component {
         />
         <button type="submit">Search</button>
       </form>
-    );
+    )
   }
 }
 
