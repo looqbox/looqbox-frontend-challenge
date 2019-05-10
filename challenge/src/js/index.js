@@ -4,7 +4,7 @@ import { render } from 'react-dom'
 
 /* REDUX */
 import { Provider } from 'react-redux'
-import store from './store/index'
+import store from './reducers/store'
 
 /* APP */
 import App from './components/App'

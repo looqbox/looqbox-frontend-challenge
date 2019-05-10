@@ -1,31 +1,11 @@
-// import {
-//   ACTION_NAME,
-// } from '../constants/action-types';
+/* REDUX */
+import { combineReducers } from 'redux'
 
-const initialState = {
-  someProp: ''
-};
+/* REDUCERS */
+import searchResults from './searchResults'
 
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    // case 'ACTION_1':
-    //   return {
-    //     ...state,
-    //     someProp: action.payload
-    //   };
-    // case 'ACTION_2':
-    //   return {
-    //     ...state,
-    //     someProp: [...state.someProp, action.payload]
-    //   };
-    // case 'ACTION_3':
-    //   return {
-    //     ...state,
-    //     someProp: {...state.someProp, anoterProp: action.payload}
-    //   };
-    default:
-      return state;
-  }
-};
+export const combinedReducers = combineReducers({
+  searchResults
+})
 
-export default rootReducer;
+export default combinedReducers
