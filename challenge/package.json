@@ -9,10 +9,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.3.0",
+    "axios": "^0.18.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.0",
     "eslint": "^5.16.0",

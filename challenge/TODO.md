@@ -1,1 +1,2 @@
+- Adicionar componente ScrollToTop.
 - Adicionar instruções no README.

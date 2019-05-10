@@ -1,52 +1,65 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+/* REACT */
+import React, { Component } from 'react'
 
-import { searchFor } from '../actions/index';
+/* REDUX */
+import { connect } from 'react-redux'
 
+/* HELPERS */
+import axios from 'axios';
+
+/* ACTIONS */
+// import { search } from '../actions/index'
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     search: val => dispatch(search(val))
+//   }
+// }
+
+/* REDUCERS / STATE */
 // const mapStateToProps = state => {
 //   return {
 //     typedValue: state.typedValue
 //   };
 // };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    searchFor: val => dispatch(searchFor(val))
-  };
-};
-
 class Search extends Component {
   constructor() {
-    super();
-    this.handleInputValueChange = this.handleInputValueChange.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    super()
+    // this.handleInputChange = this.handleInputChange.bind(this)
+    // this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
       inputValue: ''
-    };
+    }
   }
 
-  handleInputValueChange(e) {
+  handleInputChange = e => {
     this.setState({
       inputValue: e.target.value
-    });
+    })
   }
 
-  handleFormSubmit(e) {
-    e.preventDefault();
-    this.props.searchFor(this.state.inputValue);
+  handleSubmit = e => {
+    e.preventDefault()
+
+    /* SEARCH */
+    // this.props.search(this.state.inputValue)
+    console.log(this.state.inputValue)
+
+    /* RESET FORM */
     this.setState({
       inputValue: ''
-    });
+    })
   }
 
   render() {
     return (
-      <form onSubmit={this.handleFormSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <input
           type="text"
-          placeholder="Search for..."
+          placeholder="Search for a Pokémon by name or type (e.g.: 'bulbasaur' or 'flying')..."
           value={this.state.inputValue}
-          onChange={this.handleInputValueChange}
+          onChange={this.handleInputChange}
         />
         <button type="submit">Search</button>
       </form>
@@ -54,7 +67,9 @@ class Search extends Component {
   }
 }
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Search);
+// export default connect(
+//   null,
+//   mapDispatchToProps
+// )(Search)
+
+export default Search
