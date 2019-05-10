@@ -1,0 +1,78 @@
+/* REM MIXIN */
+/* Baseline, measured in pixels.
+The value should be the same as the font-size value for the html element.
+If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px), then the variable below would be 10px. */
+$baseline-px: 10px;
+
+@mixin rem($property, $px-values) {
+  /* Convert the baseline into rems */
+  $baseline-rem: $baseline-px / 1rem * 1;
+  /* Print the first line in pixel values */
+  #{$property}: $px-values;
+  /* If there is only one (numeric) value, return the property/value line for it. */
+  @if type-of($px-values) == "number" {
+    #{$property}: $px-values / $baseline-rem;
+  }
+  @else {
+    /* Create an empty list that we can dump values into */
+    $rem-values: ();
+    @each $value in $px-values {
+      /* If the value is zero or not a number, return it */
+      @if $value == 0 or type-of( $value ) != "number" {
+        $rem-values: append($rem-values, $value);
+      }
+      @else {
+        $rem-values: append($rem-values, $value / $baseline-rem);
+      }
+    }
+    /* Return the property and its list of converted values */
+    #{$property}: $rem-values;
+  }
+}
+
+/* RESPONSIVE FONT-SIZE MIXIN */
+@mixin responsive-fs($fs) {
+  @include rem(font-size, $fs - 2px);
+  @media (min-width: 576px) {
+    @include rem(font-size, $fs - 1px);
+  }
+  @media (min-width: 768px) {
+    @include rem(font-size, $fs);
+  }
+}
+
+/* FONTS (PT SANS) */
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
+
+@mixin pt {
+  font-family: 'PT Sans', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+@mixin pt-bold {
+  font-family: 'PT Sans', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+/* HELPERS */
+.regular {
+  font-weight: 400 !important;
+}
+
+.bold {
+  font-weight: 700 !important;
+}
+
+.italic {
+  font-style: italic !important;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
