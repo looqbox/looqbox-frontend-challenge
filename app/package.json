@@ -1,0 +1,122 @@
+{
+  "name": "@rivajunior/looqbox-frontend-challenge",
+  "version": "0.1.0",
+  "author": {
+    "name": "Riva Junior",
+    "url": "https://linkedin.com/in/rivajunior/"
+  },
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "autoprefixer": "^9.5.1",
+    "babel-eslint": "^10.0.1",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.26.4",
+    "browserify": "^16.2.3",
+    "bs-html-injector": "^3.0.3",
+    "cross-env": "^5.2.0",
+    "cssnano": "^4.1.10",
+    "del": "^4.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "gulp": "^4.0.1",
+    "gulp-dart-sass": "^0.9.1",
+    "gulp-eslint": "^5.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-jsdoc3": "^2.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-purgecss": "^1.1.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-rev-delete-original": "^0.2.3",
+    "gulp-rev-rewrite": "^1.1.4",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser": "^1.1.7",
+    "gulp-webp": "^4.0.1",
+    "husky": "^2.1.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "lint-staged": "^8.1.5",
+    "postcss-reporter": "^6.0.1",
+    "postcss-scss": "^2.0.0",
+    "prettier": "^1.17.0",
+    "stylelint": "^9.10.1",
+    "stylelint-config-twbs-bootstrap": "^0.3.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "workbox-build": "^4.3.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/free-regular-svg-icons": "^5.8.1",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "angular": "^1.7.8",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "core-js": "3.0.1",
+    "jquery": "^3.4.0",
+    "popper.js": "^1.15.0"
+  },
+  "scripts": {
+    "start": "gulp dev",
+    "build": "cross-env NODE_ENV=production gulp",
+    "lint:scripts": "eslint src/scripts/**/*.js --fix",
+    "lint:styles": "stylelint src/styles/**/*.scss --fix",
+    "lint": "yarn lint:scripts && yarn lint:styles",
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check"
+  },
+  "browserslist": {
+    "development": "last 1 version",
+    "production": ">= 0.3% in BR, Firefox ESR"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "endOfLine": "lf"
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-twbs-bootstrap/scss"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-merge": "yarn install"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "src/scripts/**/*.js": [
+        "eslint --fix",
+        "git add"
+      ],
+      "*.scss": [
+        "stylelint --fix",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "**/dist/",
+      "**/docs/"
+    ]
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Pokedex",
+  "default_locale": "pt-BR",
+  "developer": "Riva Junior",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "start_url": "/?utm_source=homescreen",
+  "display": "standalone"
+}

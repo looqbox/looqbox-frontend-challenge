@@ -1,0 +1,6 @@
+**/src/styles/conversational-form/
+**/*.min.css
+**/dist/
+**/vendor/
+**/node_modules/
+**/docs/

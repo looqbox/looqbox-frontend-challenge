@@ -1,0 +1,28 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["standard", "plugin:prettier/recommended", "prettier/standard"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jquery": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": false
+    }
+  },
+  "globals": {
+    "FB": false,
+    "dataLayer": false,
+    "Sentry": false
+  },
+  "rules": {
+    "curly": ["error", "all"],
+    "space-before-function-paren": "off",
+    "new-cap": "off",
+    "no-confusing-arrow": "error",
+    "no-tabs": "error",
+    "no-unexpected-multiline": "error"
+  }
+}
