@@ -1,4 +1,3 @@
-- Criar botão para voltar a busca.
 - Alimentar campos de Pokémon.
 
 - Criar header e footer.
