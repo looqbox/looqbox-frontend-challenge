@@ -4,6 +4,9 @@ import React, { Component } from 'react'
 /* REDUX */
 import { connect } from 'react-redux'
 
+/* ROUTER */
+import history from '../router/history'
+
 /* HELPERS */
 import search from '../helpers/search'
 
@@ -33,6 +36,9 @@ class Search extends Component {
     const { inputValue } = this.state
     const { updateData, updateShowCount, updateIsSearching } = this.props
 
+    /* Return to main route (if not already) */
+    if (history.location.pathname !== '/') history.push('/')
+
     /* Set isSearching to true (to show 'loading') */
     updateIsSearching(true)
 
@@ -61,6 +67,7 @@ class Search extends Component {
           placeholder="Search for a Pokémon by name or type (e.g.: 'bulbasaur' or 'flying')..."
           value={this.state.inputValue}
           onChange={this.handleInputChange}
+          required
         />
         <button type="submit">Search</button>
       </form>
