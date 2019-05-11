@@ -4,6 +4,9 @@ import React, { Component } from 'react'
 /* REDUX */
 import { connect } from 'react-redux'
 
+/* HELPERS */
+import uuidv from 'uuid';
+
 /* REDUCERS / STATE */
 const mapStateToProps = state => {
   return {
@@ -13,25 +16,38 @@ const mapStateToProps = state => {
 
 class PokemonList extends Component {
   renderSearchResults = () => {
-    const { searchResults } = this.props
+    const { data } = this.props.searchResults
 
-    if (!searchResults) return null
+    /* Return null if data obj doesn't exist */
+    if (!data) return null
 
-    /* If searchResults has the prop 'error' (couldn't match Pokémon name or type), show error message */
-    if (searchResults.error)
-      return <p>{searchResults.error}</p>
+    /* If data has the prop 'error' (couldn't match Pokémon name or type), show error message */
+    if (data.error)
+      return <p>{data.error}</p>
 
-    /* If searchResults is an array (searched for Pokémon type), ... */
-    if (Array.isArray(searchResults))
-      return searchResults.map(item => <p>{item.pokemon.name}</p>)
+    /* If data is an array (searched for Pokémon type), ... */
+    if (Array.isArray(data))
+      return data.map(item => <p key={uuidv()}>{item.pokemon.name}</p>)
 
     /* If conditions above doesn't match (searched for Pokémon name), ... */
-    return <p>{searchResults.name}</p>
+    return <p>{data.name}</p>
+  }
+
+  renderResultHeadline = () => {
+    const { query, data } = this.props.searchResults
+
+    /* Return null if data obj doesn't exist or has the prop 'error' */
+    if (!data || data.error) return null
+
+    return <h2>Showing results for "{query}" ({data.length || 1})</h2>
   }
 
   render() {
     return (
-      this.renderSearchResults()
+      <>
+        {this.renderResultHeadline()}
+        {this.renderSearchResults()}
+      </>
     )
   }
 }

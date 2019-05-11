@@ -46,13 +46,13 @@ class Search extends Component {
 
     /* Search for a Pokémon by name */
     search('pokemon', inputValue)
-      .then(res => updateData(res.data))
+      .then(res => updateData(inputValue, res.data))
       /* If query doesn't match with a Pokémon name, try to match with a Pokémon type */
       .catch(() => {
         search('type', inputValue)
-          .then(res => updateData(res.data.pokemon))
+          .then(res => updateData(inputValue, res.data.pokemon))
           /* If query doesn't match name or type, update reducer with an object containing an error message */
-          .catch((err) => updateData({ error: `Couldn't find a Pokémon or type that matches "${inputValue}"` }))
+          .catch(() => updateData(inputValue, { error: `Couldn't find a Pokémon or type that matches "${inputValue}"` }))
       })
       /* Reset input after requests */
       .then(() => this.resetInput())
