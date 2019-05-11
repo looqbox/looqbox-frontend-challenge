@@ -1,5 +1,8 @@
-- Criar componente Pokemon com rota.
+- Criar botão para voltar a busca.
+- Alimentar campos de Pokémon.
+- Verificar pq não carrega a rota corretamente.
 
+- Criar header e footer.
 - Estilizar.
 - Testar.
 

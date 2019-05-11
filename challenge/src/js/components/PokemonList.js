@@ -5,7 +5,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 /* HELPERS */
-import uuidv from 'uuid';
+import uuidv from 'uuid'
+
+/* COMPONENTS */
+import ResultItem from './ResultItem'
+import Loading from './Loading'
 
 /* REDUCERS / STATE */
 const mapStateToProps = state => {
@@ -16,9 +20,6 @@ const mapStateToProps = state => {
 
 /* ACTIONS */
 import { updateShowCount } from '../reducers/searchResults/action-creators'
-
-/* COMPONENTS */
-import ResultItem from './ResultItem'
 
 /* POKÉMON LIST */
 class PokemonList extends Component {
@@ -68,15 +69,13 @@ class PokemonList extends Component {
       : <h2>Showing results for "{query}" (1 of 1)</h2>
   }
 
-  renderLoading = () => <p>Loading...</p>
-
   render() {
     return (
       <>
         {this.props.searchResults.isSearching ? null : this.renderResultsHeadline()}
 
         <div className="results">
-          {this.props.searchResults.isSearching ? this.renderLoading() : this.renderResults()}
+          {this.props.searchResults.isSearching ? <Loading /> : this.renderResults()}
         </div>
       </>
     )

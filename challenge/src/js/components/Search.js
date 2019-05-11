@@ -5,22 +5,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 /* HELPERS */
-import axios from 'axios';
+import search from '../helpers/search'
 
 /* ACTIONS */
 import { updateData, updateShowCount, updateIsSearching } from '../reducers/searchResults/action-creators'
-
-/* REDUCERS / STATE */
-// const mapStateToProps = state => {
-//   return {
-//     typedValue: state.typedValue
-//   };
-// };
-
-const API_URL = 'https://pokeapi.co/api/v2'
-
-const slugify = (string) => string
-const search = (what, query) => axios.get(`${API_URL}/${what}/${slugify(query)}`)
 
 /* SEARCH */
 class Search extends Component {
