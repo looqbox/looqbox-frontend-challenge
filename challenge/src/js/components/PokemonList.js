@@ -4,6 +4,9 @@ import React, { Component } from 'react'
 /* REDUX */
 import { connect } from 'react-redux'
 
+/* ROUTER */
+import { Link } from 'react-router-dom';
+
 /* HELPERS */
 import uuidv from 'uuid';
 
@@ -27,23 +30,37 @@ class PokemonList extends Component {
 
     /* If data has the prop 'error' (means that couldn't match Pokémon name or type), show error message */
     if (data.error)
-      return <p>{data.error}</p>
+      return <p className="error">{data.error}</p>
 
-    /* If data is an array (means that searched for a Pokémon type), ... */
+    /* If data is an array (means that searched for a Pokémon type), render Pokémon list and 'show more' button (if needed) */
     if (Array.isArray(data)) {
       const list =
         data
           .slice(0, showCount)
-          .map(item => <p key={uuidv()}>{item.pokemon.name}</p>)
+          .map(item => {
+            const { name } = item.pokemon
+
+            return (
+              <div key={uuidv()} className="results__item">
+                <h3 className="results__name">{name}</h3>
+                <Link to={`pokemon/${name}`} className="button button--sm">More details</Link>
+              </div>
+            )
+          })
 
       /* Check if all pokémons are already rendered on screen, and if not, enable 'show more' button */
       return showCount < data.length
-        ? list.concat(<button key={uuidv()} onClick={() => this.props.updateShowCount(showCount + 20)}>Show more...</button>)
+        ? list.concat(<button className="button button--lg" key={uuidv()} onClick={() => this.props.updateShowCount(showCount + 20)}>Show more...</button>)
         : list
     }
 
-    /* If conditions above doesn't match (means that searched for a Pokémon name), ... */
-    return <p>{data.name}</p>
+    /* If conditions above doesn't match (means that searched for a Pokémon name), render searched Pokémon */
+    return (
+      <div key={uuidv()} className="results__item">
+        <h3 className="results__name">{data.name}</h3>
+        <Link to={`pokemon/${data.name}`} className="button button--sm">More details</Link>
+      </div>
+    )
   }
 
   renderResultsHeadline = () => {
@@ -63,11 +80,16 @@ class PokemonList extends Component {
       : <h2>Showing results for "{query}" (1 of 1)</h2>
   }
 
+  renderLoading = () => <p>Loading...</p>
+
   render() {
     return (
       <>
-        {this.renderResultsHeadline()}
-        {this.renderResults()}
+        {this.props.searchResults.isSearching ? null : this.renderResultsHeadline()}
+
+        <div className="results">
+          {this.props.searchResults.isSearching ? this.renderLoading() : this.renderResults()}
+        </div>
       </>
     )
   }

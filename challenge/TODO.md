@@ -1,4 +1,6 @@
-- Esconder 'show more' quando atingir o máximo de itens.
+- Criar items da lista de resultado (botões, etc).
+- Criar loading
+- Criar componente Pokemon com rota.
 
 - Estilizar.
 - Testar.

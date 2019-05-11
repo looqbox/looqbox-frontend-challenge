@@ -1,5 +1,5 @@
 /* ACTION TYPES */
-import { UPDATE_DATA, UPDATE_SHOW_COUNT } from './action-types'
+import { UPDATE_DATA, UPDATE_SHOW_COUNT, UPDATE_IS_SEARCHING } from './action-types'
 
 export const updateData = (query, data) => {
   return {
@@ -15,3 +15,8 @@ export const updateShowCount = (showCount) => {
     showCount
   }
 }
+
+export const updateIsSearching = isSearching => ({
+  type: UPDATE_IS_SEARCHING,
+  isSearching
+})

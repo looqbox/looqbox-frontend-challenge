@@ -8,8 +8,7 @@ import { connect } from 'react-redux'
 import axios from 'axios';
 
 /* ACTIONS */
-import { updateData } from '../reducers/searchResults/action-creators'
-import { updateShowCount } from '../reducers/searchResults/action-creators'
+import { updateData, updateShowCount, updateIsSearching } from '../reducers/searchResults/action-creators'
 
 /* REDUCERS / STATE */
 // const mapStateToProps = state => {
@@ -44,7 +43,10 @@ class Search extends Component {
     e.preventDefault()
 
     const { inputValue } = this.state
-    const { updateData, updateShowCount } = this.props
+    const { updateData, updateShowCount, updateIsSearching } = this.props
+
+    /* Set isSearching to true (to show 'loading') */
+    updateIsSearching(true)
 
     /* Reset showCount to 20 */
     updateShowCount(20)
@@ -80,5 +82,5 @@ class Search extends Component {
 
 export default connect(
   null,
-  { updateData, updateShowCount }
+  { updateData, updateShowCount, updateIsSearching }
 )(Search)
