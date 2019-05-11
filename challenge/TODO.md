@@ -1,5 +1,3 @@
-- Criar items da lista de resultado (botões, etc).
-- Criar loading
 - Criar componente Pokemon com rota.
 
 - Estilizar.

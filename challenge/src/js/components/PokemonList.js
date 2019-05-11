@@ -4,9 +4,6 @@ import React, { Component } from 'react'
 /* REDUX */
 import { connect } from 'react-redux'
 
-/* ROUTER */
-import { Link } from 'react-router-dom';
-
 /* HELPERS */
 import uuidv from 'uuid';
 
@@ -20,6 +17,9 @@ const mapStateToProps = state => {
 /* ACTIONS */
 import { updateShowCount } from '../reducers/searchResults/action-creators'
 
+/* COMPONENTS */
+import ResultItem from './ResultItem'
+
 /* POKÉMON LIST */
 class PokemonList extends Component {
   renderResults = () => {
@@ -29,8 +29,7 @@ class PokemonList extends Component {
     if (!data) return null
 
     /* If data has the prop 'error' (means that couldn't match Pokémon name or type), show error message */
-    if (data.error)
-      return <p className="error">{data.error}</p>
+    if (data.error) return <p className="error">{data.error}</p>
 
     /* If data is an array (means that searched for a Pokémon type), render Pokémon list and 'show more' button (if needed) */
     if (Array.isArray(data)) {
@@ -39,13 +38,7 @@ class PokemonList extends Component {
           .slice(0, showCount)
           .map(item => {
             const { name } = item.pokemon
-
-            return (
-              <div key={uuidv()} className="results__item">
-                <h3 className="results__name">{name}</h3>
-                <Link to={`pokemon/${name}`} className="button button--sm">More details</Link>
-              </div>
-            )
+            return <ResultItem data={item.pokemon} key={uuidv()} />
           })
 
       /* Check if all pokémons are already rendered on screen, and if not, enable 'show more' button */
@@ -55,12 +48,7 @@ class PokemonList extends Component {
     }
 
     /* If conditions above doesn't match (means that searched for a Pokémon name), render searched Pokémon */
-    return (
-      <div key={uuidv()} className="results__item">
-        <h3 className="results__name">{data.name}</h3>
-        <Link to={`pokemon/${data.name}`} className="button button--sm">More details</Link>
-      </div>
-    )
+    return <ResultItem data={data} />
   }
 
   renderResultsHeadline = () => {
