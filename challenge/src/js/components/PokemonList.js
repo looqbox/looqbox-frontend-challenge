@@ -25,18 +25,24 @@ class PokemonList extends Component {
     /* Return null if data obj doesn't exist */
     if (!data) return null
 
-    /* If data has the prop 'error' (couldn't match Pokémon name or type), show error message */
+    /* If data has the prop 'error' (means that couldn't match Pokémon name or type), show error message */
     if (data.error)
       return <p>{data.error}</p>
 
-    /* If data is an array (searched for Pokémon type), ... */
-    if (Array.isArray(data))
-      return data
-        .slice(0, showCount)
-        .map(item => <p key={uuidv()}>{item.pokemon.name}</p>)
-        .concat(<button key={uuidv()} onClick={() => this.props.updateShowCount(showCount + 20)}>Show more...</button>)
+    /* If data is an array (means that searched for a Pokémon type), ... */
+    if (Array.isArray(data)) {
+      const list =
+        data
+          .slice(0, showCount)
+          .map(item => <p key={uuidv()}>{item.pokemon.name}</p>)
 
-    /* If conditions above doesn't match (searched for Pokémon name), ... */
+      /* Check if all pokémons are already rendered on screen, and if not, enable 'show more' button */
+      return showCount < data.length
+        ? list.concat(<button key={uuidv()} onClick={() => this.props.updateShowCount(showCount + 20)}>Show more...</button>)
+        : list
+    }
+
+    /* If conditions above doesn't match (means that searched for a Pokémon name), ... */
     return <p>{data.name}</p>
   }
 
