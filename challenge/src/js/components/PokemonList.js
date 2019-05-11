@@ -14,9 +14,13 @@ const mapStateToProps = state => {
   }
 }
 
+/* ACTIONS */
+import { updateShowCount } from '../reducers/searchResults/action-creators'
+
+/* POKÉMON LIST */
 class PokemonList extends Component {
-  renderSearchResults = () => {
-    const { data } = this.props.searchResults
+  renderResults = () => {
+    const { data, showCount } = this.props.searchResults
 
     /* Return null if data obj doesn't exist */
     if (!data) return null
@@ -27,31 +31,43 @@ class PokemonList extends Component {
 
     /* If data is an array (searched for Pokémon type), ... */
     if (Array.isArray(data))
-      return data.map(item => <p key={uuidv()}>{item.pokemon.name}</p>)
+      return data
+        .slice(0, showCount)
+        .map(item => <p key={uuidv()}>{item.pokemon.name}</p>)
+        .concat(<button key={uuidv()} onClick={() => this.props.updateShowCount(showCount + 20)}>Show more...</button>)
 
     /* If conditions above doesn't match (searched for Pokémon name), ... */
     return <p>{data.name}</p>
   }
 
-  renderResultHeadline = () => {
+  renderResultsHeadline = () => {
     const { query, data } = this.props.searchResults
 
     /* Return null if data obj doesn't exist or has the prop 'error' */
     if (!data || data.error) return null
 
-    return <h2>Showing results for "{query}" ({data.length || 1})</h2>
+    /* Check if this.props.searchResults.showCount is equal or higher than data length, and if true, set showCount (* not the reducer prop) to equal data length */
+    const showCount =
+      this.props.searchResults.showCount >= data.length
+        ? data.length
+        : this.props.searchResults.showCount
+
+    return data.length
+      ? <h2>Showing results for "{query}" ({showCount} of {data.length})</h2>
+      : <h2>Showing results for "{query}" (1 of 1)</h2>
   }
 
   render() {
     return (
       <>
-        {this.renderResultHeadline()}
-        {this.renderSearchResults()}
+        {this.renderResultsHeadline()}
+        {this.renderResults()}
       </>
     )
   }
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  { updateShowCount }
 )(PokemonList)

@@ -9,6 +9,7 @@ import axios from 'axios';
 
 /* ACTIONS */
 import { updateData } from '../reducers/searchResults/action-creators'
+import { updateShowCount } from '../reducers/searchResults/action-creators'
 
 /* REDUCERS / STATE */
 // const mapStateToProps = state => {
@@ -22,6 +23,7 @@ const API_URL = 'https://pokeapi.co/api/v2'
 const slugify = (string) => string
 const search = (what, query) => axios.get(`${API_URL}/${what}/${slugify(query)}`)
 
+/* SEARCH */
 class Search extends Component {
   constructor() {
     super()
@@ -42,7 +44,10 @@ class Search extends Component {
     e.preventDefault()
 
     const { inputValue } = this.state
-    const { updateData } = this.props
+    const { updateData, updateShowCount } = this.props
+
+    /* Reset showCount to 20 */
+    updateShowCount(20)
 
     /* Search for a Pokémon by name */
     search('pokemon', inputValue)
@@ -75,5 +80,5 @@ class Search extends Component {
 
 export default connect(
   null,
-  { updateData }
+  { updateData, updateShowCount }
 )(Search)
