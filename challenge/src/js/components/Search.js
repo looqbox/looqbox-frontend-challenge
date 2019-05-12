@@ -39,7 +39,7 @@ class Search extends Component {
     /* Return to main route (if not already) */
     if (history.location.pathname !== '/') history.push('/')
 
-    /* Set isSearching to true (to show 'loading') */
+    /* Set isSearching to true (to show loading bar) */
     updateIsSearching(true)
 
     /* Reset showCount to 20 */

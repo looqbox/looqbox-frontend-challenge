@@ -61,6 +61,7 @@ class PokemonList extends Component {
         ? data.length
         : this.props.searchResults.showCount
 
+    /* Check data length to see if is a single result or not */
     return data.length
       ? <h2>Showing results for "{query}" ({showCount} of {data.length})</h2>
       : <h2>Showing results for "{query}" (1 of 1)</h2>
