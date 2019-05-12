@@ -37,10 +37,7 @@ class PokemonList extends Component {
       const list =
         data
           .slice(0, showCount)
-          .map(item => {
-            const { name } = item.pokemon
-            return <ResultItem data={item.pokemon} key={uuidv()} />
-          })
+          .map(item => <ResultItem data={item.pokemon} key={uuidv()} />)
 
       /* Check if all pokémons are already rendered on screen, and if not, enable 'show more' button */
       return showCount < data.length

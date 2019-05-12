@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import history from '../router/history'
 
 /* HELPERS */
-import { search, getEvolutions } from '../helpers'
+import { search, getEvolutions, unslugify } from '../helpers'
 import uuidv from 'uuid'
 import axios from 'axios'
 
@@ -36,8 +36,8 @@ class Pokemon extends Component {
       .then(res => this.setState({ pokemon: res.data }))
       .catch(() => history.push('/'))
       .then(() => {
-        if (!this.state.pokemon) return
-        search('pokemon-species', this.state.pokemon.id)
+        if (!this.state.pokemon || this.state.pokemon.id > 807) return
+        search('pokemon-species', `${this.state.pokemon.id}`)
           .then(res => axios.get(res.data.evolution_chain.url))
           .then(res => this.setState({ evolutions: getEvolutions(res.data.chain) }))
       })
@@ -49,7 +49,7 @@ class Pokemon extends Component {
     return (
       <div className="pokemon__group">
         <h2>Evolution chain:</h2>
-        {evolutions.map((specie, i) => <Link to={`./${specie}`} className="button button--sm" key={uuidv()}>{i + 1}. {specie} (+)</Link>)}
+        {evolutions.map((specie, i) => <Link to={`./${specie}`} className="button button--sm" key={uuidv()}>{i + 1}. {unslugify(specie)} (+)</Link>)}
       </div>
     )
   }
@@ -62,23 +62,23 @@ class Pokemon extends Component {
         ? (
           <div className="pokemon">
             <button type="button" className="button button--sm" onClick={history.goBack}>Go back</button>
-            <h1 className="pokemon__name">{pokemon.name}</h1>
+            <h1 className="pokemon__name">#{pokemon.id} {unslugify(pokemon.name)}</h1>
 
-            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+            {pokemon.sprites.front_default ? (<img src={pokemon.sprites.front_default} alt={unslugify(pokemon.name)} />) : null}
 
             <div className="pokemon__group">
               <h2>Type(s):</h2>
-              {pokemon.types.map(item => <p key={uuidv()}>{item.type.name}</p>)}
+              {pokemon.types.map(item => <p key={uuidv()}>{unslugify(item.type.name)}</p>)}
             </div>
 
             <div className="pokemon__group">
               <h2>Abilities:</h2>
-              {pokemon.abilities.map(item => <p key={uuidv()}>{item.ability.name}</p>)}
+              {pokemon.abilities.map(item => <p key={uuidv()}>{unslugify(item.ability.name)}</p>)}
             </div>
 
             <div className="pokemon__group">
               <h2>Stats:</h2>
-              {pokemon.stats.map(item => <p key={uuidv()}>{item.stat.name}: {item.base_stat}</p>)}
+              {pokemon.stats.map(item => <p key={uuidv()}>{unslugify(item.stat.name)}: {item.base_stat}</p>)}
             </div>
 
             {evolutions ? this.renderEvolutionChain() : null}

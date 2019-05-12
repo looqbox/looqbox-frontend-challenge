@@ -1,4 +1,3 @@
-- Criar método lugify e unslugify.
 - Configurar pokémons iniciais.
 - Testar.
 - Documentar
