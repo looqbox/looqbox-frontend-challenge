@@ -15,6 +15,8 @@ export const getEvolutions = (evolutionChainObj, evolutions = [], stop) => {
       ? true
       : false
 
+  if (stopRecursion && evolutions.length === 0) return null
+
   return getEvolutions(
     evolutionChainObj.evolves_to[0],
     evolutions.concat(evolutionChainObj.species.name),

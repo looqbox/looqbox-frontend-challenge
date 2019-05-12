@@ -34,7 +34,9 @@ class Pokemon extends Component {
   getPokemonData = () => {
     search('pokemon', this.props.match.params.name)
       .then(res => this.setState({ pokemon: res.data }))
+      .catch(() => history.push('/'))
       .then(() => {
+        if (!this.state.pokemon) return
         search('pokemon-species', this.state.pokemon.id)
           .then(res => axios.get(res.data.evolution_chain.url))
           .then(res => this.setState({ evolutions: getEvolutions(res.data.chain) }))
