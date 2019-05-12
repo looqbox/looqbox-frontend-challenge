@@ -2,8 +2,9 @@
 import axios from 'axios'
 
 /* SLUGIFY (Return a slug based on a string) */
-export const slugify = (string) =>
+export const slugify = (string = '') =>
   string
+    .toString()
     .toLowerCase()
     .trim()
     .replace(/\s+/g, '-')
