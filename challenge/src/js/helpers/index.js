@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 /* SLUGIFY (Return a slug based on a string) */
-export const slugify = (string = '') =>
+export const slugify = (string) =>
   string
     .toString()
     .toLowerCase()
@@ -12,8 +12,9 @@ export const slugify = (string = '') =>
 /* UNSLUGIFY (Return a formatted string based on a slug) */
 export const unslugify = (slug) =>
   slug
+    .toString()
     .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.substr(1))
+    .map(word => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase())
     .join(' ')
 
 /* SEARCH / GET RANDOM (Wrapper to make requests to PokéApi) */
