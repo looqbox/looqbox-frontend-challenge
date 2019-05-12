@@ -91,3 +91,17 @@ describe('Test "getRandom"', () => {
     expect(stubed).to.have.been.calledWith('https://pokeapi.co/api/v2/pokemon/?offset=0')
   })
 })
+
+/* GET RANDOM NUMBER */
+describe('Test "getRandomNumber"', () => {
+  it('Should return a number', () => {
+    expect(getRandomNumber(0, 100)).to.be.a('number')
+    expect(getRandomNumber('0', '100')).to.be.a('number')
+  })
+
+  it('Should return a number between (inclusive) the range received as parameters ("min" and "max")', () => {
+    expect(getRandomNumber(0, 100)).to.be.above(-1).and.to.be.below(101)
+    expect(getRandomNumber(100, 100)).to.be.above(99).and.to.be.below(101)
+    expect(getRandomNumber(50, 75)).to.be.above(49).and.to.be.below(76)
+  })
+})
