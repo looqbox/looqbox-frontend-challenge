@@ -29,7 +29,10 @@ class Pokemon extends Component {
 
   componentDidUpdate = prevProps => {
     /* Update Pokémon data on route change */
-    if (prevProps.location.pathname !== this.props.location.pathname) this.getPokemonData()
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.setState({ pokemon: null })
+      this.getPokemonData()
+    }
   }
 
   getPokemonData = () => {
