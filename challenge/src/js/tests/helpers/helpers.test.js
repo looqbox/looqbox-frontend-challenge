@@ -1,6 +1,14 @@
 /* CHAI */
-import { expect } from 'chai'
+import chai, { expect } from 'chai'
+import sinon from 'sinon'
+import sinonChai from 'sinon-chai'
 
+chai.use(sinonChai)
+
+/* LIBS */
+import axios from 'axios'
+
+/* TESTED METHODS */
 import { slugify, unslugify, search, getRandom, getRandomNumber, getEvolutions } from '../../helpers'
 
 /* SLUGIFY */
@@ -41,5 +49,33 @@ describe('Test "unslugify"', () => {
     expect(unslugify('some-string')).to.be.equal('Some String')
     expect(unslugify('SOME-STRING')).to.be.equal('Some String')
     expect(unslugify('string')).to.be.equal('String')
+  })
+})
+
+/* SEARCH */
+describe('Test "search"', () => {
+  let stubed
+
+  beforeEach(() => {
+    stubed = sinon.stub(axios, 'get')
+  })
+
+  afterEach(() => {
+    stubed.restore()
+  })
+
+  it('Should call "get" method from "axios"', () => {
+    search('pokemon', 'bulbasaur')
+    expect(stubed).to.have.been.calledOnce
+  })
+
+  it('Should call "get" method from "axios" with the url based on received params', () => {
+    search('pokemon', 'bulbasaur')
+    expect(stubed).to.have.been.calledWith('https://pokeapi.co/api/v2/pokemon/bulbasaur')
+  })
+
+  it('Should call "get" method from "axios" with the url based on received params', () => {
+    search('type', 'flying')
+    expect(stubed).to.have.been.calledWith('https://pokeapi.co/api/v2/type/flying')
   })
 })
