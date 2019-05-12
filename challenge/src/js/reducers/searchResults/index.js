@@ -6,7 +6,7 @@ const initialState = {
   data: null,
   showCount: 20,
   isSearching: false
-} // carregar inicialmente alguns itens
+}
 
 const searchResults = (state = initialState, action) => {
   const { query, data, showCount, isSearching } = action

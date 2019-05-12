@@ -37,7 +37,7 @@ class PokemonList extends Component {
       const list =
         data
           .slice(0, showCount)
-          .map(item => <ResultItem data={item.pokemon} key={uuidv()} />)
+          .map(item => <ResultItem data={item.pokemon || item} key={uuidv()} />)
 
       /* Check if all pokémons are already rendered on screen, and if not, enable 'show more' button */
       return showCount < data.length
@@ -61,6 +61,9 @@ class PokemonList extends Component {
         ? data.length
         : this.props.searchResults.showCount
 
+    /* Check if 'query' is empty (showing random Pokémon) */
+    if (!query) return <h2>Showing random Pokémon</h2>
+
     /* Check data length to see if is a single result or not */
     return data.length
       ? <h2>Showing results for "{query}" ({showCount} of {data.length})</h2>
@@ -68,12 +71,14 @@ class PokemonList extends Component {
   }
 
   render() {
+    const { isSearching } = this.props.searchResults
+
     return (
       <>
-        {this.props.searchResults.isSearching ? null : this.renderResultsHeadline()}
+        {isSearching ? null : this.renderResultsHeadline()}
 
         <div className="results">
-          {this.props.searchResults.isSearching ? <Loading /> : this.renderResults()}
+          {isSearching ? <Loading /> : this.renderResults()}
         </div>
       </>
     )

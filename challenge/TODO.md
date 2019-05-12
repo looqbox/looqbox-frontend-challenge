@@ -1,6 +1,4 @@
-- Configurar pokémons iniciais.
 - Testar.
-- Documentar
 
 - Criar header e footer.
 - Estilizar.

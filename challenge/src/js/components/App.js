@@ -8,6 +8,7 @@ import ScrollToTop from './ScrollToTop'
 
 /* COMPONENTS */
 import Search from './Search'
+import GetRandomPokemon from './GetRandomPokemon'
 import PokemonList from './PokemonList'
 import Pokemon from './Pokemon'
 
@@ -19,6 +20,7 @@ class App extends Component {
           {/* HEADER */}
 
           <Search />
+          <GetRandomPokemon />
 
           <Switch>
             <Route exact path="/" component={PokemonList} />

@@ -15,9 +15,16 @@ export const unslugify = (slug) =>
     .map(word => word.charAt(0).toUpperCase() + word.substr(1))
     .join(' ')
 
-/* SEARCH (Wrapper to make requests to PokéApi) */
+/* SEARCH / GET RANDOM (Wrapper to make requests to PokéApi) */
 const API_URL = 'https://pokeapi.co/api/v2'
 export const search = (what, query) => axios.get(`${API_URL}/${what}/${slugify(query)}`)
+export const getRandom = (offset) => axios.get(`${API_URL}/pokemon/?offset=${offset}`)
+/* Generate random integer number between range (inclusive) */
+export const getRandomNumber = (min, max) => {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
 /* GET EVOLUTIONS (Recursive method that returns an array with the Pokémon evolution chain) */
 export const getEvolutions = (evolutionChainObj, evolutions = [], stop) => {
