@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import history from '../router/history'
 
 /* HELPERS */
-import search from '../helpers/search'
+import { search } from '../helpers'
 
 /* ACTIONS */
 import { updateData, updateShowCount, updateIsSearching } from '../reducers/searchResults/action-creators'
