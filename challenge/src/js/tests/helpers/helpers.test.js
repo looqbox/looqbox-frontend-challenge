@@ -55,27 +55,39 @@ describe('Test "unslugify"', () => {
 /* SEARCH */
 describe('Test "search"', () => {
   let stubed
-
-  beforeEach(() => {
-    stubed = sinon.stub(axios, 'get')
-  })
-
-  afterEach(() => {
-    stubed.restore()
-  })
+  beforeEach(() => { stubed = sinon.stub(axios, 'get') })
+  afterEach(() => { stubed.restore() })
 
   it('Should call "get" method from "axios"', () => {
     search('pokemon', 'bulbasaur')
     expect(stubed).to.have.been.calledOnce
   })
 
-  it('Should call "get" method from "axios" with the url based on received params', () => {
+  it('Should call "get" method from "axios" with the url based on received params ("what" and "query")', () => {
     search('pokemon', 'bulbasaur')
     expect(stubed).to.have.been.calledWith('https://pokeapi.co/api/v2/pokemon/bulbasaur')
-  })
 
-  it('Should call "get" method from "axios" with the url based on received params', () => {
     search('type', 'flying')
     expect(stubed).to.have.been.calledWith('https://pokeapi.co/api/v2/type/flying')
+  })
+})
+
+/* GET RANDOM */
+describe('Test "getRandom"', () => {
+  let stubed
+  beforeEach(() => { stubed = sinon.stub(axios, 'get') })
+  afterEach(() => { stubed.restore() })
+
+  it('Should call "get" method from "axios"', () => {
+    getRandom(20)
+    expect(stubed).to.have.been.calledOnce
+  })
+
+  it('Should call "get" method from "axios" with the url based on received param ("offset" number)', () => {
+    getRandom(50)
+    expect(stubed).to.have.been.calledWith('https://pokeapi.co/api/v2/pokemon/?offset=50')
+
+    getRandom(0)
+    expect(stubed).to.have.been.calledWith('https://pokeapi.co/api/v2/pokemon/?offset=0')
   })
 })
