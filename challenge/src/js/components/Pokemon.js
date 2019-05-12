@@ -64,6 +64,8 @@ class Pokemon extends Component {
             <button type="button" className="button button--sm" onClick={history.goBack}>Go back</button>
             <h1 className="pokemon__name">{pokemon.name}</h1>
 
+            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+
             <div className="pokemon__group">
               <h2>Type(s):</h2>
               {pokemon.types.map(item => <p key={uuidv()}>{item.type.name}</p>)}
