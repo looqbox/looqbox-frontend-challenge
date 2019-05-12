@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 /* ROUTER */
 import { Router, Route, Switch } from 'react-router-dom'
 import history from '../router/history'
+import ScrollToTop from './ScrollToTop'
 
 /* COMPONENTS */
 import Search from './Search'
@@ -14,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <Router history={history}>
-        <>
+        <ScrollToTop>
           {/* HEADER */}
 
           <Search />
@@ -25,7 +26,7 @@ class App extends Component {
           </Switch>
 
           {/* FOOTER */}
-        </>
+        </ScrollToTop>
       </Router>
     )
   }

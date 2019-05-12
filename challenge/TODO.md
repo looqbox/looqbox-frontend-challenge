@@ -1,11 +1,10 @@
-- mostrar imagem.
-- Criar método slugify e unslugify
-
-- Criar header e footer.
-- Estilizar.
+- Criar método lugify e unslugify.
+- Configurar pokémons iniciais.
 - Testar.
 - Documentar
 
-- Adicionar componente ScrollToTop.
+- Criar header e footer.
+- Estilizar.
+
 - Verificar o que pode ser transformado em stateless component.
 - Adicionar instruções no README.
