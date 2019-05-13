@@ -1,0 +1,46 @@
+
+  <div>
+    <a [routerLink]="['/pokemons']"
+      ><button type="button" class="btn btn-secondary mb-4">
+        &laquo; Back to pokelist
+      </button></a
+    >
+  </div>
+  <div class="alert alert-dismissible alert-warning" *ngIf="pkmn.length == 0">
+    <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+    <h4 class="alert-heading">Sorry!</h4>
+    <p class="mb-0">There is no pokemon with this name. =\</p>
+  </div>
+  <div
+    class="card mb-3"
+    style="max-width: 800px; margin: 0 auto;"
+    *ngFor="let pokemon of pkmn"
+  >
+    <div class="row no-gutters" *ngFor="let pokemon of pkmn">
+      <div class="col-md-4 bg-light border">
+        <img
+          src="../../../assets/images/pokemon/{{ pokemon.image }}"
+          alt=""
+          class="img-card"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">
+            <strong> #{{ pokemon.id }} {{ pokemon.name }}</strong>
+          </h4>
+          <br />
+          <h5>
+            <strong>
+              Height: {{ pokemon.height }} | Weight:
+              {{ pokemon.weight }}</strong
+            >
+          </h5>
+          <p class="card-left">{{ pokemon.description }}</p>
+          <br /><br />
+          <p class="card-text"><strong>Types:</strong> {{ pokemon.types }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+

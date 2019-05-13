@@ -1,0 +1,39 @@
+<div class="container">
+  <div>
+    <a [routerLink]="['/pokemons']"
+      ><button type="button" class="btn btn-secondary mb-4">
+        &laquo; Back to pokelist
+      </button></a
+    >
+  </div>
+  <div class="card mb-3" style="max-width: 800px; margin: 0 auto;">
+    <div class="row no-gutters">
+      <div class="col-md-4 bg-light border">
+        <img
+          src="../../../assets/images/pokemon/{{ pokemon[0].image }}"
+          alt=""
+          class="img-card"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">
+            <strong> #{{ pokemon[0].id }} {{ pokemon[0].name }}</strong>
+          </h4>
+          <br />
+          <h5>
+            <strong>
+              Height: {{ pokemon[0].height }} | Weight:
+              {{ pokemon[0].weight }}</strong
+            >
+          </h5>
+          <p class="card-left">{{ pokemon[0].description }}</p>
+          <br /><br />
+          <p class="card-text">
+            <strong>Types:</strong> {{ pokemon[0].types }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

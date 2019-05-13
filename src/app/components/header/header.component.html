@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark nav-bg mb-3 ml-0">
+ <div class="container">
+    <img src="../../../assets/images/logo.png" class="nav-logo" alt="" />
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Alterna navegação"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav  mx-3">
+          <li class="nav-item">
+          <a [routerLink]="['home']" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['pokemons']" class="nav-link">Pokédex</a>
+        </li>
+      </ul>
+
+
+      <form class="form-inline my-2">
+        <input type="text" class="form-control mr-sm-2" placeholder="Search for pokémon..." 
+        (keydown.enter) = getPkmn(choosePokemon.value) #choosePokemon>
+        <button type="button" (click) = getPkmn(choosePokemon.value) class="btn btn-secondary my-2 my-sm-0">
+          I choose you!
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>

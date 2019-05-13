@@ -1,0 +1,24 @@
+<div class="page-header">
+  <h3>Here you will find information about all known Pokémon.</h3>
+  <hr class="my-4" />
+</div>
+<div class="row">
+  <div class="col-md-3 mb-3" *ngFor="let pokemon of pokemons">
+    <div class="card text-center">
+      <div class="card-header">
+        <strong> #{{ pokemon.id }} {{ pokemon.name }}</strong>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title"></h4>
+        <img src="../../../assets/images/pokemon/{{ pokemon.image }}" alt="" />
+      </div>
+      <div class="card-footer text-muted">
+        <h4>
+          <a [routerLink]="['/pokemon', pokemon.id]" class="badge badge-light"
+            >More details</a
+          >
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>
