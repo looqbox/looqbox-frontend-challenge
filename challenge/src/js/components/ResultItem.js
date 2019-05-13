@@ -7,12 +7,20 @@ import { Link } from 'react-router-dom'
 /* HELPERS */
 import { unslugify } from '../helpers'
 
+const path =
+  process.env.NODE_ENV !== 'production'
+    ? 'src'
+    : 'dist'
+
 /* RESULT ITEM */
 const ResultItem = ({ data }) =>
   (
-    <div className="results__item">
-      <h3 className="results__name">{unslugify(data.name)}</h3>
-      <Link to={`pokemon/${data.name}`} className="button button--sm">More details</Link>
+    <div className="col-lg-3 col-md-6">
+      <div className="result">
+        <img src={path + '/img/pokeball.svg'} className="result__pokeball" alt="Pokéball" />
+        <h3 className="result__name sub-headline">{unslugify(data.name)}</h3>
+        <Link to={`pokemon/${data.name}`} className="result__button button button--sm">View details</Link>
+      </div>
     </div>
   )
 

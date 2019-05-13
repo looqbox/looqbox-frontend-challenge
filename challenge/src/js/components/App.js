@@ -19,13 +19,15 @@ class App extends Component {
         <ScrollToTop>
           {/* HEADER */}
 
-          <Search />
-          <GetRandomPokemon />
+          <div className="container">
+            <Search />
+            <GetRandomPokemon />
 
-          <Switch>
-            <Route exact path="/" component={PokemonList} />
-            <Route exact path="/pokemon/:name" component={Pokemon} />
-          </Switch>
+            <Switch>
+              <Route exact path="/" component={PokemonList} />
+              <Route exact path="/pokemon/:name" component={Pokemon} />
+            </Switch>
+          </div>
 
           {/* FOOTER */}
         </ScrollToTop>

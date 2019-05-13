@@ -61,18 +61,21 @@ class Search extends Component {
 
   render() {
     return (
-      <>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Search for a Pokémon by name or type (e.g.: 'bulbasaur' or 'flying')..."
-            value={this.state.inputValue}
-            onChange={this.handleInputChange}
-            required
-          />
-          <button type="submit">Search</button>
-        </form>
-      </>
+      <div className="row">
+        <div className="col-12">
+          <form onSubmit={this.handleSubmit} className="form">
+            <input
+              type="text"
+              placeholder="Search for a Pokémon by name or type (e.g.: 'bulbasaur' or 'flying')..."
+              value={this.state.inputValue}
+              onChange={this.handleInputChange}
+              required
+              className="form__input"
+            />
+            <button type="submit" className="form__submit button button--lg">Search</button>
+          </form>
+        </div>
+      </div>
     )
   }
 }

@@ -33,7 +33,12 @@ class GetRandomPokemon extends Component {
 
   render() {
     return (
-      <button type="button" onClick={this.getRandomPokemon}>Get random Pokémon</button>
+      <div className="row">
+        <div className="col-12 d-flex justify-content-center align-items-center flex-column">
+          <p className="text">OR...</p>
+          <button type="button" className="button button--lg button--random" onClick={this.getRandomPokemon}>Get random Pokémon</button>
+        </div>
+      </div>
     )
   }
 }

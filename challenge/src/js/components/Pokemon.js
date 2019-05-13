@@ -57,8 +57,8 @@ class Pokemon extends Component {
 
     return (
       <div className="pokemon__group">
-        <h2>Evolution chain:</h2>
-        {evolutions.map((specie, i) => <Link to={`./${specie}`} className="button button--sm" key={uuidv()}>{i + 1}. {unslugify(specie)} (+)</Link>)}
+        <h2 className="sub-headline">Evolution chain:</h2>
+        {evolutions.map((specie, i) => <Link to={`./${specie}`} className="pokemon__button button button--sm" key={uuidv()}>{i + 1}. {unslugify(specie)} (+)</Link>)}
       </div>
     )
   }
@@ -69,33 +69,38 @@ class Pokemon extends Component {
     return (
       pokemon
         ? (
-          <div className="pokemon">
-            <button type="button" className="button button--sm" onClick={history.goBack}>Go back</button>
-            <h1 className="pokemon__name">#{pokemon.id} {unslugify(pokemon.name)}</h1>
+          <div className="row">
+            <div className="col-12">
+              <div className="pokemon">
+                <h1 className="pokemon__name headline">#{pokemon.id} {unslugify(pokemon.name)}</h1>
 
-            {/* Render Pokémon image */}
-            {pokemon.sprites.front_default ? (<img src={pokemon.sprites.front_default} alt={unslugify(pokemon.name)} />) : null}
+                {/* Render Pokémon image */}
+                {pokemon.sprites.front_default ? (<img src={pokemon.sprites.front_default} alt={unslugify(pokemon.name)} className="pokemon__img" />) : null}
 
-            {/* Render Pokémon type(s) */}
-            <div className="pokemon__group">
-              <h2>Type(s):</h2>
-              {pokemon.types.map(item => <p key={uuidv()}>{unslugify(item.type.name)}</p>)}
+                {/* Render Pokémon type(s) */}
+                <div className="pokemon__group">
+                  <h2 className="sub-headline">Type(s):</h2>
+                  {pokemon.types.map(item => <p key={uuidv()} className={'pokemon__type ' + item.type.name}>{unslugify(item.type.name)}</p>)}
+                </div>
+
+                {/* Render Pokémon abilities */}
+                <div className="pokemon__group">
+                  <h2 className="sub-headline">Abilities:</h2>
+                  {pokemon.abilities.map(item => <p key={uuidv()} className="text">{unslugify(item.ability.name)}</p>)}
+                </div>
+
+                {/* Render Pokémon stats */}
+                <div className="pokemon__group">
+                  <h2 className="sub-headline">Stats:</h2>
+                  {pokemon.stats.map(item => <p key={uuidv()} className="text"><strong>{unslugify(item.stat.name)}</strong>: {item.base_stat}</p>)}
+                </div>
+
+                {/* Render Pokémon evolution chain */}
+                {evolutions ? this.renderEvolutionChain() : null}
+              </div>
+
+              <button type="button" className="button button--sm button--back" onClick={history.goBack}>Go back</button>
             </div>
-
-            {/* Render Pokémon abilities */}
-            <div className="pokemon__group">
-              <h2>Abilities:</h2>
-              {pokemon.abilities.map(item => <p key={uuidv()}>{unslugify(item.ability.name)}</p>)}
-            </div>
-
-            {/* Render Pokémon stats */}
-            <div className="pokemon__group">
-              <h2>Stats:</h2>
-              {pokemon.stats.map(item => <p key={uuidv()}>{unslugify(item.stat.name)}: {item.base_stat}</p>)}
-            </div>
-
-            {/* Render Pokémon evolution chain */}
-            {evolutions ? this.renderEvolutionChain() : null}
           </div>
         )
         : <Loading />

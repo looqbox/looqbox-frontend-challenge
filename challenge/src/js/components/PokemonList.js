@@ -30,7 +30,7 @@ class PokemonList extends Component {
     if (!data) return null
 
     /* If data has the prop 'error' (means that couldn't match Pokémon name or type), show error message */
-    if (data.error) return <p className="error">{data.error}</p>
+    if (data.error) return <div className="col-12"><p className="headline">{data.error}</p></div>
 
     /* If data is an array (means that searched for a Pokémon type), render Pokémon list and 'show more' button (if needed) */
     if (Array.isArray(data)) {
@@ -41,7 +41,15 @@ class PokemonList extends Component {
 
       /* Check if all pokémons are already rendered on screen, and if not, enable 'show more' button */
       return showCount < data.length
-        ? list.concat(<button className="button button--lg" key={uuidv()} onClick={() => this.props.updateShowCount(showCount + 20)}>Show more...</button>)
+        ? list.concat(
+          <div className="col-12 d-flex justify-content-center align-items-center flex-column" key={uuidv()}>
+            <button
+              type="button"
+              className="button button--lg button--show-more"
+              onClick={() => this.props.updateShowCount(showCount + 20)}>
+              Show more...</button>
+          </div>
+        )
         : list
     }
 
@@ -62,12 +70,12 @@ class PokemonList extends Component {
         : this.props.searchResults.showCount
 
     /* Check if 'query' is empty (showing random Pokémon) */
-    if (!query) return <h2>Showing random Pokémon</h2>
+    if (!query) return <h2 className="headline">Showing random Pokémon</h2>
 
     /* Check data length to see if is a single result or not */
     return data.length
-      ? <h2>Showing results for "{query}" ({showCount} of {data.length})</h2>
-      : <h2>Showing results for "{query}" (1 of 1)</h2>
+      ? <h2 className="headline">Showing results for "{query}" ({showCount} of {data.length})</h2>
+      : <h2 className="headline">Showing results for "{query}" (1 of 1)</h2>
   }
 
   render() {
@@ -75,9 +83,13 @@ class PokemonList extends Component {
 
     return (
       <>
-        {isSearching ? null : this.renderResultsHeadline()}
+        <div className="row">
+          <div className="col-12">
+            {isSearching ? null : this.renderResultsHeadline()}
+          </div>
+        </div>
 
-        <div className="results">
+        <div className="row">
           {isSearching ? <Loading /> : this.renderResults()}
         </div>
       </>

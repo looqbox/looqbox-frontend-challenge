@@ -1,0 +1,215 @@
+body {
+  background: #eee;
+  padding: 30px 0;
+}
+
+.button {
+  @include pt-bold();
+  text-transform: uppercase;
+  display: inline-block;
+  border-radius: 5px;
+  color: #fff;
+  &--sm {
+    @include rem(font-size, 12px);
+    padding: 0 14px;
+    height: 28px;
+    line-height: 28px;
+    @media (min-width: 576px) {
+      @include rem(font-size, 13px);
+    }
+  }
+  &--lg {
+    @include rem(font-size, 14px);
+    width: 290px;
+    height: 40px;
+    line-height: 40px;
+    @media (min-width: 576px) {
+      @include rem(font-size, 16px);
+    }
+  }
+  &--random {
+    margin: 15px 0 30px 0;
+    background: $red-l;
+    &:hover {
+      background: $red-d;
+    }
+  }
+  &--show-more {
+    margin-top: 15px;
+    background: $yellow-l;
+    &:hover {
+      background: $yellow-d;
+    }
+  }
+  &--back {
+    margin-top: 15px;
+    background: $gray-l;
+    &:hover {
+      background: $gray-d;
+    }
+  }
+  &:hover {
+    transition: all .3s;
+  }
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  @media (max-width: 991px) {
+    flex-wrap: wrap;
+  }
+  &__input {
+    @include pt-bold();
+    @include rem(font-size, 14px);
+    color: $gray-d;
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border: none;
+    background: #fff;
+    border-radius: 5px;
+    outline: 0;
+    @media (min-width: 576px) {
+      @include rem(font-size, 16px);
+    }
+    @media (min-width: 992px) {
+      width: calc(100% - 135px);
+    }
+  }
+  &__submit {
+    padding: 0;
+    width: 100%;
+    background: $blue-l;
+    color: #fff;
+    @media (max-width: 991px) {
+      margin-top: 10px;
+    }
+    @media (min-width: 992px) {
+      width: 120px;
+    }
+    &:hover {
+      background: $blue-d;
+    }
+  }
+}
+
+.result,
+.pokemon {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #ddd;
+  &__button {
+    background: $blue-l;
+    color: #fff;
+    &:hover {
+      background: $blue-d;
+    }
+  }
+}
+
+.result {
+  margin-bottom: 15px;
+  padding: 15px;
+  text-align: center;
+  @media (min-width: 576px) {
+    margin-bottom: 30px;
+  }
+  &__pokeball {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 10px auto;
+  }
+  &__name {
+    margin-bottom: 5px;
+  }
+}
+
+.pokemon {
+  text-align: center;
+  padding: 30px 15px 25px 15px;
+  &__group {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__img {
+    display: inline-block;
+  }
+  &__button {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  .sub-headline {
+    color: $blue-d;
+    margin-bottom: 3px;
+  }
+  &__type {
+    @include pt();
+    @include rem(font-size, 14px);
+    color: #fff;
+    display: inline-block;
+    padding: 3px 15px;
+    margin: 0 2px;
+    @media (min-width: 576px) {
+      @include rem(font-size, 16px);
+    }
+    &.bug {
+      background: $bug;
+    }
+    &.dragon {
+      background: $dragon;
+    }
+    &.fairy {
+      background: $fairy;
+    }
+    &.fire {
+      background: $fire;
+    }
+    &.ghost {
+      background: $ghost;
+    }
+    &.ground {
+      background: $ground;
+    }
+    &.normal {
+      background: $normal;
+    }
+    &.psychic {
+      background: $psychic;
+    }
+    &.steel {
+      background: $steel;
+    }
+    &.dark {
+      background: $dark;
+    }
+    &.electric {
+      background: $electric;
+    }
+    &.fighting {
+      background: $fighting;
+    }
+    &.flying {
+      background: $flying;
+    }
+    &.grass {
+      background: $grass;
+    }
+    &.ice {
+      background: $ice;
+    }
+    &.poison {
+      background: $poison;
+    }
+    &.rock {
+      background: $rock;
+    }
+    &.water {
+      background: $water;
+    }
+  }
+}

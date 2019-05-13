@@ -1,16 +1,25 @@
-.headline {
+.headline,
+.sub-headline,
+.text {
+  color: $gray-d;
+}
+
+.headline,
+.sub-headline {
   @include pt-bold();
-  @include rem(font-size, 22px);
+}
+
+.text {
+  @include pt();
+}
+
+.headline {
+  @include rem(font-size, 20px);
   margin-bottom: 10px;
   @media (min-width: 576px) {
     margin-bottom: 20px;
-    @include rem(font-size, 32px);
+    @include rem(font-size, 28px);
   }
-}
-
-.sub-headline,
-.text {
-  @include pt();
 }
 
 .sub-headline {
