@@ -21,6 +21,7 @@ class GetRandomPokemon extends Component {
   /* Get random Pokémon based on 'offset' param (limited in 20 items) */
   getRandomPokemon = () => {
     const { updateData, updateIsSearching } = this.props
+
     /* Set isSearching to true (to show loading bar) */
     updateIsSearching(true)
 

@@ -12,28 +12,22 @@ import GetRandomPokemon from './GetRandomPokemon'
 import PokemonList from './PokemonList'
 import Pokemon from './Pokemon'
 
-class App extends Component {
-  render() {
-    return (
-      <Router history={history}>
-        <ScrollToTop>
-          {/* HEADER */}
+const App = () => {
+  return (
+    <Router history={history}>
+      <ScrollToTop>
+        <div className="container">
+          <Search />
+          <GetRandomPokemon />
 
-          <div className="container">
-            <Search />
-            <GetRandomPokemon />
-
-            <Switch>
-              <Route exact path="/" component={PokemonList} />
-              <Route exact path="/pokemon/:name" component={Pokemon} />
-            </Switch>
-          </div>
-
-          {/* FOOTER */}
-        </ScrollToTop>
-      </Router>
-    )
-  }
+          <Switch>
+            <Route exact path="/" component={PokemonList} />
+            <Route exact path="/pokemon/:name" component={Pokemon} />
+          </Switch>
+        </div>
+      </ScrollToTop>
+    </Router>
+  )
 }
 
 export default App

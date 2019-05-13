@@ -8,10 +8,9 @@ import store from './reducers/store'
 
 /* APP */
 import App from './components/App'
-import '../scss/index.scss'
 
-// const importAll = r => r.keys().forEach(r);
-// importAll(require.context('../img/', true, /\.(jpe?g|png|gif)$/));
+/* SCSS */
+import '../scss/index.scss'
 
 render(
   <Provider store={store}>

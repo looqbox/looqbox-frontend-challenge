@@ -1,19 +1,25 @@
-React boilerplate for projects.
+# Looqbox Front-end Challenge
+An application to search Pokémons through [PokéApi](https://pokeapi.co/). Solution for [Looqbox Front-end Challenge](https://github.com/looqbox/looqbox-frontend-challenge). Built with **React** and **Redux**.
 
-# Setup
+## Instructions
+Application files in `challenge` directory.
 
-```
-$ git clone https://github.com/pedromuraki/react-boilerplate .
-```
+### Running on localhost
 
-```
-$ rm -rf .git
-```
-
-```
-$ git init
-```
-
+Install npm packages:
 ```
 $ npm i
 ```
+
+Run *webpack devserver*:
+```
+$ npm start
+```
+
+### Testing
+
+Test application command:
+```
+$ npm test
+```
+Coverage available in `/coverage/lcov-report/index.html`
