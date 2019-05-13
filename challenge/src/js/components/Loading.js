@@ -4,7 +4,7 @@ import React from 'react'
 const path =
   process.env.NODE_ENV !== 'production'
     ? 'src'
-    : 'dist'
+    : '.'
 
 /* LOADING */
 const Loading = () => {

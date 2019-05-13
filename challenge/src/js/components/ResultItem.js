@@ -10,7 +10,7 @@ import { unslugify } from '../helpers'
 const path =
   process.env.NODE_ENV !== 'production'
     ? 'src'
-    : 'dist'
+    : '.'
 
 /* RESULT ITEM */
 const ResultItem = ({ data }) =>
