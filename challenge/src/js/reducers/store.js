@@ -1,8 +1,12 @@
 /* REDUX */
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 
 /* REDUCERS */
-import combinedReducers from './index'
+import searchResults from './searchResults'
+
+const combinedReducers = combineReducers({
+  searchResults
+})
 
 const store = createStore(
   combinedReducers,
