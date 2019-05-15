@@ -4,9 +4,9 @@
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 
 // Brands
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF'
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch'
 
-library.add()
+library.add(faSearch)
 
 // Kicks off the process of finding <i> tags and replacing with <svg>
-dom.watch(faFacebookF)
+dom.watch()

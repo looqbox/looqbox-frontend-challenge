@@ -73,6 +73,7 @@
   },
   "scripts": {
     "start": "gulp dev",
+    "serve": "gulp serve",
     "build": "cross-env NODE_ENV=production gulp",
     "lint:scripts": "eslint src/scripts/**/*.js --fix",
     "lint:styles": "stylelint src/styles/**/*.scss --fix",

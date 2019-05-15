@@ -27,15 +27,15 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "css/style.css",
-    "revision": "86ffc96c7860388056a899abc678ddb7"
+    "revision": "2b44d69715143a07bb35fb569d0991cf"
   },
   {
     "url": "index.html",
-    "revision": "6a749d2b7d0ef4d0b594ed89abce9c98"
+    "revision": "6325d3b188ace0e8641a33f4dbe7f0bc"
   },
   {
     "url": "js/main.js",
-    "revision": "06945ea90b11119c423d9568d0aeb084"
+    "revision": "47c4334e5510ecbef2dd0d41c152cf3d"
   },
   {
     "url": "view-pokemon-dialog.html",

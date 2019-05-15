@@ -92,5 +92,6 @@ export {
   revision,
   images,
   dev,
+  serve,
   watchFiles
 }

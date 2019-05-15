@@ -1,4 +1,5 @@
 import pkg from '../package.json'
+import path from 'path'
 
 const isProduction = () => {
   return (
@@ -55,7 +56,10 @@ export default {
   purgecss: {
     rejected: true,
     keyframes: true,
-    content: [paths.scripts.all, paths.markup.all],
+    content: [
+      path.resolve(process.cwd(), paths.scripts.all),
+      path.resolve(process.cwd(), paths.markup.all)
+    ],
     whitelistPatterns: [
       /^arrow$/,
       /^modal-backdrop$/,
