@@ -11,13 +11,13 @@ describe('<GetRandomPokemon />', () => {
   let mockUpdateData
   let mockUpdateIsSearching
 
-  let getRandomPokemon
+  let wrapper
 
   beforeEach(() => {
     mockUpdateData = jest.fn()
     mockUpdateIsSearching = jest.fn()
 
-    getRandomPokemon = shallow(<GetRandomPokemon updateData={mockUpdateData} updateIsSearching={mockUpdateIsSearching} />)
+    wrapper = shallow(<GetRandomPokemon updateData={mockUpdateData} updateIsSearching={mockUpdateIsSearching} />)
   })
 
   it('Should render GetRandomPokemon', () => {
@@ -25,18 +25,18 @@ describe('<GetRandomPokemon />', () => {
   })
 
   it('Should render a button with text "Get random Pokémon"', () => {
-    const btn = getRandomPokemon.find('button')
+    const btn = wrapper.find('button')
     expect(btn.text()).toBe('Get random Pokémon')
   })
 
   it('Should call "getRandomPokemon" method on button click', () => {
-    const instance = getRandomPokemon.instance()
+    const instance = wrapper.instance()
 
     jest.spyOn(instance, 'getRandomPokemon')
 
     instance.forceUpdate()
 
-    getRandomPokemon.find('button').simulate('click')
+    wrapper.find('button').simulate('click')
     expect(instance.getRandomPokemon).toHaveBeenCalledTimes(1)
   })
 })
