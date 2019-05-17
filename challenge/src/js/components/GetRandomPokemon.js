@@ -13,13 +13,18 @@ import { getRandom, getRandomNumber } from '../helpers'
 /* ACTIONS */
 import { updateData, updateIsSearching } from '../reducers/searchResults/action-creators'
 
-class GetRandomPokemon extends Component {
-  componentDidMount = () => {
+export class GetRandomPokemon extends Component {
+  constructor() {
+    super()
+    this.getRandomPokemon = this.getRandomPokemon.bind(this)
+  }
+
+  componentDidMount() {
     if (history.location.pathname === '/') this.getRandomPokemon()
   }
 
   /* Get random Pokémon based on 'offset' param (limited in 20 items) */
-  getRandomPokemon = () => {
+  getRandomPokemon() {
     const { updateData, updateIsSearching } = this.props
 
     /* Set isSearching to true (to show loading bar) */
