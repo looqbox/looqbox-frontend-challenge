@@ -2,14 +2,14 @@
 ![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
 
 ## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using angular.js and a provided api
+In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
 
 We will not use anything from your project and you are free to use it in your portfolio
 
 ## Stack
 We use:
-- Angular.js version 1.7 for the front end framework
-- Gulp and Yarn for dependency management and local deployment
+- ReactJS for the front end framework
+- Webpack and Yarn for dependency management and local deployment
 
 But you can use Node and Npm if you prefer :)
 
@@ -26,7 +26,7 @@ In the main page you need a search bar and a loaded list of pokemons (random or 
 
 Searching and pressing enter on the search bar will show the result instead of the list
 
-You can use any dependency you want, (jquery, bootstrap, materialize...)
+You can use any dependency you want, (axios, bootstrap, material ui...)
 
 ## Bonus points!
 - A view with more details about the pokemon selected in the list
@@ -38,5 +38,5 @@ You can use any dependency you want, (jquery, bootstrap, materialize...)
 - Documentation
 
 ## Useful links
-- [Angular docs](https://docs.angularjs.org/api)
+- [React docs](https://reactjs.org/docs/getting-started.html)
 - [PokeApi docs](https://pokeapi.co/docs/v2.html)
