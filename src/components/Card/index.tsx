@@ -4,6 +4,7 @@ import './cards.css';
 import { RiSwordFill } from 'react-icons/ri';
 import { GiBoltShield, GiHealthPotion, GiWeight } from 'react-icons/gi';
 import { colors } from '../../constants/colors';
+import Tilt from 'react-parallax-tilt';
 
 interface PokemonProps {
   url: string;
@@ -45,9 +46,9 @@ export const Card = ({ url }: PokemonProps) => {
   }, [url]);
 
   return (
-    <>
+    <Tilt glareEnable={true} glareBorderRadius="30px">
       {pokemon && (
-        <div className="cards" style={{}}>
+        <div className="cards">
           <div className="header-card">
             <div className="header-card-name">{pokemon?.name}</div>
             <div className="header-card-image">
@@ -111,6 +112,6 @@ export const Card = ({ url }: PokemonProps) => {
           </div>
         </div>
       )}
-    </>
+    </Tilt>
   );
 };

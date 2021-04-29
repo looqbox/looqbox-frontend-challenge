@@ -14,7 +14,7 @@ export function App() {
 
   useEffect(() => {
     async function loadPokemon() {
-      const response = await api.get('pokemon?limit=5');
+      const response = await api.get('pokemon?limit=15&offset=15');
       setPokemons(response.data.results);
     }
     loadPokemon();
