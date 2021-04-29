@@ -1,117 +1,137 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { api } from '../../utils/api';
 import './cards.css';
 import { RiSwordFill } from 'react-icons/ri';
 import { GiBoltShield, GiHealthPotion, GiWeight } from 'react-icons/gi';
 import { colors } from '../../constants/colors';
-import Tilt from 'react-parallax-tilt';
+import { FaAngleRight } from 'react-icons/fa';
+import Modal from '../Modal';
+import { PokemonStats } from '../../dtos/pokemonDTO';
 
 interface PokemonProps {
-  url: string;
+  onPokemonName: string;
 }
 
-interface Stats {
-  base_stat: number;
-  stat: {
-    name: string;
-  };
-}
-interface PokemonTypes {
-  type: {
-    name: string;
-  };
-}
-interface PokemonStats {
-  id: number;
-  name: string;
-  sprites: {
-    front_default: string;
-  };
-  types: PokemonTypes[];
-  stats: Stats[];
-  weight: number;
-}
-
-export const Card = ({ url }: PokemonProps) => {
+export const Card = ({ onPokemonName }: PokemonProps) => {
   const [pokemon, setPokemon] = useState<PokemonStats>();
-  const [pokemonType, setPokemonType] = useState<string>('fire');
+  const [pokemonType, setPokemonType] = useState<string>('');
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
     async function loadPokemon() {
-      const { data } = await api.get(url);
-      setPokemon(data);
-      setPokemonType(data.types[0].type.name);
+      try {
+        const { data } = await api.get(`pokemon/${onPokemonName}`);
+        setPokemon(data);
+        setPokemonType(data.types[0].type.name);
+      } catch (err) {
+        console.log('not found');
+      }
     }
     loadPokemon();
-  }, [url]);
+  }, [onPokemonName]);
+
+  function toggleModal(): void {
+    setModalIsOpen(!modalIsOpen);
+  }
+
+  function openModalPokemonStats() {
+    toggleModal();
+  }
 
   return (
-    <Tilt glareEnable={true} glareBorderRadius="30px">
+    <Fragment>
       {pokemon && (
-        <div className="cards">
-          <div className="header-card">
-            <div className="header-card-name">{pokemon?.name}</div>
-            <div className="header-card-image">
-              <img src={pokemon?.sprites.front_default} />
-            </div>
-          </div>
+        <>
+          <Modal
+            onHandleModalToggle={toggleModal}
+            onModalIsOpen={modalIsOpen}
+            onPokemon={pokemon}
+          />
 
-          <div>
-            <p>ALL</p>
-          </div>
+          <div className="cards">
+            <div className="header-card">
+              <div className="header-card-name">
+                <p
+                  style={{
+                    color: colors[pokemonType],
+                  }}
+                >
+                  {' '}
+                  {pokemon.name}
+                </p>
+              </div>
+              <div className="header-card-image">
+                <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+              </div>
+            </div>
 
-          <div className="header-card-body">
-            <div className="header-card-body-item">
-              <div
-                className="header-card-body-item-text"
-                style={{ color: colors[pokemonType] }}
+            <div className="all-status">
+              <button
+                className="all-status-button"
+                style={{
+                  color: colors[pokemonType],
+                }}
+                onClick={() => openModalPokemonStats()}
               >
-                <p>
-                  <GiHealthPotion size={35} />
-                </p>
-                <p>{pokemon?.stats[0].stat.name}</p>
-                <p>{pokemon?.stats[0].base_stat}</p>
-              </div>
+                <p className="all-status-button-text">All</p>
+                <FaAngleRight />
+              </button>
             </div>
-            <div className="header-card-body-item">
-              <div
-                className="header-card-body-item-text"
-                style={{ color: colors[pokemonType] }}
-              >
-                <p>
-                  <RiSwordFill size={35} />
-                </p>
-                <p>{pokemon?.stats[1].stat.name}</p>
-                <p>{pokemon?.stats[1].base_stat}</p>
+
+            <div className="card-body">
+              <div className="card-body-item">
+                <div
+                  className="card-body-item-text"
+                  style={{ color: colors[pokemonType] }}
+                >
+                  <p>
+                    <GiHealthPotion size={35} />
+                  </p>
+                  <p>{pokemon.stats[0].stat.name}</p>
+                  <p>{pokemon.stats[0].base_stat}</p>
+                </div>
               </div>
-            </div>
-            <div className="header-card-body-item">
-              <div
-                className="header-card-body-item-text"
-                style={{ color: colors[pokemonType] }}
-              >
-                <p>
-                  <GiBoltShield size={35} />
-                </p>
-                <p>{pokemon?.stats[2].stat.name}</p>
-                <p>{pokemon?.stats[2].base_stat}</p>
+              <div className="card-body-item">
+                <div
+                  className="card-body-item-text"
+                  style={{ color: colors[pokemonType] }}
+                >
+                  <p>
+                    <RiSwordFill size={35} />
+                  </p>
+                  <p>{pokemon.stats[1].stat.name}</p>
+                  <p>{pokemon.stats[1].base_stat}</p>
+                </div>
               </div>
-            </div>
-            <div className="header-card-body-item">
-              <div
-                className="header-card-body-item-text"
-                style={{ color: colors[pokemonType] }}
-              >
-                <p>
-                  <GiWeight size={35} />
-                </p>
-                <p>weight</p>
-                <p>{pokemon?.weight}</p>
+              <div className="card-body-item">
+                <div
+                  className="card-body-item-text"
+                  style={{ color: colors[pokemonType] }}
+                >
+                  <p>
+                    <GiBoltShield size={35} />
+                  </p>
+                  <p>{pokemon.stats[2].stat.name}</p>
+                  <p>{pokemon.stats[2].base_stat}</p>
+                </div>
+              </div>
+              <div className="card-body-item">
+                <div
+                  className="card-body-item-text"
+                  style={{ color: colors[pokemonType] }}
+                >
+                  <p>
+                    <GiWeight size={35} />
+                  </p>
+                  <p>weight</p>
+                  <p>{pokemon.weight}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </>
       )}
-    </Tilt>
+    </Fragment>
   );
 };

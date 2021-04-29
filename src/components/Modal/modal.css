@@ -1,0 +1,105 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #121214e6;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Modal {
+  position: absolute;
+  width: 50%;
+  color: #000;
+}
+
+.container-modal-pokemon {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.modal-pokemon-main-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal-pokemon-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.modal-pokemon-info-text-id {
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.modal-pokemon-info-text-name {
+  font-size: 1.6rem;
+  color: #fff;
+  margin: 5px 0;
+}
+
+.modal-pokemon-info-text-type {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.modal-pokemon-info-text-type p {
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.modal-pokemon-image {
+}
+
+.modal-pokemon-secondary-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-pokemon-secondary-info-moves {
+  flex: 1;
+}
+
+.modal-pokemon-secondary-info-moves-title {
+  font-size: 1.6rem;
+  border-bottom: 1px solid #ddd;
+  margin-right: 10px;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.modal-pokemon-secondary-info-moves div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.modal-pokemon-secondary-info-moves div p {
+  margin-left: 10px;
+  font-size: 1.6rem;
+  color: #fff;
+}
+.modal-pokemon-secondary-info-stats {
+  flex: 1;
+}
+
+.modal-pokemon-secondary-info-stats-title {
+  font-size: 1.6rem;
+  border-bottom: 1px solid #ddd;
+  margin-right: 10px;
+  margin-bottom: 25px;
+  color: #fff;
+  text-align: right;
+}

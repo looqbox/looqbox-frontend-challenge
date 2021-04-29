@@ -1,4 +1,10 @@
-import { useEffect, useState } from 'react';
+import {
+  FormEvent,
+  FormEventHandler,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import './styles/global.css';
 import './styles/app.css';
 import { api } from './utils/api';
@@ -7,41 +13,61 @@ import { Card } from './components/Card';
 
 interface pokemon {
   name: string;
-  url: string;
 }
 export function App() {
   const [pokemons, setPokemons] = useState<pokemon[]>([]);
+  const [pokemonName, setPokemonName] = useState('');
 
+  async function loadPokemon() {
+    const response = await api.get('pokemon?limit=6');
+    setPokemons(response.data.results);
+  }
   useEffect(() => {
-    async function loadPokemon() {
-      const response = await api.get('pokemon?limit=15&offset=15');
-      setPokemons(response.data.results);
+    async function load() {
+      await loadPokemon();
     }
-    loadPokemon();
+    load();
   }, []);
+
+  const handleSubmit = useCallback(
+    (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const namePokemon = pokemonName.toLocaleLowerCase();
+      setPokemons([{ name: namePokemon }]);
+    },
+    [pokemonName],
+  );
 
   return (
     <div className="container">
       <div className="wrapper">
-        {/* DIV DA IMAGEM */}
         <div className="header-image">
-          <img src={imageLogo} />
+          <button onClick={loadPokemon} className="header-image-button">
+            <img src={imageLogo} />
+          </button>
         </div>
 
-        {/* DIV DO FORMULARIO */}
-        <div>
-          <form>
+        <div className="container-form">
+          <form onSubmit={handleSubmit}>
             <div className="form-div-search-input">
-              <input type="text" className="form-search-input" />
+              <input
+                type="text"
+                required
+                className="form-search-input"
+                placeholder="Digite aqui para buscar pokemons"
+                onChange={e => setPokemonName(e.target.value)}
+              />
             </div>
-            <button type="submit">enviar</button>
+
+            <button type="submit" className="form-button-submit">
+              buscar
+            </button>
           </form>
         </div>
 
-        {/* DIV DOS CARDS */}
         <div className="container-cards">
           {pokemons.map(pokemon => (
-            <Card url={pokemon.url} key={pokemon.name} />
+            <Card onPokemonName={pokemon.name} key={pokemon.name} />
           ))}
         </div>
       </div>

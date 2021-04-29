@@ -6,11 +6,23 @@
 .wrapper {
   flex: 1;
   max-width: 960px;
+  margin: 20px;
 }
 .header-image {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: 15px 0;
+}
+
+.header-image-button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.container-form {
+  padding: 10px 0;
 }
 
 form {
@@ -23,6 +35,50 @@ form {
 }
 .form-search-input {
   width: 100%;
+  outline: none;
+  border: none;
+  padding: 10px 0;
+  padding-left: 15px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-search-input::-webkit-input-placeholder {
+  color: #232323;
+}
+
+.form-search-input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #232323;
+}
+
+.form-search-input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #232323;
+}
+
+.form-search-input:-ms-input-placeholder {
+  color: #232323;
+}
+
+.form-button-submit {
+  border: 0;
+  outline: none;
+  border-radius: 8px;
+  padding: 5px;
+  color: #232323;
+  font-size: 1.1rem;
+  margin-left: 20px;
+  transition: 0.4s;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.form-button-submit:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .container-cards {

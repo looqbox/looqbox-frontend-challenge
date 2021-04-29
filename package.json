@@ -10,11 +10,15 @@
     "build": "cross-env NODE_ENV=production webpack"
   },
   "dependencies": {
+    "add": "^2.0.6",
+    "apexcharts": "^3.26.1",
     "axios": "^0.21.1",
     "react": "^17.0.2",
+    "react-apexcharts": "^1.3.9",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
-    "react-parallax-tilt": "^1.5.5"
+    "react-modal": "^3.13.1",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.16",
@@ -24,6 +28,7 @@
     "@babel/preset-typescript": "^7.13.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "@types/react-dom": "^17.0.3",
+    "@types/react-modal": "^3.12.0",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "babel-loader": "^8.2.2",

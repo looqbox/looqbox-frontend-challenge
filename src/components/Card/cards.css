@@ -17,25 +17,43 @@
 .header-card-name {
   font-size: 1.4rem;
 }
-.header-card-body {
+.all-status {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.all-status-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.all-status-button-text {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.card-body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin-top: 20px;
 }
-.header-card-body-item {
+.card-body-item {
   color: #000;
   flex: 1;
   margin: 5px;
   border-radius: 15px;
 }
-.header-card-body-item-text {
+.card-body-item-text {
   display: flex;
   flex-direction: column;
   text-align: center;
   padding: 10px;
 }
-.header-card-body-item-text p {
+.card-body-item-text p {
   font-weight: bold;
   font-size: 1rem;
 }
