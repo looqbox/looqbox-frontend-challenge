@@ -1,3 +1,7 @@
+export interface pokemon {
+  name: string;
+}
+
 export interface Stats {
   base_stat: number;
   stat: {

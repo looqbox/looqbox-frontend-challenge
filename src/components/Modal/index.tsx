@@ -10,7 +10,7 @@ import ReactApexChart from 'react-apexcharts';
 interface ModalProps {
   onHandleModalToggle: () => void;
   onModalIsOpen: boolean;
-  onPokemon: PokemonStats;
+  onPokemon: PokemonStats | undefined;
 }
 
 const amountMoves: number[] = [1, 2, 3, 4, 5, 6];
@@ -20,7 +20,8 @@ const Modal = ({
   onModalIsOpen,
   onPokemon,
 }: ModalProps) => {
-  const [pokemon, setPokemon] = useState<PokemonStats>();
+  const [pokemon, setPokemon] = useState<PokemonStats | undefined>();
+  const [pokemonType, setPokemonType] = useState<string>('');
   const [atk, setAtk] = useState(0);
   const [def, setDef] = useState(0);
   const [specialAtk, setSpecialAtk] = useState(0);
@@ -31,6 +32,7 @@ const Modal = ({
   useEffect(() => {
     if (onPokemon) {
       setPokemon(onPokemon);
+      setPokemonType(onPokemon.types[0].type.name);
       setHp(onPokemon.stats[0].base_stat);
       setAtk(onPokemon.stats[1].base_stat);
       setDef(onPokemon.stats[2].base_stat);
@@ -38,11 +40,11 @@ const Modal = ({
       setSpecialDef(onPokemon.stats[4].base_stat);
       setSpeed(onPokemon.stats[5].base_stat);
     }
-  }, []);
+  }, [onPokemon]);
 
   const options = {
     fill: {
-      colors: ['#fff'],
+      colors: [colors[pokemonType]],
     },
     dataLabels: {
       style: {
@@ -80,7 +82,7 @@ const Modal = ({
     >
       <div
         className="container-modal-pokemon"
-        style={{ backgroundColor: '#333' }}
+        style={{ color: colors[pokemonType] }}
       >
         <div className="modal-pokemon-main-info">
           <div className="modal-pokemon-info">
@@ -109,7 +111,7 @@ const Modal = ({
             <p className="modal-pokemon-secondary-info-moves-title">Moveset</p>
             {amountMoves.map((moves, index) => (
               <div key={moves}>
-                <GiSwordsEmblem size={30} color="#fff" />
+                <GiSwordsEmblem size={30} color={colors[pokemonType]} />
                 <p>
                   {pokemon?.moves[index] ? pokemon.moves[index].move.name : ''}
                 </p>

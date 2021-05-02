@@ -6,11 +6,5 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  color: #fff;
-  height: 100%;
-  background-image: url(../assets/images/background.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
+  color: #000;
 }
