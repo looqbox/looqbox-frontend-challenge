@@ -3,10 +3,8 @@ import './cards.css';
 import { RiSwordFill } from 'react-icons/ri';
 import { GiBoltShield, GiHealthPotion, GiWeight } from 'react-icons/gi';
 import { colors } from '../../constants/colors';
-import { FaAngleRight } from 'react-icons/fa';
 import Modal from '../Modal';
 import { PokemonStats } from '../../dtos/pokemonDTO';
-import { Loader } from '../Loader';
 
 interface PokemonProps {
   onPokemon: PokemonStats | undefined;
