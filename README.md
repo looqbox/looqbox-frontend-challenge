@@ -3,7 +3,7 @@
 
 ## Deploy
 Veja aqui como ficou o projeto! 
-- (deploy)[https://loqboxtest.vercel.app/]
+- [deploy](https://loqboxtest.vercel.app/)
 
 ## Tecnologias utilizadas
 - [React docs](https://reactjs.org/docs/getting-started.html)
