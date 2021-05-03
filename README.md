@@ -24,7 +24,7 @@ yarn
 - Os nomes dos pokemons contém um link que carrega a proxima pagina, baseado nos dados que contém na propriedade do componente CardPokemon
 
 **Pokemons/pokemon.tsx** : Dentro da pasta POKEMON, existe um arquivo chamado [pokemon].tsx que será explicado como funciona logo abaixo:
-- O NextJS é um framework capaz de criar Static Pages. São paginas estaticas onde não é necessario comsumir uma api para carregar os dados da mesma;
+- O NextJS é um framework capaz de criar Static Pages. São paginas estaticas onde não é necessario consumir uma api para carregar os dados da mesma;
 - Quando colocamos '[]' entre o nome do arquivo, indicamos que a pagina recebe um Params, que terá seus dados dinamicamente alterados de acordo com o valor do parâmetro;
 - Dentro desse arquivo, encontra-se duas funções importantes: **getStaticProps** e **getStaticPaths**;
 - **getStaticProps**: É uma função interna do  NextJS que realiza uma criação de dados estaticos. Dentro da função, é informado qual o parâmetro que esta vindo da URL da pagina, a partir dele é realizado uma busca na API onde ira retornar os dados que consta na API correspondente aquele pârametro
