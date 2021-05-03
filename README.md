@@ -49,7 +49,7 @@ export default function Pokemon({ poke }) {
         fallback: true,
     };
   ``` 
- - Quando deixamos o fallback com o valor TRUE, indicamos que, caso o Next não encontre uma pagina estatica que foi gerada por ele no momento da BUILD, ele irá procurar na api com os Parms informado e gerar uma nova pagina estatica. Temos que indicar também qual tela o Next irá mostrar enquanto ele estiver buscando este novo dado, no caso deixamos uma '<Box>' carregando enquanto ele gera essa pagina
+ - Quando deixamos o fallback com o valor TRUE, indicamos que, caso o Next não encontre uma pagina estatica que foi gerada por ele no momento da BUILD, ele irá procurar na api com os Parms informado e gerar uma nova pagina estatica. Temos que indicar também qual tela o Next irá mostrar enquanto ele estiver buscando este novo dado, no caso deixamos uma Box com shimmer effect carregando enquanto ele gera essa pagina
 
 ## Tecnologias utilizadas
 - [React docs](https://reactjs.org/docs/getting-started.html)
