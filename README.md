@@ -1,42 +1,34 @@
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+## Getting Started
 
-We will not use anything from your project and you are free to use it in your portfolio
+First, run the development server:
 
-## Stack
-We use:
-- ReactJS for the front end framework
-- Webpack and Yarn for dependency management and local deployment
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-But you can use Node and Npm if you prefer :)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Submitting
-- Make a fork of this repository
-- When you're done send us a pull request
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please mind how many times you request data
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
+## Learn More
 
-Searching and pressing enter on the search bar will show the result instead of the list
+To learn more about Next.js, take a look at the following resources:
 
-You can use any dependency you want, (axios, bootstrap, material ui...)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Bonus points!
-- A view with more details about the pokemon selected in the list
-- Graphs!
-- Unit Testing
-- Linting
-- Nice UI
-- Explain Code architecture
-- Documentation
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
