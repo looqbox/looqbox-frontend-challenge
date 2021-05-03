@@ -13,7 +13,7 @@ yarn
 ```
 
 ## Funcionamento das Paginas
-**Index**: Na pagina principal, existem dois componentes, ```<IndexPageDektop/> ``` e ```<IndexPageMobile/>``` . Elas são responsivas, aparecendo somente em um tamanho de tela especifico
+**Index**: Na pagina principal, existem dois componentes, ```<IndexPageDesktop/> ``` e ```<IndexPageMobile/>``` . Elas são responsivas, aparecendo somente em um tamanho de tela especifico
 
 **Search.tsx**: Esta é a pagina de pesquisa de pokémons, temos as seguintes funcionalidades:
 - Ao entrar na tela, é carregado os 6 primeiros pokémons;
