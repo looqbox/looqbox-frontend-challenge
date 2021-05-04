@@ -39,10 +39,11 @@ export default function Search() {
             const response = await api.get(`pokemon/${nameLower}`);
             const { forms } = response.data;
             setPokemons([]);
-            console.log(forms);
+            
 
             setPokemons(forms);
         } catch (err) {
+            setPokemons([])
             return toast({
                 title: 'Error',
                 description: 'Nenhum pokemon encontrado',
@@ -107,7 +108,10 @@ export default function Search() {
                             press
                             variant="filled"
                             value={namePokemon}
-                            onChange={e => setNamePokemon(e.target.value)}
+                            onChange={e =>{ 
+                            
+                                setNamePokemon(e.target.value)
+                            }}
                         />
                     </InputGroup>
                     <Button

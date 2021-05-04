@@ -1,7 +1,15 @@
 import React from 'react';
 
 import { Heading } from '@chakra-ui/layout';
-import { Box, Flex, Image, HStack, Tag, SkeletonCircle, SkeletonText } from '@chakra-ui/react';
+import {
+    Box,
+    Flex,
+    Image,
+    HStack,
+    Tag,
+    SkeletonCircle,
+    SkeletonText,
+} from '@chakra-ui/react';
 
 import { api } from '../../api/api';
 import { useRouter } from 'next/router';
@@ -9,6 +17,7 @@ import { bgColor } from '../../constants/bgColor';
 import TabInfo from '../../components/TabInfo';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { typePokemon } from '../../constants/typePokemon';
+import ShimmerEffect from '../../components/shimmer';
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
@@ -42,10 +51,7 @@ export default function Pokemon({ poke }) {
     const { isFallback } = useRouter();
     if (isFallback) {
         return (
-            <Box padding="6" boxShadow="lg" bg="white">
-                <SkeletonCircle size="10" />
-                <SkeletonText mt="4" noOfLines={8} spacing="4" />
-            </Box>
+            <ShimmerEffect/>
         );
     }
     const pokemonImage = poke.sprites.other.dream_world.front_default;
@@ -104,7 +110,7 @@ export default function Pokemon({ poke }) {
                             display="flex"
                             alignSelf="center"
                             justifyContent="center"
-                            mt="3%"
+                            mt="6%"
                             maxW={{ base: '55%', lg: '85%' }}
                         >
                             <Image boxSize="98%" src={pokemonImage} />
