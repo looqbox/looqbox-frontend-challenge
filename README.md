@@ -11,11 +11,10 @@ Veja aqui como ficou o projeto!
 ```sh
 yarn 
 ```
-
 ## Funcionamento das Paginas
-**Index**: Na pagina principal, existem dois componentes, ```<IndexPageDesktop/> ``` e ```<IndexPageMobile/>``` . Elas são responsivas, aparecendo somente em um tamanho de tela especifico
+**Index**: Na página principal, existem dois componentes, ```<IndexPageDesktop/> ``` e ```<IndexPageMobile/>``` . Elas são responsivas, aparecendo somente em um tamanho de tela especifico
 
-**Search.tsx**: Esta é a pagina de pesquisa de pokémons, temos as seguintes funcionalidades:
+**Search.tsx**: Esta é a página de pesquisa de pokémons, temos as seguintes funcionalidades:
 - Ao entrar na tela, é carregado os 6 primeiros pokémons;
 - O Botão pesquisar encontra um pokemon de acordo com o valor do input ao lado;
 - Caso não seja encontrado algum pokemon, é exibido um erro na tela, o mesmo vale se o usuário deixar o input vazio;
@@ -26,7 +25,7 @@ yarn
 **Pokemons/pokemon.tsx** : Dentro da pasta POKEMON, existe um arquivo chamado [pokemon].tsx que será explicado como funciona logo abaixo:
 - O NextJS é um framework capaz de criar Static Pages. São paginas estaticas onde não é necessario consumir uma api para carregar os dados da mesma;
 - Quando colocamos '[]' entre o nome do arquivo, indicamos que a pagina recebe um Params, que terá seus dados dinamicamente alterados de acordo com o valor do parâmetro;
-- Dentro desse arquivo, encontra-se duas funções importantes: **getStaticProps** e **getStaticPaths**;
+- Dentro desse arquivo, encontram-se duas funções importantes: **getStaticProps** e **getStaticPaths**;
 - **getStaticProps**: É uma função interna do  NextJS que realiza uma criação de dados estaticos. Dentro da função, é informado qual o parâmetro que esta vindo da URL da pagina, a partir dele é realizado uma busca na API onde ira retornar os dados que consta na API correspondente aquele pârametro
 - No NextJS, quando temos uma pagina com parâmetro, é obrigatorio a função **getStaticPaths**. Esta função é responsavel por informar quais paginas estaticas o NextJS vai gerar no momento do comando Yarn Build. Essa build é composta por paginas que serão estaticas de acordo com cada informação que o Next encontrar na chamada da API na função **getStaticPaths**
 - Neste caso, para cada resultado que a função encontrar na poke API, ele ir gerar uma nova pagina com as informações daquele pokemon baseado no  ```api.get(`pokemon/${pokemon}```
@@ -49,7 +48,7 @@ export default function Pokemon({ poke }) {
         fallback: true,
     };
   ``` 
- - Quando deixamos o fallback com o valor TRUE, indicamos que, caso o Next não encontre uma pagina estatica que foi gerada por ele no momento da BUILD, ele irá procurar na api com os Parms informado e gerar uma nova pagina estatica. Temos que indicar também qual tela o Next irá mostrar enquanto ele estiver buscando este novo dado, no caso deixamos uma Box com shimmer effect carregando enquanto ele gera essa pagina
+ - Quando deixamos o fallback com o valor TRUE, indicamos que, caso o Next não encontre uma página estática que foi gerada por ele no momento da BUILD, ele irá procurar na api com os Parms informado e gerar uma nova pagina estática. Temos que indicar também qual tela o Next irá mostrar enquanto ele estiver buscando este novo dado, no caso deixamos uma Box com shimmer effect carregando enquanto ele gera essa página
 
 ## Tecnologias utilizadas
 - [React docs](https://reactjs.org/docs/getting-started.html)
