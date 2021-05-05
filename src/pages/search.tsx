@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { SearchIcon } from '@chakra-ui/icons';
-import { Heading} from '@chakra-ui/layout';
+import { Heading } from '@chakra-ui/layout';
 import {
     Box,
     Flex,
     Image,
     Input,
-    
     InputLeftElement,
     InputGroup,
     Grid,
@@ -14,7 +13,6 @@ import {
     Button,
     useToast,
     ScaleFade,
-   
 } from '@chakra-ui/react';
 import { ButtonColorMode } from '../components/ButtonColorMode';
 import CardPokemon from '../components/CardPokemon';
@@ -27,23 +25,19 @@ export default function Search() {
     const [namePokemon, setNamePokemon] = useState('');
     const [pokemons, setPokemons] = useState([]);
 
-
     const [page, setPage] = useState(0);
 
     async function handleSearch() {
-        
         setPage(0);
 
         try {
             const nameLower = namePokemon.toLocaleLowerCase();
             const response = await api.get(`pokemon/${nameLower}`);
-            const { forms } = response.data;
-            setPokemons([]);
-            
 
-            setPokemons(forms);
+            setPokemons([]);
+            setPokemons([response.data]);
         } catch (err) {
-            setPokemons([])
+            setPokemons([]);
             return toast({
                 title: 'Error',
                 description: 'Nenhum pokemon encontrado',
@@ -58,7 +52,7 @@ export default function Search() {
         try {
             const response = await api.get(`pokemon?offset=${page}&limit=4`);
             const { results } = response.data;
-            
+
             setPokemons(oldValues => {
                 return [...oldValues, ...results];
             });
@@ -108,9 +102,8 @@ export default function Search() {
                             press
                             variant="filled"
                             value={namePokemon}
-                            onChange={e =>{ 
-                            
-                                setNamePokemon(e.target.value)
+                            onChange={e => {
+                                setNamePokemon(e.target.value);
                             }}
                         />
                     </InputGroup>
