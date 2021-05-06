@@ -33,8 +33,6 @@ export default function Search() {
         try {
             const nameLower = namePokemon.toLocaleLowerCase();
             const response = await api.get(`pokemon/${nameLower}`);
-
-            setPokemons([]);
             setPokemons([response.data]);
         } catch (err) {
             setPokemons([]);
