@@ -29,7 +29,7 @@ export default function CardPokemon({ namePokemon }) {
             await pokemonData();
         }
         Load();
-    }, []);
+    }, [namePokemon]);
 
     return (
         <Flex
