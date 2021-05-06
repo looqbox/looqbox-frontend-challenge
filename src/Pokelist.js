@@ -9,28 +9,34 @@ import {
   CardMedia,
   CardContent,
   CircularProgress,
-  Typography
+  Typography,
+  TextField
 } from '@material-ui/core';
+
 import {
   MuiThemeProvider,
   createMuiTheme,
   makeStyles
 } from "@material-ui/core/styles";
 
+import SearchIcon from '@material-ui/icons/Search';
+
 import { toFirstCharUpperCase } from './constants';
 
-const theme = createMuiTheme({
+import logoImg from '../src/assets/logo.png';
+
+const themeDefault = createMuiTheme({
   palette: {
     primary: {
+      light: '#33e17e',
+      main: '#00da5d',
+      dark: '#00c455',
+      contrastText: '#58595b',
+    },
+    secondary: {
       light: '#e7e9ee',
       main: '#f0f2f5',
       dark: '#6d6e71',
-      contrastText: '#40da62',
-    },
-    secondary: {
-      light: '#53D893',
-      main: '#40da62',
-      dark: '#2c9844',
       contrastText: '#000',
     },
   },
@@ -42,7 +48,34 @@ const theme = createMuiTheme({
   },
 })
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
+  toolbarImage: {
+    width: '160px',
+    height: '100%',
+  },
+  toolbarAppName: {
+    fontWeight: '500',
+    color: '#40da62',
+  },
+  toolbarAppNameSpan: {
+    fontWeight: '500',
+    color: '#6d6e71',
+  },
+  searchContainer: {
+    display: 'flex',
+    marginTop: '5px',
+    marginBottom: '5px',
+    paddingTop: '5px',
+    paddingBottom: '5px',
+    paddingLeft: '20px',
+    paddingRight: '20px',
+    borderRadius: '4px',
+    backgroundColor: '#f0f2f5',
+  },
+  searchIcon: {
+    alignSelf: 'flex-end',
+    marginBottom: '5px',
+  },
   pokelistContainer: {
     paddingTop: '20px',
     paddingRight: '50px',
@@ -54,7 +87,7 @@ const useStyles = makeStyles({
   cardContent: {
     textAlign: 'center',
   }
-})
+}));
 
 const Pokelist = (props) => {
   const { history } = props;
@@ -92,6 +125,7 @@ const Pokelist = (props) => {
             image={sprite}
             style={{ width: "120px", height: "120px" }}
           />
+
           <CardContent className={classes.cardContent}>
             <Typography>{`${id}. ${toFirstCharUpperCase(name)}`}</Typography>
           </CardContent>
@@ -102,10 +136,29 @@ const Pokelist = (props) => {
 
   return (
     <>
-      <MuiThemeProvider theme={theme}>
+      <MuiThemeProvider theme={themeDefault}>
         <AppBar position='static'>
-          <Toolbar />
+          <Toolbar
+            style={{
+              justifyContent: 'space-between',
+              backgroundColor: '#fff'
+            }}>
+            <img
+              className={classes.toolbarImage}
+              src={logoImg}
+              alt='looqbox ~ PokéList' />
+
+            <h1 className={classes.toolbarAppName}>Poké
+              <span className={classes.toolbarAppNameSpan}>List</span>
+            </h1>
+
+            <div className={classes.searchContainer}>
+              <SearchIcon className={classes.searchIcon} />
+              <TextField className={classes.searchInput} />
+            </div>
+          </Toolbar>
         </AppBar>
+
         {pokemonData ? (
           <Grid container spacing={2} className={classes.pokelistContainer}>
             {Object.keys(pokemonData).map(pokemonId =>
