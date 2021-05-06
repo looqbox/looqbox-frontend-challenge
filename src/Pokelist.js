@@ -1,6 +1,9 @@
-import React from 'react';
-import { AppBar, Toolbar, Grid, Card, CardContent } from '@material-ui/core';
+import React, { useState } from 'react';
+import { AppBar, Toolbar, Grid, Card, CardMedia, CardContent, CircularProgress, Typography } from '@material-ui/core';
 import { MuiThemeProvider, createMuiTheme, makeStyles } from "@material-ui/core/styles";
+import { toFirstCharUpperCase } from './constants';
+
+import mockData from './mockData';
 
 const theme = createMuiTheme({
   palette: {
@@ -16,7 +19,13 @@ const theme = createMuiTheme({
       dark: '#2c9844',
       contrastText: '#000',
     },
-  }
+  },
+  typography: {
+    fontFamily: [
+      'Poppins',
+      'sans-serif',
+    ].join(','),
+  },
 })
 
 const useStyles = makeStyles({
@@ -24,21 +33,40 @@ const useStyles = makeStyles({
     paddingTop: '20px',
     paddingRight: '50px',
     paddingLeft: '50px',
+  },
+  cardMedia: {
+    margin: 'auto',
+  },
+  cardContent: {
+    textAlign: 'center',
   }
 })
 
-const getPokemonCard = () => {
-  return (
-    <Grid item xs={12} sm={4}>
-      <Card>
-        <CardContent>Hi</CardContent>
-      </Card>
-    </Grid>
-  )
-}
-
-const Pokelist = () => {
+const Pokelist = (props) => {
+  const { history } = props;
   const classes = useStyles();
+  const [pokemonData, setPokemonData] = useState(mockData);
+
+
+  const getPokemonCard = (pokemonId) => {
+    const { id, name } = pokemonData[`${pokemonId}`];
+    const sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+
+    return (
+      <Grid item xs={12} sm={4} key={pokemonId}>
+        <Card onClick={() => history.push(`/${pokemonId}`)}>
+          <CardMedia
+            className={classes.cardMedia}
+            image={sprite}
+            style={{ width: "120px", height: "120px" }}
+          />
+          <CardContent className={classes.cardContent}>
+            <Typography>{`${id}. ${toFirstCharUpperCase(name)}`}</Typography>
+          </CardContent>
+        </Card>
+      </Grid>
+    )
+  }
 
   return (
     <>
@@ -46,12 +74,15 @@ const Pokelist = () => {
         <AppBar position='static'>
           <Toolbar />
         </AppBar>
-        <Grid container spacing={2} className={classes.pokelistContainer}>
-          {getPokemonCard()}
-          {getPokemonCard()}
-          {getPokemonCard()}
-          {getPokemonCard()}
-        </Grid>
+        {pokemonData ? (
+          <Grid container spacing={2} className={classes.pokelistContainer}>
+            {Object.keys(pokemonData).map(pokemonId =>
+              getPokemonCard(pokemonId)
+            )}
+          </Grid>
+        ) : (
+          <CircularProgress />
+        )}
       </MuiThemeProvider>
     </>
   )
