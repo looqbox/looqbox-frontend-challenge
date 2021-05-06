@@ -19,6 +19,7 @@ import {
   makeStyles
 } from "@material-ui/core/styles";
 
+import Popover from '@material-ui/core/Popover';
 import SearchIcon from '@material-ui/icons/Search';
 
 import { toFirstCharUpperCase } from './constants';
@@ -93,17 +94,40 @@ const useStyles = makeStyles(theme => ({
   },
   cardContent: {
     textAlign: 'center',
-  }
+  },
+  popover: {
+    pointerEvents: 'none',
+  },
+  paper: {
+    padding: theme.spacing(1),
+  },
 }));
 
 const Pokelist = (props) => {
   const { history } = props;
-  const classes = useStyles();
+
   const [pokemonData, setPokemonData] = useState({});
+
+  const [filter, setFilter] = useState('');
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const classes = useStyles();
+
+  const handlePopoverOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+
+  const handleSearchChange = (e) => {
+    setFilter(e.target.value);
+  };
 
   useEffect(() => {
     axios
-    .get(`https://pokeapi.co/api/v2/pokemon?limit=20/`)
+    .get(`https://pokeapi.co/api/v2/pokemon?limit=50/`)
     .then(function (response) {
       const { data } = response;
       const { results } = data;
@@ -126,7 +150,37 @@ const Pokelist = (props) => {
 
     return (
       <Grid item sm={4} key={pokemonId}>
-        <Card onClick={() => history.push(`/${pokemonId}`)}>
+        <Card
+          onClick={() => history.push(`/${pokemonId}`)}
+
+          aria-owns={open ? 'mouse-over-popover' : undefined}
+          aria-haspopup="true"
+          onMouseEnter={handlePopoverOpen}
+          onMouseLeave={handlePopoverClose}>
+
+          <Popover
+            id="mouse-over-popover"
+            className={classes.popover}
+            classes={{
+              paper: classes.paper,
+            }}
+            open={open}
+
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+
+            onClose={handlePopoverClose}
+            disableRestoreFocus >
+            <Typography>Click to open Pokemon page.</Typography>
+          </Popover>
+
           <CardMedia
             className={classes.cardMedia}
             image={sprite}
@@ -170,6 +224,7 @@ const Pokelist = (props) => {
               <SearchIcon className={classes.searchIcon} />
               <TextField
                 className={classes.searchInput}
+                onChange={handleSearchChange}
                 variant='standard'
                 label='Search'
               />
@@ -178,9 +233,11 @@ const Pokelist = (props) => {
         </AppBar>
 
         {pokemonData ? (
-          <Grid container spacing={2} className={classes.pokelistContainer}>
-            {Object.keys(pokemonData).map(pokemonId =>
-              getPokemonCard(pokemonId)
+          <Grid className={classes.pokelistContainer} container spacing={2}>
+            {Object.keys(pokemonData).map(
+              (pokemonId) =>
+                pokemonData[pokemonId].name.includes(filter) &&
+                getPokemonCard(pokemonId)
             )}
           </Grid>
         ) : (
