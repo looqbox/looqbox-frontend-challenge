@@ -48,6 +48,10 @@ strong {
   font-weight: 600;
 }
 
+a {
+  text-decoration: none;
+}
+
 button {
   cursor: pointer;
 }

@@ -3,14 +3,14 @@ import axios from 'axios';
 
 import {
   AppBar,
-  Toolbar,
-  Grid,
   Card,
   CardMedia,
   CardContent,
   CircularProgress,
-  Typography,
-  TextField
+  Grid,
+  Toolbar,
+  TextField,
+  Typography
 } from '@material-ui/core';
 
 import {
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
   },
   toolbarAppName: {
     fontWeight: '500',
-    color: '#40da62',
+    color: '#00da5d',
   },
   toolbarAppNameSpan: {
     fontWeight: '500',
@@ -63,8 +63,8 @@ const useStyles = makeStyles(theme => ({
   },
   searchContainer: {
     display: 'flex',
-    marginTop: '5px',
-    marginBottom: '5px',
+    marginTop: '10px',
+    marginBottom: '10px',
     paddingTop: '5px',
     paddingBottom: '5px',
     paddingLeft: '20px',
@@ -76,13 +76,20 @@ const useStyles = makeStyles(theme => ({
     alignSelf: 'flex-end',
     marginBottom: '5px',
   },
+  searchInput: {
+    width: '200px',
+    margin: '5px',
+  },
   pokelistContainer: {
-    paddingTop: '20px',
-    paddingRight: '50px',
-    paddingLeft: '50px',
+    paddingTop: '40px',
+    paddingRight: '180px',
+    paddingLeft: '180px',
   },
   cardMedia: {
     margin: 'auto',
+    width: '140px',
+    height: '140px',
+    backgroundSize: 'contain',
   },
   cardContent: {
     textAlign: 'center',
@@ -96,7 +103,7 @@ const Pokelist = (props) => {
 
   useEffect(() => {
     axios
-    .get(`https://pokeapi.co/api/v2/pokemon?limit=100/`)
+    .get(`https://pokeapi.co/api/v2/pokemon?limit=20/`)
     .then(function (response) {
       const { data } = response;
       const { results } = data;
@@ -118,12 +125,11 @@ const Pokelist = (props) => {
     const { id, name, sprite } = pokemonData[pokemonId];
 
     return (
-      <Grid item xs={12} sm={4} key={pokemonId}>
+      <Grid item sm={4} key={pokemonId}>
         <Card onClick={() => history.push(`/${pokemonId}`)}>
           <CardMedia
             className={classes.cardMedia}
             image={sprite}
-            style={{ width: "120px", height: "120px" }}
           />
 
           <CardContent className={classes.cardContent}>
@@ -143,18 +149,30 @@ const Pokelist = (props) => {
               justifyContent: 'space-between',
               backgroundColor: '#fff'
             }}>
-            <img
-              className={classes.toolbarImage}
-              src={logoImg}
-              alt='looqbox ~ PokéList' />
 
-            <h1 className={classes.toolbarAppName}>Poké
-              <span className={classes.toolbarAppNameSpan}>List</span>
-            </h1>
+            <a
+              href="https://www.looqbox.com/en/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <img
+                className={classes.toolbarImage}
+                src={logoImg}
+                alt='looqbox ~ PokéList' />
+            </a>
+
+            <a href="/">
+              <h1 className={classes.toolbarAppName}>Poké
+                <span className={classes.toolbarAppNameSpan}>List</span>
+              </h1>
+            </a>
 
             <div className={classes.searchContainer}>
               <SearchIcon className={classes.searchIcon} />
-              <TextField className={classes.searchInput} />
+              <TextField
+                className={classes.searchInput}
+                variant='standard'
+                label='Search'
+              />
             </div>
           </Toolbar>
         </AppBar>
