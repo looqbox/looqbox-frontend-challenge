@@ -2,6 +2,8 @@ import { Route, Switch } from 'react-router-dom';
 import Pokelist from './Pokelist';
 import Pokemon from './Pokemon';
 
+import './styles/index.css';
+
 function App() {
   return (
     <Switch>
