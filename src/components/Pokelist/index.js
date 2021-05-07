@@ -22,6 +22,9 @@ const useStyles = makeStyles(theme => ({
     paddingRight: '180px',
     paddingLeft: '180px',
   },
+  card: {
+    cursor: 'pointer',
+  },
   cardMedia: {
     margin: 'auto',
     width: '140px',
@@ -63,7 +66,7 @@ const Pokelist = (props) => {
 
   useEffect(() => {
     axios
-    .get(`https://pokeapi.co/api/v2/pokemon?limit=50/`)
+    .get(`https://pokeapi.co/api/v2/pokemon?limit=10/`)
     .then(function (response) {
       const { data } = response;
       const { results } = data;
@@ -88,6 +91,7 @@ const Pokelist = (props) => {
       <Grid item sm={4} key={pokemonId}>
         <Card
           onClick={() => history.push(`/${pokemonId}/`)}
+          className={classes.card}
 
           aria-owns={open ? 'mouse-over-popover' : undefined}
           aria-haspopup="true"
