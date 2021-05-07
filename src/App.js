@@ -1,10 +1,11 @@
 import { Route, Switch } from 'react-router-dom';
+
 import Pokelist from './Pokelist';
 import Pokemon from './Pokemon';
 
 import './styles/global.css';
 
-function App() {
+export default function App() {
   return (
     <Switch>
       <Route
@@ -20,5 +21,3 @@ function App() {
     </Switch>
   )
 }
-
-export default App;

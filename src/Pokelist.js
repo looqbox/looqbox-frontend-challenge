@@ -13,11 +13,7 @@ import {
   Typography
 } from '@material-ui/core';
 
-import {
-  MuiThemeProvider,
-  createMuiTheme,
-  makeStyles
-} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Popover from '@material-ui/core/Popover';
 import SearchIcon from '@material-ui/icons/Search';
@@ -25,29 +21,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import { toFirstCharUpperCase } from './constants';
 
 import logoImg from '../src/assets/logo.png';
-
-const themeDefault = createMuiTheme({
-  palette: {
-    primary: {
-      light: '#33e17e',
-      main: '#00da5d',
-      dark: '#00c455',
-      contrastText: '#58595b',
-    },
-    secondary: {
-      light: '#e7e9ee',
-      main: '#f0f2f5',
-      dark: '#6d6e71',
-      contrastText: '#000',
-    },
-  },
-  typography: {
-    fontFamily: [
-      'Poppins',
-      'sans-serif',
-    ].join(','),
-  },
-})
 
 const useStyles = makeStyles(theme => ({
   toolbarImage: {
@@ -196,54 +169,52 @@ const Pokelist = (props) => {
 
   return (
     <>
-      <MuiThemeProvider theme={themeDefault}>
-        <AppBar position='static'>
-          <Toolbar
-            style={{
-              justifyContent: 'space-between',
-              backgroundColor: '#fff'
-            }}>
+      <AppBar position='static'>
+        <Toolbar
+          style={{
+            justifyContent: 'space-between',
+            backgroundColor: '#fff'
+          }}>
 
-            <a
-              href="https://www.looqbox.com/en/"
-              target="_blank"
-              rel="noopener noreferrer">
-              <img
-                className={classes.toolbarImage}
-                src={logoImg}
-                alt='looqbox ~ PokéList' />
-            </a>
+          <a
+            href="https://www.looqbox.com/en/"
+            target="_blank"
+            rel="noopener noreferrer">
+            <img
+              className={classes.toolbarImage}
+              src={logoImg}
+              alt='looqbox ~ PokéList' />
+          </a>
 
-            <a href="/">
-              <h1 className={classes.toolbarAppName}>Poké
-                <span className={classes.toolbarAppNameSpan}>List</span>
-              </h1>
-            </a>
+          <a href="/">
+            <h1 className={classes.toolbarAppName}>Poké
+              <span className={classes.toolbarAppNameSpan}>List</span>
+            </h1>
+          </a>
 
-            <div className={classes.searchContainer}>
-              <SearchIcon className={classes.searchIcon} />
-              <TextField
-                className={classes.searchInput}
-                onChange={handleSearchChange}
-                variant='standard'
-                label='Search'
-              />
-            </div>
-          </Toolbar>
-        </AppBar>
+          <div className={classes.searchContainer}>
+            <SearchIcon className={classes.searchIcon} />
+            <TextField
+              className={classes.searchInput}
+              onChange={handleSearchChange}
+              variant='standard'
+              label='Search'
+            />
+          </div>
+        </Toolbar>
+      </AppBar>
 
-        {pokemonData ? (
-          <Grid className={classes.pokelistContainer} container spacing={2}>
-            {Object.keys(pokemonData).map(
-              (pokemonId) =>
-                pokemonData[pokemonId].name.includes(filter) &&
-                getPokemonCard(pokemonId)
-            )}
-          </Grid>
-        ) : (
-          <CircularProgress />
-        )}
-      </MuiThemeProvider>
+      {pokemonData ? (
+        <Grid className={classes.pokelistContainer} container spacing={2}>
+          {Object.keys(pokemonData).map(
+            (pokemonId) =>
+              pokemonData[pokemonId].name.includes(filter) &&
+              getPokemonCard(pokemonId)
+          )}
+        </Grid>
+      ) : (
+        <CircularProgress />
+      )}
     </>
   )
 }
