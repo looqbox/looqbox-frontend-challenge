@@ -1,9 +1,8 @@
 import { Route, Switch } from 'react-router-dom';
 
 import { Header } from './components/Header';
-
-import Pokelist from './Pokelist';
-import Pokemon from './Pokemon';
+import Pokelist from './components/Pokelist';
+import Pokemon from './components/Pokemon';
 
 import './styles/global.css';
 
@@ -19,7 +18,7 @@ export default function App() {
         />
         <Route
           exact
-          path='/:pokemonId'
+          path='/:pokemonId/'
           render={(props) => <Pokemon {...props} />}
         />
       </Switch>

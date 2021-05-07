@@ -14,7 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Popover from '@material-ui/core/Popover';
 
-import { toFirstCharUpperCase } from './constants';
+import { toFirstCharUpperCase } from '../../constants/constants.js';
 
 const useStyles = makeStyles(theme => ({
   pokelistContainer: {
@@ -87,7 +87,7 @@ const Pokelist = (props) => {
     return (
       <Grid item sm={4} key={pokemonId}>
         <Card
-          onClick={() => history.push(`/${pokemonId}`)}
+          onClick={() => history.push(`/${pokemonId}/`)}
 
           aria-owns={open ? 'mouse-over-popover' : undefined}
           aria-haspopup="true"

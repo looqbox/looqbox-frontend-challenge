@@ -7,7 +7,7 @@ import { createBrowserHistory } from 'history';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
-import customTheme from './customtheme';
+import customTheme from '../src/themes/customtheme.js';
 
 import App from './App';
 

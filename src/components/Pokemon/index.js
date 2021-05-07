@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import { CircularProgress, Button, Link, Typography } from '@material-ui/core';
-import { toFirstCharUpperCase } from './constants';
+
+import { toFirstCharUpperCase } from '../../constants/constants.js';
 
 const Pokemon = props => {
   const { history, match } = props;
