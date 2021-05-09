@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
+import { api } from '../../services/api.js';
 
 import {
   Card,
@@ -69,8 +70,8 @@ const Main = (props) => {
   };
 
   useEffect(() => {
-    axios
-    .get(`https://pokeapi.co/api/v2/pokemon?limit=30/`)
+    api
+    .get('/pokemon?limit=30/')
     .then(function (response) {
       const { data } = response;
       const { results } = data;
