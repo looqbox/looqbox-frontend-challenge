@@ -88,7 +88,7 @@ const Pokelist = (props) => {
     const { id, name, sprite } = pokemonData[pokemonId];
 
     return (
-      <Grid item sm={4} key={pokemonId}>
+      <Grid item sm={3} key={pokemonId}>
         <Card
           onClick={() => history.push(`/${pokemonId}/`)}
           className={classes.card}

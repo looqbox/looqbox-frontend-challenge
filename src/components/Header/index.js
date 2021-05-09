@@ -4,7 +4,7 @@ import {
   TextField
 } from '@material-ui/core';
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -61,23 +61,23 @@ export function Header() {
           backgroundColor: '#fff'
         }}>
 
+        <a href='/'>
+          <h1 className={classes.toolbarAppName}>Poké
+            <span className={classes.toolbarAppNameSpan}>List</span>
+          </h1>
+        </a>
+
         <a
-          href="https://www.looqbox.com/en/"
-          target="_blank"
-          rel="noopener noreferrer">
+          href='https://www.looqbox.com/en/'
+          target='_blank'
+          rel='noopener noreferrer'>
           <img
             className={classes.toolbarImage}
             src={logoImg}
             alt='looqbox ~ PokéList' />
         </a>
 
-        <a href="/">
-          <h1 className={classes.toolbarAppName}>Poké
-            <span className={classes.toolbarAppNameSpan}>List</span>
-          </h1>
-        </a>
-
-        <div className={classes.searchContainer}>
+        {/* <div className={classes.searchContainer}>
           <SearchIcon className={classes.searchIcon} />
           <TextField
             className={classes.searchInput}
@@ -85,7 +85,7 @@ export function Header() {
             variant='standard'
             label='Search'
           />
-        </div>
+        </div> */}
       </Toolbar>
     </AppBar>
   )
