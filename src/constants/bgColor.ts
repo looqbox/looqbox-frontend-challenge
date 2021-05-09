@@ -4,7 +4,7 @@ export const bgColor: any = {
     fighting: 'linear(to-br, red.600, red.200)',
     flying: 'linear(to-br, blue.400, green.200)',
     ice: 'linear(to-br, cyan.500, cyan.200)',
-    normal: 'linear(to-br, orange.200,gray.100)',
+    normal: 'linear(to-br, orange.300,gray.200)',
     fire: 'linear(to-br, orange.500,gray.200)',
     water: 'linear(to-br, blue.500,blue.100)',
     poison: 'linear(to-br, purple.700,purple.400)',

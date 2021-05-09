@@ -85,7 +85,7 @@ export default function TabInfo({ pokemonInfo }) {
                     flexDirection={{ base: 'column', md: 'row' }}
                     alignItems="center"
                     color="black"
-                    mt={{ base: '6%', md: '8%', xl: '12%' }}
+                    mt={{ base: '2%', md: '8%', xl: '12%' }}
                 >
                     <TabInfoEvolutions pokemonInfo={pokemonInfo} />
                 </TabPanel>

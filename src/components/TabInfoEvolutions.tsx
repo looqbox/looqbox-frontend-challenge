@@ -1,11 +1,10 @@
-import { Heading,  Circle, Link, VStack,Image } from '@chakra-ui/react';
+import { Heading, Circle, Link, VStack, Image } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 import { api } from '../api/api';
 
 export default function TabInfoEvolutions({ pokemonInfo }) {
-
     const [imgFirstEvo, setImgFirstEvo] = useState('');
     const [nameFirstEvo, setNameFirstEvo] = useState('');
 
@@ -32,7 +31,7 @@ export default function TabInfoEvolutions({ pokemonInfo }) {
             species: { name: firstEvo },
             evolves_to,
         } = chain;
-        
+
         setNameFirstEvo(firstEvo);
 
         const responseFirst = await api.get(`pokemon/${firstEvo}`);
@@ -47,7 +46,7 @@ export default function TabInfoEvolutions({ pokemonInfo }) {
                 },
                 0: { evolves_to: evolesLast },
             } = evolves_to;
-            
+
             setNameSecondEvo(secondEvo);
             const responseSecond = await api.get(`pokemon/${secondEvo}`);
             setImgSecondEvo(
@@ -55,7 +54,6 @@ export default function TabInfoEvolutions({ pokemonInfo }) {
             );
 
             if (evolesLast.length) {
-                
                 const {
                     0: {
                         species: { name: lastEvo },
@@ -86,7 +84,7 @@ export default function TabInfoEvolutions({ pokemonInfo }) {
                             border="5px solid"
                             bg="gray.400"
                             size={{
-                                base: '80px',
+                                base: '60px',
                                 md: '150px',
                                 xl: '170',
                             }}
@@ -103,7 +101,7 @@ export default function TabInfoEvolutions({ pokemonInfo }) {
                             border="5px solid"
                             bg="gray.400"
                             size={{
-                                base: '80px',
+                                base: '60px',
                                 md: '150px',
                                 xl: '170',
                             }}
@@ -120,12 +118,12 @@ export default function TabInfoEvolutions({ pokemonInfo }) {
             ) : (
                 <Heading size="xl">Este pokemon não evolui</Heading>
             )}
-            {nameLastEvo ? (
+            {nameLastEvo && (
                 <VStack spacing="5px">
                     <Circle
                         border="5px solid"
                         bg="gray.400"
-                        size={{ base: '80px', md: '150px', xl: '170' }}
+                        size={{ base: '60px', md: '150px', xl: '170' }}
                     >
                         <Image objectFit="cover" src={imgLastEvo}></Image>
                     </Circle>
@@ -133,8 +131,6 @@ export default function TabInfoEvolutions({ pokemonInfo }) {
                         <Link href={`${nameLastEvo}`}>{nameLastEvo}</Link>
                     </Heading>
                 </VStack>
-            ) : (
-                <></>
             )}
         </>
     );

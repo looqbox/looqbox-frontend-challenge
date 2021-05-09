@@ -1,5 +1,5 @@
 export const typePokemon: any = {
-    grass: 'green.400', 
+    grass: 'green.300', 
     bug: 'green.700',
     fighting: 'red.600',
     flying: 'blue.200',

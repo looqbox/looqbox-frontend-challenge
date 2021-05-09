@@ -1,11 +1,11 @@
 import { Flex, Heading, Image, Link, Tag } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { typePokemon } from '../constants/typePokemon';
 import { bgColor } from '../constants/bgColor';
 
 import { api } from '../api/api';
 
-export default function CardPokemon({ namePokemon }) {
+function CardPokemon({ namePokemon }) {
     const [typesData, setTypesData] = useState([]);
     const [typePrimary, setTypePrimary] = useState('');
 
@@ -38,17 +38,14 @@ export default function CardPokemon({ namePokemon }) {
             h="40"
             borderRadius="20px"
             bgGradient={bgColor[typePrimary]}
-            style={{transition: 'all .2s ease-in-out' }}
+            style={{ transition: 'all .2s ease-in-out' }}
             _hover={{
-                transform:'scale(1.1)'
+                transform: 'scale(1.1)',
             }}
-            
         >
             <Flex justifyContent="center" w="100%" h="25%" pt="6px">
                 <Heading color="white" as="h3" fontSize="lg">
-                <Link href={`/pokemon/${namePokemon}`}>
-                    {namePokemon}
-                </Link>
+                    <Link href={`/pokemon/${namePokemon}`}>{namePokemon}</Link>
                 </Heading>
             </Flex>
             <Flex flexDirection="row" w="100%" h="75%">
@@ -65,6 +62,7 @@ export default function CardPokemon({ namePokemon }) {
                             <Tag
                                 key={index}
                                 size="md"
+                                width={{ xl: '70%' }}
                                 mt="18%"
                                 variant="solid"
                                 backgroundColor={typePokemon[type]}
@@ -87,3 +85,4 @@ export default function CardPokemon({ namePokemon }) {
         </Flex>
     );
 }
+export default memo(CardPokemon)

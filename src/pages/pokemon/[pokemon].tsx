@@ -7,8 +7,6 @@ import {
     Image,
     HStack,
     Tag,
-    SkeletonCircle,
-    SkeletonText,
 } from '@chakra-ui/react';
 
 import { api } from '../../api/api';
@@ -83,7 +81,7 @@ export default function Pokemon({ poke }) {
                         <Heading color="white" size={'2xl'}>
                             {query.pokemon}
                         </Heading>
-                        <HStack spacing="10px">
+                        <HStack mt="1%" spacing="10px">
                             {poke.types.map((typeData, index) => {
                                 const type = typeData.type.name;
                                 return (
