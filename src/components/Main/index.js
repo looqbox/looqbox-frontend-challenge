@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { api } from '../../services/api.js';
 
 import {
+  Breadcrumbs,
   Card,
   CardMedia,
   CardContent,
@@ -13,15 +14,21 @@ import {
   Typography
 } from '@material-ui/core';
 
-import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles } from '@material-ui/core/styles';
+import SearchIcon from '@material-ui/icons/Search';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 
 import { toFirstCharUpperCase } from '../../constants/constants.js';
 
 const useStyles = makeStyles(theme => ({
+  pokemonBreadcumbContainer: {
+    display: 'flex',
+    marginTop: '24px',
+    marginBottom: '24px',
+    paddingLeft: '24px',
+  },
   searchContainer: {
     display: 'flex',
-    marginTop: '32px',
     marginBottom: '64px',
     paddingTop: '5px',
     paddingBottom: '5px',
@@ -54,6 +61,14 @@ const useStyles = makeStyles(theme => ({
   },
   cardContent: {
     textAlign: 'center',
+  },
+  link: {
+    display: 'flex',
+  },
+  icon: {
+    marginRight: theme.spacing(0.5),
+    width: 20,
+    height: 20,
   },
 }));
 
@@ -113,6 +128,21 @@ const Main = (props) => {
 
   return (
     <>
+      <Grid
+        container
+        direction='row'
+        justify='flex-start'
+        alignItems='center'>
+        <div className={classes.pokemonBreadcumbContainer}>
+          <Breadcrumbs aria-label="breadcrumb">
+            <Typography color="textPrimary" className={classes.link}>
+              <HomeRoundedIcon className={classes.icon} />
+                PokéList
+            </Typography>
+          </Breadcrumbs>
+        </div>
+      </Grid>
+
       <Grid
         container
         direction='row'

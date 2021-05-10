@@ -1,10 +1,17 @@
-import { AppBar, Toolbar } from '@material-ui/core';
+import { useHistory } from "react-router-dom";
 
+import { AppBar, Link, Toolbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import logoImg from '../../assets/logo.png';
 
+
 const useStyles = makeStyles(theme => ({
+  toolbarHomeLink: {
+    '&:hover': {
+      textDecoration: 'none',
+    }
+  },
   toolbarImage: {
     width: '160px',
     height: '100%',
@@ -28,6 +35,12 @@ const useStyles = makeStyles(theme => ({
 export function Header() {
   const classes = useStyles();
 
+  const history = useHistory();
+
+  function handleClick() {
+    history.push("/");
+  }
+
   return (
     <AppBar position='static'>
       <Toolbar
@@ -36,11 +49,15 @@ export function Header() {
           backgroundColor: '#fff'
         }}>
 
-        <a href='/'>
+        <Link
+          className={classes.toolbarHomeLink}
+          component="button"
+          variant="body2"
+          onClick={handleClick}>
           <h1 className={classes.toolbarAppName}>Poké
             <span className={classes.toolbarAppNameSpan}>List</span>
           </h1>
-        </a>
+        </Link>
 
         <a
           href='https://www.looqbox.com/en/'
