@@ -22,9 +22,10 @@ You need to make a SPA that shows a list of pokemons, and search them, using the
 
 The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please mind how many times you request data
 
-In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-
-Searching and pressing enter on the search bar will show the result instead of the list
+- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
+- Clicking on any pokemon shows a card/modal/page with that pokemon's info
+- Searching and pressing enter on the search bar will show the result instead of the list
+- Your app needs at least two different routes (/home /more for example -> be creative!)
 
 You can use any dependency you want, (axios, bootstrap, material ui...)
 
