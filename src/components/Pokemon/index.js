@@ -153,7 +153,6 @@ const Pokemon = props => {
       <>
         <Grid
           container
-          direction='row'
           justify='flex-start'
           alignItems='center'>
           <div className={classes.pokemonBreadcumbContainer}>
@@ -175,7 +174,6 @@ const Pokemon = props => {
 
         <Grid
           container
-          direction='row'
           justify='center'
           alignItems='center'>
           <div className={classes.pokemonNameContainer}>
@@ -191,10 +189,8 @@ const Pokemon = props => {
         <Container maxWidth='md'>
           <Grid
             container
-            direction='row'
             justify='flex-start'
-            alignItems='center'
-            spacing={6}>
+            alignItems='center'>
             <Grid item xs={12}>
               <CardActionArea component='a' href='#'>
                 <Card className={classes.card}>
@@ -207,10 +203,9 @@ const Pokemon = props => {
                       <Grid
                         className={classes.cardContentGrid}
                         container
-                        direction='row'
                         justify='space-between'
                         alignItems='center'>
-                        <Grid direction='column'>
+                        <Grid>
                           <Typography
                             className={classes.cardContentInfo}
                             component='h2'
@@ -219,12 +214,12 @@ const Pokemon = props => {
                           </Typography>
                           <Typography
                             className={classes.cardContentData}
-                            component='subtitle1'
-                            variant='h5'>
+                            component='h2'
+                            variant='subtitle1'>
                               {heightCentimeterToMeter}m
                           </Typography>
                         </Grid>
-                        <Grid direction='column'>
+                        <Grid>
                           <Typography
                             className={classes.cardContentInfo}
                             component='h2'
@@ -233,8 +228,8 @@ const Pokemon = props => {
                           </Typography>
                           <Typography
                             className={classes.cardContentData}
-                            component='subtitle1'
-                            variant='h5'
+                            component='h2'
+                            variant='subtitle1'
                             color='primary'>
                               {weightGramToKilogram}kg
                           </Typography>
@@ -244,10 +239,9 @@ const Pokemon = props => {
                       <Grid
                         className={classes.cardContentGrid}
                         container
-                        direction='row'
                         justify='space-between'
                         alignItems='center'>
-                        <Grid direction='column'>
+                        <Grid>
                           <Typography
                             className={classes.cardContentInfo}
                             component='h2'
@@ -276,7 +270,7 @@ const Pokemon = props => {
                             );
                           })}
                         </Grid>
-                        <Grid direction='column'>
+                        <Grid>
                           <Typography
                             className={classes.cardContentInfo}
                             component='h2'
@@ -285,7 +279,7 @@ const Pokemon = props => {
                           </Typography>
                           <Typography
                             className={classes.cardContentData}
-                            component='subtitle1'
+                            component='h2'
                             variant='h5'
                             color='primary'>
                               {toFirstCharUpperCase(species.name)}
@@ -296,7 +290,6 @@ const Pokemon = props => {
                       <Grid
                         className={classes.cardContentGrid}
                         container
-                        direction='row'
                         justify='space-between'
                         alignItems='center'>
                         <Grid item xs={12}>
@@ -350,7 +343,6 @@ const Pokemon = props => {
       {pokemon !== undefined && (
         <Grid
           container
-          direction='row'
           justify='center'
           alignItems='center'>
           <div className={classes.backHomeContainer}>
