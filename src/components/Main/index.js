@@ -86,7 +86,7 @@ const Main = (props) => {
 
   useEffect(() => {
     api
-    .get('/pokemon?limit=30/')
+    .get('/pokemon?limit=898/')
     .then(function (response) {
       const { data } = response;
       const { results } = data;

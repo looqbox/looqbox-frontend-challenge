@@ -109,6 +109,10 @@ const useStyles = makeStyles(theme => ({
     fontSize: '48px',
     fontWeight: '400',
   },
+  pokemonNotFound: {
+    fontSize: '48px',
+    fontWeight: '600',
+  },
   link: {
     display: 'flex',
   },
@@ -337,9 +341,27 @@ const Pokemon = props => {
 
   return (
     <>
-      {pokemon === undefined && <CircularProgress />}
+      {pokemon === undefined && (
+        <Grid
+          container
+          justify='center'
+          alignItems='center'>
+          <div className={classes.backHomeContainer}>
+            <CircularProgress />
+          </div>
+        </Grid>
+      )}
       {pokemon !== undefined && pokemon && generatePokemon()}
-      {pokemon === false && <Typography>Pokemon not found!</Typography>}
+      {pokemon === false && (
+        <Grid
+          container
+          justify='center'
+          alignItems='center'>
+          <div className={classes.backHomeContainer}>
+            <Typography className={classes.pokemonNotFound}>Pokemon not found!</Typography>
+          </div>
+        </Grid>
+      )}
       {pokemon !== undefined && (
         <Grid
           container
