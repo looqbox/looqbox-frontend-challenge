@@ -6,7 +6,6 @@ import {
     Flex,
     Image,
     Input,
-    
     InputLeftElement,
     InputGroup,
     Grid,
@@ -23,24 +22,15 @@ import { api } from '../api/api';
 export default function Search() {
     const toast = useToast();
     const bgSearch = useColorModeValue('gray.100', 'gray.700');
-
     const [namePokemon, setNamePokemon] = useState('');
     const [pokemons, setPokemons] = useState([]);
-
-
     const [page, setPage] = useState(0);
 
     async function handleSearch() {
-        
         setPage(0);
-
         try {
             const nameLower = namePokemon.toLocaleLowerCase();
             const response = await api.get(`pokemon/${nameLower}`);
-        
-            
-            
-
             setPokemons([response.data]);
         } catch (err) {
             setPokemons([])
