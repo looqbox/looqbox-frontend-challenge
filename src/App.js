@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import Axios from 'axios'
-import PokemonList from './components/PokemonList'
+import axios from 'axios'
+import PokemonGrid from './components/PokemonGrid'
 import PagesButtons from'./components/PagesButtons'
 import './App.css'
 
@@ -8,28 +8,32 @@ function App() {
   const apiUrl = 'https://pokeapi.co/api/v2/pokemon'
 
   const [currentPageUrl, setCurrentPageUrl] = useState(apiUrl)
-  const [pokemon, setPokemon] = useState([])
+  const [pokemons, setPokemons] = useState([])
   const [prevPage, setPrevPage] = useState()
   const [nextPage, setNextPage] = useState()
 
-  useEffect(() => {
-    Axios.get(currentPageUrl).then(response => {
-      setPokemon(response.data.results.map(p => p.name ))
-      setPrevPage(response.data.previous)
-      setNextPage(response.data.next)
-    })
+  useEffect(() => { 
+    const fetchPokemons = async () => {
+      const result = await axios(currentPageUrl)
+
+      setPokemons(result.data.results.map(p => p.name))
+      setPrevPage(result.data.previous)
+      setNextPage(result.data.next)
+    }
+    fetchPokemons()
   }, [currentPageUrl])
 
   const goToPrevPage = () => setCurrentPageUrl(prevPage)
   const goToNextPage = () => setCurrentPageUrl(nextPage)
 
   return (
-    <div>
-      <PokemonList pokemon={pokemon} />
-      <PagesButtons 
-        goToPrevPage={prevPage ? goToPrevPage : null}
-        goToNextPage={nextPage ? goToNextPage : null}
-      />
+    <div className="container">
+        {console.log(pokemons)}
+        <PokemonGrid pokemons={pokemons} />
+        <PagesButtons 
+          goToPrevPage={prevPage ? goToPrevPage : null}
+          goToNextPage={nextPage ? goToNextPage : null}
+        />
     </div>
   )
 }

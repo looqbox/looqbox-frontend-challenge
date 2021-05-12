@@ -1,22 +1,24 @@
 import React from 'react'
 
-const PagesButtons = ({goToPrevPage, goToNextPage}) => {
+const PagesButtons = ({ goToPrevPage, goToNextPage }) => {
     return (
         <div>
             {goToPrevPage &&
-                <button 
+                <button
                     type="button"
                     className="btn btn-secondary"
                     onClick={goToPrevPage}>
-                        Previous
-                </button>}
+                    Previous
+                </button>
+            }
             {goToNextPage &&
-                <button 
+                <button
                     type="button"
-                    className="btn btn-primary" 
+                    className="btn btn-primary"
                     onClick={goToNextPage}>
-                        Next
-                </button>}
+                    Next
+                </button>
+            }
         </div>
     )
 }
