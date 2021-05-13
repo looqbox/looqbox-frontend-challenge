@@ -8,7 +8,7 @@ const PokemonGrid = ({ pokemons, isLoading }) => {
         <Spinner /> :
             <section className="cards">
                 {pokemons.map(pokemon => (
-                    <PokemonItem key={pokemon} pokemon={pokemon} />
+                    <PokemonItem key={pokemon.id} pokemon={pokemon} />
                 ))}
             </section>
 }

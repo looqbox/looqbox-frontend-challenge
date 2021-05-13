@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Search.css'
 
-const Search = () => {
+const Search = ({getQuery}) => {
+    const [search, setSearch] = useState("")
+    const onChange = (q) => {
+        setSearch(q)
+        getQuery(q)
+    }
+
     return (
         <section className="search">
             <form>
@@ -9,10 +15,8 @@ const Search = () => {
                     type="text"
                     className="form-control"
                     placeholder="Search Pokemons"
-                    /*
-                    value={''}
-                    onChange={''}
-                    */
+                    value={search}
+                    onChange={(e) => onChange(e.target.value)}
                     autoFocus
                 />
             </form>
