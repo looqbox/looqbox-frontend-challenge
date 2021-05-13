@@ -6,8 +6,12 @@ import { namespace } from "../../utils/_namespace"
 import { api } from '../../api'
 import { Card } from "../../components/Card";
 
+import { usePokemons } from "../../context/"
+
 export function Home() {
-  const [pokemons, setPokemons] = useState([])
+  const { pokemons, setPokemons } = usePokemons()
+
+  // const [pokemons, setPokemons] = useState([])
   const [isActive, setIsActive] = useState(false)
   const pokemonsNumber = 50;
 
