@@ -99,12 +99,3 @@
   display: flex;
   flex-wrap: wrap;
 }
-.#{$namespace}-Card {
-  flex: 1 0 20%;
-
-  &:hover {
-    filter: brightness(.8);
-    cursor: pointer;
-    transition: 400ms;
-  }
-}

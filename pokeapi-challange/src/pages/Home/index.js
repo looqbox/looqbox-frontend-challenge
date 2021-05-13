@@ -8,6 +8,7 @@ import { Card } from "../../components/Card";
 
 export function Home() {
   const [pokemons, setPokemons] = useState([])
+  const [isActive, setIsActive] = useState(false)
   const pokemonsNumber = 50;
 
   useEffect(() => {
@@ -37,13 +38,15 @@ export function Home() {
 
   function renderPokemons() {
     return pokemons.map(item => <Card
-      key={item.data.id}
-      name={item.data.name} 
-      image={item.data.sprites.other.dream_world.front_default} 
-      id={item.data.id}
-      color={item.colorPokemon}
-      pokemonsNumber={pokemonsNumber}
-    />)
+        key={item.data.id}
+        name={item.data.name} 
+        image={item.data.sprites.other.dream_world.front_default} 
+        id={item.data.id}
+        color={item.colorPokemon}
+        isActive={isActive}
+        setIsActive={setIsActive}
+        pokemonsNumber={pokemonsNumber}
+      />)
   }
 
   return (

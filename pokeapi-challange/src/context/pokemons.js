@@ -4,10 +4,10 @@ const PokemonsContext = createContext()
 
 export function PokemonsProvider({ children }) {
 
-    const [pokemons, setPokemons] = useState([])
+    const [isActivePokemon, setIsActivePokemon] = useState([])
 
     return (
-        <PokemonsContext.Provider value={{ pokemons, setPokemons }}>
+        <PokemonsContext.Provider value={{ isActivePokemon, setIsActivePokemon }}>
             {children}
         </PokemonsContext.Provider>
     )

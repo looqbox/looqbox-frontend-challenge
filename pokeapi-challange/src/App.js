@@ -1,11 +1,15 @@
 import { Home } from "./pages/Home";
 import './styles/index.scss';
 
+import Context from './context'
+
 function App() {
 
   return (
     <>
-        <Home/>
+        <Context>
+          <Home/>
+        </Context>
     </>
   );
 }
