@@ -9,8 +9,10 @@ const Search = () => {
                     type="text"
                     className="form-control"
                     placeholder="Search Pokemons"
+                    /*
                     value={''}
                     onChange={''}
+                    */
                     autoFocus
                 />
             </form>
