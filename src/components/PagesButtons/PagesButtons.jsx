@@ -1,12 +1,14 @@
 import React from 'react'
+import './PagesButtons.css'
 
 const PagesButtons = ({ goToPrevPage, goToNextPage }) => {
     return (
-        <div>
+        <div className='buttons'>
             {goToPrevPage &&
                 <button
                     type="button"
                     className="btn btn-secondary"
+                    id="button"
                     onClick={goToPrevPage}>
                     Previous
                 </button>
@@ -14,7 +16,7 @@ const PagesButtons = ({ goToPrevPage, goToNextPage }) => {
             {goToNextPage &&
                 <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-dark"
                     onClick={goToNextPage}>
                     Next
                 </button>

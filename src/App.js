@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import PokemonGrid from './components/PokemonGrid'
-import PagesButtons from'./components/PagesButtons'
+import Header from './components/Header/Header'
+import Search from './components/Search/Search'
+import PokemonGrid from './components/PokemonGrid/PokemonGrid'
+import PagesButtons from'./components/PagesButtons/PagesButtons'
 import './App.css'
 
 function App() {
@@ -11,14 +13,16 @@ function App() {
   const [pokemons, setPokemons] = useState([])
   const [prevPage, setPrevPage] = useState()
   const [nextPage, setNextPage] = useState()
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => { 
     const fetchPokemons = async () => {
-      const result = await axios(currentPageUrl)
+      const pokemonsData = await axios(currentPageUrl)
 
-      setPokemons(result.data.results.map(p => p.name))
-      setPrevPage(result.data.previous)
-      setNextPage(result.data.next)
+      setPokemons(pokemonsData.data.results.map(p => p.name))
+      setPrevPage(pokemonsData.data.previous)
+      setNextPage(pokemonsData.data.next)
+      setIsLoading(false)
     }
     fetchPokemons()
   }, [currentPageUrl])
@@ -28,12 +32,13 @@ function App() {
 
   return (
     <div className="container">
-        {console.log(pokemons)}
-        <PokemonGrid pokemons={pokemons} />
-        <PagesButtons 
-          goToPrevPage={prevPage ? goToPrevPage : null}
-          goToNextPage={nextPage ? goToNextPage : null}
-        />
+        <Header />
+        <Search />
+        <PokemonGrid pokemons={pokemons} isLoading={isLoading}/>
+          <PagesButtons
+            goToPrevPage={prevPage ? goToPrevPage : null}
+            goToNextPage={nextPage ? goToNextPage : null}
+          />
     </div>
   )
 }

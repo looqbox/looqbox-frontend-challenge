@@ -1,15 +1,16 @@
 import React from 'react'
-import PokemonItem from './PokemonItem'
-import '../App.css'
+import Spinner from '../Spinner/Spinner'
+import PokemonItem from '../PokemonItem/PokemonItem'
+import './PokemonGrid.css'
 
-const PokemonGrid = ({ pokemons }) => {
-    return (
+const PokemonGrid = ({ pokemons, isLoading }) => {
+    return isLoading ?
+        <Spinner /> :
             <section className="cards">
                 {pokemons.map(pokemon => (
                     <PokemonItem key={pokemon} pokemon={pokemon} />
                 ))}
             </section>
-        )
 }
 
 export default PokemonGrid
