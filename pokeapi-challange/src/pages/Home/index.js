@@ -1,44 +1,57 @@
 import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
 
+import { namespace } from "../../utils/_namespace"
+
 import { api } from '../../api'
+import { Card } from "../../components/Card";
 
 export function Home() {
-  const [ pokemons, setPokemons ] = useState([])
-  const pokemonsNumber = 10;
+  const [pokemons, setPokemons] = useState([])
+  const pokemonsNumber = 50;
 
-  useEffect(() =>{
-    (async () =>{
-      const getPokemons = await api.get(`pokemon?limit=${pokemonsNumber}`)
-      let { data } = getPokemons,
-          { results } = data
+  useEffect(() => {
 
-      setPokemons(results)
+    (async ()=>{
+      const listInfoPokemon = []
+      const listPokemon = await api.get(`pokemon?limit=${pokemonsNumber}`)
+      const { data:{ results } } = listPokemon
+      
+      for( let item of results) {
+        const infoPokemon = await api.get(`pokemon/${item.name}`)
+        const { data } = infoPokemon
+
+        const infoSpeciePokemon = await api.get(`pokemon-species/${item.name}`)
+        const colorPokemon = infoSpeciePokemon.data.color.name
+        listInfoPokemon.push({
+          data,
+          colorPokemon
+        })
+      }
+      setPokemons(listInfoPokemon)
 
     })()
-  },[setPokemons])
-  
-  function renderPokemons(){
-    let items = {}
-    pokemons.map((item, index) => {
-      api.get(`pokemon/${item.name}`)
-      .then((pokemon) => {
-        
-        items[index+1] = {
-          name : pokemon.data.name,
-          height : pokemon.data.height,
-          weight : pokemon.data.weight,
-          image : pokemon.data.sprites.other.dream_world.front_default
-        }
-      })
-    })
-    console.log(items)
+
+
+  }, [])
+
+  function renderPokemons() {
+    return pokemons.map(item => <Card
+      key={item.data.id}
+      name={item.data.name} 
+      image={item.data.sprites.other.dream_world.front_default} 
+      id={item.data.id}
+      color={item.colorPokemon}
+      pokemonsNumber={pokemonsNumber}
+    />)
   }
 
   return (
     <>
       <Header />
-      {renderPokemons()}
+      <div className={`${namespace}-Wrapper-Card`}>
+        {renderPokemons()}
+      </div>
     </>
   );
 }

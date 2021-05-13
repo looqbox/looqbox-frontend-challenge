@@ -1,0 +1,25 @@
+.#{$namespace}-Card {
+  flex: 1 0 20%;
+  padding: 32px;
+  display: inline-flex; 
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    font-size: 32px; 
+    font-family: 'Lato'; 
+    margin-bottom: 32px;
+    text-transform: capitalize;
+  }
+
+  img {
+    height: 200px;
+    width: 200px;
+  }
+
+  &:hover {
+    filter: brightness(.8);
+    cursor: pointer;
+    transition: 400ms;
+  }
+}
