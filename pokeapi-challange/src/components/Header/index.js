@@ -38,6 +38,7 @@ export function Header() {
               <img src={search} alt={`icon search`} />
             </button>
             <input 
+              placeholder={'Pikachu...'}
               value={inputSearchValue}
               onChange={(event) => onChangeInput(event)}
               onFocus={() => handleFocus()}
