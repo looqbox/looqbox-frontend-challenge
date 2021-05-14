@@ -17,9 +17,7 @@ SPA project containing the components:
 		(fetchPokemons) is an asynchronous function that consumes the data from the current API url and returns a JSON, through the function 			(createPokemonObject) we pass this JSON to an object and store the value in the constant state (pokemons)
 		the constant (NextPage) aims to load more data
 		still inside Hook, the function (results) is used to filter the results according to the entered value then we store the values ​​in an array
-
 		still within App.js, it renders the following components: (Header, Search, PokemonGrid, PagesButtons)
-
 
 About the components, I stored all of them in an organized way, each with its folder containing the JSX file and its CSS styling
 	- Header
