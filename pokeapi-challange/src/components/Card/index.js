@@ -1,3 +1,4 @@
+import React from 'react';
 import { namespace } from '../../utils/_namespace'
 
 import search from './assets/search.svg'
@@ -19,7 +20,7 @@ export function Card({
   const isInverseColor = { color: isInverse && 'black'}
 
   function renderListStats() { 
-    return stats.map(item => <li>
+    return stats.map(item => <li key={item.name}>
       <p>{item.stat.name} : {item.base_stat}</p>
     </li>)
   }

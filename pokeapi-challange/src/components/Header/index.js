@@ -1,4 +1,4 @@
-import {useState } from 'react'
+import React, {useState } from 'react'
 import { namespace } from '../../utils/_namespace'
 
 import logo from './assets/logo.png'

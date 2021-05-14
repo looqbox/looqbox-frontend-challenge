@@ -1,3 +1,4 @@
+import React from 'react'
 import { namespace } from '../../utils/_namespace'
 
 import loading from './assets/loading.gif'
