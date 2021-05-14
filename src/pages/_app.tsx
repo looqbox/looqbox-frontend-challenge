@@ -1,12 +1,15 @@
 import HomeTemplate from "../templates/pages/Home";
 
-import "../styles/globals.css";
+import GlobalStyles from "../styles/global";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <HomeTemplate>
-      <Component {...pageProps} />
-    </HomeTemplate>
+    <>
+      <HomeTemplate>
+        <Component {...pageProps} />
+      </HomeTemplate>
+      <GlobalStyles />
+    </>
   );
 }
 

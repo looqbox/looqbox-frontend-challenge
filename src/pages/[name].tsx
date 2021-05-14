@@ -10,7 +10,6 @@ import styles from "../styles/PokemonInfo.module.css";
 
 const PokemonInfo = ({ pokemon }) => {
 
-  console.log('pokemon :>> ', pokemon);
   const { name, types, stats, abilities } = pokemon;
 
   return (
