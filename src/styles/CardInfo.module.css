@@ -1,7 +1,6 @@
 .gridContainer {
   display: grid;
   grid-template-columns: auto auto;
-  padding: 10px;
 }
 
 .gridItem {
@@ -9,10 +8,24 @@
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   padding: 20px;
-  text-align: center;
-  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
 }
 
-.image{
+.gridItem h2 {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0px;
+}
+
+.gridItem h3 {
+  font-size: 24px;
+  margin: 8px 0px;
+  padding-bottom: 30px;
+}
+
+.gridItem img {
   width: 200px;
+  display: flex;
+  margin: auto;
 }

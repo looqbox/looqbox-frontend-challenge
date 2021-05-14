@@ -1,12 +1,26 @@
 .containerStyles {
   height: 50px;
-  display: flex;
-  flex-direction: column;
-  max-width: 14rem;
+}
+
+.containerStyles progress[value] {
+  width: 100%;
 }
 
 .textGroups {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.textGroups label {
+  text-transform: capitalize;
+}
+
+.containerStyles progress[value]::-webkit-progress-bar {
+}
+
+.containerStyles progress[value]::-webkit-progress-value {
+}
+
+.containerStyles progress[value]::-webkit-progress-inner-element {
 }

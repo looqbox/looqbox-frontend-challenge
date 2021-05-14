@@ -6,10 +6,10 @@ const ProgressBar = ({ completed, max, stat }) => {
   return (
     <div className={styles.containerStyles}>
       <div className={styles.textGroups}>
-        <span>{stat}</span>
+        <label htmlFor="progress">{`${stat}`}</label>
         <span>{(completed / max) * 100}%</span>
       </div>
-      <progress value={completed} max={max} />
+      <progress id="progress" value={completed} max={max} />
     </div>
   );
 };

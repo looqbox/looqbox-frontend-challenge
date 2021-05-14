@@ -2,14 +2,16 @@ import React from "react";
 
 import Stats from "../components/Stats";
 import Badge from "../components/Badge";
-import CardInfo from "../components/InfoCard";
+import CardInfo from "../components/CardInfo";
 import BackButton from "../components/BackButton";
+import AbilityCard from "../components/AbilityCard";
 
 import styles from "../styles/PokemonInfo.module.css";
 
 const PokemonInfo = ({ pokemon }) => {
 
-  const { name, types, stats } = pokemon;
+  console.log('pokemon :>> ', pokemon);
+  const { name, types, stats, abilities } = pokemon;
 
   return (
     <div className={styles.container}>
@@ -24,8 +26,21 @@ const PokemonInfo = ({ pokemon }) => {
 
       <CardInfo pokemon={pokemon} />
 
-      <h2>Stats</h2>
-      <Stats stats={stats} />
+      <div className={styles.gridContainer}>
+        <div>
+          <h2>Stats</h2>
+          <div className={styles.gridItem}>
+            <Stats stats={stats} />
+          </div>
+        </div>
+        <div>
+          <h2>Abilities</h2>
+          <div className={styles.gridItem}>
+            <AbilityCard abilities={abilities} />
+          </div>
+        </div>
+      </div>
+
       <BackButton />
     </div>
   );
