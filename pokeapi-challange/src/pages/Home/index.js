@@ -25,9 +25,11 @@ export function Home() {
     (async ()=>{
       setIsLoading(true)
       const listInfoPokemon = []
+      //Buscando Api principal para armezar os nomes dos pokemons
       const listPokemon = await api.get(`pokemon?limit=${pokemonsNumber}`)
       const { data:{ results } } = listPokemon
       
+      //Loop para buscar cada info do pokemon a partir do nomes armazenados
       for( let item of results) {
         const infoPokemon = await api.get(`pokemon/${item.name}`)
         const { data } = infoPokemon
@@ -35,12 +37,17 @@ export function Home() {
         const infoSpeciePokemon = await api.get(`pokemon-species/${item.name}`)
         const colorPokemon = infoSpeciePokemon.data.color.name
         const japoneseName = infoSpeciePokemon.data.names[0].name
+        //Alimantando o array com todas as infos dos pokemons que será utilizada na aplicação
         listInfoPokemon.push({
           data,
           colorPokemon,
           japoneseName
         })
       }
+      /* setando os contextos com todas as infos dos pokemons
+      * setPokemons - contexto principal onde nunca será alterado a partir de uma pesquisa, assim sendo referencia para quando uma pesquisa for vazia poder adicionar ao state setListedPokemons
+      * setListedPokemons - Como falado acima, esse estado é o responsável por listar os pokemons, assim quando uma pesquisa for valida, ele quem é atualizado/manipulado
+      */
       setPokemons(listInfoPokemon)
       setListedPokemons(listInfoPokemon)
       setIsLoading(false)
@@ -51,12 +58,14 @@ export function Home() {
   }, [setPokemons, setListedPokemons, setIsLoading, pokemonsNumber])
 
 
-
+  //Iniciando o envento de observe, e toda vez que o evento for ativado, ira atualizar o valor do ratio
   const intersectionObserver = new IntersectionObserver((entries => {
     const radio = entries[0].intersectionRatio;
     setScrollRadio(radio);
   }));
 
+
+  //referenciando em qual lugar o observe vai atuar, sendo assim na ref scrollObserve
   useEffect(() => {
     intersectionObserver.observe(scrollObserve.current)
 
@@ -65,14 +74,15 @@ export function Home() {
     };
   },[intersectionObserver])
 
-
+  //a cada mudança do scrollRadio, essa função é disparada, assim fazendo uma nova requisição para listar os próximos 50 pokemons
   useEffect(() => {
     if(scrollRadio > 0 && pokemonsNumber < 1118 && listedPokemons.length > 2) {
-        // console.log(scrollRadio)
       setPokemonsNumber(pokemonsNumber + 50)
     }
   },[setPokemonsNumber, scrollRadio])
 
+
+  //Component card montado e preparado para ja receber as info unitarias dos pokemons a partir de um map
   function renderPokemons() {
     return listedPokemons.map(item => <Card
         key={item.data.id}
