@@ -1,0 +1,12 @@
+.containerStyles {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  max-width: 14rem;
+}
+
+.textGroups {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

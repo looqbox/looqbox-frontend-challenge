@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: auto;
+  height: 100%;
+}
+
+.headerInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.headerInfo h2{
+  text-transform: capitalize;
+}

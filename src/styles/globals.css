@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
 }
 
 a {
@@ -13,4 +13,48 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+
+:root {
+  --background_normal: rgba(164, 172,175, 0.6);
+  --tag_normal: #A4ACAF;
+  --background_fighting: rgba(213, 103, 35, 0.6);
+  --tag_fighting: #D56723;
+  --background_flying: rgba(61,199,239,0.6);
+  --tag_flying: #3DC7EF;
+  --background_poison: rgba(185,127,201,0.6);
+  --tag_poison: #B97FC9;
+  --background_ground: rgba(247,222,63,0.6);
+  --tag_ground: #F7DE3F;
+  --background_rock: rgba(163,140,33,0.6);
+  --tag_rock: #A38C21;
+  --background_bug:rgba(114,159,64,0.6);
+  --tag_bug: #729F40;
+  --background_ghost: rgba(123,98,163, 0.6);
+  --tag_ghost: #7B62A3;
+  --background_steel: rgba(158,183,184,0.6);
+  --tag_steel: #9EB7B8;
+  --background_fire: rgba(253,125,36,0.6);
+  --tag_fire: #FD7D24;
+  --background_water: rgba(69,146,196,0.6);
+  --tag_water: #4592C4;
+  --background_grass: rgba(155,204,80,0.6);
+  --tag_grass: #9BCC50;
+  --background_electric: rgba(238,213,53,0.6);
+  --tag_electric: #EED535;
+  --background_psychic: rgba(244,103,186,0.6);
+  --tag_psychic: #F467BA;
+  --background_ice: rgba(81,196,231,0.6);
+  --tag_ice: #51C4E7;
+  --background_dragon: rgba(241,110,87,0.6);
+  --tag_dragon: #F16E57;
+  --background_dark: rgba(112,112,112,0.6);
+  --tag_dark: #707070;
+  --background_fairy: rgba(253,185,233,0.6);
+  --tag_fairy: #FDB9E9;
+  --background_unknown: rgba(196,196,196,0.6);
+  --tag_unknown: #C4C4C4;
+  --background_shadow: rgba(189,185,184,0.6);
+  --tag_shadow: #BDB9B8;
 }

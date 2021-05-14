@@ -1,11 +1,28 @@
-import React from 'react'
+import { useState } from "react";
 
-const SearchBar = () => {
+import styles from "../../styles/SearchBar.module.css";
+
+export default function SearchBar({ onSearch }) {
+  const [search, setSearch] = useState<string>("");
+
   return (
-    <div>
-      SearchBar
-    </div>
-  )
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSearch(search);
+      }}
+    >
+      <input
+        className={styles.input}
+        name="query"
+        type="search"
+        placeholder="Type your search..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <button type="submit" className={styles.button}>
+        Search
+      </button>
+    </form>
+  );
 }
-
-export default SearchBar

@@ -1,12 +1,12 @@
-import "../styles/globals.css";
+import HomeTemplate from "../templates/pages/Home";
 
-import ContextWrapper from "../components/ContextWrapper";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ContextWrapper>
+    <HomeTemplate>
       <Component {...pageProps} />
-    </ContextWrapper>
+    </HomeTemplate>
   );
 }
 

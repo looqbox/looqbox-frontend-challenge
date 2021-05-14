@@ -9,7 +9,7 @@ We will not use anything from your project and you are free to use it in your po
 ## Stack
 We use:
 - ReactJS for the front end framework
-- Webpack and Yarn for dependency management and local deployment
+- Yarn for dependency management and local deployment
 
 But you can use Node and Npm if you prefer :)
 
