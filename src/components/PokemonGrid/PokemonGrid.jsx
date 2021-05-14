@@ -1,4 +1,3 @@
-import React from 'react'
 import Spinner from '../Spinner/Spinner'
 import PokemonItem from '../PokemonItem/PokemonItem'
 import './PokemonGrid.css'

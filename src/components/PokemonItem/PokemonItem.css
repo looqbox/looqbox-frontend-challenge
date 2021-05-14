@@ -1,16 +1,84 @@
+.rock {
+    background-color: rgb(148, 81, 81);
+}
+.ghost {
+    background-color: rgb(247, 247, 247);
+}
+.electric, .steel {
+    background-color: rgb(255, 255, 161);
+}
+.bug, .ice {
+    background-color: #f6d6a7;
+}
+.poison, .ground, .fighting, .psychic {
+    background-color: #e0a7f6;
+}
+.normal {
+    background-color: #f4f4f4;
+}
+.fairy, .dragon {
+    background-color: rgb(255, 192, 203);
+}
+.fire {
+    background-color: #fbe3df;
+}
+.grass {
+    background-color: #e2f9e1;
+}
+.water, .dark {
+    background-color: #e0f1fd;
+}
+
+.rock-back {
+    background-color: rgba(82, 44, 44);
+}
+.ghost-back {
+    background-color: rgb(158, 157, 157);
+}
+.electric-back, .steel-back {
+    background-color: rgb(182, 182, 117);
+}
+.bug-back, .ice-back{
+    background-color: #ac9675;
+}
+.poison-back, .ground-back, .fighting-back, .psychic-back {
+    background-color: #9a72aa;
+}
+.normal-back {
+    background-color: #969696;
+}
+.fairy-back, .dragon-back {
+    background-color: rgba(165, 122, 129);
+}
+.fire-back {
+    background-color: #978683;
+}
+.grass-back {
+    background-color: #809180;
+}
+.water-back, .dark-back {
+    background-color: #727c83;
+}
+
 .card {
     cursor: pointer;
-    background-color: transparent;
     height: 300px;
     perspective: 1000px;
+    background-color: transparent;
+    border-color: transparent;
 }
 
 .card-front h2 {
     font-size: 25px;
-    border-bottom: 1px #fff solid;
+    border-bottom: 1px rgba(51, 51, 51, 0.124) solid;
     padding-bottom: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
+    text-transform: uppercase;
+}
+
+h3 {
+    text-transform: uppercase;
 }
 
 .card-inner {
@@ -31,26 +99,26 @@
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    background-color: #333;
     text-align: center;
 }
 
 .card li {
     list-style: none;
     padding-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .card-front,
 .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 5%;
 }
 
 .card-back {
-    background-color: #333;
     color: white;
     padding: 20px;
     transform: rotateY(180deg);

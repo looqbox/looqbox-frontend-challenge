@@ -11,7 +11,7 @@ function App() {
 
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/`
 
-  
+
   const [currentPageUrl, setCurrentPageUrl] = useState(`${apiUrl}`)
   const [nextPage, setNextPage] = useState()
   const [pokemons, setPokemons] = useState([])
@@ -19,6 +19,7 @@ function App() {
 
   useEffect(() => {
     const fetchPokemons = async () => {
+
       const res = await fetch(`${currentPageUrl}`)
       const data = await res.json()
 
@@ -46,7 +47,7 @@ function App() {
       {console.log(pokemons)}
       <Header />
       <Search getQuery={(q) => setQuery(q)} />
-      <PokemonGrid pokemons={pokemons} isLoading={isLoading}/>
+      <PokemonGrid key={pokemons.id} pokemons={pokemons} isLoading={isLoading} />
       <PagesButtons
         goToNextPage={nextPage ? goToNextPage : null}
       />

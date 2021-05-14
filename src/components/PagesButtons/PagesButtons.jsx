@@ -1,7 +1,7 @@
 import React from 'react'
 import './PagesButtons.css'
 
-const PagesButtons = ({ goToPrevPage, goToNextPage }) => {
+const PagesButtons = ({ goToNextPage }) => {
     return (
         <div className='buttons'>
             {goToNextPage &&
