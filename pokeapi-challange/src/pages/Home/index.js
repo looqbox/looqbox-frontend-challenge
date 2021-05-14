@@ -9,7 +9,7 @@ import { Card } from "../../components/Card";
 import { usePokemons } from "../../context/"
 
 export function Home() {
-  const { pokemons, setPokemons } = usePokemons()
+  const { pokemons, setPokemons, listedPokemons, setListedPokemons} = usePokemons()
 
   // const [pokemons, setPokemons] = useState([])
   const [isActive, setIsActive] = useState(false)
@@ -36,14 +36,15 @@ export function Home() {
         })
       }
       setPokemons(listInfoPokemon)
+      setListedPokemons(listInfoPokemon)
 
     })()
 
 
-  }, [setPokemons])
+  }, [setPokemons, setListedPokemons])
 
   function renderPokemons() {
-    return pokemons.map(item => <Card
+    return listedPokemons.map(item => <Card
         key={item.data.id}
         name={item.data.name} 
         image={item.data.sprites.other.dream_world.front_default} 

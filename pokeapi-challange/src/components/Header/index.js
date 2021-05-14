@@ -4,13 +4,42 @@ import { namespace } from '../../utils/_namespace'
 import logo from './assets/logo.png'
 import search from './assets/search.svg'
 
+import { usePokemons } from '../../context'
+
 export function Header() {
+  const { pokemons, setPokemons, listedPokemons, setListedPokemons} = usePokemons()
 
   const [isFocused, setIsFocused] = useState(false)
+  const [pokemonNotFounded, setPokemonNotFounded] = useState(false)
   const [inputSearchValue, setInputSearchValue] = useState('')
   
   async function handleSubmitForm(ev) { 
     ev && ev.preventDefault()
+
+    let inputValue = inputSearchValue.toLocaleLowerCase()
+
+    await pokemons.filter(function (pokemon) {
+      if(inputValue.length <= 0 ) {
+        setListedPokemons(pokemons)
+        setPokemonNotFounded('Por favor, digite o nome ou código de um pokemon válido')
+        setTimeout(() => {
+          setPokemonNotFounded('')
+        }, 6000);
+      }
+      if(pokemon.data.name === inputValue || pokemon.data.id === Number(inputValue)) {
+        setListedPokemons([pokemon])
+      }
+
+      // if(inputSearchValue !== pokemon.data.name || Number(inputSearchValue) !== pokemon.data.id) {
+      //   setListedPokemons(pokemons)
+      //   setPokemonNotFounded(true)
+      //   setTimeout(() => {
+      //     setPokemonNotFounded(false)
+      //   }, 2000)  
+      // }
+
+
+    });
   }
 
   function handleFocus() { 
@@ -27,6 +56,7 @@ export function Header() {
   
   
   return (
+    <>
     <header className={`${namespace}-Header ${isFocused ? `${namespace}-Header--isActive` : ''}`}>
       <div className={`${namespace}-Header-content`}>
         <div className={`${namespace}-Header-logo`}>
@@ -47,5 +77,13 @@ export function Header() {
         </div>
       </div>
     </header>
+    {pokemonNotFounded.length > 1 ?
+    <div className={`${namespace}-Header-alert`}>
+      Pokemon não encontrado! 
+      <br/>
+      <br/>
+      {pokemonNotFounded}
+    </div> : ''}
+    </>
   );
 }

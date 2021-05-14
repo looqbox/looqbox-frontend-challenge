@@ -67,12 +67,16 @@ export function Card({
     </div>
     <div className={`${namespace}-Card-body`}>
 
-      <img src={image} alt={`name of ${name}`}/>
+      <div className={`${namespace}-Card-body-img`}>
+        <img src={image} alt={`name of ${name}`}/>
+      </div>
 
       {isActiveCard ? 
         <div className={`${namespace}-Card-body-bases-content`}>
           <div className={`${namespace}-Card-body-bases`}>
-            <p className={`${namespace}-Card-body-bases-title`}> base stats </p>
+            <p className={`${namespace}-Card-body-bases-title`} style={isInverseColor}> 
+              base stats 
+            </p>
             <ul>
               {renderListStats()}
             </ul>

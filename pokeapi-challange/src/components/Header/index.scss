@@ -91,8 +91,37 @@
       } 
     }
   }
+
+  &-alert {
+    position: absolute;
+    z-index: 99;
+    width : 350px;
+    background-color : $red_opaque;
+    padding : 12px;
+    bottom : 40px;
+    right: 0;
+    animation: inAlert 6s;
+    transform: translateX(100%);
+    border-radius : 8px;
+    color : $white;
+  }
 }
 
+
+@keyframes inAlert {
+ 0% {
+  transform: translateX(100%)
+ } 
+ 10% {
+  transform: translateX(0%)
+ }
+ 89% {
+  transform: translateX(0%)
+ }
+ 90% {
+  transform: translateX(100%)
+ }
+}
 
 
 .#{$namespace}-Wrapper-Card { 
