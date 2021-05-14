@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 
 import icon_search from '../../assets/icons/search.svg';
-const Header = () => {
+const Header: React.FC = () => {
     return (
         <header className={styles.container}>
             <div className={styles.content}>
