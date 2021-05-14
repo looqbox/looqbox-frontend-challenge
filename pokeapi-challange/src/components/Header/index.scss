@@ -20,6 +20,9 @@
   background-color: $red_opaque;
 
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  z-index: 98;
 
   &-content {
     flex: 1;
@@ -127,4 +130,5 @@
 .#{$namespace}-Wrapper-Card { 
   display: flex;
   flex-wrap: wrap;
+  margin-top : 150px;
 }

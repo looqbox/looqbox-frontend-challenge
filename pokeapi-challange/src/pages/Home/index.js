@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Header } from "../../components/Header";
 
 import { namespace } from "../../utils/_namespace"
@@ -11,9 +11,15 @@ import { Loading } from "../../components/Loading";
 
 export function Home() {
   const { setPokemons, listedPokemons, setListedPokemons, isLoading, setIsLoading } = usePokemons()
+  
+  
   const [isActive, setIsActive] = useState(false)
-  const pokemonsNumber = 50;
+  const [scrollRadio, setScrollRadio] = useState(null)
+  const [pokemonsNumber, setPokemonsNumber] = useState(50)
 
+  const scrollObserve = useRef();
+
+  
   useEffect(() => {
 
     (async ()=>{
@@ -42,7 +48,29 @@ export function Home() {
     })()
 
 
-  }, [setPokemons, setListedPokemons, setIsLoading])
+  }, [setPokemons, setListedPokemons, setIsLoading, pokemonsNumber])
+
+
+
+  const intersectionObserver = new IntersectionObserver((entries => {
+    const radio = entries[0].intersectionRatio;
+    setScrollRadio(radio);
+  }));
+
+  useEffect(() => {
+    intersectionObserver.observe(scrollObserve.current)
+
+    return () => {
+      intersectionObserver.disconnect();
+    };
+  },[intersectionObserver])
+
+
+  useEffect(() => {
+    if(scrollRadio > 0 && pokemonsNumber < 1118) {
+      setPokemonsNumber(pokemonsNumber + 50)
+    }
+  },[setPokemonsNumber, scrollRadio])
 
   function renderPokemons() {
     return listedPokemons.map(item => <Card
@@ -68,6 +96,7 @@ export function Home() {
       <Header />
       <div className={`${namespace}-Wrapper-Card`}>
         {renderPokemons()}
+        <div ref={scrollObserve}></div>
       </div>
     </>
   );
