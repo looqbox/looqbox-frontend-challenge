@@ -1,5 +1,6 @@
 import Head from "next/head";
-import styles from "../../../styles/Home.module.css";
+
+import * as S from "./styles";
 
 export default function HomeTemplate({ children }) {
   return (
@@ -9,7 +10,7 @@ export default function HomeTemplate({ children }) {
         <meta name="description" content="Pokedex using NextJs" />
         <link rel="icon" href="/pokeball.ico" />
       </Head>
-      <div className={styles.container}>{children}</div>
+      <S.Container>{children}</S.Container>
     </>
   );
 }

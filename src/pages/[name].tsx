@@ -6,42 +6,41 @@ import CardInfo from "../components/CardInfo";
 import BackButton from "../components/BackButton";
 import AbilityCard from "../components/AbilityCard";
 
-import styles from "../styles/PokemonInfo.module.css";
+import * as S from "./styles";
 
 const PokemonInfo = ({ pokemon }) => {
-
   const { name, types, stats, abilities } = pokemon;
 
   return (
-    <div className={styles.container}>
-      <div className={styles.headerInfo}>
-        <h2>{name}</h2>
-        <div className={styles.badgeGroup}>
+    <S.Container>
+      <S.HeaderInfo>
+        <S.Title>{name}</S.Title>
+        <div>
           {types.map((type) => {
             return <Badge type={type.type.name} />;
           })}
         </div>
-      </div>
+      </S.HeaderInfo>
 
       <CardInfo pokemon={pokemon} />
 
-      <div className={styles.gridContainer}>
+      <S.GridContainer>
         <div>
-          <h2>Stats</h2>
-          <div className={styles.gridItem}>
+          <S.Title>Stats</S.Title>
+          <S.GridItem>
             <Stats stats={stats} />
-          </div>
+          </S.GridItem>
         </div>
         <div>
-          <h2>Abilities</h2>
-          <div className={styles.gridItem}>
+          <S.Title>Abilities</S.Title>
+          <S.GridItem>
             <AbilityCard abilities={abilities} />
-          </div>
+          </S.GridItem>
         </div>
-      </div>
+      </S.GridContainer>
 
       <BackButton />
-    </div>
+    </S.Container>
   );
 };
 
