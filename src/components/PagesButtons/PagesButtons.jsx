@@ -1,3 +1,4 @@
+//one button to load more items on the screen
 import React from 'react'
 import './PagesButtons.css'
 
@@ -9,7 +10,7 @@ const PagesButtons = ({ goToNextPage }) => {
                     type="button"
                     className="btn btn-dark"
                     onClick={goToNextPage}>
-                    Load more
+                    Next
                 </button>
             }
         </div>

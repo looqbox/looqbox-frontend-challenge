@@ -1,12 +1,7 @@
-import { useState } from 'react'
+//The input receives the value entered by the user in the search bar
 import './Search.css'
 
-const Search = ({getQuery}) => {
-    const [search, setSearch] = useState("")
-    const onChange = (q) => {
-        setSearch(q)
-        getQuery(q)
-    }
+const Search = ({value, onChange}) => {
 
     return (
         <section className="search">
@@ -15,9 +10,8 @@ const Search = ({getQuery}) => {
                     type="text"
                     className="form-control"
                     placeholder="Search Pokemons"
-                    value={search}
-                    onChange={(e) => onChange(e.target.value)}
-                    autoFocus
+                    value={value}
+                    onChange={onChange}
                 />
             </form>
         </section>

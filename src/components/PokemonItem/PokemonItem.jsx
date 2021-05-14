@@ -1,8 +1,11 @@
+//it is each card shown on the screen
 import './PokemonItem.css'
 
 const PokemonItem = ({ pokemon }) => {
 
-    const type = pokemon.types[0].type.name
+    const type = pokemon.types[0].type.name //pokemons's type literally
+    
+    //it made it easier for me to define a specific color background
     const style = `${type} card-front`
     const styleBack = `${type}-back card-back`
 

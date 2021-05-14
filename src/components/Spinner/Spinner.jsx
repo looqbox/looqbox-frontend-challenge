@@ -1,3 +1,4 @@
+//This component is just a loading GIF
 import spinner from '../../assets/spinner.gif'
 import './Spinner.css'
 
