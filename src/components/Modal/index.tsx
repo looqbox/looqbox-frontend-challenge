@@ -2,7 +2,7 @@ import React from 'react';
 import { ModalContext } from '../../contexts/ModalContext';
 import styles from './styles.module.css';
 
-const Modal = () => {
+const Modal: React.FC = () => {
     const { isOpen, closeModal, content } = React.useContext(ModalContext);
     return (
         <>

@@ -1,0 +1,66 @@
+.container{
+    width: 220px;
+    padding: 1.5rem 1rem ;
+    border-radius: 5px;
+
+    background: var(--card);
+
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap:16px
+}
+.container:hover{
+    transition: 0.08s;
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1), 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    max-width: 145px;
+}
+.image > img{
+    width: 100%;
+    z-index: 10;
+}
+.image::before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: var(--background-pokemon);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:8px;
+}
+.content > h1{
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.types_container{
+    display: flex;
+    gap:8px;
+    flex-wrap: wrap;
+}
+.type{
+    padding: 0.25rem 1.25rem;
+    color:var(--type-text-color);
+    font-weight: 500;
+    text-transform: capitalize;
+    border-radius: 5px;
+    font-size: 0.75rem;
+}

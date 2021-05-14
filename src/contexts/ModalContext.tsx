@@ -8,11 +8,8 @@ interface ModalContent {
     openModal: () => void;
     closeModal: () => void;
 }
-interface ModalProviderProps {
-    children: React.ReactNode;
-}
 export const ModalContext = React.createContext({} as ModalContent);
-export const ModalProvider = ({ children }: ModalProviderProps) => {
+export const ModalProvider: React.FC = ({ children }) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [content, setContent] = React.useState(<></>);
 

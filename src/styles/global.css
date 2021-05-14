@@ -3,6 +3,8 @@
   --secundary-color:#2a2b2b;
   --body:#FCFCFC;
 
+  --background-pokemon:#f1f1f1;
+
   --input:#FFFFFF;
   --placeholder:#C9C9C9;
   
@@ -12,10 +14,12 @@
   
   --title:#2B2B2A;
   --title-light:#fff;
-
+  
   --text-highlight:#474747;
   --text:#C9C9C9;
   --text-light:#fff;
+  
+  --type-text-color:#ffffff;
 
   --type-normal: #4d4d4d;
   --type-fighting: #f0c94b;

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Home } from './Home';
 import { Pokemon } from './Pokemon';
 
-export const Routes = () => {
+export const Routes: React.FC = () => {
     return (
         <BrowserRouter>
             <Switch>

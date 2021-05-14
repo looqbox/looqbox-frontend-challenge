@@ -1,7 +1,6 @@
 import React from 'react';
-import { ModalContext } from '../../contexts/ModalContext';
 import styles from './styles.module.css';
 
-export const ModalPokemon = () => {
+export const ModalPokemon: React.FC = () => {
     return <div className={styles.container}>MODAL</div>;
 };
