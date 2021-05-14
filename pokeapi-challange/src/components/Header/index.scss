@@ -96,7 +96,7 @@
   }
 
   &-alert {
-    position: absolute;
+    position: fixed;
     z-index: 99;
     width : 350px;
     background-color : $red_opaque;
