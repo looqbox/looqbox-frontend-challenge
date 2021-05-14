@@ -67,7 +67,8 @@ export function Home() {
 
 
   useEffect(() => {
-    if(scrollRadio > 0 && pokemonsNumber < 1118) {
+    if(scrollRadio > 0 && pokemonsNumber < 1118 && listedPokemons.length > 2) {
+        // console.log(scrollRadio)
       setPokemonsNumber(pokemonsNumber + 50)
     }
   },[setPokemonsNumber, scrollRadio])
