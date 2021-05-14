@@ -1,12 +1,18 @@
 :root{
   --primary-color: #E41F25;
-  --body:#E5E5E5;
+  --secundary-color:#2a2b2b;
+  --body:#FCFCFC;
+
+  --input:#FFFFFF;
+  --placeholder:#C9C9C9;
   
   --button-background:#2a2b2b;
   --card:#FFFFFF;
   --tag-color:#FF4646;
   
-  --title-card:#2B2B2A;
+  --title:#2B2B2A;
+  --title-light:#fff;
+
   --text-highlight:#474747;
   --text:#C9C9C9;
   --text-light:#fff;
