@@ -3,7 +3,6 @@
     height: 140px;
     
     display: flex;
-    align-items: stretch;
     justify-content: center;
 
     background: var(--primary-color);
@@ -13,13 +12,14 @@
 .content{
     max-width: 1200px;
     width: 100%;
-
+    
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-    padding: 1rem 1rem 0 1rem;
+    
+    padding: 1rem;
+    position: relative;
 }
 .content > h1{
     height: 100%;
@@ -33,14 +33,18 @@
     color:var(--title-light);
 }
 .search_form{
+    position: absolute;
+    bottom: 0px;
+    
     max-width: 450px;
     width: 100%;
     height: 50px;
-
+    
     display: flex;
-
-    transform: translateY(50%);
+    
+    transform: translateY(calc(50% + 4px));
     border-radius: 5px;
+    padding:0 1rem;
 }
 .search_form > label{
     width: 100%;
@@ -75,6 +79,7 @@
     display:flex;
     align-items: center;
     justify-content: center;
+    
     background: none;
     padding: 0 2rem;
     border:none;

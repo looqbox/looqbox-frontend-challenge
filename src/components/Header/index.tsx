@@ -12,7 +12,7 @@ const Header = () => {
                         <input
                             type="text"
                             name="search"
-                            autoComplete="search"
+                            autoComplete="off"
                             id="search"
                             placeholder="Bulbassar"
                         />
