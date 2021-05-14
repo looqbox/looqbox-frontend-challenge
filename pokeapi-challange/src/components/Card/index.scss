@@ -196,11 +196,25 @@
           display: flex;
           justify-content: center;
           width : 60%;
+
+          @keyframes openedPokemon {
+            0% {
+              transform: translateX(20%) translateY(5%);
+            }
+            50% {
+              transform: translateX(25%) translateY(0%);
+            }
+            100% {
+              transform: translateX(20%) translateY(5%);
+            }
+          }
+
+          animation: openedPokemon 25s infinite;
+
           img {
             height: 500px;
             width : auto;
             max-width: 800px;
-            transform : translateX(20%) ;
           } 
         }
       }

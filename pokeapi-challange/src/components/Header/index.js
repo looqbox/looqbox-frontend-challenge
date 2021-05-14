@@ -7,7 +7,7 @@ import search from './assets/search.svg'
 import { usePokemons } from '../../context'
 
 export function Header() {
-  const { pokemons, setPokemons, listedPokemons, setListedPokemons} = usePokemons()
+  const { pokemons, setListedPokemons} = usePokemons()
 
   const [isFocused, setIsFocused] = useState(false)
   const [pokemonNotFounded, setPokemonNotFounded] = useState(false)
@@ -29,16 +29,7 @@ export function Header() {
       if(pokemon.data.name === inputValue || pokemon.data.id === Number(inputValue)) {
         setListedPokemons([pokemon])
       }
-
-      // if(inputSearchValue !== pokemon.data.name || Number(inputSearchValue) !== pokemon.data.id) {
-      //   setListedPokemons(pokemons)
-      //   setPokemonNotFounded(true)
-      //   setTimeout(() => {
-      //     setPokemonNotFounded(false)
-      //   }, 2000)  
-      // }
-
-
+      return null
     });
   }
 

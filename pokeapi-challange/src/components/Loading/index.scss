@@ -1,0 +1,13 @@
+.#{$namespace}-Loading { 
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: #121516;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 100%; 
+  }
+}

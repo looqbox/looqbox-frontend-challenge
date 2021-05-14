@@ -7,8 +7,21 @@ export function PokemonsProvider({ children }) {
     const [pokemons, setPokemons] = useState([])
     const [listedPokemons, setListedPokemons] = useState([])
 
+
+    const [isLoading, setIsLoading] = useState(false)
+
     return (
-        <PokemonsContext.Provider value={{ pokemons, setPokemons, listedPokemons, setListedPokemons }}>
+        <PokemonsContext.Provider 
+            value={
+                    { 
+                        pokemons, 
+                        setPokemons, 
+                        listedPokemons, 
+                        setListedPokemons,
+                        isLoading, 
+                        setIsLoading 
+                    }
+                }>
             {children}
         </PokemonsContext.Provider>
     )

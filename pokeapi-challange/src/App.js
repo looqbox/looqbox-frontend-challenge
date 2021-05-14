@@ -4,7 +4,6 @@ import './styles/index.scss';
 import Context from './context'
 
 function App() {
-
   return (
     <>
         <Context>

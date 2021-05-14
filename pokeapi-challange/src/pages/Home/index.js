@@ -7,17 +7,17 @@ import { api } from '../../api'
 import { Card } from "../../components/Card";
 
 import { usePokemons } from "../../context/"
+import { Loading } from "../../components/Loading";
 
 export function Home() {
-  const { pokemons, setPokemons, listedPokemons, setListedPokemons} = usePokemons()
-
-  // const [pokemons, setPokemons] = useState([])
+  const { setPokemons, listedPokemons, setListedPokemons, isLoading, setIsLoading } = usePokemons()
   const [isActive, setIsActive] = useState(false)
   const pokemonsNumber = 50;
 
   useEffect(() => {
 
     (async ()=>{
+      setIsLoading(true)
       const listInfoPokemon = []
       const listPokemon = await api.get(`pokemon?limit=${pokemonsNumber}`)
       const { data:{ results } } = listPokemon
@@ -37,11 +37,12 @@ export function Home() {
       }
       setPokemons(listInfoPokemon)
       setListedPokemons(listInfoPokemon)
+      setIsLoading(false)
 
     })()
 
 
-  }, [setPokemons, setListedPokemons])
+  }, [setPokemons, setListedPokemons, setIsLoading])
 
   function renderPokemons() {
     return listedPokemons.map(item => <Card
@@ -62,6 +63,8 @@ export function Home() {
 
   return (
     <>
+      {isLoading ? <Loading /> : ''}
+      
       <Header />
       <div className={`${namespace}-Wrapper-Card`}>
         {renderPokemons()}
