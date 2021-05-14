@@ -15,12 +15,3 @@
 .textGroups label {
   text-transform: capitalize;
 }
-
-.containerStyles progress[value]::-webkit-progress-bar {
-}
-
-.containerStyles progress[value]::-webkit-progress-value {
-}
-
-.containerStyles progress[value]::-webkit-progress-inner-element {
-}

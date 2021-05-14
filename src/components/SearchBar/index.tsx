@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import styles from "../../styles/SearchBar.module.css";
+import * as S from "./styles";
 
 export default function SearchBar({ onSearch }) {
   const [search, setSearch] = useState<string>("");
@@ -12,17 +12,14 @@ export default function SearchBar({ onSearch }) {
         onSearch(search);
       }}
     >
-      <input
-        className={styles.input}
+      <S.Input
         name="query"
         type="search"
         placeholder="Search by name..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <button type="submit" className={styles.button}>
-        Search
-      </button>
+      <S.Button type="submit">Search</S.Button>
     </form>
   );
 }

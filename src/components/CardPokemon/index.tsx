@@ -3,34 +3,33 @@ import Link from "next/link";
 
 import Badge from "../Badge";
 
-import styles from "../../styles/CardPokemon.module.css";
+import * as S from "./styles";
 
 const CardPokemon = ({ pokemons }) => {
   return (
     <>
-      <div className={styles.gridContainer}>
+      <S.GridContainer>
         {pokemons.map((pokemon, index) => {
           return (
             <Link href={`/${pokemon.name}`}>
               <a>
-                <div className={styles.gridItem} key={index}>
+                <S.GridItem key={index}>
                   <span>{`#${index + 1}`}</span>
                   <br />
                   <img
                     src={pokemon.sprites.front_default}
                     alt={`${pokemon.name} image`}
-                    className={styles.image}
                   />
                   <p>{pokemon.name}</p>
                   {pokemon.types.map((type) => {
                     return <Badge type={type.type.name} />;
                   })}
-                </div>
+                </S.GridItem>
               </a>
             </Link>
           );
         })}
-      </div>
+      </S.GridContainer>
     </>
   );
 };

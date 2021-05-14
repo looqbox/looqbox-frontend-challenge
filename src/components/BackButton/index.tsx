@@ -2,15 +2,15 @@ import React from "react";
 
 import Link from "next/link";
 
-import styles from "../../styles/BackButton.module.css";
+import * as S from "./styles";
 
 const BackButton = () => {
   return (
-    <div className={styles.button}>
+    <S.Button >
       <Link href="/">
         <a>Back</a>
       </Link>
-    </div>
+    </S.Button>
   );
 };
 

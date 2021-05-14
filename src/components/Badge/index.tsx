@@ -1,9 +1,13 @@
 import React from "react";
 
-import styles from "../../styles/Badge.module.css";
+import * as S from "./styles";
 
 const Badge = ({ type }) => {
-  return <span style={{backgroundColor: `var(--tag_${type})`}} className={`${styles.badge} badge-${type}`}>{`${type}`}</span>
+  return (
+    <S.Badge
+      style={{ backgroundColor: `var(--tag_${type})` }}
+    >{`${type}`}</S.Badge>
+  );
 };
 
 export default Badge;

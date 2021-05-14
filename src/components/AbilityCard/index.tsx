@@ -1,14 +1,16 @@
 import React from "react";
 
-import styles from "../../styles/AbilityCard.module.css";
+import * as S from "./styles";
 
 const AbilityCard = ({ abilities }) => {
   const abilityName = abilities.map((ability) => {
     return (
-      <div className={styles.abilitiesInfo} key={ability.ability.name}>
-        <h2>{ability.ability.name}</h2>
-        <h3>{ability.is_hidden === true ? "Hidden" : "Not hidden"}</h3>
-      </div>
+      <S.AbilitiesInfo key={ability.ability.name}>
+        <S.AbilityName>{ability.ability.name}</S.AbilityName>
+        <S.AbilityHidden>
+          {ability.is_hidden === true ? "Hidden" : "Not hidden"}
+        </S.AbilityHidden>
+      </S.AbilitiesInfo>
     );
   });
 

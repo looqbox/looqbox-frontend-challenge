@@ -1,16 +1,16 @@
 import React from "react";
 
-import styles from "../../styles/ProgressBar.module.css";
+import * as S from "./styles";
 
 const ProgressBar = ({ completed, max, stat }) => {
   return (
-    <div className={styles.containerStyles}>
-      <div className={styles.textGroups}>
-        <label htmlFor="progress">{`${stat}`}</label>
+    <S.Container>
+      <S.TextGroups>
+        <S.Label htmlFor="progress">{`${stat}`}</S.Label>
         <span>{(completed / max) * 100}%</span>
-      </div>
-      <progress id="progress" value={completed} max={max} />
-    </div>
+      </S.TextGroups>
+      <S.Progress id="progress" value={completed} max={max} />
+    </S.Container>
   );
 };
 

@@ -1,32 +1,32 @@
 import React from "react";
 
-import styles from "../../styles/CardInfo.module.css";
+import * as S from "./styles";
 
 const CardInfo = ({ pokemon }) => {
   const { name, sprites, base_experience, species, weight, height } = pokemon;
 
   return (
     <>
-      <div className={styles.gridContainer}>
-        <div className={styles.gridItem}>
+      <S.GridContainer>
+        <S.GridItem>
           <div>
-            <h2>Weight</h2>
-            <h3>{weight/10}Kg</h3>
-            <h2>Height</h2>
-            <h3>{height/10}m</h3>
+            <S.InfoTitle>Weight</S.InfoTitle>
+            <S.InfoValue>{weight / 10}Kg</S.InfoValue>
+            <S.InfoTitle>Height</S.InfoTitle>
+            <S.InfoValue>{height / 10}m</S.InfoValue>
           </div>
           <div>
-            <h2>Base experience</h2>
-            <h3>{base_experience} XP</h3>
-            <h2>Specie name</h2>
-            <h3>{species.name}</h3>
+            <S.InfoTitle>Base experience</S.InfoTitle>
+            <S.InfoValue>{base_experience} XP</S.InfoValue>
+            <S.InfoTitle>Specie name</S.InfoTitle>
+            <S.InfoValue>{species.name}</S.InfoValue>
           </div>
-        </div>
+        </S.GridItem>
 
-        <div className={styles.gridItem}>
-          <img src={sprites.front_default} alt={`${name} image`} />
-        </div>
-      </div>
+        <S.GridItem>
+          <S.Image src={sprites.front_default} alt={`${name} image`} />
+        </S.GridItem>
+      </S.GridContainer>
     </>
   );
 };
