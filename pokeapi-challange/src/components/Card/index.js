@@ -1,5 +1,7 @@
 import { namespace } from '../../utils/_namespace'
 
+import search from './assets/search.svg'
+
 export function Card({
   name, 
   image, 
@@ -81,7 +83,7 @@ export function Card({
 
       {isActive !== id ? 
         <button  onClick={()=> setIsActive(id)} style={{background: color}}>
-          More info
+          <img src={search} alt="more info"/>
         </button> 
       : ''}
 

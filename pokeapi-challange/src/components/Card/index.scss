@@ -27,19 +27,25 @@
 
   button {
     position : absolute;
-    bottom : -55px;
+    bottom : -65px;
     right: 32px;
     transition: 300ms;
     cursor: pointer;
 
-    background-color: lightcyan;
     border: none;
 
-    border-radius: 32px;
+    border-radius: 70px;
 
-    padding: 16px 24px;
+    padding: 16px;
     border: 1px solid #f3f3f3;
-    font-size: 16px;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+
+    img {
+      height: 24px;
+      width : 24px;
+    }
   }
 
   img {
@@ -50,7 +56,7 @@
   &:hover {
     transition: 200ms;
 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
     button {
       bottom : 32px;
@@ -110,7 +116,6 @@
           
           &-japonese { 
             font-size: 120px;
-            // position: absolute;
             opacity: .4;
           }
 
