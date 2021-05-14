@@ -28,9 +28,11 @@ export function Home() {
 
         const infoSpeciePokemon = await api.get(`pokemon-species/${item.name}`)
         const colorPokemon = infoSpeciePokemon.data.color.name
+        const japoneseName = infoSpeciePokemon.data.names[0].name
         listInfoPokemon.push({
           data,
-          colorPokemon
+          colorPokemon,
+          japoneseName
         })
       }
       setPokemons(listInfoPokemon)
@@ -38,7 +40,7 @@ export function Home() {
     })()
 
 
-  }, [])
+  }, [setPokemons])
 
   function renderPokemons() {
     return pokemons.map(item => <Card
@@ -47,8 +49,12 @@ export function Home() {
         image={item.data.sprites.other.dream_world.front_default} 
         id={item.data.id}
         color={item.colorPokemon}
+        japoneseName={item.japoneseName}
         isActive={isActive}
         setIsActive={setIsActive}
+        stats={item.data.stats}
+        weight={item.data.weight}
+        height={item.data.height}
         pokemonsNumber={pokemonsNumber}
       />)
   }

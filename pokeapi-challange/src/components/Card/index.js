@@ -1,53 +1,90 @@
 import { namespace } from '../../utils/_namespace'
 
+export function Card({
+  name, 
+  image, 
+  color, 
+  isActive, 
+  setIsActive, 
+  id, 
+  stats, 
+  japoneseName,
+  height,
+  weight}) {
 
-export function Card({name, image, color, isActive, setIsActive, id}) {
+  const isActiveCard = isActive === id
+  const isInverse  = color === 'yellow' || color === 'white'
+  const isInverseColor = { color: isInverse && 'black'}
+
+  function renderListStats() { 
+    return stats.map(item => <li>
+      <p>{item.stat.name} : {item.base_stat}</p>
+    </li>)
+  }
   
   function renderCard(){
 
-    return <div className={`${namespace}-Card ${ isActive === id ? `${namespace}-Card--active` : ``}`} 
-    style={
-      {
-          borderColor: color,
-          background : isActive === id ? color : ''
-      }}>
+    return <div className={`${namespace}-Card ${ isActiveCard ? `${namespace}-Card--active` : ``}`} 
+      style={{ borderColor: color, backgroundColor : isActiveCard ? color : 'white'}}>
+    
     {isActive ? 
       <div 
+        style={{ background: color, isInverseColor}}
         onClick={() => setIsActive(-1)}
         className={`${namespace}-Card-close`} />
     : ''}
+
     <div className={`${namespace}-Card-header`}>
-      <p>
+      {isActiveCard ? 
+        <p className={`${namespace}-Card-header-id`} style={isInverseColor} >
+          #{id}
+        </p>
+      : ''}
+
+      <p className={`${namespace}-Card-header-name`} style={isInverseColor}>
         {name}
       </p>
+
+      {isActiveCard ? 
+        <p className={`${namespace}-Card-header-name-japonese`}>
+          {japoneseName}
+        </p>
+      : ''}
+
+      {isActiveCard ? 
+        <>
+          <p className={`${namespace}-Card-header-char`} style={isInverseColor}>
+            Height : {height}
+          </p>
+          <p className={`${namespace}-Card-header-char`} style={isInverseColor}>
+            Weight : {weight}
+          </p>
+        </>
+      : ''}
+
     </div>
     <div className={`${namespace}-Card-body`}>
-      {isActive === id ? 
-          <div className={`${namespace}-Card-body-bases`}>
-            
-            <p className={`${namespace}-Card-body-bases-title`}>
-              base stats
-            </p>
-            <ul>
-              <li>Hp : 35</li>
-              <li>Attack : 55</li>
-              <li>Defense : 40</li>
-              <li>Special Attack : 50</li>
-              <li>Special Defense : 50</li>
-              <li>Speed : 90</li>
-            </ul>
 
+      <img src={image} alt={`name of ${name}`}/>
+
+      {isActiveCard ? 
+        <div className={`${namespace}-Card-body-bases-content`}>
+          <div className={`${namespace}-Card-body-bases`}>
+            <p className={`${namespace}-Card-body-bases-title`}> base stats </p>
+            <ul>
+              {renderListStats()}
+            </ul>
           </div> 
+        </div>
       : ''}
-        <img src={image} alt={`name of ${name}`}/>
       </div>
 
-    {isActive !== id ? 
-      <button 
-        onClick={()=> setIsActive(id)}
-        style={{background: color}}
-        >More info</button> 
-    : ''}
+      {isActive !== id ? 
+        <button  onClick={()=> setIsActive(id)} style={{background: color}}>
+          More info
+        </button> 
+      : ''}
+
   </div> 
   }
 

@@ -13,6 +13,18 @@
 
   position: relative;
 
+  &-header {
+    &-id {
+      font-size: 24px;
+      color: $white;
+    }
+    &-name {
+      font-size: 32px;  
+      margin-bottom: 32px;
+      text-transform: capitalize;
+    }
+  }
+
   button {
     position : absolute;
     bottom : -55px;
@@ -28,15 +40,6 @@
     padding: 16px 24px;
     border: 1px solid #f3f3f3;
     font-size: 16px;
-
-    font-family: Lato;
-  }
-
-  p {
-    font-size: 32px; 
-    font-family: 'Lato'; 
-    margin-bottom: 32px;
-    text-transform: capitalize;
   }
 
   img {
@@ -67,7 +70,7 @@
     transition: 300ms;
     position : fixed;
     align-items: flex-start;
-    
+    background-color: $white;
     
     .#{$namespace}-Card {
       &-close { 
@@ -94,24 +97,100 @@
         }
       }
 
-      &-header { 
-        p { 
-          font-size: 280px;
-          position: absolute;
+      &-header {
+        &-id {
+          font-weight: 300;
+        } 
+
+        &-name {
+          font-size: 64px;
           z-index: -1;
-          opacity: 0.4;
+          color: $white;
+          margin-bottom: 16px;
+          
+          &-japonese { 
+            font-size: 120px;
+            // position: absolute;
+            opacity: .4;
+          }
+
+        }
+
+        &-char { 
+          color: $white;
+          font-weight: 100;
+          margin-bottom: 6px;
+        }
+        &-char,
+        &-name-japonese {
+          margin-left: 52px;
         }
       }
 
       &-body { 
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         width: 100%;
+        transform : translateY(-30%);
+
+        &-bases { 
+          padding-left: 24px;
+          position: relative;
+          height: 290px;
+          width : 250px;
+          display :flex;
+          flex-direction: column;
+          justify-content: center;
+
+          &-content {
+            width : 100%;
+            display : flex;
+            justify-content: center;
+          }
+
+          &::before { 
+            content: '';
+            height: 100%;
+            width: 4px;
+            background-color: $white;
+            position: absolute;
+            left: 0;
+            top : 0;
+            border-radius: 40px;
+          }
+
+
+          &-title { 
+            font-size: 32px;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-style: italic;
+            color: #fff;
+            margin-bottom: 24px;
+          }
+
+          ul { 
+            flex-wrap: wrap;
+            display: flex;
+            li { 
+              p { 
+                font-size: 16px;
+                text-transform: uppercase;
+                padding: 8px;
+                background-color: $white;
+                border-radius: 10px;
+                display: inline-flex;
+                margin: 4px;
+              }
+            }
+          }
+        }
         
         img {
           @include transition();
-          height: 68vh;
+          height: 400px;
           width : auto;
+          transform : translateX(40%) ;
         } 
       }
     }
