@@ -1,0 +1,32 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container {
+    padding: 32px 8px;
+}
+
+.search-container input {
+    background: #F1F1F1;
+    border-radius: 8px;
+    border-style: none;
+    height: 36px;
+    width: 320px;
+    outline: none;
+    padding-left: 12px;
+}
+
+.pokemon-list {
+    background: #B3A125;
+    border-radius: 8px;
+    max-height: 280px;
+    width: 320px !important;
+    padding: 8px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
