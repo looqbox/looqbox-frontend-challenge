@@ -1,0 +1,20 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #CC0000;
+    border-radius: 0px 0px 64px 64px;
+}
+
+.header-link {
+    text-decoration: none;
+}
+
+.header-text {
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+    color: #FFDE00;
+    text-shadow: 4px 0 0 #3B4CCA, -2px 0 0 #3B4CCA, 0 2px 0 #3B4CCA, 0 -2px 0 #3B4CCA, 1px 1px #3B4CCA, -1px -1px 0 #3B4CCA, 1px -1px 0 #3B4CCA, -1px 1px 0 #3B4CCA;
+    padding: 40px 0;
+}
