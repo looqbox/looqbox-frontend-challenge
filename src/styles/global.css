@@ -30,7 +30,7 @@
   --type-bug: #796343;
   --type-ghost: #b6b6b6;
   --type-steel: #919191;
-  --type-electric: #e9ec35;
+  --type-electric: #f7dc15;
   --type-psychic: #e252b2;
   --type-ice: #6eb8e4;
   --type-dragon: #e42626;
@@ -51,7 +51,7 @@
   --pokemon-purple:#a234ce;
   --pokemon-red:#df1c3d;
   --pokemon-white:#f5f5f5;
-  --pokemon-yellow:#f3e24c;
+  --pokemon-yellow:#f7dc15;
 }
 *{
   margin:0;

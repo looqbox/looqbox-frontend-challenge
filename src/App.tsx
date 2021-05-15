@@ -1,14 +1,17 @@
 import React from 'react';
 import Modal from './components/Modal';
 import { ModalProvider } from './contexts/ModalContext';
+import { PokemonProvider } from './contexts/PokemonContext';
 import { Routes } from './pages/routes';
 
 const App: React.FC = () => {
     return (
-        <ModalProvider>
-            <Routes />
-            <Modal />
-        </ModalProvider>
+        <PokemonProvider>
+            <ModalProvider>
+                <Routes />
+                <Modal />
+            </ModalProvider>
+        </PokemonProvider>
     );
 };
 

@@ -1,29 +1,16 @@
 import React from 'react';
+import { PokemonContext } from '../../contexts/PokemonContext';
 import CardPokemon from '../CardPokemon';
 import styles from './styles.module.css';
 
-interface IPropsCard {
-    name: string;
-    base_experience: number;
-    weight: number;
-    sprites: {
-        other: {
-            dream_world: {
-                front_default: string;
-            };
-        };
-    };
-    types: {
-        slot: number;
-        type: {
-            name: string;
-        };
-    }[];
-}
-interface IPropsData {
-    data: IPropsCard[];
-}
-const Pokemons: React.FC<IPropsData> = ({ data }) => {
+const PokemonsList: React.FC = () => {
+    const { listInitial, data } = React.useContext(PokemonContext);
+
+    React.useEffect(() => {
+        listInitial();
+        // eslint-disable-next-line
+    }, []);
+
     return (
         <div className={styles.container}>
             {data?.map(item => {
@@ -33,4 +20,4 @@ const Pokemons: React.FC<IPropsData> = ({ data }) => {
     );
 };
 
-export default Pokemons;
+export default PokemonsList;
