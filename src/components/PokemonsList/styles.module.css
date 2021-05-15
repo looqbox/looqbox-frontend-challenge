@@ -9,4 +9,12 @@
     justify-content: center;
     flex-flow: wrap row;
     gap:32px 16px;
+
+    padding: 0 2rem;
+
+}
+@media(max-width:768px){
+    .container{
+        gap:16px;
+    }
 }

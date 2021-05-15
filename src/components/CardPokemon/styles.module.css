@@ -18,6 +18,7 @@
     transform: translateY(10px);
     animation: show .3s ease forwards;
 }
+
 @keyframes show{
     to{
         opacity: initial;
@@ -66,11 +67,10 @@
     gap:8px;
     flex-wrap: wrap;
 }
-.type{
-    padding: 0.25rem 1.25rem;
-    color:var(--type-text-color);
-    font-weight: 500;
-    text-transform: capitalize;
-    border-radius: 5px;
-    font-size: 0.75rem;
+
+@media(max-width:768px){
+    .container{
+        width: 100%;
+        max-width: 300px;
+    }
 }
