@@ -1,0 +1,23 @@
+.list-item {
+    background: #F9F8CD;
+    border-radius: 8px;
+    width: 100%;
+    height: 36px;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.list-item:hover {
+    color: black;
+}
+
+.list-item p,
+.list-item img {
+    margin: auto;
+}
+
+.list-item img {
+    height: 24px;
+    width: 24px;
+}
