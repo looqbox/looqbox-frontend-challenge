@@ -22,6 +22,7 @@ interface IPropsCard {
     };
 }
 const CardPokemon: React.FC<IPropsCard> = ({ pokemon }) => {
+    console.log(pokemon.name);
     return (
         <div className={styles.container}>
             <div className={styles.image}>

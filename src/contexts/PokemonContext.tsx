@@ -32,7 +32,7 @@ interface IPropsPokemon {
 export const PokemonContext = React.createContext({} as IPropsPokemon);
 
 export const PokemonProvider: React.FC = ({ children }) => {
-    const arrayPokemonsInitials = [25, 9, 1, 87];
+    const arrayPokemonsInitials = [25, 150, 9, 1, 87, 6, 354, 54];
 
     const [loading, setLoading] = React.useState(false);
     const [data, setData] = React.useState([] as IPropsCard[]);
@@ -40,16 +40,26 @@ export const PokemonProvider: React.FC = ({ children }) => {
         {} as IPropsCard,
     );
 
+    React.useEffect(() => {
+        listInitial();
+        console.log(data);
+        // eslint-disable-next-line
+    }, []);
+
     async function listInitial() {
         const arrayData = [] as IPropsCard[];
         setLoading(true);
-        arrayPokemonsInitials.forEach(async pokemon => {
-            const responce = await api.get(`pokemon/${pokemon}`);
+
+        for (let i = 0; i < arrayPokemonsInitials.length; i++) {
+            const responce = await api.get(
+                `pokemon/${arrayPokemonsInitials[i]}`,
+            );
             arrayData.push(responce.data);
-        });
+        }
         setData(arrayData);
         setLoading(false);
     }
+
     async function search(value: string) {
         setLoading(true);
         const responce = await api.get(`pokemon/${value}`);

@@ -4,16 +4,11 @@ import CardPokemon from '../CardPokemon';
 import styles from './styles.module.css';
 
 const PokemonsList: React.FC = () => {
-    const { listInitial, data } = React.useContext(PokemonContext);
-
-    React.useEffect(() => {
-        listInitial();
-        // eslint-disable-next-line
-    }, []);
+    const { data } = React.useContext(PokemonContext);
 
     return (
         <div className={styles.container}>
-            {data?.map(item => {
+            {data.map(item => {
                 return <CardPokemon pokemon={item} key={item.name} />;
             })}
         </div>
