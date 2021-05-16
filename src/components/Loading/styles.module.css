@@ -1,0 +1,15 @@
+.loading{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: solid var(--loading);
+    border-top: solid var(--primary-color);
+    border-width: 3px;
+
+    animation: loadingAnima .5s linear infinite;
+}
+  @keyframes loadingAnima{
+    to{
+      transform: rotate(360deg);
+    }
+  }
