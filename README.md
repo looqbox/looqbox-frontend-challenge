@@ -3,6 +3,7 @@
 
 ## Contents
 + [About](#about)
++ [Layout](#layout)
 + [Libraries](#libraries)
 + [Code Architecture](#code_architecture)
 + [Requirements](#requirements)
@@ -11,6 +12,9 @@
 ## About <a name = "about"></a>
 This is a **S**ingle **P**age **A**pplication using [ReactJS](https://pt-br.reactjs.org/) and [PokéAPI](https://pokeapi.co/) for the [looqbox](https://www.looqbox.com/en/) front-end challenge.
 In this project, you can search for pokémons and get some useful information about them!
+
+## Layout <a name = "layout"></a>
+You can see my layout made on Figma [here](https://www.figma.com/file/Vviha2GTIaAYAo4uJKeuCG/Pokedex?node-id=0%3A1).
 
 ## Libraries <a name = "libraries"></a>
 - [Axios](https://github.com/axios/axios)
