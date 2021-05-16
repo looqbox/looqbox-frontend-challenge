@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Bar } from 'react-chartjs-2';
 
 import Header from '../components/Header';
 
@@ -11,9 +12,29 @@ import capitalizeFirstLetter from '../utils/capitalizeFirstLetter';
 export default function Details(){
     const [pokemonInfo, setPokemonInfo] = useState({});
     const [loading, setLoading] = useState(true);
+    const [chartData, setChartData] = useState({});
     const { id } = useParams();
-
-    console.log(pokemonInfo);
+    
+    const options = {
+        indexAxis: 'y',
+        elements: {
+            bar: {
+                borderWidth: 1,
+            },
+        },
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: 'Stats',
+                color: '#848484'
+            },
+        },
+    };
 
     useEffect(() => {
         async function getPokemonInfo(){
@@ -31,6 +52,39 @@ export default function Details(){
                 types: data.types.map(type => type.type.name),
                 weight: data.weight / 10
             });
+
+            setChartData({
+                labels: ['HP', 'Attack', 'Defense', 'Special Attack', 'Special Defense', 'Speed'],
+                datasets: [
+                    {
+                        data: [
+                            data.stats.filter(stat => stat.stat.name === 'hp')[0].base_stat, 
+                            data.stats.filter(stat => stat.stat.name === 'attack')[0].base_stat, 
+                            data.stats.filter(stat => stat.stat.name === 'defense')[0].base_stat, 
+                            data.stats.filter(stat => stat.stat.name === 'special-attack')[0].base_stat, 
+                            data.stats.filter(stat => stat.stat.name === 'special-defense')[0].base_stat, 
+                            data.stats.filter(stat => stat.stat.name === 'speed')[0].base_stat
+                        ], 
+                        backgroundColor: [
+                        '#63CD5C',
+                        '#F6DE52',
+                        '#EB7F25',
+                        '#59B0F1',
+                        '#AD62F6',
+                        '#EA6ACE',
+                        ],
+                        borderColor: [
+                        '#58B862',
+                        '#DBC34D',
+                        '#DE7722',
+                        '#72ADD5',
+                        '#945AD7',
+                        '#DB5FBB',
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            })
 
             setLoading(false);
         }
@@ -83,6 +137,14 @@ export default function Details(){
                                     )
                                 })}
                             </div>
+                        </div>
+
+                        <div className="chart-container">
+                            <Bar 
+                                className='chart' 
+                                data={chartData} 
+                                options={options}
+                            />
                         </div>
                     </div>
                 </div>
