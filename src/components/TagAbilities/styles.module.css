@@ -6,8 +6,5 @@
     border-radius: 5px;
     font-size: 0.75rem;
     background: var(--tag-color);
-    
-    display:flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 }

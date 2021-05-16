@@ -6,11 +6,11 @@ import TagsTypes from '../TagsTypes';
 import styles from './styles.module.css';
 
 import icon_back from '../../assets/icons/back.svg';
+import Image from '../Image';
 
 export const ModalPokemon: React.FC = () => {
     const { closeModal } = React.useContext(ModalContext);
-    const { pokemonSelected, imgLoading, selectPokemon, setImgLoading } =
-        React.useContext(PokemonContext);
+    const { pokemonSelected, selectPokemon } = React.useContext(PokemonContext);
 
     function closeModalBackground(
         e: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -38,11 +38,7 @@ export const ModalPokemon: React.FC = () => {
                 >
                     <img src={icon_back} alt="back" />
                 </button>
-                <div
-                    className={`${styles.content} ${
-                        imgLoading ? styles.content_loading : ''
-                    }`}
-                >
+                <div className={`${styles.content}`}>
                     <div
                         className={`${styles.background}`}
                         style={{
@@ -50,17 +46,16 @@ export const ModalPokemon: React.FC = () => {
                         }}
                     ></div>
                     <div className={styles.image}>
-                        <img
+                        <Image
                             src={
                                 pokemonSelected.sprites.other.dream_world
                                     .front_default
                             }
                             alt={pokemonSelected.name}
-                            onLoad={() => setImgLoading(false)}
                         />
                     </div>
                     <div className={styles.info}>
-                        <div>
+                        <div className={styles.header_modal_info}>
                             <h1 className={styles.title}>
                                 {pokemonSelected.name}
                             </h1>
@@ -80,7 +75,9 @@ export const ModalPokemon: React.FC = () => {
                                 Height
                                 <span>{pokemonSelected.height / 10} m</span>
                             </h2>
-                            <div className={styles.container_tags}>
+                            <div
+                                className={`${styles.container_tags} ${styles.container_tags_abilities}`}
+                            >
                                 <h2>Abilities:</h2>
                                 <div className={styles.content_abilities}>
                                     <TagAbilities

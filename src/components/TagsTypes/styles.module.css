@@ -1,8 +1,9 @@
 .type{
     padding: 0.25rem 1.25rem;
     color:var(--type-text-color);
-    font-weight: 500;
+    font-weight: 400;
     text-transform: capitalize;
     border-radius: 5px;
     font-size: 0.75rem;
+    text-align: center;
 }

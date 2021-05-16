@@ -3,6 +3,8 @@
   --secundary-color:#2a2b2b;
   --body:#FCFCFC;
 
+  --loading:#dddddd;
+
   --background-pokemon:#f1f1f1;
 
   --input:#FFFFFF;
@@ -12,8 +14,8 @@
   --button-background-hover:#cc350f;
   --card:#FFFFFF;
 
-  --tag-color:#505050;
-  --tag-container:rgb(221, 221, 221);
+  --tag-color:#808080;
+  --tag-container:#e7e7e7;
   
   --title:#2B2B2A;
   --title-light:#fff;
@@ -67,6 +69,10 @@ html{
 body {
   background-color: var(--body);
   color:var(--text);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
 }
 body,input,textarea,button{
   font: 400 1rem "Poppins", sans-serif;

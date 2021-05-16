@@ -31,11 +31,9 @@ interface IPropsPokemon {
     data: IPropsCard[];
     pokemonSelected: IPropsCard;
     loading: boolean;
-    imgLoading: boolean;
     listInitial: () => void;
     search: (value: string) => void;
     selectPokemon: (data?: IPropsCard) => void;
-    setImgLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const PokemonContext = React.createContext({} as IPropsPokemon);
@@ -48,7 +46,6 @@ export const PokemonProvider: React.FC = ({ children }) => {
     const [pokemonSelected, setPokemonSelected] = React.useState(
         ({} as IPropsCard) || {},
     );
-    const [imgLoading, setImgLoading] = React.useState(true);
 
     React.useEffect(() => {
         listInitial();
@@ -83,7 +80,6 @@ export const PokemonProvider: React.FC = ({ children }) => {
         // const responce = await api.get(`pokemon/${name}`);
         // setLoading(false);
         setPokemonSelected(data ? data : ({} as IPropsCard));
-        setImgLoading(true);
     }
 
     return (
@@ -92,11 +88,9 @@ export const PokemonProvider: React.FC = ({ children }) => {
                 data,
                 pokemonSelected,
                 loading,
-                imgLoading,
                 listInitial,
                 search,
                 selectPokemon,
-                setImgLoading,
             }}
         >
             {children}
