@@ -2,98 +2,96 @@ import React from 'react';
 import api from '../services/api';
 
 export interface IPropsCard {
-    name: string;
-    base_experience: number;
-    weight: number;
-    height: number;
+  name: string;
+  base_experience: number;
+  weight: number;
+  height: number;
 
-    abilities: {
-        ability: {
-            name: string;
-        };
-    }[];
-    sprites: {
-        other: {
-            dream_world: {
-                front_default: string;
-            };
-        };
+  abilities: {
+    ability: {
+      name: string;
     };
-    types: {
-        slot: number;
-        type: {
-            name: string;
-        };
-    }[];
+  }[];
+  sprites: {
+    other: {
+      dream_world: {
+        front_default: string;
+      };
+    };
+  };
+  types: {
+    slot: number;
+    type: {
+      name: string;
+    };
+  }[];
 }
 
 interface IPropsPokemon {
-    data: IPropsCard[];
-    pokemonSelected: IPropsCard;
-    loading: boolean;
-    listInitial: () => void;
-    search: (value: string) => void;
-    selectPokemon: (data?: IPropsCard) => void;
+  data: IPropsCard[];
+  pokemonSelected: IPropsCard;
+  loading: boolean;
+  listInitial: () => void;
+  search: (value: string) => void;
+  selectPokemon: (data?: IPropsCard) => void;
 }
 
 export const PokemonContext = React.createContext({} as IPropsPokemon);
 
 export const PokemonProvider: React.FC = ({ children }) => {
-    const arrayPokemonsInitials = [25, 150, 131, 1, 95, 152, 6, 123];
+  const arrayPokemonsInitials = [25, 150, 131, 1, 95, 152, 6, 123];
 
-    const [loading, setLoading] = React.useState(false);
-    const [data, setData] = React.useState([] as IPropsCard[]);
-    const [pokemonSelected, setPokemonSelected] = React.useState(
-        ({} as IPropsCard) || {},
-    );
+  const [loading, setLoading] = React.useState(false);
+  const [data, setData] = React.useState([] as IPropsCard[]);
+  const [pokemonSelected, setPokemonSelected] = React.useState(
+    ({} as IPropsCard) || {},
+  );
 
-    React.useEffect(() => {
-        listInitial();
-        // eslint-disable-next-line
-    }, []);
+  React.useEffect(() => {
+    listInitial();
+    // eslint-disable-next-line
+  }, []);
 
-    React.useEffect(() => {
-        console.log(data);
-    }, [data]);
-    async function listInitial() {
-        const arrayData = [] as IPropsCard[];
-        setLoading(true);
+  React.useEffect(() => {
+    console.log(data);
+  }, [data]);
+  async function listInitial() {
+    const arrayData = [] as IPropsCard[];
+    setLoading(true);
 
-        for (let i = 0; i < arrayPokemonsInitials.length; i++) {
-            const responce = await api.get(
-                `pokemon/${arrayPokemonsInitials[i]}`,
-            );
-            arrayData.push(responce.data);
-        }
-        setData(arrayData);
-        setLoading(false);
+    for (let i = 0; i < arrayPokemonsInitials.length; i++) {
+      const responce = await api.get(`pokemon/${arrayPokemonsInitials[i]}`);
+      arrayData.push(responce.data);
     }
+    setData(arrayData);
+    setLoading(false);
+  }
 
-    async function search(value: string) {
-        setLoading(true);
-        const responce = await api.get(`pokemon/${value}`);
-        setPokemonSelected(responce.data);
-        setLoading(false);
-    }
-    async function selectPokemon(data?: IPropsCard) {
-        // setLoading(true);
-        // const responce = await api.get(`pokemon/${name}`);
-        // setLoading(false);
-        setPokemonSelected(data ? data : ({} as IPropsCard));
-    }
+  async function search(value: string) {
+    setLoading(true);
+    const responce = await api.get(`pokemon/${value}`);
+    setPokemonSelected(responce.data);
+    setLoading(false);
+  }
+  async function selectPokemon(data?: IPropsCard) {
+    // setLoading(true);
+    // const responce = await api.get(`pokemon/${name}`);
+    // setLoading(false);
+    setPokemonSelected(data || ({} as IPropsCard));
+  }
 
-    return (
-        <PokemonContext.Provider
-            value={{
-                data,
-                pokemonSelected,
-                loading,
-                listInitial,
-                search,
-                selectPokemon,
-            }}
-        >
-            {children}
-        </PokemonContext.Provider>
-    );
+  return (
+    <PokemonContext.Provider
+      value={{
+        data,
+        pokemonSelected,
+        loading,
+        listInitial,
+        search,
+        selectPokemon,
+      }}
+    >
+      {children}
+    </PokemonContext.Provider>
+  );
 };

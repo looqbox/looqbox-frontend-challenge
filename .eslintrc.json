@@ -24,10 +24,11 @@
     "plugins": ["react", "@typescript-eslint", "react-hooks"],
     "parserOptions": {
       "ecmaVersion": 11,
+      "sourceType": "module",
       "ecmaFeatures": {
         "jsx": true
       },
-      "project": "../tsconfig.json"
+      "project": "./tsconfig.json"
     },
     "settings": {
       "react": {

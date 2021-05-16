@@ -3,11 +3,9 @@ import Header from '../../components/Header';
 import PokemonsList from '../../components/PokemonsList';
 import styles from './styles.module.css';
 
-export const Home: React.FC = () => {
-    return (
-        <div className={styles.container}>
-            <Header />
-            <PokemonsList />
-        </div>
-    );
-};
+export const Home: React.FC = () => (
+  <div className={styles.container}>
+    <Header />
+    <PokemonsList />
+  </div>
+);
