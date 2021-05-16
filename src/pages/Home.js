@@ -65,16 +65,14 @@ export default function Home(){
                         (
                             <>
                                 <PokemonListItem number='1' name='Bulbasaur' />
-    
                                 <PokemonListItem number='2' name='Ivysaur' />
-    
                                 <PokemonListItem number='3' name='Venusaur' />
-    
                                 <PokemonListItem number='4' name='Charmander' />
-    
                                 <PokemonListItem number='5' name='Charmeleon' />
-    
                                 <PokemonListItem number='6' name='Charizard' />
+                                <PokemonListItem number='7' name='Squirtle' />
+                                <PokemonListItem number='8' name='Wartortle' />
+                                <PokemonListItem number='9' name='Blastoise' />
                             </>
                         )
                         :
