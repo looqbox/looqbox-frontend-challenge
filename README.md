@@ -1,43 +1,59 @@
-# Looqbox FrontEnd Challenge
+# Pokédex - Looqbox (FrontEnd Challenge)
 ![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+## Contents
++ [About](#about)
++ [Libraries](#libraries)
++ [Code Architecture](#code_architecture)
++ [Requirements](#requirements)
++ [Running the project](#running)
 
-We will not use anything from your project and you are free to use it in your portfolio
+## About <a name = "about"></a>
+This is a **S**ingle **P**age **A**pplication using [ReactJS](https://pt-br.reactjs.org/) and [PokéAPI](https://pokeapi.co/) for the [looqbox](https://www.looqbox.com/en/) front-end challenge.
+In this project, you can search for pokémons and get some useful information about them!
 
-## Stack
-We use:
-- ReactJS for the front end framework
-- Webpack and Yarn for dependency management and local deployment
+## Libraries <a name = "libraries"></a>
+- [Axios](https://github.com/axios/axios)
+- [Bootstrap](https://getbootstrap.com/)
+- [Chart.js](https://www.chartjs.org/docs/latest/)
+- [React-chartjs-2](https://github.com/reactchartjs/react-chartjs-2)
+- [React Router DOM](https://reactrouter.com/web/guides/quick-start)
 
-But you can use Node and Npm if you prefer :)
+## Code Architecture <a name = "code_architecture"></a>
+- `public`: folder which contains the HTML file used to render all the React components in the div with id=root.
+- `src`: folder which contains all the source code used to create the interfaces.
+  - `assets`: folder with images used in the project
+  - `components`: folder with reusable components (building blocks that can accept inputs and returns React elements to render in the UI)
+  - `pages`: folder with the complete pages of the project (Home and Details pages)
+  - `services`: folder with the request configurations to the PokeAPI
+  - `styles`: folder with all styles from the project, containing the global styles and the folders separated for each page and component
+  - `utils`: folder with reusable functions (a function to standardize the Pokémon's ID and a function to convert string to capital letter)
+  - `App.js`: file that import the routes to be rendered
+  - `index.js`: file which renders the App.js in the HTML file
+  - `routes.js`: file that defines the routes of the app and their respective React pages to be rendered
 
-## Submitting
-- Make a fork of this repository
-- When you're done send us a pull request
+## Requirements <a name = "requirements"></a>
+- [Node.js](https://nodejs.org/en/)
+- [NPM](https://www.npmjs.com/)
+- [Yarn](https://yarnpkg.com/)
 
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
+## Running the project <a name = "running"></a>
+1. Clone the repository in your machine
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please mind how many times you request data
+```
+git clone https://github.com/mateusfugita/looqbox-frontend-challenge.git
+```
 
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
+2. Install the dependencies
 
-You can use any dependency you want, (axios, bootstrap, material ui...)
+```
+yarn
+```
 
-## Bonus points!
-- A view with more details about the pokemon selected in the list
-- Graphs!
-- Unit Testing
-- Linting
-- Nice UI
-- Explain Code architecture
-- Documentation
+3. Start the project
 
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
+```
+yarn start
+```
+
+4. The project will be running in **http://localhost:3000/**.
