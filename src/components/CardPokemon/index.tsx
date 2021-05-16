@@ -1,6 +1,7 @@
 import React from 'react';
 import { ModalContext } from '../../contexts/ModalContext';
 import { IPropsCard, PokemonContext } from '../../contexts/PokemonContext';
+import Image from '../Image';
 import { ModalPokemon } from '../ModalPokemon';
 import TagsTypes from '../TagsTypes';
 import styles from './styles.module.css';
@@ -23,9 +24,13 @@ const CardPokemon: React.FC<IProps> = ({ pokemon }) => {
         openModal();
     }
     return (
-        <div className={styles.container} onClick={handleModal}>
+        <div
+            className={styles.container}
+            onClick={handleModal}
+            onPointerUp={handleModal}
+        >
             <div className={styles.image}>
-                <img
+                <Image
                     src={pokemon.sprites.other.dream_world.front_default}
                     alt={pokemon.name}
                 />

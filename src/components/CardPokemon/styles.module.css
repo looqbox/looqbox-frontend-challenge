@@ -34,13 +34,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     height: 140px;
+    width: 100%;
     max-width: 145px;
+
+    position: relative;
 }
 .image > img{
     width: 100%;
     height: 140px;
     z-index: 10;
+    object-fit: contain;
 }
 .image::before{
     content: '';
