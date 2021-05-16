@@ -11,9 +11,11 @@ export default function Home(){
     const [searchedPokemon, setSearchedPokemon] = useState('');
     const [searchedPokemonResult, setSearchedPokemonResult] = useState({});
     const [showList, setShowList] = useState(true);
+    const [error, setError] = useState(false);
 
     async function handleSearchPokemon(e){
         e.preventDefault();
+        setError(false);
 
         try {
             const { data } = await api.get(`/pokemon/${searchedPokemon.toLowerCase()}`);
@@ -23,8 +25,8 @@ export default function Home(){
                 name: data.name
             });
             setShowList(false);
-        } catch (error) {
-            alert('Pokémon not found :(');
+        } catch (err) {
+            setError(true);
         }
     }
 
@@ -32,6 +34,7 @@ export default function Home(){
         setSearchedPokemon(pokemonName);
 
         if(pokemonName.length === 0){
+            setError(false);
             setShowList(true);
         }
     }
@@ -52,32 +55,38 @@ export default function Home(){
                     />
                 </form>
 
-                <div className="container pokemon-list">
-                {showList ?
-                    (
-                        <>
-                            <PokemonListItem number='1' name='Bulbasaur' />
-
-                            <PokemonListItem number='2' name='Ivysaur' />
-
-                            <PokemonListItem number='3' name='Venusaur' />
-
-                            <PokemonListItem number='4' name='Charmander' />
-
-                            <PokemonListItem number='5' name='Charmeleon' />
-
-                            <PokemonListItem number='6' name='Charizard' />
-                        </>
-                    )
-                    :
-                    (
-                        <PokemonListItem 
-                            number={searchedPokemonResult.number} 
-                            name={searchedPokemonResult.name} 
-                        />
-                    )
-                }
-                </div>
+                {error ? (
+                    <div className="alert alert-warning" role="alert">
+                        Este Pokémon não existe!
+                    </div>
+                ) : (
+                    <div className="container pokemon-list">
+                    {showList ?
+                        (
+                            <>
+                                <PokemonListItem number='1' name='Bulbasaur' />
+    
+                                <PokemonListItem number='2' name='Ivysaur' />
+    
+                                <PokemonListItem number='3' name='Venusaur' />
+    
+                                <PokemonListItem number='4' name='Charmander' />
+    
+                                <PokemonListItem number='5' name='Charmeleon' />
+    
+                                <PokemonListItem number='6' name='Charizard' />
+                            </>
+                        )
+                        :
+                        (
+                            <PokemonListItem 
+                                number={searchedPokemonResult.number} 
+                                name={searchedPokemonResult.name} 
+                            />
+                        )
+                    }
+                    </div>
+                )}                
             </main>
         </>
     )
