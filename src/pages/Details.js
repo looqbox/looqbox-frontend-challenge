@@ -107,7 +107,7 @@ export default function Details(){
             {error ? (
                 <div className="error-container">
                     <div className="alert alert-warning" role="alert">
-                        Este Pokémon não existe!
+                        Pokémon not found!
                     </div>
                 </div>
             ): (

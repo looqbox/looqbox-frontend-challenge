@@ -57,7 +57,7 @@ export default function Home(){
 
                 {error ? (
                     <div className="alert alert-warning" role="alert">
-                        Este Pokémon não existe!
+                        Pokémon not found!
                     </div>
                 ) : (
                     <div className="container pokemon-list">
