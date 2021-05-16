@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 
-import { usePokemon } from 'shared/contexts/poke';
+import { usePokemon } from 'shared/contexts/pokemon';
 
 import { Container } from './styles';
 

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { PokeProvider } from './poke';
+import { PokeProvider } from './pokemon';
 
 interface ContextsProps {
   children: ReactNode;

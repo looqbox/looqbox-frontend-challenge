@@ -9,6 +9,7 @@ export const Container = styled.div<ContainerProps>`
   width: 100%;
   height: 125px;
   position: relative;
+  cursor: pointer;
 
   mix-blend-mode: normal;
   border-radius: 8px;

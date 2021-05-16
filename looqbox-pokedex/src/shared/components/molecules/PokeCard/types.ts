@@ -1,4 +1,4 @@
-import { IPokemon, IPokeType } from 'shared/contexts/poke/types';
+import { IPokemon, IPokeType } from 'shared/DTOs/pokemon';
 
 export interface iconsData {
   ['grass']: Function;
@@ -26,7 +26,7 @@ export interface CardProps {
 
 export interface PokeCardProps {
   poke?: {
-    name: string | undefined;
+    name?: string | undefined;
     url: string | undefined;
   };
   loadedPokemon?: IPokemon | undefined;

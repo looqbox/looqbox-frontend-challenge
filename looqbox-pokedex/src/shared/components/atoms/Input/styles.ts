@@ -5,9 +5,9 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  max-width: 615px;
+  max-width: 500px;
   width: 100%;
-  height: 70px;
+  height: 50px;
 
   background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
@@ -23,7 +23,7 @@ export const Container = styled.div<ContainerProps>`
     font-family: Bungee;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 22px;
 
     ::placeholder {

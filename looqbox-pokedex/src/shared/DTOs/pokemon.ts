@@ -1,28 +1,3 @@
-/* eslint-disable no-unused-vars */
-import { ReactNode } from 'react';
-
-export interface PokeContextData {
-  getSinglePokeData: (url: string) => Promise<any>;
-  searchForASinglePokemon: (pokeName: string) => Promise<void>;
-  pokemonNotFound: boolean;
-  setCurrentPage: Function;
-  cleanSearchValue: Function;
-  singlePokemon: IPokemon | null;
-  getPokes: Function;
-  currentPage: number;
-  loadingPokes: boolean;
-  pokes: Array<PokesData> | null;
-}
-
-export interface PokeProviderProps {
-  children: ReactNode;
-}
-
-export interface PokesData {
-  name: string;
-  url: string;
-}
-
 export type IPokeType =
   | 'grass'
   | 'fire'
@@ -76,6 +51,11 @@ export interface IPokemon {
       };
     },
   ];
+  species: {
+    name: string;
+    url: string;
+  };
+  moves: Array<IPokeMove>;
   types: [
     {
       slot: number;
@@ -86,4 +66,23 @@ export interface IPokemon {
     },
   ];
   weight: number;
+}
+
+export interface IPokeMove {
+  move: {
+    name: string;
+    url: string;
+  };
+  version_group_details: [
+    {
+      level_learned_at: number;
+      move_learn_method: { name: string; url: string };
+    },
+  ];
+}
+
+export interface IPokeSpecie {
+  evolution_chain: {
+    url: string;
+  };
 }

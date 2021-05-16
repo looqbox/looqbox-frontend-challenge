@@ -1,7 +1,8 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import { usePokemon } from 'shared/contexts/poke';
-import { IPokemon, IPokeType } from 'shared/contexts/poke/types';
+import { usePokemon } from 'shared/contexts/pokemon';
+import { IPokemon, IPokeType } from 'shared/DTOs/pokemon';
 import firstLetterToCapital from 'shared/utils/firstLetterToCapital';
 import addZeros from 'shared/utils/addZeros';
 
@@ -12,6 +13,7 @@ import { PokeCardProps } from './types';
 
 const PokeCard = ({ poke, loadedPokemon }: PokeCardProps) => {
   const { getSinglePokeData } = usePokemon();
+  const history = useHistory();
 
   const [pokeData, setPokeData] = useState<IPokemon>();
   const [pokeType, setPokeType] = useState<IPokeType>();
@@ -32,8 +34,12 @@ const PokeCard = ({ poke, loadedPokemon }: PokeCardProps) => {
     getPokemonData();
   }, [poke, loadedPokemon, getSinglePokeData]);
 
+  const handleAccessPokeInfo = useCallback(() => {
+    if (pokeData?.name) history.push(`/poke/${pokeData?.name}`);
+  }, [history, pokeData]);
+
   return (
-    <s.Container pokeType={pokeType}>
+    <s.Container pokeType={pokeType} onClick={handleAccessPokeInfo}>
       <s.InfoSection>
         <s.IndexAndName pokeType={pokeType}>
           <h1>{`#${addZeros(pokeData?.id || '000')}`}</h1>

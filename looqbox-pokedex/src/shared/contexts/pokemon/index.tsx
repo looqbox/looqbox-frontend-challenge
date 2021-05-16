@@ -1,12 +1,8 @@
 import React, { useCallback, createContext, useState, useContext } from 'react';
 import { api } from 'shared/services/api';
 
-import {
-  PokeContextData,
-  PokeProviderProps,
-  PokesData,
-  IPokemon,
-} from './types';
+import { IPokemon } from 'shared/DTOs/pokemon';
+import { PokeContextData, PokeProviderProps, PokesData } from './types';
 
 const PokeContext = createContext<PokeContextData>({} as PokeContextData);
 
@@ -16,6 +12,8 @@ const PokeProvider = ({ children }: PokeProviderProps) => {
   const [loadingPokes, setLoadingPokes] = useState<boolean>(false);
   const [pokemonNotFound, setPokemonNotFound] = useState<boolean>(false);
   const [singlePokemon, setSinglePokemon] = useState<IPokemon | null>(null);
+  const [pokemonSpecie, setPokemonSpecie] = useState<any>();
+  const [evolutionChain, setEvolutionChain] = useState<any>();
 
   const getPokes = useCallback(async (page: number) => {
     setLoadingPokes(true);
@@ -30,9 +28,21 @@ const PokeProvider = ({ children }: PokeProviderProps) => {
   }, []);
 
   const getSinglePokeData = useCallback(async url => {
+    const pokemonResponse = await api.get(url);
+
+    return pokemonResponse?.data;
+  }, []);
+
+  const getPokemonSpecie = useCallback(async url => {
     const response = await api.get(url);
 
-    return response?.data;
+    setPokemonSpecie(response.data);
+  }, []);
+
+  const getEvolutionChain = useCallback(async url => {
+    const response = await api.get(url);
+
+    setEvolutionChain(response.data);
   }, []);
 
   const searchForASinglePokemon = useCallback(async pokemon => {
@@ -64,7 +74,11 @@ const PokeProvider = ({ children }: PokeProviderProps) => {
         setCurrentPage,
         cleanSearchValue,
         getSinglePokeData,
+        getEvolutionChain,
+        getPokemonSpecie,
         searchForASinglePokemon,
+        pokemonSpecie,
+        evolutionChain,
         pokemonNotFound,
         singlePokemon,
         loadingPokes,

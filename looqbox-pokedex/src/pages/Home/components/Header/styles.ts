@@ -3,10 +3,7 @@ import styled from 'styled-components';
 import headerBg from 'shared/assets/images/headerBgTransparent.svg';
 
 export const Container = styled.div`
-  background-size: cover;
-  background: linear-gradient(90deg, #161616 11%, #242424, #161616 89%);
-
-  height: 400px;
+  height: 300px;
   width: 100%;
 
   display: flex;
@@ -29,12 +26,12 @@ export const Background = styled.section`
     font-family: Bungee;
     font-style: normal;
     font-weight: normal;
-    font-size: 80px;
+    font-size: 40px;
     line-height: 96px;
 
     color: rgba(255, 255, 255, 0.9);
 
-    margin-bottom: 45px;
+    margin-bottom: 10px;
   }
 
   @media (max-width: 600px) {

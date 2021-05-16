@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-import { usePokemon } from 'shared/contexts/poke';
+import { usePokemon } from 'shared/contexts/pokemon';
 import PokeCard from 'shared/components/molecules/PokeCard';
 import ButtonLoadMore from 'shared/components/molecules/ButtonLoadMore';
 
