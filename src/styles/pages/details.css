@@ -1,7 +1,14 @@
+.error-container {
+    max-width: 300px;
+}
+
+.container-info {
+    max-width: 80%;
+}
+
 .error-container,
 .container-info {
     margin: 20px auto;
-    max-width: 80%;
 }
 
 .row-info {
