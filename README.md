@@ -4,6 +4,10 @@
 
 Esse projeto foi desenvolvido para o desafio para vaga de desenvolvedor Frontend da LooqBox, o desafio proposto foi implementar uma <a href="https://pt.wikipedia.org/wiki/Lista_de_Pok%C3%A9mon">Pokedex</a> utilizando a api <a href="https://pokeapi.co/">PokeApi</a> onde é carregado uma lista de pokemons e também os seus atributos.
 
+## Como utilizar a pokedex
+
+Para utilizar a pokedex online, basta [acessar o site](https://pokedex-online.vercel.app/) e ser feliz :)
+
 ## Funcionalidades
 
 Na aplicação desenvolvida contém duas telas
