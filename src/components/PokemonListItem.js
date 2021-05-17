@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import addLeadingZeros from '../utils/addLeadingZeros';
@@ -21,4 +22,9 @@ export default function PokemonListItem({ number, name }){
             </div>
         </Link>
     )
+}
+
+PokemonListItem.propTypes = {
+    number: PropTypes.string,
+    name: PropTypes.string
 }
