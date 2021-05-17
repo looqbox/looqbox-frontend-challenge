@@ -1,43 +1,92 @@
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+![image](https://user-images.githubusercontent.com/55189046/118431359-8a8c1b00-b6ac-11eb-9af9-61a21c5dfc03.png)
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+# Sobre o projeto
 
-We will not use anything from your project and you are free to use it in your portfolio
+Esse projeto foi desenvolvido para o desafio para vaga de desenvolvedor Frontend da LooqBox, o desafio proposto foi implementar uma <a href="https://pt.wikipedia.org/wiki/Lista_de_Pok%C3%A9mon">Pokedex</a> utilizando a api <a href="https://pokeapi.co/">PokeApi</a> onde é carregado uma lista de pokemons e também os seus atributos.
 
-## Stack
-We use:
-- ReactJS for the front end framework
-- Webpack and Yarn for dependency management and local deployment
+## Funcionalidades
 
-But you can use Node and Npm if you prefer :)
+Na aplicação desenvolvida contém duas telas
+ * Pagina Home - nela inicialmente são apresentados os 20 primeiros pokemons porém ela conta com um botão para carregar mais pokemons de 20 em 20, nessa tela também é possível procurar um pokemon especifico através da Search Bar.
 
-## Submitting
-- Make a fork of this repository
-- When you're done send us a pull request
+ * Pagina Poke - nela é carregado as informações de um pokemon espefico, sendo essas informações o Tipo, Stats, Cadeia de evolução e Habilidades. Também é possível navegar pro próximo pokemon ou para o anterior de acordo com o Index do pokemon atual.
 
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
+## Arquitetura do código
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please mind how many times you request data
+Sobre a arquitetura do código ela foi escolhida com base na arquitetura que venho utilizando tanto no meu trabalho quanto nos meus projetos academicos.
+  * `src` – nessa pasta fica contido todo o source code da minha aplicação
+    *  `pages` – contém as paginas da aplicação
+    *  `shared` – nessa pasta fica tudo o que é compartilhado tanto de pagina para pagina como de componente para componente
+	* `assets` – nessa pasta contém todas minhas imagens e icones que são utilizados na aplicação
+	  * `icons` – nessa pasta fica os icones
+	  * `images` – nessa pasta fica as imagens
+	* `components` – aqui ficam os components reutilizaveis, eu adotei um padrão de componentes chamado Atomic Design, nele eu separo os componentes entre pastas chamdas atoms / molecules / organisms / templates, o objetivo é facilitar a estrutura para caso o projeto escale
+	* `contexts` – aqui ficam os contextos da minha aplicação
+	* `DTOs` – nessa pasta eu deixo as minhas interfaces que vou utilizar globalmente
+	* `hooks` – nessa pasta ficam os meus hooks personalizados
+	* `services` – nessa pasta ficam os meus serviços tanto de auth e api
+	* `styles` – nessa pasta fica os meus estilos globais da aplicação
+	* `utils` – aqui ficam minhas funções uteis que são utilizados em mais de um local
 
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
 
-You can use any dependency you want, (axios, bootstrap, material ui...)
+## Requisitos para rodar o projeto
+- [Npm](https://www.npmjs.com/)
+- [NodeJs](https://nodejs.org/en/)
 
-## Bonus points!
-- A view with more details about the pokemon selected in the list
-- Graphs!
-- Unit Testing
-- Linting
-- Nice UI
-- Explain Code architecture
-- Documentation
+## Como rodar o projeto
 
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
+Para rodar é essencial que tenha o [node](https://nodejs.org/en/) instalado, caso não tenha siga o passo a passo logo abaixo
+
+#### Ubuntu 
+```
+curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+#### Debian, as root
+```
+curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+apt-get install -y nodejs
+```
+
+#### [Outra distribuição Linux](https://nodejs.org/en/download/package-manager/)
+
+#### Windows
+Acesse o site do [NodeJs](https://nodejs.org/en/) e instale a versão LTS
+
+Com tudo já instalado primeiro faça o clone deste repositório
+```
+https://github.com/LeonardoMessias98/looqbox-frontend-challenge.git
+```
+
+Acesse a pasta do repositório pelo terminal
+```
+  cd looqbox-frontend-challenge
+  cd looqbox-pokedex
+```
+
+Agora instale as dependencias do projeto
+```yarn``` ou ```npm install```
+
+Apos ter instalado as dependencias do projeto é necessário rodar o servidor local do projeto
+```
+yarn start
+```
+ou
+```
+npm start
+```
+
+A aplicação rodará na porta 3000 do seu localhost -> [http://localhost:3000](http://localhost:3000/)
+
+## Tecnologias e bibliotecas
+* [`typescript`](https://www.typescriptlang.org/)
+* [`eslint`](https://eslint.org/)
+* [`contextApi`](https://pt-br.reactjs.org/docs/context.html)
+* [`react-icons`](https://react-icons.github.io/react-icons/)
+* [`axios`](https://github.com/axios/axios)
+* [`styled-components`](https://styled-components.com/)
+
+## Duvidas
+  Para qualquer duvida estou a total disposição para explicar melhor o meu código e as decisões que tomei de arquitetura. ![Webp net-resizeimage](https://user-images.githubusercontent.com/55189046/118434090-d2ae3c00-b6b2-11eb-8d61-276863c2cd27.png)
+
