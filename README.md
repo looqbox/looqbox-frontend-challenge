@@ -1,6 +1,6 @@
 
 <p align="center">
-  <a href="www.[seu-projeto]">Visualizar projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://pokeapp-eight.vercel.app/">Visualizar projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#para-rodar-o-projeto">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -17,7 +17,8 @@ Nesse projeto ultilizei
 - [PokeAPI](https://pokeapi.co/)
 
 ## Sobre
-Este site foi desenvolvido com ReactJS  + Typescipt ultilizando a api [pokeapi](https://pokeapi.co/), seu principal objetivo é exibir informações sobre os pokemons de uma maneira facil de se entender
+Este site foi desenvolvido com ReactJS  + Typescipt ultilizando a api [pokeapi](https://pokeapi.co/), seu principal objetivo é exibir informações sobre os pokemons de uma maneira facil de se entender.
+<a href="https://pokeapp-eight.vercel.app/">Visualizar projeto</a>
 
 ## Como funciona
 Na página principal há uma listagem de alguns pokemon já selecionados ao clicar sobre eles um modal é aberto com algumas informações e um link para outra página que contem mais detalhes sobre ele, como estatísticas, chance de captura, se ele é lendario ou mistico e uma curiosidade sobre o pokemon.
