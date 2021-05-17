@@ -2,15 +2,16 @@ import React from 'react';
 import styles from './styles.module.css';
 
 import iconSearch from '../../assets/icons/search.svg';
-import api from '../../services/api';
+import { PokemonContext } from '../../contexts/PokemonContext';
 
 const Header: React.FC = () => {
+  const { search } = React.useContext(PokemonContext);
+
   const [searchValue, setSearchValue] = React.useState('');
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const responce = await api.get(`pokemon/${searchValue}`);
-    console.log(responce);
+    await search(searchValue);
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {

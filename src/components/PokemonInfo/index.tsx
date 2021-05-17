@@ -30,18 +30,18 @@ const PokemonInfo: React.FC = () => {
         <div className={styles.cardInfo}>
           <div className={styles.image_pokemon}>
             <Image
-              src={pokemonSelected.sprites.other.dream_world.front_default}
-              alt={pokemonSelected.name}
+              src={pokemonSelected.sprites.other.dream_world?.front_default}
+              alt={pokemonSelected?.name}
             />
           </div>
-          <h1 className={styles.title}>{pokemonSelected.name}</h1>
+          <h1 className={styles.title}>{pokemonSelected?.name}</h1>
           <div className={styles.container_tags}>
-            {infoSpecies.is_legendary && (
+            {infoSpecies?.is_legendary && (
               <span className={`${styles.legendary} ${styles.tags_title}`}>
                 Legendary
               </span>
             )}
-            {infoSpecies.is_mythical && (
+            {infoSpecies?.is_mythical && (
               <span className={`${styles.mythical} ${styles.tags_title}`}>
                 Mythical
               </span>
@@ -49,8 +49,8 @@ const PokemonInfo: React.FC = () => {
           </div>
           <div className={styles.container_tags}>
             <TagsTypes
-              name_pokemon={pokemonSelected.name}
-              types={pokemonSelected.types}
+              name_pokemon={pokemonSelected?.name}
+              types={pokemonSelected?.types}
             />
           </div>
 
@@ -58,7 +58,8 @@ const PokemonInfo: React.FC = () => {
             {
               infoSpecies.flavor_text_entries.find(
                 item =>
-                  item.language.name === 'en' && item.version.name === 'black',
+                  item.language?.name === 'en' &&
+                  item.version?.name === 'black',
               )?.flavor_text
             }
           </p>
@@ -67,7 +68,7 @@ const PokemonInfo: React.FC = () => {
             type="button"
             className={styles.varieties}
             style={{
-              background: `var(--pokemon-${infoSpecies.color.name})`,
+              background: `var(--pokemon-${infoSpecies.color?.name})`,
             }}
             onClick={openModal}
           >
@@ -79,28 +80,28 @@ const PokemonInfo: React.FC = () => {
         <div className={`${styles.info_pokemon} ${styles.info}`}>
           <TextInfo
             title="Base experience"
-            text={`${pokemonSelected.base_experience} XP`}
+            text={`${pokemonSelected?.base_experience} XP`}
           />
-          <TextInfo title="Weight" text={`${pokemonSelected.weight / 10} Kg`} />
           <TextInfo
-            title="Height"
-            text={`${pokemonSelected.base_experience / 10} m`}
+            title="Weight"
+            text={`${pokemonSelected?.weight / 10} Kg`}
           />
+          <TextInfo title="Height" text={`${pokemonSelected?.height / 10} m`} />
 
           <Chart
-            name_pokemon={pokemonSelected.name}
-            stats={pokemonSelected.stats}
-            color={infoSpecies.color.name}
+            name_pokemon={pokemonSelected?.name}
+            stats={pokemonSelected?.stats}
+            color={infoSpecies?.color.name}
           />
         </div>
 
-        <div className={`${styles.info_species} ${styles.info}`}>
+        <div className={`${styles?.info_species} ${styles.info}`}>
           <TextInfo
             title="Capture rate"
-            text={`${Math.floor((infoSpecies.capture_rate * 100) / 255)} %`}
+            text={`${Math.floor((infoSpecies?.capture_rate * 100) / 255)} %`}
           />
-          <TextInfo title="Habitat" text={infoSpecies.habitat.name} />
-          <TextInfo title="Shape" text={infoSpecies.shape.name} />
+          <TextInfo title="Habitat" text={infoSpecies.habitat?.name} />
+          <TextInfo title="Shape" text={infoSpecies.shape?.name} />
 
           <div
             className={`${styles.container_tags} ${styles.container_tags_abilities}`}
@@ -108,8 +109,8 @@ const PokemonInfo: React.FC = () => {
             <h2>Abilities:</h2>
             <div className={styles.content_tags}>
               <TagAbilities
-                name_pokemon={pokemonSelected.name}
-                abilities={pokemonSelected.abilities}
+                name_pokemon={pokemonSelected?.name}
+                abilities={pokemonSelected?.abilities}
               />
             </div>
           </div>

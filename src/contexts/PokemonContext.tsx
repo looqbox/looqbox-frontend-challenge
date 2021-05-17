@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import api from '../services/api';
 
 export interface IPropsCard {
@@ -42,6 +42,7 @@ interface IPropsPokemon {
   pokemonSelected: IPropsCard;
   loading: boolean;
   infoSpecies: IPropInfoSpecies;
+  error: string;
   listInitial: () => void;
   search: (value: string) => void;
   selectPokemon: (data: IPropsCard) => void;
@@ -88,13 +89,15 @@ interface IPropInfoSpecies {
 export const PokemonContext = React.createContext({} as IPropsPokemon);
 
 export const PokemonProvider: React.FC = ({ children }) => {
-  const arrayPokemonsInitials = [25, 150, 131, 1, 95, 152, 6, 123];
+  const arrayPokemonsInitials = [25, 150, 131, 1, 95, 152, 6, 197];
+  const navigate = useHistory();
 
   const [loading, setLoading] = React.useState(true);
   const [data, setData] = React.useState([] as IPropsCard[]);
   const [pokemonSelected, setPokemonSelected] = React.useState(
     {} as IPropsCard,
   );
+  const [error, setError] = React.useState('');
   const [infoSpecies, setInfoSpecies] = React.useState({} as IPropInfoSpecies);
 
   async function listInitial() {
@@ -111,9 +114,17 @@ export const PokemonProvider: React.FC = ({ children }) => {
 
   async function search(value: string) {
     setLoading(true);
-    const responce = await api.get(`pokemon/${value}`);
-    setPokemonSelected(responce.data);
-    setLoading(false);
+    setError('');
+    try {
+      const responce = await api.get(`pokemon/${value}`);
+      setPokemonSelected(responce.data);
+      navigate.push(`pokemon/${value}`);
+    } catch (err) {
+      setError(err.message);
+      alert('Pokemon not found!');
+    } finally {
+      setLoading(false);
+    }
   }
 
   async function selectPokemon(data: IPropsCard) {
@@ -125,21 +136,27 @@ export const PokemonProvider: React.FC = ({ children }) => {
   }
 
   async function getDataInfo(id: string) {
-    setLoading(true);
+    try {
+      setLoading(true);
 
-    if (!Object.keys(pokemonSelected).length) {
-      const pokemonSelectedResponce = await api.get(`pokemon/${id}`);
-      setPokemonSelected(pokemonSelectedResponce.data);
+      if (!Object.keys(pokemonSelected).length) {
+        const pokemonSelectedResponce = await api.get(`pokemon/${id}`);
+        setPokemonSelected(pokemonSelectedResponce.data);
+      }
+
+      const specieResponce = await api.get(`/pokemon-species/${id}`);
+      setInfoSpecies(specieResponce.data);
+    } catch {
+      alert('Unable to load the information');
+      navigate.push('/');
+    } finally {
+      setLoading(false);
     }
-
-    const specieResponce = await api.get(`/pokemon-species/${id}`);
-    setInfoSpecies(specieResponce.data);
-
-    setLoading(false);
   }
   return (
     <PokemonContext.Provider
       value={{
+        error,
         data,
         pokemonSelected,
         loading,
