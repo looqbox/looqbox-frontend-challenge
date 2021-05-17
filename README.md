@@ -20,6 +20,8 @@ You can see my layout made on Figma [here](https://www.figma.com/file/Vviha2GTIa
 - [Axios](https://github.com/axios/axios)
 - [Bootstrap](https://getbootstrap.com/)
 - [Chart.js](https://www.chartjs.org/docs/latest/)
+- [ESLint](https://eslint.org/)
+- [Prop-types](https://www.npmjs.com/package/prop-types)
 - [React-chartjs-2](https://github.com/reactchartjs/react-chartjs-2)
 - [React Router DOM](https://reactrouter.com/web/guides/quick-start)
 
@@ -51,7 +53,7 @@ git clone https://github.com/mateusfugita/looqbox-frontend-challenge.git
 2. Install the dependencies
 
 ```
-yarn
+yarn install
 ```
 
 3. Start the project
@@ -61,3 +63,9 @@ yarn start
 ```
 
 4. The project will be running in **http://localhost:3000/**.
+
+### Linting (using ESLint)
+
+```
+yarn lint
+```
