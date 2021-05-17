@@ -6,6 +6,7 @@ import { IPokemon, IPokeType } from 'shared/DTOs/pokemon';
 import firstLetterToCapital from 'shared/utils/firstLetterToCapital';
 import addZeros from 'shared/utils/addZeros';
 
+import PokeType from 'shared/components/atoms/PokeType';
 import GetCardIcon from './getCardIcon';
 import * as s from './styles';
 
@@ -47,10 +48,8 @@ const PokeCard = ({ poke, loadedPokemon }: PokeCardProps) => {
         </s.IndexAndName>
 
         <s.Types>
-          {pokeData?.types?.map((type: any) => (
-            <s.SingleType type="button" pokeType={pokeType}>
-              {type?.type?.name?.toUpperCase()}
-            </s.SingleType>
+          {pokeData?.types?.map((type: { type: { name: string } }) => (
+            <PokeType type={type.type.name} defaultType={pokeType} />
           ))}
         </s.Types>
       </s.InfoSection>

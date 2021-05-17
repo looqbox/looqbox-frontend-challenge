@@ -9,7 +9,8 @@ import useIsMobile from 'shared/hooks/useIsMobile';
 import { IPokemon } from 'shared/DTOs/pokemon';
 import addZeros from 'shared/utils/addZeros';
 
-import { Container } from './styles';
+import PokeType from 'shared/components/atoms/PokeType';
+import { Container, Types } from './styles';
 
 interface HeaderProps {
   pokemon: IPokemon | undefined;
@@ -67,6 +68,16 @@ const Header = ({ pokemon }: HeaderProps) => {
           />
         )}
       </section>
+
+      <Types>
+        {pokemon?.types?.map(type => (
+          <PokeType
+            type={type.type.name}
+            defaultType={pokemon?.types[0].type.name}
+          />
+        ))}
+      </Types>
+
       <h1>{`${pokemon?.name} #${addZeros(pokemon?.id || '000')}`}</h1>
     </Container>
   );
