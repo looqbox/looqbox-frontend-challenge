@@ -1,0 +1,11 @@
+.close_modal_btn{
+  position: absolute;
+  left:12px;
+  top:12px;
+  z-index: 100;
+
+  background: none;
+  border:none;
+  outline: none;
+  padding: 1rem;
+}

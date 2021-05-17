@@ -5,9 +5,11 @@ import TagAbilities from '../TagAbilities';
 import TagsTypes from '../TagsTypes';
 import styles from './styles.module.css';
 
-import icon_back from '../../assets/icons/back.svg';
 import Image from '../Image';
 import { Link } from 'react-router-dom';
+import TextInfo from '../TextInfo';
+
+import ButtonBack from '../ButtonBack';
 
 export const ModalPokemon: React.FC = () => {
   const { closeModal } = React.useContext(ModalContext);
@@ -22,21 +24,11 @@ export const ModalPokemon: React.FC = () => {
       cleanPokemonSelected();
     }
   }
-  function closeModalClick() {
-    closeModal();
-    cleanPokemonSelected();
-  }
 
   return (
     <div className={styles.container} onClick={e => closeModalBackground(e)}>
       <div className={styles.container_modal}>
-        <button
-          role="back"
-          className={styles.close_modal_btn}
-          onClick={closeModalClick}
-        >
-          <img src={icon_back} alt="back" />
-        </button>
+        <ButtonBack />
         <div className={`${styles.content}`}>
           <div
             className={`${styles.background}`}
@@ -61,18 +53,18 @@ export const ModalPokemon: React.FC = () => {
               </div>
             </div>
             <div className={styles.cardInfo}>
-              <h2>
-                Base experience
-                <span>{pokemonSelected.base_experience} XP</span>
-              </h2>
-              <h2>
-                Weight
-                <span>{pokemonSelected.weight / 10} Kg</span>
-              </h2>
-              <h2>
-                Height
-                <span>{pokemonSelected.height / 10} m</span>
-              </h2>
+              <TextInfo
+                title="Base experience"
+                text={`${pokemonSelected.base_experience} XP`}
+              />
+              <TextInfo
+                title="Weight"
+                text={`${pokemonSelected.weight / 10}Kg`}
+              />
+              <TextInfo
+                title="Height"
+                text={`${pokemonSelected.height / 10}m`}
+              />
               <div
                 className={`${styles.container_tags} ${styles.container_tags_abilities}`}
               >

@@ -1,0 +1,13 @@
+.title{
+  display: flex;
+  flex-direction: column;
+  font-size: 0.88rem;
+  color:var(--text-highlight);
+  font-weight: 400;
+}
+.title span{
+  font-size: 1.5rem;
+  font-weight: 600;
+  color:var(--title);
+  text-transform: capitalize;
+}
