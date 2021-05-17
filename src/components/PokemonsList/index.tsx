@@ -5,8 +5,13 @@ import Loading from '../Loading';
 import styles from './styles.module.css';
 
 const PokemonsList: React.FC = () => {
-  const { data, loading } = React.useContext(PokemonContext);
+  const { data, loading, listInitial } = React.useContext(PokemonContext);
 
+  React.useEffect(() => {
+    if (!Object.keys(data).length) {
+      listInitial();
+    }
+  }, []);
   return (
     <div className={styles.container}>
       {loading ? (

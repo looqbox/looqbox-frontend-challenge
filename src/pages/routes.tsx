@@ -6,7 +6,7 @@ import { Pokemon } from './Pokemon';
 export const Routes: React.FC = () => (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route path="/pokemon/:name" component={Pokemon} />
+    <Route path="/pokemon/:id" component={Pokemon} />
     <Route path="*" component={Home} />
   </Switch>
 );

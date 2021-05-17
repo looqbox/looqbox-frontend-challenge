@@ -7,6 +7,10 @@
 
     background: var(--primary-color);
     border-bottom: solid 8px var(--secundary-color);
+
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: show .3s cubic-bezier(.22,.46,.21,1) forwards;
 }
 
 .content{
@@ -90,4 +94,11 @@
 .button_search img{
     width: 1.5rem;
     cursor: pointer;
+}
+
+@keyframes show {
+  to{
+      opacity: initial;
+      transform: initial;
+  }
 }

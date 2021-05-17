@@ -27,8 +27,8 @@
     background: var(--body);
 
     opacity: 0;
-    transform: scale(0.8);
-    animation: show 0.2s linear forwards;
+    transform: scale(0);
+    animation: show 0.2s forwards;
     position: relative;
 }
 .content{
@@ -112,14 +112,14 @@
 .cardInfo{
     width: 100%;
     display: flex;
-    gap:16px;
+    gap:12px;
     flex-direction: column;
     padding: 0rem 0.5rem;
 }
 .cardInfo h2{
     display: flex;
     flex-direction: column;
-    font-size: 1rem;
+    font-size: 0.88rem;
     color:var(--text-highlight);
     font-weight: 400;
 }
@@ -199,7 +199,7 @@
 
         border-radius: 0;
         padding: 2rem 2rem 72px 2rem;
-        animation: show 0.01s linear forwards;
+        animation: show 0s linear forwards;
         
     }
     .content{

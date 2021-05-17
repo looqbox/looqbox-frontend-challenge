@@ -1,27 +1,31 @@
 :root{
   --primary-color: #E41F25;
-  --secundary-color:#2a2b2b;
+  --secundary-color:#0D131A;
   --body:#FCFCFC;
+
+  --white:#fff;
 
   --loading:#dddddd;
 
-  --background-pokemon:#f1f1f1;
+  --background-pokemon:#F4F4F4;
+  
 
   --input:#FFFFFF;
   --placeholder:#C9C9C9;
   
-  --button-background:#e4461f;
-  --button-background-hover:#cc350f;
+  --button-background:#4b4b4b;
+  --button-background-hover:rgb(44, 44, 44);
+
   --card:#FFFFFF;
 
-  --tag-color:#808080;
-  --tag-container:#e7e7e7;
+  --tag-color:#0D131A;
+  --tag-container:#eeeeee;
   
   --title:#2B2B2A;
   --title-light:#fff;
   
   --text-highlight:#474747;
-  --text:#C9C9C9;
+  --text:#a0a0a0;
   --text-light:#fff;
   
   --type-text-color:#ffffff;
@@ -52,11 +56,14 @@
   --pokemon-brown:#f55929;
   --pokemon-gray:#505050;
   --pokemon-green:#29C771;
-  --pokemon-pink:#e249c1;
+  --pokemon-pink:#d65997;
   --pokemon-purple:#a234ce;
   --pokemon-red:#df1c3d;
   --pokemon-white:#f5f5f5;
-  --pokemon-yellow:#f7dc15;
+  --pokemon-yellow:#f0da35;
+
+  --legendary:rgb(240, 182, 22);
+  --mythical:rgb(51, 11, 54);
 }
 *{
   margin:0;
@@ -69,6 +76,8 @@ html{
 body {
   background-color: var(--body);
   color:var(--text);
+
+  overflow-y: scroll;
 
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;

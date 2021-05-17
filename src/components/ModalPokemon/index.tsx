@@ -11,19 +11,20 @@ import { Link } from 'react-router-dom';
 
 export const ModalPokemon: React.FC = () => {
   const { closeModal } = React.useContext(ModalContext);
-  const { pokemonSelected, selectPokemon } = React.useContext(PokemonContext);
+  const { pokemonSelected, cleanPokemonSelected, setLoading } =
+    React.useContext(PokemonContext);
 
   function closeModalBackground(
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ) {
     if (e.target === e.currentTarget) {
       closeModal();
-      selectPokemon();
+      cleanPokemonSelected();
     }
   }
   function closeModalClick() {
     closeModal();
-    selectPokemon();
+    cleanPokemonSelected();
   }
 
   return (
@@ -61,6 +62,10 @@ export const ModalPokemon: React.FC = () => {
             </div>
             <div className={styles.cardInfo}>
               <h2>
+                Base experience
+                <span>{pokemonSelected.base_experience} XP</span>
+              </h2>
+              <h2>
                 Weight
                 <span>{pokemonSelected.weight / 10} Kg</span>
               </h2>
@@ -82,6 +87,7 @@ export const ModalPokemon: React.FC = () => {
               <Link
                 to={`/pokemon/${pokemonSelected.name}`}
                 className={styles.link_more_information}
+                onClick={() => setLoading(true)}
               >
                 More information
               </Link>
