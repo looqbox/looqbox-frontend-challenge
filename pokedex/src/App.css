@@ -1,0 +1,917 @@
+.App {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: 100px repeat(auto-fill, 100px) 300px;
+}
+
+body {
+  place-items: center;
+  margin-top: 3.8em;
+  font-family: "Roboto" sans-serif;
+  background-color: #ffcb05;
+}
+
+/* NAVBAR */
+.nav-bar {
+  display: grid;
+  grid-row: 1/2;
+  grid-column: 2 / 12;
+}
+.nav-links-container {
+  display: grid;
+  margin-top: 1rem;
+  grid-row: 1/2;
+  grid-column: 8 / 11;
+}
+.nav-links-container a {
+  background-color: red;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  border-radius: 10%;
+  height: 1rem;
+  width: 7rem;
+}
+.nav-link-profile {
+  grid-row: 1/2;
+}
+
+.nav-link-home {
+  grid-row: 1/2;
+}
+
+/* SEARCH BAR */
+
+.search-bar {
+  display: grid;
+  grid-row: 1/5;
+  grid-column: 1/2;
+  background: red;
+  height: 1.5rem;
+  width: 12rem;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.search-txt {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  font-weight: bold;
+  position: relative;
+  top: -9px;
+}
+.search-txt::placeholder {
+  color: white;
+  position: relative;
+}
+.search-btn {
+  display: grid;
+  color: #e84118;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2f3640;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  left: 11.5rem;
+  top: -3rem;
+}
+
+/* POKE CARD */
+.card {
+  display: grid;
+  width: 300px;
+  height: 520px;
+  background: #f0d935;
+  border: 0.1px solid lightgrey;
+  border-radius: 15px;
+  box-shadow: 1px 4px 10px 4px lightgrey;
+  color: black;
+  grid-column: 5/8;
+  grid-row: 2/5;
+}
+
+.base-info {
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 0.5em;
+  justify-content: space-between;
+  padding: 0.4em;
+  margin-left: 5.5em;
+  padding-right: 1em;
+  text-transform: capitalize;
+}
+
+.first-hr {
+  height: 0.1px;
+  border: 0.5px solid #ffcb05;
+  width: 80%;
+  margin-left: 2.8em;
+  margin-top: -2px;
+  color: #ffcb05;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 3.5em;
+  padding-right: 1em;
+  text-transform: capitalize;
+}
+
+.stage-img {
+  background: lightgrey;
+  position: relative;
+  top: -5rem;
+  left: 10px;
+  border: 1px solid #ffcb05;
+}
+.stage-text {
+  position: absolute;
+  z-index: 1;
+  top: -0.5rem;
+  left: 11px;
+  text-transform: uppercase;
+  font-size: 0.5em;
+}
+.main-img {
+  display: block;
+  position: relative;
+  top: -3.5rem;
+  margin: auto;
+  border: 5px solid #ffcb05;
+  box-shadow: 2px 4px 10px -2px;
+}
+.banner {
+  position: relative;
+  top: -3.5rem;
+  background: radial-gradient(white 1%, #d5ba4e 90%);
+  width: 85%;
+  font-size: 0.6em;
+  margin-left: 2.2em;
+  text-align: center;
+}
+.main-text {
+  position: relative;
+  top: -4rem;
+  font-size: 0.6em;
+  padding: 0.2em 2.4em;
+}
+.main-text span {
+  color: #79578d;
+  display: flex;
+  font-weight: bolder;
+  font-size: 1em;
+}
+.moves-list {
+  text-transform: capitalize;
+  margin-left: 20px;
+}
+.second-hr {
+  position: relative;
+  top: -2.5rem;
+  width: 94%;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.ratings {
+  position: relative;
+  top: -5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+}
+.ratings .container {
+  display: flex;
+  flex-flow: column;
+}
+.ratings .container p {
+  font-weight: 2000;
+  font-size: 14px;
+}
+.ratings .container .weakness,
+.ratings .container .resistance,
+.ratings .container .hp {
+  display: flex;
+  justify-content: center;
+}
+.ratings .container .weakness img,
+.ratings .container .resistance img,
+img {
+  margin: 0 0.4em 0.2em 0;
+}
+.hp {
+  position: relative;
+  top: -1.5rem;
+  color: red;
+}
+.bottom-info {
+  position: relative;
+  top: -7.5rem;
+  font-size: 0.6em;
+  padding: 0 1em;
+  border: 0.8px solid #ffcb05;
+  margin: 0.2em 1em;
+}
+.tiny-txt {
+  position: relative;
+  top: -7.5rem;
+  padding: 0 2.2em;
+  font-size: 0.1em;
+}
+
+/* POKE LIST */
+
+.poke-list-container {
+  display: grid;
+  grid-row: 2/5;
+  grid-column: 4/10;
+  color: white;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: 100px repeat(auto-fill, 100px) 300px;
+  justify-content: center;
+}
+.poke-list-container h1 {
+  font-size: 1.5rem;
+  color: black;
+}
+.poke-list-title {
+  display: grid;
+  grid-column: 4/9;
+}
+
+.poke-list {
+  display: grid;
+  grid-row: 2/11;
+  grid-column: 5/8;
+  list-style: none;
+  margin: 1.75rem 0;
+  padding-left: 1rem;
+}
+
+ol.poke-list > li {
+  background: red;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  margin-top: 1rem;
+  min-height: 1rem;
+  padding: 1rem 1rem 1rem 3rem;
+  height: 1rem;
+}
+.poke-list-pages {
+  display: inline-block;
+  grid-row: 11/12;
+  grid-column: 1/12;
+}
+.view-list-btn {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  top: -2rem;
+  left: 26rem;
+}
+
+/* PAGES */
+
+.pages {
+  display: inline-block;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  font-size: 2rem;
+  text-align: center;
+  width: 3rem;
+  height: 3rem;
+  margin: 2rem 2rem 2rem 2rem;
+  color: black;
+}
+
+/* TRAINER PROFILE */
+
+.trainer-profile {
+  display: grid;
+  grid-column: 2/12;
+  grid-row: 2/5;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(auto-fill, 200px) 20%;
+}
+
+.trainer-title {
+  grid-column: 1 / end;
+  font-size: 5rem;
+  color: black;
+  text-align: center;
+}
+.trainer-info {
+  grid-row: 2/3;
+  grid-column: 1/6;
+  font-size: 1rem;
+}
+.trainer-info p {
+  margin-top: 1rem;
+  font-size: 5rem;
+}
+.trainer-image {
+  grid-row: 2/3;
+  grid-column: 9 / end;
+}
+.trainer-fav-pokemon {
+  grid-row: 3/6;
+  grid-column: 1 / end;
+  text-align: center;
+}
+
+/* POKEDEX */
+
+.red {
+  background-color: #ff0000;
+}
+.yellow {
+  background-color: #fecb65;
+}
+.green {
+  background-color: #32cb65;
+}
+.blue {
+  animation: pulse 2s infinite;
+  background-color: #3298cb;
+}
+@keyframes pulse {
+  0% {
+    background-color: #d5ba4e;
+  }
+  100% {
+    background-color: #3298cb;
+  }
+}
+
+.light-blue {
+  background-color: #85bdfe;
+}
+.light-red {
+  background-color: #fe98cb;
+}
+.light-yellow {
+  background-color: #fefecb;
+}
+.light-green {
+  background-color: #98fe00;
+}
+
+/* poke-dex */
+.pokedex {
+  height: 342px;
+  width: calc(228px * 2);
+  display: grid;
+  grid-column: 5/10;
+  grid-row: 2/8;
+  grid-template-columns: repeat(12);
+  grid-template-rows: repeat(12);
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .pokedex {
+    width: 90%;
+  }
+}
+
+/* LEFT PANEL */
+.left-panel {
+  background-color: #fe0065;
+  box-sizing: border-box;
+  height: 100%;
+  width: 200px;
+  display: grid;
+  grid-template-rows: 23% 50% 27%;
+  border: solid black 3px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 7px;
+  grid-column: 1/6;
+}
+/* Top Lights */
+
+.lights-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.left-svg {
+  position: absolute;
+  z-index: +5;
+}
+
+.big-light-boarder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  height: 60px;
+  width: 60px;
+  border: solid black;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.big-light {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: solid black;
+}
+
+.big-dot {
+  height: 15px;
+  width: 15px;
+  position: relative;
+  top: 7px;
+  left: 10px;
+  border-radius: 50%;
+}
+
+.small-lights-container {
+  margin-left: 15px;
+  margin-top: 10px;
+  width: 70px;
+  height: 100%;
+  display: flex;
+  align-self: start;
+  justify-content: space-around;
+}
+
+.small-light {
+  border: solid black;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+.dot {
+  height: 5px;
+  width: 5px;
+  position: relative;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+}
+
+/* Center Screen */
+
+.screen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen {
+  width: 150px;
+  height: 150px;
+  border: solid black;
+  border-radius: 0 0 0 17%;
+  display: grid;
+  grid-template-rows: 10% 72% 18%;
+  background-color: white;
+}
+
+.top-screen-lights {
+  width: 50%;
+  margin-top: 2px;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.mini-light {
+  border: solid black 1px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+#main-screen {
+  height: 100%;
+  width: 80%;
+  justify-self: center;
+  background-color: #9e9d9d;
+  border: solid black 2px;
+  border-radius: 5%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bottom-screen-lights {
+  display: flex;
+  margin-top: 5px;
+  width: 75%;
+  justify-self: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom-screen-lights .small-light {
+  border: solid black 2px;
+  width: 12px;
+  height: 12px;
+}
+
+.bottom-screen-lights .dot {
+  height: 4px;
+  width: 4px;
+  top: 2.5px;
+  left: 2px;
+}
+
+.line {
+  width: 18px;
+  height: 2px;
+  background-color: black;
+  margin-top: 2px;
+}
+
+/*Bottom buttons  */
+
+.buttons-container {
+  display: grid;
+  grid-template-rows: 40% 60%;
+}
+
+.big-button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: solid 2px black;
+  background-color: #585858;
+  margin-left: 7px;
+}
+
+.long-button {
+  width: 35px;
+  height: 2px;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
+.green-screen {
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  border: solid black 2px;
+  background-color: #3ab47d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#name-screen {
+  width: 100%;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  font-size: 8.5px;
+  overflow-wrap: break-word;
+  text-transform: capitalize;
+}
+
+.circle {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.upper-buttons-container {
+  display: flex;
+  align-items: top;
+  justify-content: flex-start;
+}
+
+.long-buttons-container {
+  display: flex;
+  width: 100px;
+  justify-content: space-around;
+  margin-left: 7px;
+}
+
+.nav-buttons-container {
+  display: grid;
+  grid-template-columns: 27% 35% 38%;
+}
+
+.dots-container {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-self: center;
+  justify-content: space-between;
+  font-size: x-large;
+}
+
+.right-nav-container {
+  position: relative;
+  top: -30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-button {
+  height: 52px;
+  width: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-button-vertical-up {
+  position: absolute;
+  transform: rotate(90deg);
+  background-color: #585858;
+  border-radius: 5px;
+  height: 12px;
+  width: 20px;
+  top: 1%;
+  border: 2px solid black;
+}
+.nav-button-vertical-down {
+  position: absolute;
+  transform: rotate(90deg);
+  background-color: #585858;
+  border-radius: 5px;
+  height: 12px;
+  width: 26px;
+  top: 40%;
+  border: 2px solid black;
+}
+
+.nav-button-horizontal-right {
+  position: absolute;
+  background-color: #585858;
+  border-radius: 5px;
+  height: 12px;
+  width: 52px;
+  border: 2px solid black;
+}
+.nav-button-horizontal-left {
+  position: absolute;
+  background-color: #585858;
+  border-radius: 5px;
+  height: 12px;
+  width: 26px;
+  left: 17%;
+}
+
+.nav-center-circle {
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  border: solid black 2px;
+  z-index: +2;
+}
+
+.border-top {
+  border-top: 3.5px solid #585858;
+  position: absolute;
+  top: -3px;
+  left: 20px;
+  right: 19.5px;
+}
+.border-bottom {
+  border-top: 3.5px solid #585858;
+  position: absolute;
+  top: 11px;
+  left: 20px;
+  right: 19.5px;
+}
+
+.bottom-right-nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bottom-right-nav-container .dots-container {
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-right-nav-container .small-light {
+  border: solid black 2px;
+  width: 7px;
+  height: 7px;
+  margin-right: 3px;
+  margin-top: 10px;
+}
+
+.bottom-right-nav-container .dot {
+  height: 2.5px;
+  width: 2.5px;
+  top: 1.5px;
+  left: 1.5px;
+}
+
+/* RIGHT PANEL */
+
+.right-panel {
+  background-color: #fe0065;
+  box-sizing: border-box;
+  position: relative;
+  height: 100%;
+  width: 75%;
+  display: grid;
+  grid-template-rows: 24% repeat(4, 19%);
+  grid-column: 6/12;
+  border-bottom: solid black 3px;
+  border-bottom-right-radius: 10px;
+}
+.right-panel::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  bottom: 0;
+  width: 100%;
+  height: 265px;
+  border-right: solid black 3px;
+  border-bottom-right-radius: 7px;
+}
+/* top screen */
+.top-screen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right-panel-screen {
+  font-family: "Press Start 2P", cursive;
+  width: 146px;
+  height: 64px;
+  background-color: #9e9d9d;
+  border: solid black 2px;
+  border-radius: 4px;
+  font-size: xx-small;
+  padding-left: 2px;
+  padding-right: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+/* square buttons grid */
+.square-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blue-squares-container {
+  width: 146px;
+  height: 60px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 2rem);
+}
+.blue-square {
+  border-radius: 2px;
+  border: black 1.5px solid;
+  background-color: #7ca9f7;
+  box-shadow: inset -2px -2px #3298cb;
+  z-index: 1;
+}
+
+/* center buttons */
+.center-buttons-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.center-left-container {
+  display: grid;
+}
+
+.small-reds-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.small-reds-container .small-light {
+  border: solid black 2px;
+  width: 7px;
+  height: 7px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.small-reds-container .dot {
+  height: 2.5px;
+  width: 2.5px;
+  top: 1px;
+  left: 1px;
+}
+
+.white-squares-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.white-square {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  border: black 2px solid;
+  background-color: #ffffff;
+  box-shadow: inset -2px -2px gray;
+  z-index: 1;
+}
+
+.center-right-container {
+  display: grid;
+}
+
+.thin-buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.thin-button {
+  width: 35px;
+  height: 2px;
+  border: 2px solid black;
+  background-color: #585858;
+  margin-left: 10px;
+}
+.yellow-button {
+  justify-self: end;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: solid 2px black;
+  margin-left: 7px;
+}
+
+.yellow-button .big-dot {
+  height: 7px;
+  width: 7px;
+  position: relative;
+  top: 3px;
+  left: 5px;
+  border-radius: 50%;
+}
+
+/* bottom screens */
+
+.bottom-screens-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bottom-screens-container .right-panel-screen {
+  width: 64px;
+  height: 25px;
+}
+
+.mention {
+  margin-top: 10px;
+  width: 150px;
+  display: grid;
+  text-align: center;
+  font-size: x-large;
+}
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+.link-logo {
+  width: 25px;
+  height: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.pokedex-title {
+  position: absolute;
+  top: 70%;
+  left: 20%;
+  text-align: center;
+  word-wrap: break-word;
+}
