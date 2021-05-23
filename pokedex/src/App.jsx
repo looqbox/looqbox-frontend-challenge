@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { PokeList } from "./components/PokeList";
 import NavItems from "./components/NavItems";
-import { PokeCard } from "./components/PokeCard";
 import TrainerProfile from "./components/TrainerProfile";
 import Pokedex from "./components/Pokedex";
 
