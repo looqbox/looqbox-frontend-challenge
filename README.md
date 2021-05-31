@@ -1,43 +1,29 @@
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+# Pokedex React
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+Para executar:
+-
+    1) ```git clone https://https://github.com/Andrei-Araujo/Pokedex-React.git```
+    2) ```npm i```
+    3) ```npm start```
+  
+  
+# Pokédex
+O projeto tem por objetivo mostrar uma forma prática de cinsulta a dados base de determinados Pokémons, utilizando a API PokéAPI para consulta dos dados. 
 
-We will not use anything from your project and you are free to use it in your portfolio
+A documentação da API utilizada pode ser conferida em https://pokeapi.co .
 
-## Stack
-We use:
-- ReactJS for the front end framework
-- Webpack and Yarn for dependency management and local deployment
+# Interface para consulta
 
-But you can use Node and Npm if you prefer :)
+Neste projeto, é possível consultar dados de duas principais maneiras.
+## Consulta local
+Ao selecionar uma das opções da galeria fixa de pokémons sugeridos, utilizou-se o acesso a dados locais, armazenados em formato ```.json```.
 
-## Submitting
-- Make a fork of this repository
-- When you're done send us a pull request
+## Consulta remota
+Ao pesquisar por um pokémon via barra de pesquisa, o parâmetro utilizado (nome ou ID) é repassado para  se obter as informações sobre o pokémon desejado. 
 
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
+Analogamente, com o modo aleatório de seleção, é escolhido um Pokémon de modo randomizado (a partir de seu ID) no banco de dados remoto.
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please mind how many times you request data
+# Observações
 
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
+Atualmente, a API utilizada permite a consulta de pokémon apenas pelos nomes presentes no idioma inglês. Para seleção via nomes em outros idiomas, deve-se implementar um banco de dados local para tradução do nome entre inglês e os demais idiomas.
 
-You can use any dependency you want, (axios, bootstrap, material ui...)
-
-## Bonus points!
-- A view with more details about the pokemon selected in the list
-- Graphs!
-- Unit Testing
-- Linting
-- Nice UI
-- Explain Code architecture
-- Documentation
-
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
