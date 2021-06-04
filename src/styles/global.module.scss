@@ -1,0 +1,22 @@
+* {
+  color: var(--dark-gray-500);
+}
+
+.min100vh {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  background: var(--light-gray-400); 
+}
+
+.container {
+  width: 100%;
+  max-width: 116rem;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.flex {
+  display: flex;
+  gap: 3rem;
+}

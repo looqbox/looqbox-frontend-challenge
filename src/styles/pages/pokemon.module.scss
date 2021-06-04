@@ -1,0 +1,136 @@
+.link {
+  display: flex;
+  align-items: center;
+  color: var(--dark-gray-500);
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  svg {
+    margin-right: 5px;
+  }
+}
+
+
+.content {
+  height: calc(100vh - 80px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+
+
+.informations {
+
+  .containerCardInformation {
+    display: flex;
+    gap: 3rem;
+  }
+
+  h1 {
+    font-size: 6.2rem;
+    color: var(--dark-gray-500);
+    font-weight: 500;
+    padding-bottom: 6rem;
+  }
+
+  h4 {
+    font-size: 3.2rem;
+    font-weight: 500;
+    color: var(--dark-gray-500);
+    padding-bottom: 2rem;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      max-width: 45rem;
+      height: 2px;
+      background: var(--light-gray-600);
+      margin: 5rem 0;
+    }
+  }
+
+  .abilities {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+  
+    li {
+      font-size: 2.4rem;
+      color: var(--dark-gray-600);
+      background: var(--yellow);
+      font-weight: 500;
+      padding: 2rem 3.5rem;
+      border-radius: 1rem;
+    }
+  }
+}
+
+
+
+.imageAndType {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 4rem;
+
+  img {
+    width: 100%;
+    max-width: 390px;
+  }
+
+  .types {
+    
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+    width: 100%;
+    padding: 2rem 0;
+    border-radius: 1rem;
+    background: var(--light-gray-500);
+
+    
+
+    li {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--dark-gray-500);
+
+      
+      
+
+      img {
+        display: block;
+        margin-bottom: 5px;
+        width: 100%;
+        max-width: 5.5rem;
+      }
+    }
+
+    li + li {
+      &::after {
+      content: '';
+      background: var(--light-gray-600);
+      height: 100%;
+      width: 3px;
+     
+      position: absolute;
+      top: 0;
+      left: -3rem;
+      }
+
+    }
+
+  }
+}

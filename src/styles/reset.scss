@@ -1,8 +1,25 @@
+@import './colors.scss';
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box;    
+}
+
+*, input, textarea, button {
   font-family: 'inter', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+
+  @media(max-width: 1080px) {
+    font-size: 56.25%;
+  }
+
+  @media(max-width: 720px) {
+    font-size: 50%;
+  }
 }
 
 ul {
