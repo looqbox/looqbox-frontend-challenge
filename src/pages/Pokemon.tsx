@@ -2,12 +2,14 @@ import globalStyles from '../styles/global.module.scss';
 import styles from '../styles/pages/pokemon.module.scss';
 import { Link } from 'react-router-dom';
 import { CardInformation } from '../components/CardInformation/index';
+import { MdArrowBack } from 'react-icons/md';
 
 export function Pokemon() {
   return (
     <div className={globalStyles.min100vh}>
       <main className={globalStyles.container}>
         <Link className={styles.link} to="/">
+          <MdArrowBack />
           Voltar
         </Link>
 

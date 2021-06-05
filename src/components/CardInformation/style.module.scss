@@ -8,6 +8,9 @@
   border-radius: 1rem;
   text-align: center;
   box-shadow: 0 3px 5px rgba(54, 65, 77, 0.25);
+  @media(max-width: 832px) {
+    max-width: 15rem;
+  }
 
   strong {
     
