@@ -36,7 +36,7 @@ Utilização do Eslint e Prettier no padrão do create react-app.
 
 - Normalemnte utilizado para sercicos externos, como a instancia Axios com a baseUrl da Api, ou então, instancias de CMS...
 
-  **/styles**
+**/styles**
 
 - Todos os arquivos de estilização ficam nesta pasta, exceto dos componentes.
 - Na raiz do diretório, criar arquivos que serão gerais para toda a aplicação.
@@ -45,7 +45,7 @@ Utilização do Eslint e Prettier no padrão do create react-app.
 - Diretório onde se encontram todas as tipagens que retornam da Api
 - Sempre seguindo o padrão do nome de arquivo, com relação aos Endpoints da Api.
 
-  **Routes**
+**Routes**
 
 - Arquivo com as rotas do projeto.
 - Caso houver contextos gerais, envolver os **Providers** de maneira global, ou entre grupo de rotas específicas.
@@ -67,7 +67,8 @@ Rascunho do Design que desenvolvi no Figma, algumas correções foram feitas dir
 3.  node-sass
 4.  react-icons
 5.  axios
-6.  **Demais recursos**
+
+**Demais recursos**
 
 7.  Eslint
 8.  Prettier
