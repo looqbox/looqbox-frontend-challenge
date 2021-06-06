@@ -1,8 +1,8 @@
 import styles from './style.module.scss';
 
 interface CardInformationProps {
-  value: number;
-  label: string;
+  value?: number;
+  label?: string;
 }
 
 export function CardInformation({ label, value }: CardInformationProps) {

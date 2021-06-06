@@ -34,3 +34,16 @@ a {
 button {
   cursor: pointer;
 }
+
+//modificando o estilo base da biblioteca react-toastify
+.Toastify__toast-body {
+  font-size: 1.8rem;
+  line-height: 150%;
+  color: var(--light-gray-300);
+}
+
+.Toastify__close-button {
+  svg {
+    fill: var(--light-gray-300);
+  }
+}

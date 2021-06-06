@@ -13,6 +13,7 @@
     "react-icons": "^4.2.0",
     "react-router-dom": "^6.0.0-beta.0",
     "react-scripts": "4.0.3",
+    "react-toastify": "^7.0.4",
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {

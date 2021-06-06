@@ -1,10 +1,21 @@
 import { Link } from 'react-router-dom';
+
+import globalStyles from '../../styles/global.module.scss';
 import styles from './style.module.scss';
 
-export function CardPokemon() {
+interface CardPokemonProps {
+  name: string;
+  url: string;
+}
+
+export function CardPokemon({ name, url }: CardPokemonProps) {
+  const id = url
+    .replace('https://pokeapi.co/api/v2/pokemon', '')
+    .replace(/\/((?:\d+?))\//g, '$1');
+
   return (
     <li>
-      <Link className={styles.container} to="/pokemon/1">
+      <Link className={styles.container} to={`/pokemon/${id}`}>
         <img
           className={styles.pokeball}
           src="/images/pokemon/pokeball.svg"
@@ -12,11 +23,11 @@ export function CardPokemon() {
         />
         <img
           className={styles.pokemon}
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
-          alt="polemon tal"
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
+          alt={`Pokemon ${name}`}
         />
 
-        <span>Bulbasaur</span>
+        <span className={globalStyles.capitalize}>{name}</span>
       </Link>
     </li>
   );

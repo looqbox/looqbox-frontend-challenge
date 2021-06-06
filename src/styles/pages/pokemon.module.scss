@@ -21,23 +21,39 @@
 }
 
 .content {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 82px);
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: center;
+  gap: 0 6rem;
+  align-content: center;
+  grid-template-areas: "title title" "informations imageAndType";
 
   @media(max-width: 832px) {
     grid-template-columns: 1fr;
+    grid-template-areas: "title" "imageAndType" "informations";
     padding-top: 4rem;
+  }
+
+  h1 {
+    grid-area: title;
+    font-size: 6.2rem;
+    color: var(--dark-gray-500);
+    font-weight: 500;
+    padding-bottom: 6rem;
+    
+    @media(max-width: 832px) {
+      text-align: center;
+    }
   }
 }
 
 .informations {
+  grid-area: informations;
 
   @media(max-width: 832px) {
     margin: 0 auto;
+    
   }
 
   .containerCardInformation {
@@ -49,15 +65,7 @@
     }
   }
 
-  h1 {
-    font-size: 6.2rem;
-    color: var(--dark-gray-500);
-    font-weight: 500;
-    padding-bottom: 6rem;
-    @media(max-width: 832px) {
-      text-align: center;
-    }
-  }
+  
 
   h4 {
     font-size: 3.2rem;
@@ -85,6 +93,9 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 3rem;
+    @media(max-width: 832px) {
+      justify-content: center;
+    }
   
     li {
       font-size: 2.4rem;
@@ -100,6 +111,7 @@
 
 
 .imageAndType {
+  grid-area: imageAndType;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,10 +119,13 @@
   width: 100%;
   gap: 4rem;
 
+ 
+
   img {
     width: 100%;
-    max-width: 390px;
+    max-width: 350px;
     @media(max-width: 832px) {
+      grid-row: 1;
       max-width: 320px;
     }
     @media(max-width: 720px) {
@@ -119,7 +134,7 @@
   }
 
   .types {
-    
+    max-width: 60rem;
     flex: 1;
     display: flex;
     align-items: center;
@@ -129,6 +144,10 @@
     padding: 2rem 0;
     border-radius: 1rem;
     background: var(--light-gray-500);
+
+    @media(max-width: 832px) {
+      margin-bottom: 6rem;
+    }
 
     li {
       position: relative;
