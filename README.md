@@ -4,7 +4,7 @@
 ## Challenge
 In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
 
-We will not use anything from your project and you are free to use it in your portfolio
+We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
 
 ## Stack
 We use:
@@ -31,12 +31,10 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 
 ## Bonus points!
 - A view with more details about the pokemon selected in the list
-- Graphs!
-- Unit Testing
-- Linting
-- Nice UI
-- Explain Code architecture
 - Documentation
+- Linting
+- Graphs
+- Unit Testing
 
 ## Useful links
 - [React docs](https://reactjs.org/docs/getting-started.html)
