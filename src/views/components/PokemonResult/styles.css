@@ -28,3 +28,11 @@
 .listItem img{
     width: 80%;
 }
+
+.listItem:hover{
+    background-color: #3788b8;
+}
+
+.listItem:active{
+    background-color: #59c2ff;
+}

@@ -3,12 +3,29 @@
     flex-direction: row;
 }
 
+.mainLight{
+    z-index: -1;
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    top: 10px;
+    left: 40px;
+}
+
+.topBevel{
+    z-index: -1;
+    position: fixed;
+    top: -7vw;
+    width: 100vw;
+    height: 20vw;
+}
+
 .infoSection{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 100px 20px 20px 20px;
+    padding: 150px 20px 20px 20px;
     width: 50vw;
 }
 
@@ -16,16 +33,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 20px 0px 20px;
+    padding: 180px 20px 0px 20px;
     width: 50vw;
 }
 
 .infoDiv{
+    position: relative;
     border: 50px solid #d4d4d4;
     border-radius: 15px;
     background-color: #236b40;
     width: 600px;
     height: 430px;
+}
+
+.infoDivCompare{
+    cursor: pointer;
+    background-color: #909090;
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+    bottom: -42.5px;
+    height: 35px;
+    width: 100px;
 }
 
 .dataDiv{
@@ -96,7 +125,7 @@
     height: 80px;
     border-radius: 10px;
     background-color: #236b40;
-    border: #909090 inset 5px;
+    border: #909090 inset 8px;
     margin-bottom: 30px;
 }
 
@@ -108,6 +137,10 @@
     background-color: transparent;
     font-size: 40px;
     color: #b9ffd5;
+}
+
+.searchInput::placeholder{
+    color: #2c8b52;
 }
 
 .searchInputSubmit{

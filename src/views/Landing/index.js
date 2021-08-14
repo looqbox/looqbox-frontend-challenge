@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import API from "../../services/API";
 import PokemonResult from "../components/PokemonResult";
 import { FaSearch, FaRedoAlt } from "react-icons/fa";
+import { ReactComponent as MainLight } from "../components/mainLight.svg";
+import { ReactComponent as TopBevel } from "../components/topBevel.svg";
 import "./index.css";
 
 export default function Landing() {
@@ -17,8 +19,8 @@ export default function Landing() {
 
     async function fetchPokemonList(options) {
         await API.get(`/pokemon${options}`).then(response => {
+            setPokemonList();
             setPokemonList(response.data.results);
-            console.log(pokemonList);
         }).catch(e => {
             console.error(e);
         });
@@ -41,6 +43,8 @@ export default function Landing() {
 
     return (
         <section className="mainSection">
+            <MainLight className="mainLight"/>
+            <TopBevel className="topBevel"/>
             <article className="infoSection">
                 <div className="infoDiv">
                     {   pokemonData ?
@@ -72,12 +76,13 @@ export default function Landing() {
                         :
                         ""
                     }
+                    <button className="infoDivCompare">Compare Pokémon</button>
                 </div>
             </article>
             <div className="searchSection">
                 <form className="searchSectionForm" onSubmit={e => formSubmit(e)}>
                     <div className="searchInputDiv">
-                        <input type="search" className="searchInput" value={searchText} onChange={e => setSearchText(e.target.value)}/>
+                        <input type="search" className="searchInput" value={searchText} onChange={e => setSearchText(e.target.value)} autoFocus placeholder="POKÉMON NAME OR ID"/>
                         <button type="submit" className="searchInputSubmit">
                             <FaSearch fill="#236b40" size="40%"/>
                         </button>
@@ -98,6 +103,7 @@ export default function Landing() {
                     </button>
                 </div>
             </div>
+            <span className="credit">Made by Nicholas Campanelli for LOOQBOX</span>
         </section>
     );
 }
