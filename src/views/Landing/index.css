@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 20px 20px 20px;
+    padding: 100px 20px 0px 20px;
     width: 50vw;
 }
 
@@ -25,12 +25,13 @@
     border-radius: 15px;
     background-color: #236b40;
     width: 600px;
-    height: 400px;
+    height: 430px;
 }
 
 .dataDiv{
     display: grid;
-    grid-template-rows: 80% 20%;
+    grid-template-rows: 85% 15%;
+    border: 10px inset #909090;
     width: 100%;
     height: 100%;
 }
@@ -38,13 +39,36 @@
 .dataMain{
     display: grid;
     grid-template-columns: 50% 50%;
-    padding: 20px;
+    padding: 10px;
     width: 100%;
     height: 100%;
 }
 
 .dataMain img{
+    width: 90%;
+    filter: sepia(1) hue-rotate(80deg);
+}
+
+.dataStats h2{
+    color: #b9ffd5;
+}
+
+.dataStats h3{
+    color: #b9ffd5;
+}
+
+.dataTypes{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 4%;
+}
+
+.pokemonType{
     width: 100%;
+    background-color: #b9ffd5;
+    color: #236b40;
+    text-align: center;
 }
 
 .dataFooter{
@@ -52,12 +76,12 @@
     flex-direction: row;
     align-items: center;
     height: 100%;
-    background-color: #e9feff;
+    background-color: #b9ffd5;
     padding: 0 20px;
 }
 
 .dataFooter h2{
-    color: #000000;
+    color: #236b40;
 }
 
 .dataId{
@@ -68,7 +92,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 10px;
     width: 600px;
     height: 80px;
     border-radius: 10px;
@@ -78,8 +101,9 @@
 }
 
 .searchInput{
+    padding-left: 20px;
     margin-right: 10px;
-    width: 520px;
+    width: 510px;
     height: 100%;
     background-color: transparent;
     font-size: 40px;
@@ -89,9 +113,12 @@
 .searchInputSubmit{
     width: 100%;
     height: 100%;
+    background-color: #b9ffd5;
+    color: #236b40;
 }
 
 .searchListSection{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,4 +131,19 @@
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: repeat(2, 50%);
+    margin-bottom: 20px;
+}
+
+.searchListUpdate{
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    border-radius: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #ffe600;
 }
