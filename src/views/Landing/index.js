@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import API from "../../services/API";
 import PokemonResult from "../components/PokemonResult";
@@ -12,6 +12,7 @@ export default function Landing() {
     const [pokemonList, setPokemonList] = useState();
     const [pokemonData, setPokemonData] = useState();
     const [searchText, setSearchText] = useState("");
+    const mainLightRef = useRef();
     const history = useHistory();
 
     useEffect(() => {
@@ -23,6 +24,7 @@ export default function Landing() {
         await API.get(`/pokemon${options}`).then(response => {
             setPokemonList();
             setPokemonList(response.data.results);
+            blinkLight();
         }).catch(e => {
             console.error(e);
         });
@@ -38,6 +40,8 @@ export default function Landing() {
 
     function formSubmit(e) {
         e.preventDefault();
+
+        blinkLight();
         
         if(searchText)
             fetchPokemon(searchText);
@@ -50,9 +54,28 @@ export default function Landing() {
         });
     }
 
+    function blinkLight(){
+        mainLightRef.current.style.filter = "brightness(200%)";
+        setTimeout(() => {
+            mainLightRef.current.style.filter = "brightness(100%)";
+        }, 100);
+        setTimeout(() => {
+            mainLightRef.current.style.filter = "brightness(200%)";
+        }, 200);
+        setTimeout(() => {
+            mainLightRef.current.style.filter = "brightness(100%)";
+        }, 300);
+        setTimeout(() => {
+            mainLightRef.current.style.filter = "brightness(200%)";
+        }, 400);
+        setTimeout(() => {
+            mainLightRef.current.style.filter = "brightness(100%)";
+        }, 500);
+    }
+
     return (
         <section className="mainSection">
-            <MainLight className="mainLight"/>
+            <MainLight className="mainLight" ref={mainLightRef}/>
             <TopBevel className="topBevel"/>
             <article className="infoSection">
                 <div className="infoDiv">
@@ -104,15 +127,26 @@ export default function Landing() {
                     </div>
                 </form>
                 <div className="searchListSection">
-                    <ul className="searchList">
                         {   pokemonList ?
-                                pokemonList.map((pokemon) => (
-                                    <PokemonResult url={pokemon.url} dataChangerFn={setPokemonData}/>
-                                ))
+                                <ul className="searchList">{
+                                    pokemonList.map((pokemon) => (
+                                        <PokemonResult url={pokemon.url} dataChangerFn={setPokemonData}/>
+                                    ))}
+                                </ul>
                             :
-                            ""
+                            <ul className="searchList">
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                            </ul>
                         }
-                    </ul>
                     <button className="searchListUpdate" onClick={() => fetchPokemonList(`?limit=10&offset=${Math.ceil((Math.random()*1000))}`)}>
                         <FaRedoAlt fill="#827500" size="50%"/>
                     </button>

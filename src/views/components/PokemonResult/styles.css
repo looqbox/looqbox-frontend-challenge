@@ -36,3 +36,32 @@
 .listItem:active{
     background-color: #59c2ff;
 }
+
+.listItemDefault{
+    width: 100%;
+    height: 100px;
+    cursor: pointer;
+    font-size: 8px;
+    text-align: center;
+    list-style: none;
+    padding: 10px;
+    box-sizing: content-box;
+    box-shadow: 0 0 0 4px #3a3a3a;
+    background-color: #3f9acf;
+}
+
+.listItemDefault:nth-child(1){
+    border-radius: 15px 0 0 0;
+}
+
+.listItemDefault:nth-child(5){
+    border-radius: 0 15px 0 0;
+}
+
+.listItemDefault:nth-child(6){
+    border-radius: 0 0 0 15px;
+}
+
+.listItemDefault:nth-child(10){
+    border-radius: 0 0 15px 0;
+}

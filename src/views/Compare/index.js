@@ -154,15 +154,26 @@ export default function Compare() {
                     </div>
                 </form>
                 <div className="compareSearchListSection">
-                    <ul className="compareSearchList">
                         {   pokemonList ?
+                            <ul className="compareSearchList">{
                                 pokemonList.map((pokemon) => (
                                     <PokemonResult url={pokemon.url} dataChangerFn={setPokemonData}/>
-                                ))
+                                ))}
+                            </ul>
                             :
-                            ""
+                            <ul className="searchList">
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                                <li className="listItemDefault"></li>
+                            </ul>
                         }
-                    </ul>
                     <button className="compareSearchListUpdate" onClick={() => fetchPokemonList(`?limit=10&offset=${Math.ceil((Math.random()*1008))}`)}>
                         <FaRedoAlt fill="#827500" size="50%"/>
                     </button>
