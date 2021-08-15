@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import API from "../../services/API";
 import PokemonResult from "../components/PokemonResult";
-import { FaSearch, FaRedoAlt } from "react-icons/fa";
-import { ReactComponent as MainLight } from "../components/mainLight.svg";
-import { ReactComponent as TopBevel } from "../components/topBevel.svg";
+import { FaSearch, FaRedoAlt, FaArrowLeft } from "react-icons/fa";
 import "./index.css";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 export default function Compare() {
     
+    const history = useHistory();
     const location = useLocation();
     const [pokemonList, setPokemonList] = useState();
     const [selectedPokemon, setSelectedPokemon] = useState();
@@ -31,7 +30,6 @@ export default function Compare() {
 
     async function fetchPokemon(name) {
         await API.get(`/pokemon/${name}`).then(response => {
-            setPokemonList();
             setPokemonData(response.data);
         }).catch(e => {
             console.error(e);
@@ -41,18 +39,20 @@ export default function Compare() {
     function formSubmit(e) {
         e.preventDefault();
 
-        fetchPokemon(searchText);
+        if(searchText)
+            fetchPokemon(searchText);
     }
 
     return (
         <section className="compareSection">
+            <button className="compareSectionBack" onClick={() => history.push("/")}><FaArrowLeft fill="#827500" size="50%"/></button>
             <article className="compareInfo">
                 <div className="infoSorrounding">
                     <div className="compareInfoDiv">
                         {   selectedPokemon ?
                             <div className="compareData">
                                 <div className="compareDataMain">
-                                    <img src={selectedPokemon.sprites.front_default}/>
+                                    <img src={selectedPokemon.sprites.front_default} alt="Pokémon"/>
                                     <div className="compareDataStats">
                                         <h2>Base exp:</h2>
                                         <h3>{selectedPokemon.base_experience}</h3>
@@ -70,8 +70,23 @@ export default function Compare() {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="compareDataGraph">
+                                    {selectedPokemon.stats.map((stat, index) => (
+                                        <div key={index} className="dataStatDiv">
+                                            <div className="dataStatHeader">
+                                                <h2>{stat.stat.name}</h2>
+                                                <h3>{stat.base_stat}</h3>
+                                            </div>
+                                            <div className="dataStatBarBackdrop">
+                                                <div className="dataStatBar" style={{width: (stat.base_stat*100)/255 + "%"}}></div>
+                                            </div>
+                                        </div>
+                                    )) }
+                                </div>
                                 <div className="compareDataFooter">
-                                    <h2 className="compareDataId">#{selectedPokemon.id}</h2>
+                                    <h2 className="compareDataId">
+                                    # { selectedPokemon.id < 10 ? "0000" : ( selectedPokemon.id < 100 ? "000" : ( selectedPokemon.id < 1000 ? "00" : ( selectedPokemon.id < 10000 ? "0" : "" ) ) )}
+                                    {selectedPokemon.id}</h2>
                                     <h2 className="compareDataName">{selectedPokemon.name}</h2>
                                 </div>
                             </div>
@@ -83,7 +98,7 @@ export default function Compare() {
                         {   pokemonData ?
                             <div className="compareData">
                                 <div className="compareDataMain">
-                                    <img src={pokemonData.sprites.front_default}/>
+                                    <img src={pokemonData.sprites.front_default} alt="Pokémon"/>
                                     <div className="compareDataStats">
                                         <h2>Base exp:</h2>
                                         <h3>{pokemonData.base_experience}</h3>
@@ -101,8 +116,23 @@ export default function Compare() {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="compareDataGraph">
+                                    {pokemonData.stats.map((stat, index) => (
+                                        <div key={index} className="dataStatDiv">
+                                            <div className="dataStatHeader">
+                                                <h2>{stat.stat.name}</h2>
+                                                <h3>{stat.base_stat}</h3>
+                                            </div>
+                                            <div className="dataStatBarBackdrop">
+                                                <div className="dataStatBar" style={{width: (stat.base_stat*100)/255 + "%"}}></div>
+                                            </div>
+                                        </div>
+                                    )) }
+                                </div>
                                 <div className="compareDataFooter">
-                                    <h2 className="compareDataId">#{pokemonData.id}</h2>
+                                    <h2 className="compareDataId">
+                                    # { pokemonData.id < 10 ? "0000" : ( pokemonData.id < 100 ? "000" : ( pokemonData.id < 1000 ? "00" : ( pokemonData.id < 10000 ? "0" : "" ) ) )}
+                                    {pokemonData.id}</h2>
                                     <h2 className="compareDataName">{pokemonData.name}</h2>
                                 </div>
                             </div>
@@ -133,7 +163,7 @@ export default function Compare() {
                             ""
                         }
                     </ul>
-                    <button className="compareSearchListUpdate" onClick={() => fetchPokemonList(`?limit=10&offset=${Math.ceil((Math.random()*1000))}`)}>
+                    <button className="compareSearchListUpdate" onClick={() => fetchPokemonList(`?limit=10&offset=${Math.ceil((Math.random()*1008))}`)}>
                         <FaRedoAlt fill="#827500" size="50%"/>
                     </button>
                 </div>

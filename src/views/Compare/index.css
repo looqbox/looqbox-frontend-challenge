@@ -3,6 +3,20 @@
     flex-direction: column;
 }
 
+.compareSectionBack{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe600;
+    border-radius: 100px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+}
+
 .compareInfo{
     display: flex;
     flex-direction: row;
@@ -23,7 +37,7 @@
 .infoSorrounding{
     display: flex;
     flex-direction: row;
-    width: 1200px;
+    width: 1180px;
     height: 430px;
     border: 10px inset #909090;
 }
@@ -33,13 +47,13 @@
     border: none;
     border-radius: 0;
     background-color: #236b40;
-    width: 600px;
+    width: 590px;
     height: 410px;
 }
 
 .compareData{
     display: grid;
-    grid-template-rows: 90% 10%;
+    grid-template-rows: 50% 40% 10%;
     border: none;
     width: 100%;
     height: 100%;
@@ -80,6 +94,41 @@
     background-color: #b9ffd5;
     color: #236b40;
     text-align: center;
+}
+
+.compareDataGraph{
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    gap: 5%;
+    padding: 0 20px;
+    width: 100%;
+    height: 90%;
+}
+
+.dataStatDiv{
+    display: grid;
+    grid-template-rows: repeat(2, 50%);
+    width: 100%;
+}
+
+.dataStatHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 10px;
+}
+
+.dataStatBarBackdrop{
+    width: 100%;
+    height: 100%;
+    background-color: #2c8b52;
+}
+
+.dataStatBar{
+    height: 100%;
+    background-color: #b9ffd5;
 }
 
 .compareDataFooter{

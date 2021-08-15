@@ -15,7 +15,7 @@ export default function Landing() {
     const history = useHistory();
 
     useEffect(() => {
-        fetchPokemonList(`?limit=10&offset=${Math.ceil((Math.random()*1000))}`);
+        fetchPokemonList(`?limit=10&offset=${Math.ceil((Math.random()*1008))}`);
         console.log()
     }, []);
 
@@ -38,8 +38,9 @@ export default function Landing() {
 
     function formSubmit(e) {
         e.preventDefault();
-
-        fetchPokemon(searchText);
+        
+        if(searchText)
+            fetchPokemon(searchText);
     }
 
     function gotoCompare(){
@@ -58,7 +59,7 @@ export default function Landing() {
                     {   pokemonData ?
                         <div className="dataDiv">
                             <div className="dataMain">
-                                <img src={pokemonData.sprites.front_default}/>
+                                <img src={pokemonData.sprites.front_default} alt="Pokémon"/>
                                 <div className="dataStats">
                                     <h2>Base exp:</h2>
                                     <h3>{pokemonData.base_experience}</h3>
@@ -77,7 +78,9 @@ export default function Landing() {
                                 </div>
                             </div>
                             <div className="dataFooter">
-                                <h2 className="dataId">#{pokemonData.id}</h2>
+                                <h2 className="dataId">
+                                #  { pokemonData.id < 10 ? "0000" : ( pokemonData.id < 100 ? "000" : ( pokemonData.id < 1000 ? "00" : ( pokemonData.id < 10000 ? "0" : "" ) ) )}
+                                {pokemonData.id}</h2>
                                 <h2 className="dataName">{pokemonData.name}</h2>
                             </div>
                         </div>

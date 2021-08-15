@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import API from "../../../services/API";
 import "./styles.css";
 
@@ -7,21 +7,21 @@ export default function PokemonResult(props) {
     const pokemonUrl = props.url;
     const changeData = props.dataChangerFn;
 
-    useEffect(() => {
-        fetchPokemonData();
-    }, []);
-
-    async function fetchPokemonData() {
+    const fetchPokemonData = useCallback( async () => {
         await API.get(pokemonUrl).then(result => {
             setPokemonData(result.data);
         }).catch(e => console.error(e));
-    }
+    }, [pokemonUrl]);
+
+    useEffect(() => {
+        fetchPokemonData();
+    }, [fetchPokemonData]);
 
     return(
         <>
         {   pokemonData ?
             <li className="listItem" onClick={() => changeData(pokemonData)}>
-                <img src={pokemonData.sprites.front_default}/>
+                <img src={pokemonData.sprites.front_default} alt="Pokémon"/>
                 <h2>{pokemonData.name}</h2>
             </li>
             :
