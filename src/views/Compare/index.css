@@ -1,0 +1,164 @@
+.compareSection{
+    display: flex;
+    flex-direction: column;
+}
+
+.compareInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px 0px 20px 0px;
+    width: 100%;
+}
+
+.compareSearch{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 20px 0px 20px;
+    width: 100%;
+}
+
+.infoSorrounding{
+    display: flex;
+    flex-direction: row;
+    width: 1200px;
+    height: 430px;
+    border: 10px inset #909090;
+}
+
+.compareInfoDiv{
+    position: relative;
+    border: none;
+    border-radius: 0;
+    background-color: #236b40;
+    width: 600px;
+    height: 410px;
+}
+
+.compareData{
+    display: grid;
+    grid-template-rows: 90% 10%;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.compareDataMain{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.compareDataMain img{
+    width: 90%;
+    filter: sepia(1) hue-rotate(80deg);
+}
+
+.compareDataStats h2{
+    font-size: 12px;
+    color: #b9ffd5;
+}
+
+.compareDataStats h3{
+    font-size: 12px;
+    color: #b9ffd5;
+}
+
+.compareDataTypes{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    gap: 5%;
+}
+
+.pokemonType{
+    width: 100%;
+    background-color: #b9ffd5;
+    color: #236b40;
+    text-align: center;
+}
+
+.compareDataFooter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    background-color: #b9ffd5;
+    padding: 0 20px;
+}
+
+.compareDataFooter h2{
+    color: #236b40;
+}
+
+.compareDataId{
+    margin-right: 20px;
+}
+
+.searchInputDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 600px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: #236b40;
+    border: #909090 inset 8px;
+    margin-bottom: 30px;
+}
+
+.searchInput{
+    padding-left: 20px;
+    margin-right: 10px;
+    width: 510px;
+    height: 100%;
+    background-color: transparent;
+    font-size: 40px;
+    color: #b9ffd5;
+}
+
+.searchInput::placeholder{
+    color: #2c8b52;
+}
+
+.searchInputSubmit{
+    width: 100%;
+    height: 100%;
+    background-color: #b9ffd5;
+    color: #236b40;
+}
+
+.compareSearchListSection{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.compareSearchList{
+    width: 600px;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: repeat(2, 50%);
+    margin-bottom: 20px;
+}
+
+.compareSearchListUpdate{
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #ffe600;
+}

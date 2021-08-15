@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import API from "../../services/API";
 import PokemonResult from "../components/PokemonResult";
 import { FaSearch, FaRedoAlt } from "react-icons/fa";
@@ -11,6 +12,7 @@ export default function Landing() {
     const [pokemonList, setPokemonList] = useState();
     const [pokemonData, setPokemonData] = useState();
     const [searchText, setSearchText] = useState("");
+    const history = useHistory();
 
     useEffect(() => {
         fetchPokemonList(`?limit=10&offset=${Math.ceil((Math.random()*1000))}`);
@@ -28,7 +30,6 @@ export default function Landing() {
 
     async function fetchPokemon(name) {
         await API.get(`/pokemon/${name}`).then(response => {
-            setPokemonList();
             setPokemonData(response.data);
         }).catch(e => {
             console.error(e);
@@ -39,6 +40,13 @@ export default function Landing() {
         e.preventDefault();
 
         fetchPokemon(searchText);
+    }
+
+    function gotoCompare(){
+        history.push("/compare", {
+            selectedPokemon: pokemonData,
+            fetchedList: pokemonList
+        });
     }
 
     return (
@@ -76,7 +84,11 @@ export default function Landing() {
                         :
                         ""
                     }
-                    <button className="infoDivCompare">Compare Pokémon</button>
+                    { pokemonData ?
+                        <button className="infoDivCompare" onClick={() => gotoCompare()}>Compare Pokémon</button>
+                        :
+                        <button className="infoDivCompare" disabled></button>
+                    }
                 </div>
             </article>
             <div className="searchSection">
