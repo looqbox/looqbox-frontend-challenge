@@ -1,182 +1,1089 @@
-.mainSection{
-    display: flex;
-    flex-direction: row;
+@media only screen and (max-width: 600px) {
+
+    .mainSection{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mainLight{
+        z-index: -1;
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        top: 15px;
+        left: 40px;
+    }
+    
+    .topBevel{
+        z-index: -1;
+        position: absolute;
+        top: 8vh;
+        width: 100vw;
+        height: 20vw;
+    }
+    
+    .infoSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 180px 20px 20px 20px;
+        width: 100vw;
+    }
+    
+    .searchSection{
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px 0px 20px;
+        width: 100vw;
+    }
+    
+    .infoDiv{
+        position: relative;
+        border: 30px solid #d4d4d4;
+        border-radius: 15px;
+        background-color: #236b40;
+        width: 100%;
+        height: 300px;
+    }
+    
+    .infoDivMain{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100px;
+        cursor: pointer;
+        background-color: #FF312E;
+        position: absolute;
+        left: 0;
+        bottom: -27px;
+        height: 25px;
+        width: 25px;
+    }
+    
+    .infoDivCompare{
+        cursor: pointer;
+        background-color: #909090;
+        color: #ffffff;
+        position: absolute;
+        right: 0;
+        bottom: -27px;
+        height: 25px;
+        width: 100px;
+    }
+    
+    .dataDiv{
+        display: grid;
+        grid-template-rows: 85% 15%;
+        border: 10px inset #909090;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dataMain{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dataMain img{
+        width: 90%;
+        filter: sepia(1) hue-rotate(80deg);
+    }
+    
+    .dataStats h2{
+        color: #b9ffd5;
+        font-size: 10px;
+    }
+    
+    .dataStats h3{
+        color: #b9ffd5;
+        font-size: 10px;
+    }
+    
+    .dataTypes{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 48% 48%;
+        gap: 4%;
+    }
+    
+    .pokemonType{
+        width: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+        text-align: center;
+        font-size: 12px;
+    }
+    
+    .dataFooter{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        background-color: #b9ffd5;
+        padding: 0 10px;
+    }
+    
+    .dataFooter h2{
+        color: #236b40;
+        font-size: 14px;
+    }
+    
+    .dataId{
+        margin-right: 10px;
+    }
+    
+    .searchSectionForm{
+        width: 100%;
+    }
+    
+    .searchInputDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 70px;
+        border-radius: 10px;
+        background-color: #236b40;
+        border: #909090 inset 8px;
+        margin-bottom: 30px;
+    }
+    
+    .searchInput{
+        padding-left: 20px;
+        margin-right: 10px;
+        width: 300px;
+        height: 100%;
+        background-color: transparent;
+        font-size: 20px;
+        color: #b9ffd5;
+    }
+    
+    .searchInput::placeholder{
+        color: #2c8b52;
+    }
+    
+    .searchInputSubmit{
+        width: 100%;
+        height: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+    }
+    
+    .searchListSection{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .searchList{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: repeat(2, 50%);
+        margin-bottom: 20px;
+    }
+    
+    .searchListUpdate{
+        cursor: pointer;
+        position: absolute;
+        bottom: -40px;
+        right: 0;
+        border-radius: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: #ffe600;
+    }
+    
+    .mainPokemonSection{
+        position: relative;
+        width: 60%;
+        margin-bottom: 50px;
+    }
+    
+    .mainPokemonList{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+    }
 }
 
-.mainLight{
-    z-index: -1;
-    position: fixed;
-    width: 80px;
-    height: 80px;
-    top: 10px;
-    left: 40px;
+@media only screen and (min-width: 600px) {
+
+    .mainSection{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mainLight{
+        z-index: -1;
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        top: 10px;
+        left: 40px;
+    }
+    
+    .topBevel{
+        z-index: -1;
+        position: absolute;
+        top: 2vh;
+        width: 100vw;
+        height: 20vw;
+    }
+    
+    .infoSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 150px 20px 20px 20px;
+        width: 100vw;
+    }
+    
+    .searchSection{
+        display: flex;
+        flex-direction: column;
+        padding: 40px 20px 0px 20px;
+        width: 100vw;
+    }
+    
+    .infoDiv{
+        position: relative;
+        border: 50px solid #d4d4d4;
+        border-radius: 15px;
+        background-color: #236b40;
+        width: 550px;
+        height: 450px;
+    }
+    
+    .infoDivMain{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100px;
+        cursor: pointer;
+        background-color: #FF312E;
+        position: absolute;
+        left: 0;
+        bottom: -45px;
+        height: 40px;
+        width: 40px;
+    }
+    
+    .infoDivCompare{
+        cursor: pointer;
+        background-color: #909090;
+        color: #ffffff;
+        position: absolute;
+        right: 0;
+        bottom: -47px;
+        height: 40px;
+        width: 100px;
+    }
+    
+    .dataDiv{
+        display: grid;
+        grid-template-rows: 85% 15%;
+        border: 10px inset #909090;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dataMain{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding: 20px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dataMain img{
+        width: 90%;
+        filter: sepia(1) hue-rotate(80deg);
+    }
+    
+    .dataStats h2{
+        color: #b9ffd5;
+        font-size: 20px;
+    }
+    
+    .dataStats h3{
+        color: #b9ffd5;
+        font-size: 20px;
+    }
+    
+    .dataTypes{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 48% 48%;
+        gap: 4%;
+    }
+    
+    .pokemonType{
+        width: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+        text-align: center;
+        font-size: 20px;
+    }
+    
+    .dataFooter{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        background-color: #b9ffd5;
+        padding: 0 10px;
+    }
+    
+    .dataFooter h2{
+        color: #236b40;
+        font-size: 24px;
+    }
+    
+    .dataId{
+        margin-right: 20px;
+    }
+    
+    .searchSectionForm{
+        width: 100%;
+    }
+    
+    .searchInputDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 80px;
+        border-radius: 10px;
+        background-color: #236b40;
+        border: #909090 inset 8px;
+        margin-bottom: 30px;
+    }
+    
+    .searchInput{
+        padding-left: 20px;
+        margin-right: 10px;
+        width: 600px;
+        height: 100%;
+        background-color: transparent;
+        font-size: 30px;
+        color: #b9ffd5;
+    }
+    
+    .searchInput::placeholder{
+        color: #2c8b52;
+    }
+    
+    .searchInputSubmit{
+        width: 100%;
+        height: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+    }
+    
+    .searchListSection{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .searchList{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: repeat(2, 50%);
+        margin-bottom: 20px;
+    }
+    
+    .searchListUpdate{
+        cursor: pointer;
+        position: absolute;
+        bottom: -60px;
+        right: 0;
+        border-radius: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        background-color: #ffe600;
+    }
+    
+    .mainPokemonSection{
+        position: relative;
+        width: 340px;
+        margin-bottom: 50px;
+    }
+    
+    .mainPokemonList{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+    }
 }
 
-.topBevel{
-    z-index: -1;
-    position: fixed;
-    top: -7vw;
-    width: 100vw;
-    height: 20vw;
+@media only screen and (min-width: 768px) {
+
+    .mainSection{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mainLight{
+        z-index: -1;
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        top: 10px;
+        left: 40px;
+    }
+    
+    .topBevel{
+        z-index: -1;
+        position: absolute;
+        top: -3vw;
+        width: 100vw;
+        height: 20vw;
+    }
+    
+    .infoSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 150px 20px 20px 20px;
+        width: 100vw;
+    }
+    
+    .searchSection{
+        display: flex;
+        flex-direction: column;
+        padding: 40px 40px 0px 40px;
+        width: 100vw;
+    }
+    
+    .infoDiv{
+        position: relative;
+        border: 60px solid #d4d4d4;
+        border-radius: 15px;
+        background-color: #236b40;
+        width: 700px;
+        height: 500px;
+    }
+    
+    .infoDivMain{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100px;
+        cursor: pointer;
+        background-color: #FF312E;
+        position: absolute;
+        left: 0;
+        bottom: -52px;
+        height: 45px;
+        width: 45px;
+    }
+    
+    .infoDivCompare{
+        cursor: pointer;
+        background-color: #909090;
+        color: #ffffff;
+        position: absolute;
+        right: 0;
+        bottom: -52px;
+        height: 45px;
+        width: 100px;
+    }
+    
+    .dataDiv{
+        display: grid;
+        grid-template-rows: 85% 15%;
+        border: 10px inset #909090;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dataMain{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding: 20px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dataMain img{
+        width: 90%;
+        filter: sepia(1) hue-rotate(80deg);
+    }
+    
+    .dataStats h2{
+        color: #b9ffd5;
+        font-size: 20px;
+    }
+    
+    .dataStats h3{
+        color: #b9ffd5;
+        font-size: 20px;
+    }
+    
+    .dataTypes{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 48% 48%;
+        gap: 4%;
+    }
+    
+    .pokemonType{
+        width: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+        text-align: center;
+        font-size: 20px;
+    }
+    
+    .dataFooter{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        background-color: #b9ffd5;
+        padding: 0 10px;
+    }
+    
+    .dataFooter h2{
+        color: #236b40;
+        font-size: 24px;
+    }
+    
+    .dataId{
+        margin-right: 20px;
+    }
+    
+    .searchSectionForm{
+        width: 100%;
+    }
+    
+    .searchInputDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 80px;
+        border-radius: 10px;
+        background-color: #236b40;
+        border: #909090 inset 8px;
+        margin-bottom: 30px;
+    }
+    
+    .searchInput{
+        padding-left: 20px;
+        margin-right: 10px;
+        width: 600px;
+        height: 100%;
+        background-color: transparent;
+        font-size: 30px;
+        color: #b9ffd5;
+    }
+    
+    .searchInput::placeholder{
+        color: #2c8b52;
+    }
+    
+    .searchInputSubmit{
+        width: 100%;
+        height: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+    }
+    
+    .searchListSection{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .searchList{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: repeat(2, 50%);
+        margin-bottom: 20px;
+    }
+    
+    .searchListUpdate{
+        cursor: pointer;
+        position: absolute;
+        bottom: -60px;
+        right: 0;
+        border-radius: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        background-color: #ffe600;
+    }
+    
+    .mainPokemonSection{
+        position: relative;
+        width: 410px;
+        margin-bottom: 50px;
+    }
+    
+    .mainPokemonList{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+    }
 }
 
-.infoSection{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 150px 20px 20px 20px;
-    width: 50vw;
+@media only screen and (min-width: 992px) {
+
+    .mainSection{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .mainLight{
+        z-index: -1;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: 10px;
+        left: 40px;
+    }
+    
+    .topBevel{
+        z-index: -1;
+        position: absolute;
+        top: -7vw;
+        width: 100vw;
+        height: 20vw;
+    }
+    
+    .infoSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 120px 20px 20px 20px;
+        width: 50vw;
+    }
+    
+    .searchSection{
+        display: flex;
+        flex-direction: column;
+        padding: 120px 20px 0px 20px;
+        width: 50vw;
+    }
+    
+    .infoDiv{
+        position: relative;
+        border: 40px solid #d4d4d4;
+        border-radius: 15px;
+        background-color: #236b40;
+        width: 400px;
+        height: 300px;
+    }
+    
+    .infoDivMain{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100px;
+        cursor: pointer;
+        background-color: #FF312E;
+        position: absolute;
+        left: 0;
+        bottom: -35px;
+        height: 30px;
+        width: 30px;
+    }
+    
+    .infoDivCompare{
+        cursor: pointer;
+        background-color: #909090;
+        color: #ffffff;
+        position: absolute;
+        right: 0;
+        bottom: -35px;
+        height: 30px;
+        width: 80px;
+    }
+    
+    .dataDiv{
+        display: grid;
+        grid-template-rows: 85% 15%;
+        border: 5px inset #909090;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dataMain{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dataMain img{
+        width: 90%;
+        filter: sepia(1) hue-rotate(80deg);
+    }
+    
+    .dataStats h2{
+        color: #b9ffd5;
+        font-size: 12px;
+    }
+    
+    .dataStats h3{
+        color: #b9ffd5;
+        font-size: 12px;
+    }
+    
+    .dataTypes{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 48% 48%;
+        gap: 4%;
+    }
+    
+    .pokemonType{
+        width: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+        text-align: center;
+        font-size: 12px;
+    }
+    
+    .dataFooter{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        background-color: #b9ffd5;
+        padding: 0 10px;
+    }
+    
+    .dataFooter h2{
+        color: #236b40;
+        font-size: 14px;
+    }
+    
+    .dataId{
+        margin-right: 10px;
+    }
+    
+    .searchSectionForm{
+        width: 100%;
+    }
+    
+    .searchInputDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 60px;
+        border-radius: 10px;
+        background-color: #236b40;
+        border: #909090 inset 8px;
+        margin-bottom: 30px;
+    }
+    
+    .searchInput{
+        padding-left: 20px;
+        margin-right: 10px;
+        width: 450px;
+        height: 100%;
+        background-color: transparent;
+        font-size: 30px;
+        color: #b9ffd5;
+    }
+    
+    .searchInput::placeholder{
+        color: #2c8b52;
+    }
+    
+    .searchInputSubmit{
+        width: 100%;
+        height: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+    }
+    
+    .searchListSection{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .searchList{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: repeat(2, 50%);
+        margin-bottom: 20px;
+    }
+    
+    .searchListUpdate{
+        cursor: pointer;
+        position: absolute;
+        bottom: -50px;
+        right: 0;
+        border-radius: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: #ffe600;
+    }
+    
+    .mainPokemonSection{
+        position: relative;
+        width: 300px;
+        margin-bottom: 50px;
+    }
+    
+    .mainPokemonList{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+    }
 }
 
-.searchSection{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 180px 20px 0px 20px;
-    width: 50vw;
-}
+@media only screen and (min-width: 1200px) {
 
-.infoDiv{
-    position: relative;
-    border: 50px solid #d4d4d4;
-    border-radius: 15px;
-    background-color: #236b40;
-    width: 600px;
-    height: 430px;
-}
-
-.infoDivCompare{
-    cursor: pointer;
-    background-color: #909090;
-    color: #ffffff;
-    position: absolute;
-    right: 0;
-    bottom: -42.5px;
-    height: 35px;
-    width: 100px;
-}
-
-.dataDiv{
-    display: grid;
-    grid-template-rows: 85% 15%;
-    border: 10px inset #909090;
-    width: 100%;
-    height: 100%;
-}
-
-.dataMain{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding: 10px;
-    width: 100%;
-    height: 100%;
-}
-
-.dataMain img{
-    width: 90%;
-    filter: sepia(1) hue-rotate(80deg);
-}
-
-.dataStats h2{
-    color: #b9ffd5;
-}
-
-.dataStats h3{
-    color: #b9ffd5;
-}
-
-.dataTypes{
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: 48% 48%;
-    gap: 4%;
-}
-
-.pokemonType{
-    width: 100%;
-    background-color: #b9ffd5;
-    color: #236b40;
-    text-align: center;
-}
-
-.dataFooter{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 100%;
-    background-color: #b9ffd5;
-    padding: 0 20px;
-}
-
-.dataFooter h2{
-    color: #236b40;
-}
-
-.dataId{
-    margin-right: 20px;
-}
-
-.searchInputDiv{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 600px;
-    height: 80px;
-    border-radius: 10px;
-    background-color: #236b40;
-    border: #909090 inset 8px;
-    margin-bottom: 30px;
-}
-
-.searchInput{
-    padding-left: 20px;
-    margin-right: 10px;
-    width: 510px;
-    height: 100%;
-    background-color: transparent;
-    font-size: 40px;
-    color: #b9ffd5;
-}
-
-.searchInput::placeholder{
-    color: #2c8b52;
-}
-
-.searchInputSubmit{
-    width: 100%;
-    height: 100%;
-    background-color: #b9ffd5;
-    color: #236b40;
-}
-
-.searchListSection{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.searchList{
-    width: 600px;
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: repeat(2, 50%);
-    margin-bottom: 20px;
-}
-
-.searchListUpdate{
-    cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    right: 20px;
-    border-radius: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: #ffe600;
+    .mainSection{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .mainLight{
+        z-index: -1;
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        top: 10px;
+        left: 40px;
+    }
+    
+    .topBevel{
+        z-index: -1;
+        position: absolute;
+        top: -7vw;
+        width: 98.6vw;
+        height: 20vw;
+    }
+    
+    .infoSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 150px 20px 20px 20px;
+        width: 50vw;
+    }
+    
+    .searchSection{
+        display: flex;
+        flex-direction: column;
+        padding: 180px 20px 0px 20px;
+        width: 50vw;
+    }
+    
+    .infoDiv{
+        position: relative;
+        border: 50px solid #d4d4d4;
+        border-radius: 15px;
+        background-color: #236b40;
+        width: 600px;
+        height: 430px;
+    }
+    
+    .infoDivMain{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100px;
+        cursor: pointer;
+        background-color: #FF312E;
+        position: absolute;
+        left: 0;
+        bottom: -42.5px;
+        height: 35px;
+        width: 35px;
+    }
+    
+    .infoDivCompare{
+        cursor: pointer;
+        background-color: #909090;
+        color: #ffffff;
+        position: absolute;
+        right: 0;
+        bottom: -42.5px;
+        height: 35px;
+        width: 100px;
+    }
+    
+    .dataDiv{
+        display: grid;
+        grid-template-rows: 85% 15%;
+        border: 10px inset #909090;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dataMain{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dataMain img{
+        width: 90%;
+        filter: sepia(1) hue-rotate(80deg);
+    }
+    
+    .dataStats h2{
+        color: #b9ffd5;
+        font-size: 18px;
+    }
+    
+    .dataStats h3{
+        color: #b9ffd5;
+        font-size: 18px;
+    }
+    
+    .dataTypes{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 48% 48%;
+        gap: 4%;
+    }
+    
+    .pokemonType{
+        width: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+        text-align: center;
+        font-size: 18px;
+    }
+    
+    .dataFooter{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        background-color: #b9ffd5;
+        padding: 0 20px;
+    }
+    
+    .dataFooter h2{
+        color: #236b40;
+        font-size: 20px;
+    }
+    
+    .dataId{
+        margin-right: 20px;
+    }
+    
+    .searchSectionForm{
+        width: 100%;
+    }
+    
+    .searchInputDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 80px;
+        border-radius: 10px;
+        background-color: #236b40;
+        border: #909090 inset 8px;
+        margin-bottom: 30px;
+    }
+    
+    .searchInput{
+        padding-left: 20px;
+        margin-right: 10px;
+        width: 510px;
+        height: 100%;
+        background-color: transparent;
+        font-size: 40px;
+        color: #b9ffd5;
+    }
+    
+    .searchInput::placeholder{
+        color: #2c8b52;
+    }
+    
+    .searchInputSubmit{
+        width: 100%;
+        height: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+    }
+    
+    .searchListSection{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .searchList{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: repeat(2, 50%);
+        margin-bottom: 20px;
+    }
+    
+    .searchListUpdate{
+        cursor: pointer;
+        position: absolute;
+        bottom: -50px;
+        right: 0;
+        border-radius: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background-color: #ffe600;
+    }
+    
+    .mainPokemonSection{
+        position: relative;
+        width: 400px;
+        margin-bottom: 100px;
+    }
+    
+    .mainPokemonList{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+    }
 }

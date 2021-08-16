@@ -1,213 +1,388 @@
-.compareSection{
-    display: flex;
-    flex-direction: column;
+@media only screen and (max-width: 600px) {
+
 }
 
-.compareSectionBack{
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffe600;
-    border-radius: 100px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 40px;
-    height: 40px;
+@media only screen and (min-width: 600px) {
+
 }
 
-.compareInfo{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 20px 0px 20px 0px;
-    width: 100%;
+@media only screen and (min-width: 768px) {
+
 }
 
-.compareSearch{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 20px 20px 0px 20px;
-    width: 100%;
+@media only screen and (min-width: 992px) {
+
+    .compareSection{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .compareSectionBack{
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffe600;
+        border-radius: 100px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .compareInfo{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 20px 0px 20px 0px;
+        width: 100%;
+    }
+    
+    .compareSearch{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 20px 20px 0px 20px;
+        width: 100%;
+    }
+    
+    .infoSorrounding{
+        display: flex;
+        flex-direction: row;
+        width: 1180px;
+        height: 430px;
+        border: 10px inset #909090;
+    }
+    
+    .compareInfoDiv{
+        position: relative;
+        border: none;
+        border-radius: 0;
+        background-color: #236b40;
+        width: 590px;
+        height: 410px;
+    }
+    
+    .compareData{
+        display: grid;
+        grid-template-rows: 50% 40% 10%;
+        border: none;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .compareDataMain{
+        display: grid;
+        grid-template-columns: 40% 60%;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .compareDataMain img{
+        width: 90%;
+        filter: sepia(1) hue-rotate(80deg);
+    }
+    
+    .compareDataStats h2{
+        font-size: 12px;
+        color: #b9ffd5;
+    }
+    
+    .compareDataStats h3{
+        font-size: 12px;
+        color: #b9ffd5;
+    }
+    
+    .compareDataTypes{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 40% 40%;
+        gap: 5%;
+    }
+    
+    .pokemonType{
+        width: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+        text-align: center;
+    }
+    
+    .compareDataGraph{
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        gap: 5%;
+        padding: 0 20px;
+        width: 100%;
+        height: 90%;
+    }
+    
+    .dataStatDiv{
+        display: grid;
+        grid-template-rows: repeat(2, 50%);
+        width: 100%;
+    }
+    
+    .dataStatHeader{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 10px;
+    }
+    
+    .dataStatBarBackdrop{
+        width: 100%;
+        height: 100%;
+        background-color: #2c8b52;
+    }
+    
+    .dataStatBar{
+        height: 100%;
+        background-color: #b9ffd5;
+    }
+    
+    .compareDataFooter{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        background-color: #b9ffd5;
+        padding: 0 20px;
+    }
+    
+    .compareDataFooter h2{
+        color: #236b40;
+    }
+    
+    .compareDataId{
+        margin-right: 20px;
+    }
+    
+    .compareSearchForm{
+        width: 600px;
+    }
+    
+    .compareSearchListSection{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .compareSearchList{
+        width: 600px;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: repeat(2, 50%);
+        margin-bottom: 20px;
+    }
+    
+    .compareSearchListUpdate{
+        cursor: pointer;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background-color: #ffe600;
+    }
+
 }
 
-.infoSorrounding{
-    display: flex;
-    flex-direction: row;
-    width: 1180px;
-    height: 430px;
-    border: 10px inset #909090;
-}
+@media only screen and (min-width: 1200px) {
 
-.compareInfoDiv{
-    position: relative;
-    border: none;
-    border-radius: 0;
-    background-color: #236b40;
-    width: 590px;
-    height: 410px;
-}
-
-.compareData{
-    display: grid;
-    grid-template-rows: 50% 40% 10%;
-    border: none;
-    width: 100%;
-    height: 100%;
-}
-
-.compareDataMain{
-    display: grid;
-    grid-template-columns: 40% 60%;
-    padding: 10px;
-    width: 100%;
-    height: 100%;
-}
-
-.compareDataMain img{
-    width: 90%;
-    filter: sepia(1) hue-rotate(80deg);
-}
-
-.compareDataStats h2{
-    font-size: 12px;
-    color: #b9ffd5;
-}
-
-.compareDataStats h3{
-    font-size: 12px;
-    color: #b9ffd5;
-}
-
-.compareDataTypes{
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: 40% 40%;
-    gap: 5%;
-}
-
-.pokemonType{
-    width: 100%;
-    background-color: #b9ffd5;
-    color: #236b40;
-    text-align: center;
-}
-
-.compareDataGraph{
-    display: grid;
-    grid-template-columns: repeat(2, 45%);
-    gap: 5%;
-    padding: 0 20px;
-    width: 100%;
-    height: 90%;
-}
-
-.dataStatDiv{
-    display: grid;
-    grid-template-rows: repeat(2, 50%);
-    width: 100%;
-}
-
-.dataStatHeader{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    font-size: 10px;
-}
-
-.dataStatBarBackdrop{
-    width: 100%;
-    height: 100%;
-    background-color: #2c8b52;
-}
-
-.dataStatBar{
-    height: 100%;
-    background-color: #b9ffd5;
-}
-
-.compareDataFooter{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 100%;
-    background-color: #b9ffd5;
-    padding: 0 20px;
-}
-
-.compareDataFooter h2{
-    color: #236b40;
-}
-
-.compareDataId{
-    margin-right: 20px;
-}
-
-.searchInputDiv{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 600px;
-    height: 80px;
-    border-radius: 10px;
-    background-color: #236b40;
-    border: #909090 inset 8px;
-    margin-bottom: 30px;
-}
-
-.searchInput{
-    padding-left: 20px;
-    margin-right: 10px;
-    width: 510px;
-    height: 100%;
-    background-color: transparent;
-    font-size: 40px;
-    color: #b9ffd5;
-}
-
-.searchInput::placeholder{
-    color: #2c8b52;
-}
-
-.searchInputSubmit{
-    width: 100%;
-    height: 100%;
-    background-color: #b9ffd5;
-    color: #236b40;
-}
-
-.compareSearchListSection{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.compareSearchList{
-    width: 600px;
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: repeat(2, 50%);
-    margin-bottom: 20px;
-}
-
-.compareSearchListUpdate{
-    cursor: pointer;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    border-radius: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: #ffe600;
+    .compareSection{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .compareSectionBack{
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffe600;
+        border-radius: 100px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .compareInfo{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 20px 0px 20px 0px;
+        width: 100%;
+    }
+    
+    .compareSearch{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 20px 20px 0px 20px;
+        width: 100%;
+    }
+    
+    .infoSorrounding{
+        display: flex;
+        flex-direction: row;
+        width: 1180px;
+        height: 430px;
+        border: 10px inset #909090;
+    }
+    
+    .compareInfoDiv{
+        position: relative;
+        border: none;
+        border-radius: 0;
+        background-color: #236b40;
+        width: 590px;
+        height: 410px;
+    }
+    
+    .compareData{
+        display: grid;
+        grid-template-rows: 50% 40% 10%;
+        border: none;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .compareDataMain{
+        display: grid;
+        grid-template-columns: 40% 60%;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .compareDataMain img{
+        width: 90%;
+        filter: sepia(1) hue-rotate(80deg);
+    }
+    
+    .compareDataStats h2{
+        font-size: 12px;
+        color: #b9ffd5;
+    }
+    
+    .compareDataStats h3{
+        font-size: 12px;
+        color: #b9ffd5;
+    }
+    
+    .compareDataTypes{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 40% 40%;
+        gap: 5%;
+    }
+    
+    .pokemonType{
+        width: 100%;
+        background-color: #b9ffd5;
+        color: #236b40;
+        text-align: center;
+    }
+    
+    .compareDataGraph{
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        gap: 5%;
+        padding: 0 20px;
+        width: 100%;
+        height: 90%;
+    }
+    
+    .dataStatDiv{
+        display: grid;
+        grid-template-rows: repeat(2, 50%);
+        width: 100%;
+    }
+    
+    .dataStatHeader{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 10px;
+    }
+    
+    .dataStatBarBackdrop{
+        width: 100%;
+        height: 100%;
+        background-color: #2c8b52;
+    }
+    
+    .dataStatBar{
+        height: 100%;
+        background-color: #b9ffd5;
+    }
+    
+    .compareDataFooter{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        background-color: #b9ffd5;
+        padding: 0 20px;
+    }
+    
+    .compareDataFooter h2{
+        color: #236b40;
+    }
+    
+    .compareDataId{
+        margin-right: 20px;
+    }
+    
+    .compareSearchForm{
+        width: 600px;
+    }
+    
+    .compareSearchListSection{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .compareSearchList{
+        width: 600px;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: repeat(2, 50%);
+        margin-bottom: 20px;
+    }
+    
+    .compareSearchListUpdate{
+        cursor: pointer;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background-color: #ffe600;
+    }
 }

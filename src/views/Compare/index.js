@@ -17,6 +17,8 @@ export default function Compare() {
     useEffect(() => {
         setPokemonList(location.state.fetchedList);
         setSelectedPokemon(location.state.selectedPokemon);
+
+        // eslint-disable-next-line
     }, []);
 
     async function fetchPokemonList(options) {

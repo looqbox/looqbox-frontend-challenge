@@ -2,14 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import API from "../../services/API";
 import PokemonResult from "../components/PokemonResult";
-import { FaSearch, FaRedoAlt } from "react-icons/fa";
+import MainPokemon from "../components/MainPokemon";
+import { FaSearch, FaRedoAlt, FaStar } from "react-icons/fa";
 import { ReactComponent as MainLight } from "../components/mainLight.svg";
 import { ReactComponent as TopBevel } from "../components/topBevel.svg";
+import { getCookie, setCookie } from "../../services/cookieUtil";
 import "./index.css";
 
 export default function Landing() {
     
     const [pokemonList, setPokemonList] = useState();
+    const [mainPokemonList, setMainPokemonList] = useState();
     const [pokemonData, setPokemonData] = useState();
     const [searchText, setSearchText] = useState("");
     const mainLightRef = useRef();
@@ -17,7 +20,10 @@ export default function Landing() {
 
     useEffect(() => {
         fetchPokemonList(`?limit=10&offset=${Math.ceil((Math.random()*1008))}`);
-        console.log()
+        setMainPokemonList( getCookie("mainPokemonList") ? 
+                            getCookie("mainPokemonList").split("|").filter(el => el) :
+                            undefined);
+        // eslint-disable-next-line
     }, []);
 
     async function fetchPokemonList(options) {
@@ -52,6 +58,31 @@ export default function Landing() {
             selectedPokemon: pokemonData,
             fetchedList: pokemonList
         });
+    }
+
+    function addSelectedPokemonToMain(){
+        const previousList = getCookie("mainPokemonList") ? 
+                             getCookie("mainPokemonList").split("|").filter(el => el) :
+                             [];
+        const pokemonId = pokemonData.id.toString();
+
+        if(previousList.length < 3){
+            var tempList = previousList;
+                tempList.push(pokemonId);
+            setCookie("mainPokemonList",
+                    ( getCookie("mainPokemonList") + pokemonId + "|" ),
+                    100000);
+            setMainPokemonList();
+            setMainPokemonList(tempList);
+        } else {
+            var tempArray = previousList;
+                tempArray.splice(0, 1);
+                tempArray.push(pokemonId);
+            const newList = tempArray.join("|");
+            setCookie("mainPokemonList", newList, 100000);
+            setMainPokemonList();
+            setMainPokemonList(tempArray);
+        }
     }
 
     function blinkLight(){
@@ -111,7 +142,12 @@ export default function Landing() {
                         ""
                     }
                     { pokemonData ?
-                        <button className="infoDivCompare" onClick={() => gotoCompare()}>Compare Pokémon</button>
+                        <button className="infoDivMain" onClick={() => addSelectedPokemonToMain()}><FaStar fill="#aa0704" size="50%"/></button>
+                        :
+                        <button className="infoDivMain" disabled></button>
+                    }
+                    { pokemonData ?
+                        <button className="infoDivCompare" onClick={() => gotoCompare()}>Compare</button>
                         :
                         <button className="infoDivCompare" disabled></button>
                     }
@@ -147,9 +183,21 @@ export default function Landing() {
                                 <li className="listItemDefault"></li>
                             </ul>
                         }
-                    <button className="searchListUpdate" onClick={() => fetchPokemonList(`?limit=10&offset=${Math.ceil((Math.random()*1000))}`)}>
-                        <FaRedoAlt fill="#827500" size="50%"/>
-                    </button>
+                        <button className="searchListUpdate" onClick={() => fetchPokemonList(`?limit=10&offset=${Math.ceil((Math.random()*1000))}`)}>
+                            <FaRedoAlt fill="#827500" size="50%"/>
+                        </button>
+                </div>
+                <div className="mainPokemonSection">
+                    { mainPokemonList ?
+                        <ul className="mainPokemonList">{
+                            mainPokemonList.map((pokemonId) => (
+                                <MainPokemon id={pokemonId} dataChangerFn={setPokemonData}/>
+                            ))
+                        }
+                        </ul>
+                        :
+                        ""
+                    }
                 </div>
             </div>
             <span className="credit">Made by Nicholas Campanelli for LOOQBOX</span>
