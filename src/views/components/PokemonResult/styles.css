@@ -1,13 +1,138 @@
-.listItem{
-    cursor: pointer;
-    font-size: 8px;
-    text-align: center;
-    list-style: none;
-    padding: 10px;
-    box-sizing: content-box;
-    box-shadow: 0 0 0 4px #3a3a3a;
-    background-color: #3f9acf;
+@media only screen and (max-width: 600px) {
+
+    .listItem{
+        cursor: pointer;
+        font-size: 35%;
+        text-align: center;
+        list-style: none;
+        padding: 10px;
+        box-sizing: content-box;
+        box-shadow: 0 0 0 4px #3a3a3a;
+        background-color: #3f9acf;
+    }
+
+    .listItemDefault{
+        width: 100%;
+        height: 100px;
+        cursor: pointer;
+        font-size: 8px;
+        text-align: center;
+        list-style: none;
+        padding: 10px;
+        box-sizing: content-box;
+        box-shadow: 0 0 0 4px #3a3a3a;
+        background-color: #3f9acf;
+    }
 }
+
+@media only screen and (min-width: 600px) {
+
+    .listItem{
+        cursor: pointer;
+        font-size: 35%;
+        text-align: center;
+        list-style: none;
+        padding: 10px;
+        box-sizing: content-box;
+        box-shadow: 0 0 0 4px #3a3a3a;
+        background-color: #3f9acf;
+    }
+
+    .listItemDefault{
+        width: 100%;
+        height: 100px;
+        cursor: pointer;
+        font-size: 8px;
+        text-align: center;
+        list-style: none;
+        padding: 10px;
+        box-sizing: content-box;
+        box-shadow: 0 0 0 4px #3a3a3a;
+        background-color: #3f9acf;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+    .listItem{
+        cursor: pointer;
+        font-size: 40%;
+        text-align: center;
+        list-style: none;
+        padding: 10px;
+        box-sizing: content-box;
+        box-shadow: 0 0 0 4px #3a3a3a;
+        background-color: #3f9acf;
+    }
+
+    .listItemDefault{
+        width: 100%;
+        height: 100px;
+        cursor: pointer;
+        font-size: 8px;
+        text-align: center;
+        list-style: none;
+        padding: 10px;
+        box-sizing: content-box;
+        box-shadow: 0 0 0 4px #3a3a3a;
+        background-color: #3f9acf;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+
+    .listItem{
+        cursor: pointer;
+        font-size: 40%;
+        text-align: center;
+        list-style: none;
+        padding: 10px;
+        box-sizing: content-box;
+        box-shadow: 0 0 0 4px #3a3a3a;
+        background-color: #3f9acf;
+    }
+
+    .listItemDefault{
+        width: 100%;
+        height: 100px;
+        cursor: pointer;
+        font-size: 8px;
+        text-align: center;
+        list-style: none;
+        padding: 10px;
+        box-sizing: content-box;
+        box-shadow: 0 0 0 4px #3a3a3a;
+        background-color: #3f9acf;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+
+    .listItem{
+        cursor: pointer;
+        font-size: 50%;
+        text-align: center;
+        list-style: none;
+        padding: 10px;
+        box-sizing: content-box;
+        box-shadow: 0 0 0 4px #3a3a3a;
+        background-color: #3f9acf;
+    }
+
+    .listItemDefault{
+        width: 100%;
+        height: 100px;
+        cursor: pointer;
+        font-size: 8px;
+        text-align: center;
+        list-style: none;
+        padding: 10px;
+        box-sizing: content-box;
+        box-shadow: 0 0 0 4px #3a3a3a;
+        background-color: #3f9acf;
+    }
+}
+
 
 .listItem:nth-child(1){
     border-radius: 15px 0 0 0;
@@ -35,19 +160,6 @@
 
 .listItem:active{
     background-color: #59c2ff;
-}
-
-.listItemDefault{
-    width: 100%;
-    height: 100px;
-    cursor: pointer;
-    font-size: 8px;
-    text-align: center;
-    list-style: none;
-    padding: 10px;
-    box-sizing: content-box;
-    box-shadow: 0 0 0 4px #3a3a3a;
-    background-color: #3f9acf;
 }
 
 .listItemDefault:nth-child(1){
