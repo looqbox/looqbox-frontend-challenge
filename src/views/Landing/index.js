@@ -50,7 +50,7 @@ export default function Landing() {
         blinkLight();
         
         if(searchText)
-            fetchPokemon(searchText);
+            fetchPokemon(searchText.toLowerCase());
     }
 
     function gotoCompare(){
