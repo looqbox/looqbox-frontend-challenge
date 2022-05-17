@@ -1,4 +1,4 @@
-### Would you like to work with us? Apply [here](https://app.pipefy.com/public_form/840222)!
+### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
 
 # Looqbox FrontEnd Challenge
 ![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
