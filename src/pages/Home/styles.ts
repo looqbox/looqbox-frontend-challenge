@@ -9,9 +9,11 @@ export const PokemonList = styled.div`
     grid-template-columns: repeat(4, auto);
     place-items: center;
 
+    justify-content: space-between;
+
     gap: 16px;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1232px) {
         grid-template-columns: repeat(3, auto);
     }
 
@@ -21,6 +23,7 @@ export const PokemonList = styled.div`
 
     @media (max-width: 650px) {
         grid-template-columns: repeat(1, auto);
+        justify-content: center;
     }
 `;
 

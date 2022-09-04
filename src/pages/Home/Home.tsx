@@ -3,6 +3,7 @@ import PokemonListData from "../../@types/PokemonListData";
 import Loading from "../../elements/Loading/Loading";
 import pokeAPI from "../../services/api";
 import Card from "./components/Card/Card";
+import SearchInput from "./components/SearchInput/SearchInput";
 
 import { Container, PokemonList, Button } from './styles';
 
@@ -28,6 +29,7 @@ const Home:React.FC = () => {
         <>
             {loading ? <Loading /> : <React.Fragment/>}
             <Container>
+                <SearchInput />
                 <PokemonList>
                     {
                         pokemons?.map((pokemon: PokemonListData) => {
