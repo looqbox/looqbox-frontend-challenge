@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from './styles';
 
 interface Props {
-    type: string;
+    type: string | undefined;
 }
 const Type:React.FC<Props> = ({type}) => {
     return(
