@@ -13,3 +13,7 @@ export const Container = styled.div`
     overflow: auto;
     background-color: rgba(255, 255, 255, 0.6);
 `;
+
+export const Gif = styled.img`
+    width: 50px;
+`;

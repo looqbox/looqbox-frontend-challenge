@@ -8,6 +8,7 @@ export default createGlobalStyle`
 
 		color: var(--text-black);
 		text-transform: capitalize;
+		text-decoration: none;
     }
     html, border-style, #root {
         max-height: 100vh;
@@ -28,6 +29,7 @@ export default createGlobalStyle`
     :root {
 		--text-black: #343A40;
 		--text-white: #FAFAFA;
+		--stroke: #C4C4C4;
 
         --normal: #A8A77A;
 	    --fire: #EE8130;

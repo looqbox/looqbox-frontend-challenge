@@ -1,14 +1,13 @@
 import React from 'react';
-import Spinner from 'react-bootstrap/Spinner'
+import loadingGif from '../../assets/loading.gif';
 
-import { Container } from './styles';
+import { Container, Gif } from './styles';
 
 const Loading:React.FC = () => {
 
-
     return(
         <Container>
-            <Spinner animation="border" />
+            <Gif src={loadingGif} alt="Loading gif" />
         </Container>
     );
 }
