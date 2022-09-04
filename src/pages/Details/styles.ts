@@ -1,11 +1,12 @@
 import styled, { css } from "styled-components";
-import { Height, Stars, WeightHanging } from '../../styles/Icons';
+import { Height, ReturnDownBack, Stars, WeightHanging } from '../../styles/Icons';
 
 export const Container = styled.div`
     display: flex;
     flex-direction: row;
+    height: 100%;
 
-    @media (max-width: 900px){
+    @media (max-width: 768px){
         flex-direction: column;
     }
 `;
@@ -14,14 +15,10 @@ export const Main = styled.div`
     position: relative;
 
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     width: fit-content;
     padding: 48px;
-
-    @media (max-width: 900px) {
-        height: auto;
-        width: 100vw;
-    }
 
     & > span {
         font-size: 20px;
@@ -32,6 +29,9 @@ export const Main = styled.div`
     }
 
     @media (max-width: 768px) {
+        height: auto;
+        width: 100vw;
+
         & > span {
             font-size: 18px;
         }
@@ -127,18 +127,16 @@ export const Types = styled.div`
 `;
 
 export const PokemonPhoto = styled.img`
-    z-index: 2;
+    display: flex;
+
+    margin-left: auto;
+    margin-right: auto;
+
     max-width: 350px;
 
     margin-top: 16px;
-    
-    @media (min-width: 1280px) {
-        max-width: 350px;
-    }
 
     @media (max-width: 768px) {
-        z-index: unset;
-        order: -7;
         max-height: 300px;
     }
 
@@ -148,17 +146,17 @@ export const BasicCharacteristics = styled.div`
     display: flex;
     flex-flow: row wrap;
 
+    gap: 16px;
     margin-top: 32px;
 
-    & > p {
+    & > div > p {
         font-size: 20px;
 
         display: flex;
         flex-direction: row;
         align-items: center;
 
-        margin-bottom: 16px;
-        margin-right: 16px;
+        text-transform: lowercase;
     }
 
     @media (max-width: 900px){
@@ -173,7 +171,7 @@ export const BasicCharacteristics = styled.div`
             font-size: 18px;
 
             margin-bottom: 12px;
-            margin-right: 12px;
+            gap: 12px;
         }  
     }
 
@@ -189,6 +187,11 @@ const iconCSS = css`
     color: var(--text-black);
 
     margin-right: 12px;
+`;
+export const ReturnIcon = styled(ReturnDownBack)`
+    ${iconCSS}
+
+    margin-bottom: 16px;
 `;
 export const HeightIcon = styled(Height)`${iconCSS}`;
 export const WeightIcon = styled(WeightHanging)`${iconCSS}`;
@@ -234,4 +237,69 @@ export const Box = styled.div`
 
     -webkit-box-shadow: 4px 2px 7px -2px rgba(0,0,0,0.3); 
     box-shadow: 4px 2px 7px -2px rgba(0,0,0,0.3);
+`;
+
+export const Section = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+`;
+
+export const Stats = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    padding: 48px;
+    overflow-x: auto;
+    min-height: fit-content;
+
+    & > h2 {
+        font-size: 32px;
+        margin-bottom: 32px;
+        margin-top: calc(32px + 16px + 22px + ((55px - 37px)/2))
+    }
+
+    & > table {
+        max-width: 100%;
+    }
+
+    & > table > tr + tr td {
+        padding-top: 12px;
+    }
+`;
+
+export const Gallery = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    padding: 48px;
+    padding-top: 32px;
+    overflow-x: auto;
+
+    & > h2 {
+        font-size: 32px;
+        margin-bottom: 32px;
+    }
+`;
+
+export const Photos = styled.div`
+    flex-flow: row wrap;
+    max-height: 375px;
+
+    overflow-y: scroll;
+
+    & > img {
+        width: 150px;
+    }
+
+    @media (max-width: 768px) {
+        max-height: unset;
+        overflow-y: visible;
+
+        & > img {
+            width: 128px;
+        }
+    }
 `;

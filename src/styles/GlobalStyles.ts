@@ -1,14 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-	@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
 
 		color: var(--text-black);
+		text-transform: capitalize;
     }
     html, border-style, #root {
         max-height: 100vh;
@@ -67,5 +66,12 @@ export default createGlobalStyle`
 	    --background-dark: #70574688;
 	    --background-steel: #B7B7CE88;
 	    --background-fairy: #D685AD88;
+
+		--hp: #FF2626;
+		--attack: #FF7700;
+		--defense: #FFBC35;
+		--special-attack: #6891F0;
+		--special-defense: #78C850;
+		--speed: #F85888;
     }
 `;

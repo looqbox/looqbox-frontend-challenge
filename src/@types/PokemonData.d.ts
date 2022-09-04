@@ -3,10 +3,7 @@ interface PokemonData {
         {
             ability: {
                 name: string;
-                url: string;
             };
-            is_hidden: boolean;
-            slot: number;
         }
     ];
     base_experience: number;
@@ -14,7 +11,25 @@ interface PokemonData {
     id: number;
     name: string;
     sprites: {
+        back_default: string;
+        back_female: string;
+        back_shiny: string;
+        back_shiny_female: string;
+        front_default: string;
+        front_female: string;
+        front_shiny: string;
+        front_shiny_female: string;
         other: {
+            dream_world: {
+                front_default: string;
+                front_female: string;
+            };
+            home: {
+                front_default: string;
+                front_female: string;
+                front_shiny: string;
+                front_shiny_female: string;
+            }
             "official-artwork": {
                 front_default: string;
             };
@@ -23,19 +38,15 @@ interface PokemonData {
     stats: [
         {
             base_stat: number;
-            effort: number;
             stat: {
                 name: string;
-                url: string;
             };
         }
     ];
     types: [
         {
-            slot: number;
             type: {
                 name: string;
-                url: string;
             };
         }
     ];
