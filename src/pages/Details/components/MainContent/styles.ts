@@ -117,10 +117,7 @@ export const Abilities = styled.div`
 `;
 
 export const Box = styled.div`
-    background-color: #FFF6;
+    background-color: #FFFA;
     padding: 16px;
-    border-radius: 16px;
-
-    -webkit-box-shadow: 4px 2px 7px -2px rgba(0,0,0,0.3); 
-    box-shadow: 4px 2px 7px -2px rgba(0,0,0,0.3);
+    border-radius: 12px;
 `;

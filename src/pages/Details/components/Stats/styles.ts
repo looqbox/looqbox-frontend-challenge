@@ -19,7 +19,7 @@ export const Container = styled.div`
         max-width: 100%;
     }
 
-    & > table > tr + tr td {
-        padding-top: 12px;
+    & > table > tbody > tr + tr td {
+        padding-top: 8px;
     }
 `;

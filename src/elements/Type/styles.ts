@@ -10,9 +10,6 @@ export const Container = styled.div`
         color: var(--text-white);
     }
 
-    -webkit-box-shadow: 4px 2px 7px -2px rgba(0,0,0,0.3); 
-    box-shadow: 4px 2px 7px -2px rgba(0,0,0,0.3);
-
     padding: 8px 16px;
     border-radius: 4px;
 

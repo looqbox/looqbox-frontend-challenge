@@ -45,7 +45,7 @@ export const Bar = styled(ProgressBar)`
     margin-left: 8px;
 
     background-color: #FFF;
-    border: 1px solid #000;
+    border: 1px solid var(--stroke);
     border-radius: 4px;
 
     & > div {
