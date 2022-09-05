@@ -17,8 +17,8 @@ const SearchInput:React.FC = () => {
         event.preventDefault();
 
         setLoading(true);
-        pokeAPI.get(`pokemon/${input}`).then(res => {
-            navigate(`details/${input}`)
+        pokeAPI.get(`pokemon/${input.trim().replace(" ", "-")}`).then(res => {
+            navigate(`details/${input.trim().replace(" ", "-")}`);
         }).catch(err => {
             Swal.fire({
                 icon: 'error',
