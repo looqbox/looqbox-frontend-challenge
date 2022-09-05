@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PokemonListData from "../../@types/PokemonListData";
 import Loading from "../../elements/Loading/Loading";
+import { usePokemons } from "../../providers/PokemonsProvider";
 import pokeAPI from "../../services/api";
 import Card from "./components/Card/Card";
 import SearchInput from "./components/SearchInput/SearchInput";
@@ -8,12 +9,34 @@ import SearchInput from "./components/SearchInput/SearchInput";
 import { Container, PokemonList, Button } from './styles';
 
 const Home:React.FC = () => {
-    const [pokemons, setPokemons] = useState<PokemonListData[]>([]);
-    const [offset, setOffset] = useState<number>(0);
     const [loading, setLoading] = useState<boolean>(true);
+
+    const { pokemons, setPokemons, offset, setOffset } = usePokemons();
 
 
     useEffect(() => {
+        if(pokemons.length === 0) {
+            setLoading(true);
+            pokeAPI.get(`/pokemon/?offset=${offset}`).then(({data}) => {
+                let alreadyPokemons = pokemons.concat(data.results);
+                setPokemons(alreadyPokemons);
+                setOffset(offset + 20);
+            }).catch((err) => {
+                console.log(err.message);
+            }).finally(() => {
+                setLoading(false);
+            });
+        } else {
+            setLoading(false);
+        }
+    }, []);
+
+    function handleClick() {
+        setOffset(offset + 20);
+        if(offset == 0) {
+            console.log("cachorro");
+            setOffset(offset + 40);
+        }
         setLoading(true);
         pokeAPI.get(`/pokemon/?offset=${offset}`).then(({data}) => {
             let alreadyPokemons = pokemons.concat(data.results);
@@ -23,7 +46,7 @@ const Home:React.FC = () => {
         }).finally(() => {
             setLoading(false);
         });
-    }, [offset]);
+    }
 
     return(
         <>
@@ -41,7 +64,7 @@ const Home:React.FC = () => {
                         })
                     }
                 </PokemonList>
-                <Button onClick={() => setOffset(offset + 20)}>Show More Pokémons</Button>
+                <Button onClick={() => handleClick()}>Show More Pokémons</Button>
             </Container>
         </>
     )
