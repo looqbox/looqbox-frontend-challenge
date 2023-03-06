@@ -11,18 +11,19 @@ We will not use anything from your project other than evaluate your skills and y
 ## Stack
 We use:
 - ReactJS for the front end framework
-- Webpack and Yarn for dependency management and local deployment
-
-But you can use Node and Npm if you prefer :)
+- Redux for global state management
+- TypeScript
+- Create React App CLI
 
 ## Submitting
 - Make a fork of this repository
+- Create your branch
 - When you're done send us a pull request
 
 # Guidelines
 You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please mind how many times you request data
+The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please **mind how many times you request data**
 
 - In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
 - Clicking on any pokemon shows a card/modal/page with that pokemon's info
@@ -32,12 +33,13 @@ The pokeapi was chosen because of its simplicity to make the requests, as it is 
 You can use any dependency you want, (axios, bootstrap, material ui...)
 
 ## Bonus points!
-- A view with more details about the pokemon selected in the list
 - Documentation
 - Linting
 - Graphs
 - Unit Testing
+- Ant Design
 
 ## Useful links
 - [React docs](https://reactjs.org/docs/getting-started.html)
 - [PokeApi docs](https://pokeapi.co/docs/v2.html)
+- [Redux](https://redux.js.org/)
