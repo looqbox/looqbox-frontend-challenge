@@ -1,6 +1,6 @@
-import { Card } from "antd";
-import { Pokemon } from "../../models/Pokemon";
 import { Link } from "react-router-dom";
+import { Pokemon } from "../../models/Pokemon";
+import { CardDetails } from "./styles";
 
 type Props = {
     item: Pokemon
@@ -19,10 +19,9 @@ export const CardPokemon = (props: Props) => {
 
     return (
         <Link to={`/details/${name}`}>
-            <Card
+            <CardDetails
                 hoverable
                 title={`#${getIdFromUrl()} ${name}`}
-                style={{ textTransform: 'capitalize', textAlign: 'center', borderColor: '#e5e5e5' }}
                 cover={
                     <img
                         alt="example"
