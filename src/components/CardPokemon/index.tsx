@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Image } from "antd";
 import { Pokemon } from "../../models/Pokemon";
 import { CardDetails } from "./styles";
 
@@ -23,7 +24,8 @@ export const CardPokemon = (props: Props) => {
                 hoverable
                 title={`#${getIdFromUrl()} ${name}`}
                 cover={
-                    <img
+                    <Image
+                        preview={false}
                         alt="example"
                         src={`${imageBaseUrl}/${getIdFromUrl()}.png`}
                     />

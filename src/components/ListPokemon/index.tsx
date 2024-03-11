@@ -4,14 +4,20 @@ import { CardPokemon } from "../CardPokemon";
 
 type Props = {
     data: Pokemon[],
-    column?: number,
 }
 
 export const ListPokemon = (props: Props) => {
-    const { data, column } = props;
+    const { data } = props;
     return (
         <List
-            grid={{ gutter: 40, column: column || 5 }}
+            grid={{
+                gutter: 40, 
+                xs: 1,
+                sm: 2,
+                md: 3,
+                lg: 4,
+                xl: 4,
+            }}
             dataSource={data}
             renderItem={(item) => (
             <List.Item key={item.name}>
