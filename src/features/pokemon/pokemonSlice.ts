@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Pokemon } from "../../models/Pokemon";
+import Pokemon from "../../models/Pokemon";
 
 interface PokemonState {
   pokemonList: Pokemon[];

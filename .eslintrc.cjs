@@ -16,7 +16,9 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "react/react-in-jsx-scope": "off",
-    "semi": ["error", "always"],
+    
+    "semi": "off",
+    "@typescript-eslint/semi": ["error"],
     "indent": ["error", 2],
     "react/jsx-indent": ["error", 2],
     "react/jsx-indent-props": ["error", 2],

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Image } from "antd";
-import { Pokemon } from "../../models/Pokemon";
+import Pokemon from "../../models/Pokemon";
 import { CardDetails } from "./styles";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 
 const imageBaseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork";
 
-export const CardPokemon = (props: Props) => {
+const CardPokemon = (props: Props) => {
   const { name, url } = props.item;
 
   const getIdFromUrl = () => {
@@ -34,3 +34,5 @@ export const CardPokemon = (props: Props) => {
     </Link>
   );
 };
+
+export default CardPokemon;

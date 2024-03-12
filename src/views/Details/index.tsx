@@ -1,23 +1,43 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Pokemon } from "../../models/Pokemon";
+import { Divider, Layout, Flex } from "antd";
+import { Content } from "antd/es/layout/layout";
+import PageHeader from "../../components/PageHeader";
+import CardPokemonInfo from "../../components/CardPokemonInfo";
+import CardPokemonStats from "../../components/CardPokemonStats";
+import CardPokemonAbilities from "../../components/CardPokemonAbilities";
 import { getPokemonByName } from "../../services/PokemonService";
+import PokemonInfo from "../../models/PokemonInfo";
 
 export default function DetailsPage() {
   const {name} = useParams();
-  const [pokemon, setPokemon] = useState<Pokemon>();
+  const [pokemon, setPokemon] = useState<PokemonInfo>();
 
   useEffect(() => {
-    if (name) {
-      getPokemonByName(name)
-        .then(data => setPokemon(data))
-        .catch(err => console.log(err));
-    }
+    if (name) getPokemon(name);
   }, [name]);
 
+  const getPokemon = (name: string) => {
+    getPokemonByName(name)
+      .then(data => setPokemon(data))
+      .catch(err => console.log(err));
+  };
+
+  if (!pokemon) {
+    return;
+  }
+
   return (
-    <div>
-      <h1>Details Page - {pokemon?.name}</h1>
-    </div>
+    <Layout >
+      <PageHeader />
+      <Divider />
+      <Content>
+        <Flex wrap="wrap" gap={30} align="stretch" justify="space-between">
+          <CardPokemonInfo pokemon={pokemon} />
+          <CardPokemonStats pokemon={pokemon} />
+          <CardPokemonAbilities pokemon={pokemon} />
+        </Flex>
+      </Content>
+    </Layout>
   );
 }
