@@ -1,49 +1,81 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+<h1 align="center"> Looqbox FrontEnd Challenge - Pokédex </h1>
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+![Cover](/Cover.svg)
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+Welcome to the Looqbox FrontEnd Challenge - Pokédex edition! In this challenge,
+you will be tasked with building a Single Page Application (SPA) using ReactJS,
+Redux, TypeScript, and AntDesign to create a dynamic Pokédex utilizing the PokeAPI.
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+## [Demo](https://looqbox-frontend-challenge-web.vercel.app)
 
-## Stack
-We use:
-- ReactJS
-- Redux
+## 📘 Challenge Overview
+
+The task is to build a Pokédex application that retrieves data from the PokeAPI.
+The app should allow users to search for Pokémon, view detailed information
+about each Pokémon and navigate between different routes within the app.
+
+**Main Features**
+
+Here are the main features that the application includes:
+
+- [x] - **Paginated Pokémon List**: Implement a Pokémon list that allows paginated
+browsing, displaying a limited number of Pokémon per page for easier navigation.
+- [x] - **Dynamic Search**: Provides a search bar that allows users to search
+for Pokémon by name or code. The Pokémon list updates dynamically as the user
+types in the search bar.
+- [x] - **Pokémon Details**: Clicking on a Pokémon in the list displays detailed
+information about that Pokémon, such as image, type, abilities, stats, etc.
+- [x] - **Integration with Ant Design**: We used the components provided by Ant Design
+to create a consistent and pleasant user interface, ensuring an intuitive and
+easy-to-use user experience.
+
+## 🛠 Stack
+
+In this challenge, we utilize the following technologies:
+
+- ReactJS + Vite.js
+- Redux + Redux Toolkit
 - TypeScript
-- AntDesign
-
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
-
-You have **one week** to finish your test, we'll check the time with your "Initial" and "Final" Commits.
-
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
-
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please **mind how many times you request data**
-
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
-
-You can use any dependency you want, (axios, bootstrap, material ui...)
-
-## Bonus points!
-- Documentation
-- Linting
-- Charts
-- Unit Testing
 - Ant Design
+- react-jss (JSS integration with React)
+- Vitest
 
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
-- [Redux](https://redux.js.org/)
+## 🚀 Getting Started
+
+To run the challenge, follow these steps:
+
+```bash
+# CLone this repository
+$ git clone https://github.com/fernandes-vinicius/looqbox-frontend-challenge.git
+
+# Go into the repository
+$ cd looqbox-frontend-challenge
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm run dev
+
+# Run the test files
+$ npm run test
+```
+
+The application will be available in your browser at http://localhost:3000.
+
+## 📌 Useful Links
+
+To assist you in completing the challenge, refer to the following resources:
+
+- [React Documentation](https://react.dev/learn)
+- [Vite Documentation](https://vitejs.dev/guide)
+- [PokeAPI Documentation](https://pokeapi.co/docs/v2)
+- [Redux Documentation](https://redux.js.org/introduction/getting-started)
+- [Redux Toolkit Documentation](https://redux-toolkit.js.org/introduction/getting-started)
+- [Ant Design](https://ant.design/components/overview)
+- [React JSS](https://cssinjs.org/react-jss/?v=v10.10.0)
+- [Vitest Documentation](https://vitest.dev/guide)
+
+## 📃 License
+
+This project is licensed under the [Licença MIT](https://opensource.org/license/mit).
