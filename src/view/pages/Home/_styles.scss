@@ -1,0 +1,7 @@
+@import '../../../assets/styles/variables';
+
+@media screen and (max-width: $mobile__breakpoint) {
+    main {
+        padding: 0 16px; 
+    }
+}

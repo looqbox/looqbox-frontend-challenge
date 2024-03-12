@@ -1,0 +1,53 @@
+$font-weight__semibold: 700;
+$font-weight__bold: 800;
+$font-weight__regular: 400;
+
+$body-background-color: #EFEDED;
+$color-white: #fff;
+$light-gray: #E2E2E2;
+$dark-gray: #ABA9A9;
+$darker-gray: #949393;
+
+$grass-type-color: #63BB5B;
+$poison-type-color: #AB6AC8;
+$fire-type-color: #FF9C54;
+$ghost-type-color: #5269AC;
+$bug-type-color: #90C12C;
+$flying-type-color: #92AADE;
+$psychic-type-color: #F97176;
+$ground-type-color: #D97746;
+$steel-type-color: #5A8EA1;
+$normal-type-color: #9099A1;
+$unknown-type-color: #404040;
+$fighting-type-color: #CE4069;
+$dark-type-color: #5A5366;
+$rock-type-color: #C7B78B;
+$electric-type-color: #F3D23B;
+$dragon-type-color: #096DC4;
+$ice-type-color: #74CEC0;
+$fairy-type-color: #EC8FE6;
+$water-type-color: #4D90D5;
+
+$type-color-map: (
+  grass: $grass-type-color,
+  poison: $poison-type-color,
+  ice: $ice-type-color,
+  fairy: $fairy-type-color,
+  water: $water-type-color,
+  dragon: $dragon-type-color,
+  rock: $rock-type-color,
+  dark: $dark-type-color,
+  fighting: $fighting-type-color,
+  unknown: $unknown-type-color,
+  normal: $normal-type-color,
+  steel: $steel-type-color,
+  electric: $electric-type-color,
+  ground: $ground-type-color,
+  psychic: $psychic-type-color,
+  flying: $flying-type-color,
+  bug: $bug-type-color,
+  ghost: $ghost-type-color,
+  fire: $fire-type-color,
+);
+
+$mobile__breakpoint: 1200px;
