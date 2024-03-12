@@ -1,30 +1,32 @@
 import { Flex, Divider } from "antd";
 import Title from "antd/es/typography/Title";
-import PokemonInfo from "../../models/PokemonInfo";
+import { Ability } from "../../models/PokemonInfo";
 import { AbilityTag, CardInfo } from "./styles";
 
 type Props = {
-  pokemon: PokemonInfo
+  abilities: Ability[];
 };
 
-const CardPokemonAbilities = ({ pokemon }: Props) => {
+const CardPokemonAbilities = ({ abilities }: Props) => {
+  const renderTags = () => (
+    abilities.map(item => {
+      const { name } = item.ability;
+
+      return (
+        <AbilityTag key={name} color="blue" bordered>
+          {name}
+        </AbilityTag>
+      );
+    })
+  );
+
   return (
     <CardInfo>
       <Flex vertical justify="space-around">
         <Title level={3}>Abilities</Title>
         <Divider />
         <Flex vertical justify="center" gap={10}>
-          {
-            pokemon.abilities.map(item => (
-              <AbilityTag
-                color="blue"
-                bordered
-                key={item.ability.name}
-              >
-                {item.ability.name}
-              </AbilityTag>
-            ))
-          }
+          {renderTags()}
         </Flex>
       </Flex>
     </CardInfo>

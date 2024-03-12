@@ -1,33 +1,29 @@
 import { Link } from "react-router-dom";
 import { Image } from "antd";
-import Pokemon from "../../models/Pokemon";
 import { CardDetails } from "./styles";
 
 type Props = {
-    item: Pokemon
-}
+  id: string,
+  name: string,
+};
 
 const imageBaseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork";
 
 const CardPokemon = (props: Props) => {
-  const { name, url } = props.item;
-
-  const getIdFromUrl = () => {
-    const splittedUrl = url.split("/");
-    const id = splittedUrl[splittedUrl.length - 2];
-    return id;
-  };
+  const { name, id } = props;
+  const title = `#${id} ${name}`;
+  const src = `${imageBaseUrl}/${id}.png`;
 
   return (
     <Link to={`/details/${name}`}>
       <CardDetails
         hoverable
-        title={`#${getIdFromUrl()} ${name}`}
+        title={title}
         cover={
           <Image
             preview={false}
-            alt="example"
-            src={`${imageBaseUrl}/${getIdFromUrl()}.png`}
+            alt={title}
+            src={src}
           />
         }
       />

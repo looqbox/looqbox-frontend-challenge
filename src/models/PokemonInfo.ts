@@ -22,7 +22,7 @@ type DefaultType = {
   url: string,
 };
 
-type Ability = {
+export type Ability = {
   ability: DefaultType,
   is_hidden: boolean,
   slot: number,
@@ -69,7 +69,7 @@ type Sprite = {
   }
 };
 
-type Stat = {
+export type Stat = {
   base_stat: number,
   effort: number,
   stat: DefaultType,

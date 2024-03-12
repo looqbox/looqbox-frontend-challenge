@@ -5,20 +5,21 @@ import pokemonTypes from "../../constants/pokemonTypes";
 import { CardInfo } from "./styles";
 
 type Props = {
-    pokemon: PokemonInfo
+  pokemon: PokemonInfo
 };
 
 const CardPokemonInfo = ({ pokemon }: Props) => {
+  const { name, types, sprites } = pokemon;
+  
   const renderTags = () => {
-    return pokemon.types.map(item => (
-      <Tag
-        bordered
-        key={item.type.name}
-        color={pokemonTypes[item.type.name].color}
-      >
-        {item.type.name}
-      </Tag>
-    ));
+    return types.map(item => {
+      const { name: typeName } = item.type;
+      const color = pokemonTypes[typeName].color;
+
+      return (
+        <Tag key={typeName} bordered color={color}>{typeName}</Tag>
+      );
+    });
   };
 
   return (
@@ -27,16 +28,14 @@ const CardPokemonInfo = ({ pokemon }: Props) => {
         <Image
           width={250}
           preview={false}
-          src={pokemon.sprites.other["official-artwork"].front_default}
+          src={sprites.other["official-artwork"].front_default}
         />
 
         <Divider />
         
-        <Title>{pokemon.name}</Title>
-        
-        <Flex justify="center">
-          {renderTags()}
-        </Flex>
+        <Title>{name}</Title>
+
+        <Flex justify="center">{renderTags()}</Flex>
       </Flex>
     </CardInfo>
   );

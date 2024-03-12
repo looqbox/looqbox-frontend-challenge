@@ -3,12 +3,19 @@ import Pokemon from "../../models/Pokemon";
 import CardPokemon from "../CardPokemon";
 
 type Props = {
-    data: Pokemon[],
-    loading: boolean,
-}
+  data: Pokemon[],
+  loading: boolean,
+};
 
 const ListPokemon = (props: Props) => {
   const { data, loading } = props;
+
+  const getIdFromUrl = (url: string) => {
+    const splittedUrl = url.split("/");
+    const id = splittedUrl[splittedUrl.length - 2];
+    return id;
+  };
+
   return (
     <List
       loading={loading}
@@ -23,7 +30,7 @@ const ListPokemon = (props: Props) => {
       dataSource={data}
       renderItem={(item) => (
         <List.Item key={item.name}>
-          <CardPokemon item={item} />
+          <CardPokemon id={getIdFromUrl(item.url)} name={item.name} />
         </List.Item>
       )}
     />

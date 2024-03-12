@@ -6,7 +6,7 @@ import { HeaderPage } from "./styles";
 
 type Props = {
   children?: ReactNode
-}
+};
 
 const PageHeader = ({ children }: Props) => {
   const navigate = useNavigate();
