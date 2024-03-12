@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 // import { Error } from './pages/error'
-import { Home } from './pages/Home'
+import { Home } from './pages/home'
 import { BaseLayout } from './pages/layouts/base-layout'
-import { Pokemon } from './routes/pokemon'
+import { Pokemon } from './pages/pokemon'
 
 export const router = createBrowserRouter([
   {
