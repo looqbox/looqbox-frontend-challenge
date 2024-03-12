@@ -1,6 +1,9 @@
+import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { z } from 'zod'
+
+import { searchPokemon } from '@/api/searchPokemon'
 
 import { Button } from './ui/button'
 import { Input } from './ui/input'
@@ -9,7 +12,7 @@ const searchForm = z.object({
   search: z.string(),
 })
 
-type SearchFormTypes = z.infer<typeof searchForm>
+export type SearchFormTypes = z.infer<typeof searchForm>
 
 export const Search = () => {
   const {
@@ -20,17 +23,20 @@ export const Search = () => {
 
   const navigate = useNavigate()
 
+  const { mutateAsync: search } = useMutation({
+    mutationFn: searchPokemon,
+    retry: 3,
+  })
+
   const handleSearch = async (data: SearchFormTypes) => {
-    if (data.search.trim() !== '') {
-      const res = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${data.search.toLocaleLowerCase()}`
-      )
+    const valueSearched = data.search
 
-      const finds = await res.json()
+    if (valueSearched.trim() !== '') {
+      const name = valueSearched.toLocaleLowerCase()
 
-      if (finds) {
-        navigate(`/pokemon/${finds.name}`)
-      }
+      await search(name)
+
+      navigate(`/pokemon/${name}`)
     }
   }
 
