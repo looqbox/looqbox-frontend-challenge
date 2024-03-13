@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Layout, Flex, Button } from "antd";
+import { AppstoreAddOutlined } from "@ant-design/icons";
 import PageHeader from "../../components/PageHeader";
 import CardPokemonInfo from "../../components/CardPokemonInfo";
 import CardPokemonStats from "../../components/CardPokemonStats";
 import CardPokemonAbilities from "../../components/CardPokemonAbilities";
 import { getPokemonByName } from "../../services/PokemonService";
 import PokemonInfo from "../../models/PokemonInfo";
-import { AppstoreAddOutlined } from "@ant-design/icons";
+import NotFoundPage from "../NotFound";
 
 export default function DetailsPage() {
   const {name} = useParams();
@@ -24,8 +25,7 @@ export default function DetailsPage() {
   };
 
   if (!pokemon) {
-    console.log("Não foi encontrado Pokemon")
-    return;
+    return <NotFoundPage />
   }
 
   return (
