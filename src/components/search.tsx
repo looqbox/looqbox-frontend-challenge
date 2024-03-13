@@ -41,20 +41,22 @@ export const Search = () => {
   }
 
   return (
-    <form
-      className="flex w-full max-w-96 gap-4"
-      onSubmit={handleSubmit(handleSearch)}
-    >
-      <Input
-        className="w-full border-white"
-        type="search"
-        placeholder="Search for pokémon; e.g. Lucario"
-        {...register('search')}
-      />
+    <div className="flex w-full justify-center border-b pb-8">
+      <form
+        className="flex w-full max-w-96 gap-4"
+        onSubmit={handleSubmit(handleSearch)}
+      >
+        <Input
+          className="w-full border-white"
+          type="search"
+          placeholder="Search for pokémon; e.g. Lucario"
+          {...register('search')}
+        />
 
-      <Button disabled={isSubmitting} className="text-white">
-        Submit
-      </Button>
-    </form>
+        <Button disabled={isSubmitting} className="text-white">
+          Submit
+        </Button>
+      </form>
+    </div>
   )
 }
