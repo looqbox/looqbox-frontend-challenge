@@ -8,7 +8,7 @@ import PokemonInfo from "../../models/PokemonInfo";
 import { getPokemonByName } from "../../services/PokemonService";
 
 import PageHeader from "../../components/PageHeader";
-import CardPokemonInfo from "../../components/CardPokemonInfo";
+import CardPokemon from "../../components/CardPokemon";
 import CardPokemonStats from "../../components/CardPokemonStats";
 import CardPokemonAbilities from "../../components/CardPokemonAbilities";
 import { Loading } from "./styles";
@@ -58,7 +58,12 @@ export default function DetailsPage() {
       </PageHeader>
       <Layout.Content>
         <Flex wrap="wrap" gap={30} align="stretch" justify="space-between">
-          <CardPokemonInfo pokemon={pokemon} />
+          <CardPokemon
+            name={pokemon.name}
+            title={pokemon.name}
+            src={pokemon.sprites.other["official-artwork"].front_default}
+            tags={pokemon.types}
+          />
           <CardPokemonStats stats={pokemon.stats} />
           <CardPokemonAbilities abilities={pokemon.abilities} />
         </Flex>

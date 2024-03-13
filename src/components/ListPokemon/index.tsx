@@ -2,6 +2,9 @@ import { List } from "antd";
 import Pokemon from "../../models/Pokemon";
 import CardPokemon from "../CardPokemon";
 
+const imageBaseUrl =
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork";
+
 type Props = {
   data: Pokemon[];
   loading: boolean;
@@ -28,11 +31,21 @@ const ListPokemon = (props: Props) => {
         xl: 5,
       }}
       dataSource={data}
-      renderItem={(item) => (
-        <List.Item key={item.name}>
-          <CardPokemon id={getIdOfPokemon(item.url)} name={item.name} />
-        </List.Item>
-      )}
+      renderItem={(item) => {
+        const id = getIdOfPokemon(item.url);
+        const title = `#${id} ${item.name}`;
+        const src = `${imageBaseUrl}/${id}.png`;
+        return (
+          <List.Item key={item.name}>
+            <CardPokemon
+              name={item.name}
+              title={title}
+              src={src}
+              linkTo={`/details/${item.name}`}
+            />
+          </List.Item>
+        );
+      }}
     />
   );
 };

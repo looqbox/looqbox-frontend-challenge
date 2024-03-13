@@ -3,13 +3,14 @@ import { Flex, Typography, Progress } from "antd";
 import { Stat } from "../../models/PokemonInfo";
 import { CardStats } from "./styles";
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 type Props = {
   stats: Stat[];
+  mini?: boolean;
 };
 
-const CardPokemonStats = ({ stats }: Props) => {
+const CardPokemonStats = ({ stats, mini }: Props) => {
   const renderStatsProgress = () =>
     stats.map((item) => {
       const { stat, base_stat } = item;
@@ -18,7 +19,7 @@ const CardPokemonStats = ({ stats }: Props) => {
         <Fragment key={stat.name}>
           <Text>{stat.name}</Text>
           <Progress
-            size={4}
+            size={mini ? "small" : 4}
             percent={base_stat}
             steps={100}
             format={(percent) => percent}
@@ -28,8 +29,7 @@ const CardPokemonStats = ({ stats }: Props) => {
     });
 
   return (
-    <CardStats>
-      <Title level={3}>Stats</Title>
+    <CardStats title="Stats">
       <Flex vertical justify="space-between" gap={10}>
         {renderStatsProgress()}
       </Flex>
