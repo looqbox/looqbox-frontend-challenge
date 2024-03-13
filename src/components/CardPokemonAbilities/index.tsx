@@ -1,5 +1,4 @@
-import { Flex, Divider } from "antd";
-import Title from "antd/es/typography/Title";
+import { Flex, Divider, Typography } from "antd";
 import { Ability } from "../../models/PokemonInfo";
 import { AbilityTag, CardInfo } from "./styles";
 
@@ -23,7 +22,7 @@ const CardPokemonAbilities = ({ abilities }: CardPokemonAbilitiesProps) => {
   return (
     <CardInfo>
       <Flex vertical justify="space-around">
-        <Title level={3}>Abilities</Title>
+        <Typography.Title level={3}>Abilities</Typography.Title>
         <Divider />
         <Flex vertical justify="center" gap={10}>
           {renderTags()}

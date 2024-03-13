@@ -1,5 +1,4 @@
-import { Flex, Divider, Tag, Image } from "antd";
-import Title from "antd/es/typography/Title";
+import { Flex, Divider, Tag, Image, Typography } from "antd";
 import PokemonInfo from "../../models/PokemonInfo";
 import pokemonTypes from "../../constants/pokemonTypes";
 import { CardInfo } from "./styles";
@@ -33,7 +32,7 @@ const CardPokemonInfo = ({ pokemon }: CardPokemonInfoProps) => {
 
         <Divider />
         
-        <Title>{name}</Title>
+        <Typography.Title>{name}</Typography.Title>
 
         <Flex justify="center">{renderTags()}</Flex>
       </Flex>

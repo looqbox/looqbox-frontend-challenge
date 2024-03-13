@@ -1,7 +1,7 @@
-import { Flex, Typography } from "antd";
-import Progress from "antd/es/progress";
+import { Flex, Typography, Progress } from "antd";
 import { Stat } from "../../models/PokemonInfo";
 import { CardStats } from "./styles";
+import { Fragment } from "react/jsx-runtime";
 
 const { Text, Title } = Typography;
 
@@ -15,7 +15,7 @@ const CardPokemonStats = ({ stats }: Props) => {
       const { stat, base_stat } = item;
 
       return (
-        <>
+        <Fragment key={stat.name}>
           <Text>{stat.name}</Text>
           <Progress
             size={4}
@@ -23,7 +23,7 @@ const CardPokemonStats = ({ stats }: Props) => {
             steps={100}
             format={(percent) => percent}
           />
-        </>
+        </Fragment>
       );
     })
   );

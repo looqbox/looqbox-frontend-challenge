@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Layout, Flex, Button } from "antd";
-import { Content } from "antd/es/layout/layout";
 import PageHeader from "../../components/PageHeader";
 import CardPokemonInfo from "../../components/CardPokemonInfo";
 import CardPokemonStats from "../../components/CardPokemonStats";
@@ -25,6 +24,7 @@ export default function DetailsPage() {
   };
 
   if (!pokemon) {
+    console.log("Não foi encontrado Pokemon")
     return;
   }
 
@@ -39,13 +39,13 @@ export default function DetailsPage() {
           Add to list
         </Button>
       </PageHeader>
-      <Content>
+      <Layout.Content>
         <Flex wrap="wrap" gap={30} align="stretch" justify="space-between">
           <CardPokemonInfo pokemon={pokemon} />
           <CardPokemonStats stats={pokemon.stats} />
           <CardPokemonAbilities abilities={pokemon.abilities} />
         </Flex>
-      </Content>
+      </Layout.Content>
     </Layout>
   );
 }
