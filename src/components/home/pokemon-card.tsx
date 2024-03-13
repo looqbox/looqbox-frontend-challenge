@@ -1,14 +1,14 @@
 import { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 
-import { Badge } from './ui/badge'
+import { Badge } from '../ui/badge'
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from './ui/card'
+} from '../ui/card'
 
 type PokemonListTypes = {
   data: {
@@ -36,12 +36,15 @@ type PokemonListTypes = {
 }
 
 export const PokemonCard = ({ data }: PokemonListTypes) => {
-  console.log(data)
-
   return (
     <Link to={`/pokemon/${data.id}`}>
-      <Card className="border-white transition-[background] hover:bg-white/10">
-        <img src={data.sprites?.other?.home?.front_default} alt="" />
+      <Card className="flex min-h-[492px] flex-col justify-end border-white transition-[background] hover:bg-white/10">
+        <img
+          height={336}
+          width={336}
+          src={data.sprites?.other?.home?.front_default}
+          alt=""
+        />
 
         <CardHeader className="mt-4 scroll-m-20 border-b border-t py-4 text-2xl font-semibold capitalize">
           <CardTitle className="capitalize tracking-tight">

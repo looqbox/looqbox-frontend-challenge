@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet-async'
 import { useParams } from 'react-router-dom'
 
 import { getPokemon } from '@/api/getPokemon'
+import { PokemonDetails } from '@/components/internal/pokemon-details/index'
 import { Loader } from '@/components/loader'
-import { PokemonDetails } from '@/components/pokemon-details/index'
 
 import missingno from '../assets/Missingno_RB.png'
 

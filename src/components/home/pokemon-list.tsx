@@ -3,8 +3,8 @@ import axios from 'axios'
 
 import { env } from '@/env'
 
-import pokeball from '../assets/pokeball.png'
-import { Loader } from './loader'
+import pokeball from '../../assets/pokeball.png'
+import { Loader } from '../loader'
 import { PokemonCard } from './pokemon-card'
 
 export const PokemonList = () => {
@@ -15,7 +15,7 @@ export const PokemonList = () => {
   const handlePokemonList = () => {
     const endpoints = [] as string[]
 
-    for (let index = 1; index < 152; index++) {
+    for (let index = 1; index < 41; index++) {
       endpoints.push(`${env.VITE_API_BASE_URL}/pokemon/${index}/`)
     }
 

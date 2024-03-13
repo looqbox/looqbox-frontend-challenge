@@ -1,7 +1,14 @@
-import { Badge } from '../ui/badge'
+import { Badge } from '../../ui/badge'
 
 type AbilitiesProps = {
-  abilities: any[]
+  abilities: {
+    ability: { name: string }
+    map(
+      arg0: (item: {
+        ability: { name: string }
+      }) => import('react/jsx-runtime').JSX.Element
+    ): import('react').ReactNode
+  }
 }
 
 export const PokemonDetailsAbilities = (data: AbilitiesProps) => {
@@ -11,7 +18,7 @@ export const PokemonDetailsAbilities = (data: AbilitiesProps) => {
         <strong className="border-b pb-2 tracking-tight">Ability:</strong>
 
         <div className="flex gap-2">
-          {data.abilities.map((item) => {
+          {data.abilities.map((item: { ability: { name: string } }) => {
             return (
               <Badge
                 variant={'secondary'}

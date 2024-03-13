@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 
-import { PokemonList } from '@/components/pokemon-list'
+import { PokemonList } from '@/components/home/pokemon-list'
 
 export const Home = () => {
   return (
