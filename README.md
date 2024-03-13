@@ -18,7 +18,7 @@
     <!-- * Compare: Comparação entre pokemons -->
       <!-- - Cards comparativos das estatísticas dos pokemons -->
 
-## ⚙ Como Usar
+## Como Usar
 
 ```bash
 # Instalar dependências
@@ -33,13 +33,3 @@ $ npm run test
 # Abrir Documentação
 $ npm run storybook
 ```
-
-## 🖼 Páginas
-
-### Home
-
-<!-- ![screenshot1](./src/assets/print01.png) -->
-
-### Details
-
-<!-- ![screenshot2](./src/assets/print02.png) -->
