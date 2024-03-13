@@ -8,7 +8,7 @@ describe("CardPokemon", () => {
     render(<CardPokemon name="pokemon" src="" linkTo="`/details/pokemon`" />, {
       wrapper: BrowserRouter,
     });
-    expect(screen.getByText("Pokemon")).toBeInTheDocument();
+    expect(screen.getByText("pokemon")).toBeInTheDocument();
   });
 
   test("should render tags card correctly", () => {
@@ -20,7 +20,7 @@ describe("CardPokemon", () => {
       />,
       { wrapper: BrowserRouter },
     );
-    expect(screen.getByText("Pokemon")).toBeInTheDocument();
+    expect(screen.getByText("pokemon")).toBeInTheDocument();
     expect(screen.getByText("grass")).toBeInTheDocument();
   });
 });
