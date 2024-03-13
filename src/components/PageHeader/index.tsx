@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
-import { Flex, Image } from "antd";
+import { Divider, Flex, Image } from "antd";
 import pokeballImage from "../../assets/pokeball.png";
 import { HeaderPage } from "./styles";
 
@@ -19,6 +19,7 @@ const PageHeader = ({ children }: Props) => {
     <HeaderPage>
       <Flex justify='space-between' align='center' gap={20}>
         <Image
+          alt="Pokeball Image"
           onClick={redirectToHome}
           preview={false}
           width={80}
@@ -27,6 +28,7 @@ const PageHeader = ({ children }: Props) => {
         />
         {children}
       </Flex>
+      <Divider />
     </HeaderPage>
   );
 };

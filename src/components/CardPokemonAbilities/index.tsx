@@ -3,11 +3,11 @@ import Title from "antd/es/typography/Title";
 import { Ability } from "../../models/PokemonInfo";
 import { AbilityTag, CardInfo } from "./styles";
 
-type Props = {
+export type CardPokemonAbilitiesProps = {
   abilities: Ability[];
 };
 
-const CardPokemonAbilities = ({ abilities }: Props) => {
+const CardPokemonAbilities = ({ abilities }: CardPokemonAbilitiesProps) => {
   const renderTags = () => (
     abilities.map(item => {
       const { name } = item.ability;

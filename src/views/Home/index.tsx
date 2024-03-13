@@ -1,8 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Divider, Layout } from "antd";
-import { Content } from "antd/es/layout/layout";
+import { Layout } from "antd";
 import Pokemon from "../../models/Pokemon";
 import PageHeader from "../../components/PageHeader";
 import ListPokemon from "../../components/ListPokemon";
@@ -23,7 +22,7 @@ export default function HomePage() {
   const [pokemonsFiltered, setPokemonsFiltered] = useState<Pokemon[]>(pokemonList);
 
   useEffect(() => {
-    console.log(error);
+    if (error) console.error(error);
   }, [error]);
 
   useEffect(() => {
@@ -72,13 +71,12 @@ export default function HomePage() {
           onPressEnter={redirectToDetails}
         />
       </PageHeader>
-      <Divider />
-      <Content>
+      <Layout.Content>
         <ListPokemon
           data={pokemonsFiltered}
           loading={loading}
         />
-      </Content>
+      </Layout.Content>
     </Layout>
   );
 }

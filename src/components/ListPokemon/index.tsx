@@ -10,7 +10,7 @@ type Props = {
 const ListPokemon = (props: Props) => {
   const { data, loading } = props;
 
-  const getIdFromUrl = (url: string) => {
+  const getIdOfPokemon = (url: string) => {
     const splittedUrl = url.split("/");
     const id = splittedUrl[splittedUrl.length - 2];
     return id;
@@ -30,7 +30,7 @@ const ListPokemon = (props: Props) => {
       dataSource={data}
       renderItem={(item) => (
         <List.Item key={item.name}>
-          <CardPokemon id={getIdFromUrl(item.url)} name={item.name} />
+          <CardPokemon id={getIdOfPokemon(item.url)} name={item.name} />
         </List.Item>
       )}
     />

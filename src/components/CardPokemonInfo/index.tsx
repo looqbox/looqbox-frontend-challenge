@@ -4,11 +4,11 @@ import PokemonInfo from "../../models/PokemonInfo";
 import pokemonTypes from "../../constants/pokemonTypes";
 import { CardInfo } from "./styles";
 
-type Props = {
+export type CardPokemonInfoProps = {
   pokemon: PokemonInfo
 };
 
-const CardPokemonInfo = ({ pokemon }: Props) => {
+const CardPokemonInfo = ({ pokemon }: CardPokemonInfoProps) => {
   const { name, types, sprites } = pokemon;
   
   const renderTags = () => {

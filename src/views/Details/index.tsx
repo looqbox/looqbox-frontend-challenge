@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Divider, Layout, Flex, Button } from "antd";
+import { Layout, Flex, Button } from "antd";
 import { Content } from "antd/es/layout/layout";
 import PageHeader from "../../components/PageHeader";
 import CardPokemonInfo from "../../components/CardPokemonInfo";
@@ -39,7 +39,6 @@ export default function DetailsPage() {
           Add to list
         </Button>
       </PageHeader>
-      <Divider />
       <Content>
         <Flex wrap="wrap" gap={30} align="stretch" justify="space-between">
           <CardPokemonInfo pokemon={pokemon} />
