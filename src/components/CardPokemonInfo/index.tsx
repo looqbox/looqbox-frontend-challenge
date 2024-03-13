@@ -4,19 +4,21 @@ import pokemonTypes from "../../constants/pokemonTypes";
 import { CardInfo } from "./styles";
 
 export type CardPokemonInfoProps = {
-  pokemon: PokemonInfo
+  pokemon: PokemonInfo;
 };
 
 const CardPokemonInfo = ({ pokemon }: CardPokemonInfoProps) => {
   const { name, types, sprites } = pokemon;
-  
+
   const renderTags = () => {
-    return types.map(item => {
+    return types.map((item) => {
       const { name: typeName } = item.type;
       const color = pokemonTypes[typeName].color;
 
       return (
-        <Tag key={typeName} bordered color={color}>{typeName}</Tag>
+        <Tag key={typeName} bordered color={color}>
+          {typeName}
+        </Tag>
       );
     });
   };
@@ -31,7 +33,7 @@ const CardPokemonInfo = ({ pokemon }: CardPokemonInfoProps) => {
         />
 
         <Divider />
-        
+
         <Typography.Title>{name}</Typography.Title>
 
         <Flex justify="center">{renderTags()}</Flex>

@@ -7,8 +7,8 @@ export type CardPokemonAbilitiesProps = {
 };
 
 const CardPokemonAbilities = ({ abilities }: CardPokemonAbilitiesProps) => {
-  const renderTags = () => (
-    abilities.map(item => {
+  const renderTags = () =>
+    abilities.map((item) => {
       const { name } = item.ability;
 
       return (
@@ -16,8 +16,7 @@ const CardPokemonAbilities = ({ abilities }: CardPokemonAbilitiesProps) => {
           {name}
         </AbilityTag>
       );
-    })
-  );
+    });
 
   return (
     <CardInfo>

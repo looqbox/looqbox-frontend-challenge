@@ -1,85 +1,84 @@
-const pokemonTypes: { [key: string]: { name: string, color: string } } = {
+const pokemonTypes: { [key: string]: { name: string; color: string } } = {
   normal: {
     name: "normal",
-    color: "gray"
+    color: "gray",
   },
   fighting: {
     name: "fighting",
-    color: "red"
+    color: "red",
   },
   flying: {
     name: "flying",
-    color: "skyblue"
+    color: "skyblue",
   },
   poison: {
     name: "poison",
-    color: "purple"
+    color: "purple",
   },
   ground: {
     name: "ground",
-    color: "sandybrown"
+    color: "sandybrown",
   },
   rock: {
     name: "rock",
-    color: "brown"
+    color: "brown",
   },
   bug: {
     name: "bug",
-    color: "green"
+    color: "green",
   },
   ghost: {
     name: "ghost",
-    color: "darkviolet"
+    color: "darkviolet",
   },
   steel: {
     name: "steel",
-    color: "silver"
+    color: "silver",
   },
   fire: {
     name: "fire",
-    color: "orangered"
+    color: "orangered",
   },
   water: {
     name: "water",
-    color: "blue"
+    color: "blue",
   },
   grass: {
     name: "grass",
-    color: "green"
+    color: "green",
   },
   electric: {
     name: "electric",
-    color: "yellow"
+    color: "yellow",
   },
   psychic: {
     name: "psychic",
-    color: "pink"
+    color: "pink",
   },
   ice: {
     name: "ice",
-    color: "lightblue"
+    color: "lightblue",
   },
   dragon: {
     name: "dragon",
-    color: "darkorange"
+    color: "darkorange",
   },
   dark: {
     name: "dark",
-    color: "black"
+    color: "black",
   },
   fairy: {
     name: "fairy",
-    color: "magenta"
+    color: "magenta",
   },
   unknown: {
     name: "unknown",
-    color: "lightgray"
+    color: "lightgray",
   },
   shadow: {
     name: "shadow",
-    color: "darkslategray"
-  }
+    color: "darkslategray",
+  },
 };
-  
+
 export default pokemonTypes;
-  

@@ -3,8 +3,8 @@ import Pokemon from "../../models/Pokemon";
 import CardPokemon from "../CardPokemon";
 
 type Props = {
-  data: Pokemon[],
-  loading: boolean,
+  data: Pokemon[];
+  loading: boolean;
 };
 
 const ListPokemon = (props: Props) => {
@@ -20,7 +20,7 @@ const ListPokemon = (props: Props) => {
     <List
       loading={loading}
       grid={{
-        gutter: 40, 
+        gutter: 40,
         xs: 2,
         sm: 2,
         md: 3,

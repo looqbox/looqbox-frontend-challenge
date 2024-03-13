@@ -1,30 +1,40 @@
-# React + TypeScript + Vite
+<h1 align="center">
+  <br>
+  <img src="./src\assets\pokeball.png" alt="Pokeball" width="150">
+  <br>
+</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Funcionalidades
 
-Currently, two official plugins are available:
+* Home: Lista de Pokemons
+  - Listagem dos cards de pokemons com seus nomes e fotos
+  <!-- - Opção de "Load More" para carregar mais pokemons quando o scroll atinge o fim da lista -->
+  - Barra de pesquisa pelo nome do pokemon
+* Details: Detalhes do Pokemon
+  - Informações básicas do pokemon
+  - Informações em barras sobre as estatísticas
+  - Lista de habilidades do pokemon
+  - Botão para adicionar pokemon na lista de comparação
+<!-- * Compare: Comparação entre pokemons -->
+  <!-- - Cards comparativos das estatísticas dos pokemons -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙ Como Usar
 
-## Expanding the ESLint configuration
+```bash
+# Instalar dependências
+$ npm install
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Inicializar a aplicação
+$ npm start
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+# Rodas testes
+$ npm run test
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 🖼 Páginas
+
+### Home
+<!-- ![screenshot1](./src/assets/print01.png) -->
+
+### Details
+<!-- ![screenshot2](./src/assets/print02.png) -->

@@ -1,7 +1,7 @@
+import { Fragment } from "react/jsx-runtime";
 import { Flex, Typography, Progress } from "antd";
 import { Stat } from "../../models/PokemonInfo";
 import { CardStats } from "./styles";
-import { Fragment } from "react/jsx-runtime";
 
 const { Text, Title } = Typography;
 
@@ -10,8 +10,8 @@ type Props = {
 };
 
 const CardPokemonStats = ({ stats }: Props) => {
-  const renderStatsProgress = () => (
-    stats.map(item => {
+  const renderStatsProgress = () =>
+    stats.map((item) => {
       const { stat, base_stat } = item;
 
       return (
@@ -25,8 +25,7 @@ const CardPokemonStats = ({ stats }: Props) => {
           />
         </Fragment>
       );
-    })
-  );
+    });
 
   return (
     <CardStats>

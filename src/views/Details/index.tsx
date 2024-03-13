@@ -2,16 +2,18 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Layout, Flex, Button } from "antd";
 import { AppstoreAddOutlined } from "@ant-design/icons";
+
+import NotFoundPage from "../NotFound";
+import PokemonInfo from "../../models/PokemonInfo";
+import { getPokemonByName } from "../../services/PokemonService";
+
 import PageHeader from "../../components/PageHeader";
 import CardPokemonInfo from "../../components/CardPokemonInfo";
 import CardPokemonStats from "../../components/CardPokemonStats";
 import CardPokemonAbilities from "../../components/CardPokemonAbilities";
-import { getPokemonByName } from "../../services/PokemonService";
-import PokemonInfo from "../../models/PokemonInfo";
-import NotFoundPage from "../NotFound";
 
 export default function DetailsPage() {
-  const {name} = useParams();
+  const { name } = useParams();
   const [pokemon, setPokemon] = useState<PokemonInfo>();
 
   useEffect(() => {
@@ -20,22 +22,21 @@ export default function DetailsPage() {
 
   const getPokemon = (name: string) => {
     getPokemonByName(name)
-      .then(data => setPokemon(data))
-      .catch(err => console.log(err));
+      .then((data) => setPokemon(data))
+      .catch((err) => console.error(err));
   };
 
   if (!pokemon) {
-    return <NotFoundPage />
+    return <NotFoundPage />;
   }
 
   return (
-    <Layout >
+    <Layout>
       <PageHeader>
         <Button
           icon={<AppstoreAddOutlined />}
           onClick={() => console.log("oi")}
-          type="default"
-        >
+          type="default">
           Add to list
         </Button>
       </PageHeader>

@@ -3,11 +3,12 @@ import { Image } from "antd";
 import { CardDetails } from "./styles";
 
 export type CardPokemonProps = {
-  id: string,
-  name: string,
+  id: string;
+  name: string;
 };
 
-const imageBaseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork";
+const imageBaseUrl =
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork";
 
 const CardPokemon = (props: CardPokemonProps) => {
   const { name, id } = props;
@@ -19,13 +20,7 @@ const CardPokemon = (props: CardPokemonProps) => {
       <CardDetails
         hoverable
         title={title}
-        cover={
-          <Image
-            preview={false}
-            alt={title}
-            src={src}
-          />
-        }
+        cover={<Image preview={false} alt={title} src={src} />}
       />
     </Link>
   );
