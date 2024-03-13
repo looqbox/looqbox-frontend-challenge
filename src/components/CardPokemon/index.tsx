@@ -7,14 +7,13 @@ import { Type } from "../../models/PokemonInfo";
 
 export type CardPokemonProps = {
   name: string;
-  title: string;
   src: string;
   linkTo?: string;
   tags?: Type[];
 };
 
 const CardPokemon = (props: CardPokemonProps) => {
-  const { name, title, src, linkTo, tags } = props;
+  const { name, src, linkTo, tags } = props;
 
   const renderTags = () => {
     return tags?.map(({ type }) => {
@@ -33,8 +32,8 @@ const CardPokemon = (props: CardPokemonProps) => {
     <Wrapper name={name} linkTo={linkTo}>
       <CardDetails
         hoverable={!!linkTo}
-        title={title}
-        cover={<Image preview={false} alt={title} src={src} />}>
+        title={name}
+        cover={<Image preview={false} alt={name} src={src} />}>
         <Flex justify="center">{renderTags()}</Flex>
       </CardDetails>
     </Wrapper>

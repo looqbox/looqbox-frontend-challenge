@@ -27,8 +27,11 @@ $ npm install
 # Inicializar a aplicação
 $ npm start
 
-# Rodas testes
+# Rodar testes
 $ npm run test
+
+# Abrir Documentação
+$ npm run storybook
 ```
 
 ## 🖼 Páginas

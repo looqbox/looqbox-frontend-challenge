@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Layout, Flex, Button } from "antd";
-import { AppstoreAddOutlined } from "@ant-design/icons";
+import { Layout, Flex } from "antd";
 
 import NotFoundPage from "../NotFound";
 import PokemonInfo from "../../models/PokemonInfo";
@@ -28,8 +27,7 @@ export default function DetailsPage() {
         setPokemon(data);
         setLoading(false);
       })
-      .catch((err) => {
-        console.error(err);
+      .catch(() => {
         setLoading(false);
       });
   };
@@ -37,7 +35,7 @@ export default function DetailsPage() {
   if (loading) {
     return (
       <Flex justify="center">
-        <Loading />
+        <Loading data-testid="loading-indicator" />
       </Flex>
     );
   }
@@ -48,19 +46,11 @@ export default function DetailsPage() {
 
   return (
     <Layout>
-      <PageHeader>
-        <Button
-          icon={<AppstoreAddOutlined />}
-          onClick={() => console.log("oi")}
-          type="default">
-          Add to list
-        </Button>
-      </PageHeader>
+      <PageHeader />
       <Layout.Content>
         <Flex wrap="wrap" gap={30} align="stretch" justify="space-between">
           <CardPokemon
             name={pokemon.name}
-            title={pokemon.name}
             src={pokemon.sprites.other["official-artwork"].front_default}
             tags={pokemon.types}
           />

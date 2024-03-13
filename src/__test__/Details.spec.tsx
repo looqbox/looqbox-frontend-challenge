@@ -41,4 +41,40 @@ describe("DetailsPage component", () => {
 
     expect(getPokemonByName).toHaveBeenCalledWith("bulbasaur");
   });
+
+  test("renders loading indicator while fetching data", async () => {
+    (getPokemonByName as jest.Mock).mockReturnValue(new Promise(() => {}));
+
+    const { getByTestId } = render(
+      <MemoryRouter initialEntries={["/details/bulbasaur"]}>
+        <Routes>
+          <Route path="/details/:name" element={<DetailsPage />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(getByTestId("loading-indicator")).toBeInTheDocument();
+    });
+  });
+
+  test("renders NotFoundPage if Pokemon is not found", async () => {
+    (getPokemonByName as jest.Mock).mockRejectedValue(
+      new Error("Pokemon not found"),
+    );
+
+    const { getByText } = render(
+      <MemoryRouter initialEntries={["/details/missing-pokemon"]}>
+        <Routes>
+          <Route path="/details/:name" element={<DetailsPage />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(
+        getByText("Sorry, the page you visited does not exist."),
+      ).toBeInTheDocument();
+    });
+  });
 });

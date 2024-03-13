@@ -76,6 +76,5 @@ export type Stat = {
 };
 
 export type Type = {
-  slot: number;
   type: DefaultType;
 };

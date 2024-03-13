@@ -33,13 +33,11 @@ const ListPokemon = (props: Props) => {
       dataSource={data}
       renderItem={(item) => {
         const id = getIdOfPokemon(item.url);
-        const title = `#${id} ${item.name}`;
         const src = `${imageBaseUrl}/${id}.png`;
         return (
           <List.Item key={item.name}>
             <CardPokemon
               name={item.name}
-              title={title}
               src={src}
               linkTo={`/details/${item.name}`}
             />
