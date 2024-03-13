@@ -5,6 +5,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime"
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
@@ -15,6 +17,8 @@ module.exports = {
       { allowConstantExport: true },
     ],
 
+    'no-console': "error",
+    "react/no-unescaped-entities": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error"
   },
