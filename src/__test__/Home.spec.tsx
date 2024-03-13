@@ -49,7 +49,7 @@ describe("HomePage component", () => {
       </Provider>,
     );
 
-    expect(getByPlaceholderText("Search...")).toBeInTheDocument();
+    expect(getByPlaceholderText("Search by name...")).toBeInTheDocument();
   });
 
   test("should redirect to details page when click on the card", async () => {
@@ -92,7 +92,7 @@ describe("HomePage component", () => {
       expect(getByTestId(`card-link-${pokemonNameToTest}`)).toBeInTheDocument();
     });
 
-    const searchInput = getByPlaceholderText("Search...");
+    const searchInput = getByPlaceholderText("Search by name...");
     fireEvent.change(searchInput, { target: { value: pokemonNameToTest } });
     fireEvent.keyDown(searchInput, { key: "Enter", code: 13, charCode: 13 });
 

@@ -7,7 +7,9 @@ export const CardInfo = styled(Card)`
   text-align: center;
   background-color: transparent;
   align-self: stretch;
-  min-width: 300px;
+  width: 100%;
+  max-width: 300px;
+  min-width: 240px;
 `;
 
 export const AbilityTag = styled(Tag)`

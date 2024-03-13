@@ -11,9 +11,11 @@ import PageHeader from "../../components/PageHeader";
 import CardPokemonInfo from "../../components/CardPokemonInfo";
 import CardPokemonStats from "../../components/CardPokemonStats";
 import CardPokemonAbilities from "../../components/CardPokemonAbilities";
+import { Loading } from "./styles";
 
 export default function DetailsPage() {
   const { name } = useParams();
+  const [loading, setLoading] = useState<boolean>(true);
   const [pokemon, setPokemon] = useState<PokemonInfo>();
 
   useEffect(() => {
@@ -22,9 +24,23 @@ export default function DetailsPage() {
 
   const getPokemon = (name: string) => {
     getPokemonByName(name)
-      .then((data) => setPokemon(data))
-      .catch((err) => console.error(err));
+      .then((data) => {
+        setPokemon(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
   };
+
+  if (loading) {
+    return (
+      <Flex justify="center">
+        <Loading />
+      </Flex>
+    );
+  }
 
   if (!pokemon) {
     return <NotFoundPage />;

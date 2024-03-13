@@ -27,7 +27,6 @@ const CardPokemonInfo = ({ pokemon }: CardPokemonInfoProps) => {
     <CardInfo>
       <Flex vertical justify="space-between">
         <Image
-          width={250}
           preview={false}
           src={sprites.other["official-artwork"].front_default}
         />
