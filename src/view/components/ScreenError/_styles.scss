@@ -1,0 +1,12 @@
+.error-screen {
+    width: 100%;
+    height: calc(100vh - 113px);
+
+    img {
+        width: 40%
+    }
+    
+    &__content {
+        margin-top: 48px;
+    }
+}

@@ -1,0 +1,7 @@
+@import '../../../assets/styles/variables';
+
+@media screen and (min-width: $mobile__breakpoint) {
+    .pokemon-details-wrapper {
+        flex-direction: row;
+    }
+}

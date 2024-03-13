@@ -1,0 +1,23 @@
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    
+    svg {
+        z-index: 4;
+        animation: rotating 1.5s infinite;
+        width: 128px;
+        height: 128px;
+    }
+}
+
+@keyframes rotating {
+    from {
+        rotate: 0;
+    } to {
+        rotate: 360deg;
+    }
+}

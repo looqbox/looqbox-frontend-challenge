@@ -1,0 +1,98 @@
+@import '../../../../../assets/styles/variables';
+@import '../../../../../assets/styles/mixins';
+
+.pokemon-banner-section {
+    .pokemon-banner {
+        &__illustration {
+            position: relative;
+
+            img {
+                width: 248px;
+            }
+        }
+
+        &__circle-background {
+            @include setPropertyBasedOnType(background-color);
+            border-radius: 100%;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%);
+            opacity: 50%;
+            z-index: -1;
+        }
+
+        &__id {
+            @include setPropertyBasedOnType(background-color); 
+            display: inline-block;
+            text-align: center;
+            padding: 8px 16px;
+            border-radius: 16px;
+            font-weight: $font-weight__semibold;
+            color: $color-white;
+        }
+
+        &__name {
+            font-size: 48px;
+            font-weight: $font-weight__bold;
+            margin-bottom: 0;
+            text-transform: capitalize;
+            letter-spacing: -2.5px;
+        }
+
+        &__details {
+            color: $darker-gray;
+
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        &__types {
+            flex-wrap: wrap;
+        }
+
+        &__type {
+            @include setPropertyBasedOnType(background-color, $darken: true);
+            padding: 8px 16px;
+            border-radius: 8px;
+            
+            svg {
+                width: 48px;
+                height: 48px;
+            }
+
+            span {
+                color: $color-white;
+                font-size: 24px;
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $mobile__breakpoint) {
+    .pokemon-banner-section {
+        max-width: 363px;
+
+        .pokemon-banner {
+            &__illustration {
+                img {
+                    width: 100%;
+                }
+            }
+
+            &__circle-background {
+                width: 310px;
+                height: 310px;
+            }
+
+            &__types {
+                flex-wrap: nowrap;
+            }
+        }
+    }
+}

@@ -1,17 +1,16 @@
-import * as React from "react";
 const IconGround = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
     <defs>
-      <style>{".cls-2{fill:#fff}"}</style>
+      <style>{'.cls-2{fill:#fff}'}</style>
     </defs>
-    <title>{"ground"}</title>
+    <title>{'ground'}</title>
     <g id="ground">
       <circle
         cx={64}
         cy={64}
         r={64}
         style={{
-          fill: "#d97746",
+          fill: '#d97746'
         }}
       />
       <path
@@ -20,5 +19,5 @@ const IconGround = () => (
       />
     </g>
   </svg>
-);
-export default IconGround;
+)
+export default IconGround

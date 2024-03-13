@@ -1,17 +1,27 @@
-import { Flex } from "antd"
-import { Link, Outlet } from "react-router-dom"
+import { Flex } from 'antd'
+import { Link, Outlet } from 'react-router-dom'
 
-import PokeLogo from "../../../assets/icons/PokeLogo";
+import PokeLogo from '../../../assets/icons/PokeLogo'
+import { GithubOutlined } from '@ant-design/icons'
 
-export default function DefaultLayout() {
-    return (
+import './_styles.scss'
+
+export default function DefaultLayout () {
+  return (
         <>
-            <header style={{paddingTop: 48}}>
-                <Flex justify="center" align="center">
+            <header>
+                <Flex justify="space-between" align="center">
                     <Link to="/"><PokeLogo /></Link>
+                    <a
+                        href="https://github.com/joaobelarmino"
+                        target='_blank'
+                        rel="noreferrer"
+                    >
+                        <small><GithubOutlined />/joaobelarmino</small>
+                    </a>
                 </Flex>
             </header>
             <Outlet />
         </>
-    )
+  )
 }

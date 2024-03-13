@@ -1,17 +1,16 @@
-import * as React from "react";
 const IconFighting = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
     <defs>
-      <style>{".cls-2{fill:#fff}"}</style>
+      <style>{'.cls-2{fill:#fff}'}</style>
     </defs>
-    <title>{"fighting"}</title>
+    <title>{'fighting'}</title>
     <g id="fighting">
       <circle
         cx={64}
         cy={64}
         r={64}
         style={{
-          fill: "#ce4069",
+          fill: '#ce4069'
         }}
       />
       <path
@@ -20,5 +19,5 @@ const IconFighting = () => (
       />
     </g>
   </svg>
-);
-export default IconFighting;
+)
+export default IconFighting

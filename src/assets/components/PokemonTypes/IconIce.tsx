@@ -1,6 +1,4 @@
-import React from "react";
-
-function IconIce() {
+function IconIce () {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +23,7 @@ function IconIce() {
         </clipPath>
       </defs>
     </svg>
-  );
+  )
 }
 
-export default IconIce;
+export default IconIce

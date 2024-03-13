@@ -1,6 +1,4 @@
-import React from "react";
-
-function IconDark() {
+function IconDark () {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +23,7 @@ function IconDark() {
         </clipPath>
       </defs>
     </svg>
-  );
+  )
 }
 
-export default IconDark;
+export default IconDark

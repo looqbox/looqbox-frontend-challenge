@@ -1,6 +1,4 @@
-import React from "react";
-
-function IconGrass() {
+function IconGrass () {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +23,7 @@ function IconGrass() {
         </clipPath>
       </defs>
     </svg>
-  );
+  )
 }
 
-export default IconGrass;
+export default IconGrass

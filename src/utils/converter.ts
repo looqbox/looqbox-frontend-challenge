@@ -1,3 +1,3 @@
-export function converter(unit: number) {
-    return unit / 10;
+export function converter (unit: number) {
+  return unit / 10
 }

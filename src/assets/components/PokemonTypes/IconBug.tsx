@@ -1,17 +1,16 @@
-import * as React from "react";
-const IconBug = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" {...props}>
+const IconBug = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
     <defs>
-      <style>{".cls-2{fill:#fff}"}</style>
+      <style>{'.cls-2{fill:#fff}'}</style>
     </defs>
-    <title>{"bug"}</title>
+    <title>{'bug'}</title>
     <g id="bug">
       <circle
         cx={64}
         cy={64}
         r={64}
         style={{
-          fill: "#90c12c",
+          fill: '#90c12c'
         }}
       />
       <path
@@ -20,5 +19,5 @@ const IconBug = (props) => (
       />
     </g>
   </svg>
-);
-export default IconBug;
+)
+export default IconBug

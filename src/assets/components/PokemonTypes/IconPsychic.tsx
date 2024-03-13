@@ -1,6 +1,4 @@
-import React from "react";
-
-function IconPsychic() {
+function IconPsychic () {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +23,7 @@ function IconPsychic() {
         </clipPath>
       </defs>
     </svg>
-  );
+  )
 }
 
-export default IconPsychic;
+export default IconPsychic

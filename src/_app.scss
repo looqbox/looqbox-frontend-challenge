@@ -1,7 +1,16 @@
+@import './assets/styles/variables';
+
 body { 
-    background-color: #EFEDED;
+    background-color: $body-background-color;
 }
 
 * {
+    font-family: 'Inter';
     line-height: 120%;
+}
+
+@media screen and (max-width: $mobile__breakpoint) {
+    main {
+        padding: 0 16px; 
+    }
 }

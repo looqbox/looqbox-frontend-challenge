@@ -1,18 +1,16 @@
-import { Searchbar } from "../../components/Searchbar";
-import { PokemonGrid } from "./components/PokemonGrid";
+import { PokemonInformationContextProvider } from './contexts/PokemonInformation'
 
-import { usePokemonInformationContext } from "../../../hooks/usePokemonInformationContext";
+import { PokemonGrid } from './components/PokemonGrid'
+import { PokemonSearch } from './components/PokemonSearch'
 
-import "./_styles.scss";
+export default function Home () {
+  return (
+    <PokemonInformationContextProvider>
+      <main style={{ maxWidth: '1200px', margin: '24px auto 0' }}>
+        <PokemonSearch />
 
-export default function Home() {
-    const { handleSearch, isLoadingSearch, handleSearchClear } = usePokemonInformationContext();
-
-    return (
-        <main style={{maxWidth: "1200px", margin: "24px auto 0"}}>
-            <Searchbar onHandleSearch={handleSearch} isLoading={isLoadingSearch} onHandleSearchClear={handleSearchClear}/>
-
-            <PokemonGrid />
-        </main>
-    );
+        <PokemonGrid />
+      </main>
+    </PokemonInformationContextProvider>
+  )
 }

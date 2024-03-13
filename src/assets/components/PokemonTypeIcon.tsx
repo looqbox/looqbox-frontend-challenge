@@ -1,11 +1,11 @@
-import { iconsMap } from "./PokemonTypes/iconsMap";
+import { iconsMap } from './PokemonTypes/iconsMap'
 
 interface IPokemonTypeIconProps {
-  type: keyof typeof iconsMap;
+  type: keyof typeof iconsMap
 }
 
-export function PokemonTypeIcon({ type }: IPokemonTypeIconProps) {
-  const Icon = iconsMap[type];
+export function PokemonTypeIcon ({ type }: IPokemonTypeIconProps) {
+  const Icon = iconsMap[type]
 
-  return <Icon />;
+  return <Icon />
 }

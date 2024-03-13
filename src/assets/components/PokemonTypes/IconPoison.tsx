@@ -1,20 +1,20 @@
 const IconPoison = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-    <title>{"poison"}</title>
+    <title>{'poison'}</title>
     <circle
       cx={64}
       cy={64}
       r={64}
       style={{
-        fill: "#ab6ac8",
+        fill: '#ab6ac8'
       }}
     />
     <path
       d="M104 59c0-18.41-17.91-33.33-40-33.33S24 40.59 24 59c0 10 5.33 19 13.75 25.14A14 14 0 0 0 36 91c0 6.63 4.33 12 9.67 12 4.16 0 7.7-3.27 9.07-7.84C55.93 99.69 59.62 103 64 103s8.07-3.31 9.26-7.84c1.37 4.57 4.91 7.84 9.07 7.84 5.34 0 9.67-5.37 9.67-12a14 14 0 0 0-1.75-6.86C98.67 78 104 69 104 59ZM64 79.33C49.36 79.33 37 70 37 59s12.36-20.33 27-20.33S91 48 91 59 78.64 79.33 64 79.33Z"
       style={{
-        fill: "#fff",
+        fill: '#fff'
       }}
     />
   </svg>
-);
-export default IconPoison;
+)
+export default IconPoison

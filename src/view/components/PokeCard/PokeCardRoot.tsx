@@ -1,29 +1,30 @@
-import { Card, Flex } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Card, Flex } from 'antd'
+import { useNavigate } from 'react-router-dom'
+import { type PokemonData } from '../../../types/pokemon.types'
 
 interface IPokeCardRootProps {
-    children: React.ReactNode;
-    type: string;
-    id: number;
+  children: React.ReactNode
+  type: string
+  pokemon: PokemonData
 }
 
-export default function PokeCardRoot ({children, type, id}: IPokeCardRootProps) {
-    const navigate = useNavigate();
+export default function PokeCardRoot ({ children, type, pokemon }: IPokeCardRootProps) {
+  const navigate = useNavigate()
 
-    function handleClickCard(id: number) {
-        navigate(`/pokemon/${id}`)
-    }
+  function handleClickCard () {
+    navigate(`/pokemon/${pokemon.id}`, { state: { pokemon } })
+  }
 
-    return(
+  return (
         <Card
             className="pokemon-card"
             data-type={type}
-            style={{position: "relative"}}
-            onClick={() => handleClickCard(id)}
+            style={{ position: 'relative' }}
+            onClick={handleClickCard}
         >
             <Flex gap={8} align="center">
                 {children}
             </Flex>
         </Card>
-    )
+  )
 }
