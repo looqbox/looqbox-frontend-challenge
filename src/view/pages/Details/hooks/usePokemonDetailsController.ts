@@ -1,5 +1,5 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { type PokemonData } from '../../../../types/pokemon.types'
+import { type IPokemonData } from '../../../../types/Pokemon.types'
 import { useQuery } from '@tanstack/react-query'
 import { getPokemonData, getPokemonSpecie } from '../../../../services/pokemonServices'
 import { message } from 'antd'
@@ -8,7 +8,7 @@ export default function usePokemonDetailsController () {
   const { id } = useParams()
   const navigate = useNavigate()
   const location = useLocation()
-  const currentPokemon: PokemonData = location.state ? location.state.pokemon : null
+  const currentPokemon: IPokemonData = location.state ? location.state.pokemon : null
 
   const { data: pokemonFetched, error, isFetching } = useQuery({
     queryKey: ['pokemonDetails', id],

@@ -1,11 +1,11 @@
 import { Card, Flex, Skeleton } from 'antd'
-import { type PokemonStats, type PokemonSpecie } from '../../../../../types/pokemon.types'
+import { type IPokemonStats, type IPokemonSpecie } from '../../../../../types/Pokemon.types'
 
 import './_styles.scss'
 
 interface IPokemonAdditionalInfo {
-  specieInfo?: PokemonSpecie
-  baseStats?: PokemonStats[]
+  specieInfo?: IPokemonSpecie
+  baseStats?: IPokemonStats[]
   isFetchingSpecies: boolean
 }
 

@@ -1,24 +1,24 @@
-export interface ResultPokemonList {
+export interface IResultPokemonList {
   count: number
   next: string | null
   previous: string | null
-  results: Pokemon[]
-  pokemons: PokemonData[]
+  results: IPokemon[]
+  pokemons: IPokemonData[]
 }
 
-export interface Pokemon {
+export interface IPokemon {
   name: string
   url: string
 }
 
-export interface PokemonStats {
+export interface IPokemonStats {
   base_stat: number
   stat: {
     name: 'hp' | 'attack' | 'defense' | 'speed' | 'special-attack' | 'special-defense'
   }
 }
 
-export interface PokemonData {
+export interface IPokemonData {
   id: number
   name: string
   weight: number
@@ -47,7 +47,7 @@ export interface PokemonData {
     }
   }
 
-  stats: PokemonStats[]
+  stats: IPokemonStats[]
 
   types: Array<{
     slot: number
@@ -58,23 +58,23 @@ export interface PokemonData {
   }>
 }
 
-interface _Language {
+interface _ILanguage {
   name: string
   url: string
 }
 
-export interface PokemonSpecie {
+export interface IPokemonSpecie {
   evolution_chain: {
     url: string
   }
 
   flavor_text_entries: Array<{
     flavor_text: string
-    language: _Language
+    language: _ILanguage
   }>
 
   genera: Array<{
     genus: string
-    language: _Language
+    language: _ILanguage
   }>
 }

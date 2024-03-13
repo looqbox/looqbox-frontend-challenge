@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { type PokemonData } from '../../../types/pokemon.types'
+import { type IPokemonData } from '../../../types/Pokemon.types'
 
 import skeletonImage from '../../../assets/icons/pokeball-gray.svg'
 
 interface IPokeCardImageProps {
-  pokemon: PokemonData
+  pokemon: IPokemonData
 }
 
 export default function PokeCardImage ({ pokemon }: IPokeCardImageProps) {

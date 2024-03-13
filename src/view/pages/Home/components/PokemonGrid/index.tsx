@@ -1,15 +1,15 @@
+import { usePokemonInformationContext } from '../../hooks/usePokemonInformationContext'
+import { idTransformer } from '../../../../../utils/idTransformer'
+
 import { Button, Flex } from 'antd'
 import { PokeCard } from '../../../../components/PokeCard'
 import { ScreenLoader } from '../../../../components/ScreenLoader'
-
-import { usePokemonInformationContext } from '../../hooks/usePokemonInformationContext'
-import { idTransformer } from '../../../../../utils/idTransformer'
+import { ScreenError } from '../../../../components/ScreenError'
 
 import { DeleteOutlined } from '@ant-design/icons'
 import Pokeball from '../../../../../assets/icons/PokeBall'
 
 import './_styles.scss'
-import { ScreenError } from '../../../../components/ScreenError'
 
 export function PokemonGrid () {
   const {
@@ -45,7 +45,7 @@ export function PokemonGrid () {
                         icon={<DeleteOutlined />}
                         style={{ marginTop: 24 }}
                     >
-                        Limpar busca
+                        Clean search
                     </Button>
                 )}
                 <Flex vertical align="center" style={{ marginTop: 24 }}>

@@ -1,5 +1,5 @@
 import { Flex } from 'antd'
-import { type PokemonData } from '../../../../../types/pokemon.types'
+import { type IPokemonData } from '../../../../../types/Pokemon.types'
 import { converter } from '../../../../../utils/converter'
 import WeightIcon from '../../../../../assets/icons/WeightIcon'
 import { PokemonTypeIcon } from '../../../../../assets/components/PokemonTypeIcon'
@@ -9,7 +9,7 @@ import { idTransformer } from '../../../../../utils/idTransformer'
 import './_styles.scss'
 
 interface IPokemonBannerProps {
-  pokemon: PokemonData
+  pokemon: IPokemonData
 }
 
 export function PokemonBanner ({ pokemon }: IPokemonBannerProps) {

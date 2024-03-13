@@ -1,11 +1,11 @@
 import { type InfiniteData } from '@tanstack/react-query'
-import { type PokemonData, type ResultPokemonList } from '../../../../../types/pokemon.types'
+import { type IPokemonData, type IResultPokemonList } from '../../../../../types/Pokemon.types'
 
 export interface IPokemonInformationContext {
-  pokemonListData: InfiniteData<ResultPokemonList, unknown> | undefined
+  pokemonListData: InfiniteData<IResultPokemonList, unknown> | undefined
   isFetching: boolean
   isFetchingNextPage: boolean
-  filteredPokemonList: PokemonData[]
+  filteredPokemonList: IPokemonData[]
   isError: boolean
   ref: React.LegacyRef<HTMLDivElement> | undefined
   isLoadingSearch: boolean

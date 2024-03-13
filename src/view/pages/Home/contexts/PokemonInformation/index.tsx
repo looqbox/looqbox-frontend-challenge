@@ -4,10 +4,10 @@ import { useInView } from 'react-intersection-observer'
 import { PokemonInformationContext } from './PokemonInformation.context'
 import { message } from 'antd'
 import { getPokemonData, getPokemonList } from '../../../../../services/pokemonServices'
-import { type PokemonData } from '../../../../../types/pokemon.types'
+import { type IPokemonData } from '../../../../../types/Pokemon.types'
 
 export function PokemonInformationContextProvider ({ children }: { children: React.ReactNode }) {
-  const [filteredPokemonList, setFilteredPokemonList] = useState<PokemonData[] | []>([])
+  const [filteredPokemonList, setFilteredPokemonList] = useState<IPokemonData[] | []>([])
 
   const [isLoadingSearch, setIsLoadingSearch] = useState(false)
   const { ref, inView } = useInView()
@@ -58,7 +58,7 @@ export function PokemonInformationContextProvider ({ children }: { children: Rea
     if (inView && !isFetchingNextPage) {
       void fetchNextPage()
     }
-  }, [inView, fetchNextPage, isFetchingNextPage])
+  }, [inView, fetchNextPage])
 
   const POKEMON_CONTEXT = {
     pokemonListData,

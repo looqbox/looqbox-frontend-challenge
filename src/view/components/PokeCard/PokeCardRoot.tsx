@@ -1,11 +1,11 @@
 import { Card, Flex } from 'antd'
 import { useNavigate } from 'react-router-dom'
-import { type PokemonData } from '../../../types/pokemon.types'
+import { type IPokemonData } from '../../../types/Pokemon.types'
 
 interface IPokeCardRootProps {
   children: React.ReactNode
   type: string
-  pokemon: PokemonData
+  pokemon: IPokemonData
 }
 
 export default function PokeCardRoot ({ children, type, pokemon }: IPokeCardRootProps) {
@@ -16,15 +16,15 @@ export default function PokeCardRoot ({ children, type, pokemon }: IPokeCardRoot
   }
 
   return (
-        <Card
-            className="pokemon-card"
-            data-type={type}
-            style={{ position: 'relative' }}
-            onClick={handleClickCard}
-        >
-            <Flex gap={8} align="center">
-                {children}
-            </Flex>
-        </Card>
+    <Card
+        className="pokemon-card"
+        data-type={type}
+        style={{ position: 'relative' }}
+        onClick={handleClickCard}
+    >
+      <Flex gap={8} align="center">
+          {children}
+      </Flex>
+    </Card>
   )
 }
