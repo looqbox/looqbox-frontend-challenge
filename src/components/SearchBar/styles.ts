@@ -1,6 +1,6 @@
 import { Input } from "antd";
 import styled from "styled-components";
 
-export const SearchBar = styled(Input.Search)`
+export const SearchInput = styled(Input.Search)`
   width: 400px;
 `;

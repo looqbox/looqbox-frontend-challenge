@@ -14,7 +14,7 @@ import {
 
 import PageHeader from "../../components/PageHeader";
 import ListPokemon from "../../components/ListPokemon";
-import { SearchBar } from "./styles";
+import SearchBar from "../../components/SearchBar";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -75,11 +75,9 @@ export default function HomePage() {
     <Layout>
       <PageHeader>
         <SearchBar
-          variant="outlined"
           placeholder="Search by name..."
           onChange={onInputValueChange}
           onSearch={redirectToDetails}
-          onPressEnter={redirectToDetails}
         />
       </PageHeader>
       <Layout.Content>
