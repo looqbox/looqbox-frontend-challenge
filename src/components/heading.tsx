@@ -8,7 +8,7 @@ export const Heading = () => {
     <header className="flex w-full flex-col items-center justify-center gap-8 border-b pb-8">
       <Link to="/">
         <h1 className="flex scroll-m-20 items-center gap-2 text-4xl font-extrabold tracking-tight lg:text-5xl">
-          <img src={pokeball} alt="" />
+          <img src={pokeball} alt="" height={48} width={48} />
           National Pokedex
         </h1>
       </Link>
