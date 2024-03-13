@@ -19,7 +19,7 @@ export const Search = () => {
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm()
+  } = useForm<SearchFormTypes>()
 
   const navigate = useNavigate()
 
