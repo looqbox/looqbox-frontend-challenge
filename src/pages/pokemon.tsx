@@ -6,8 +6,6 @@ import { getPokemon } from '@/api/getPokemon'
 import { PokemonDetails } from '@/components/internal/pokemon-details/index'
 import { Loader } from '@/components/loader'
 
-import missingno from '../assets/Missingno_RB.png'
-
 type UseParamsTypes = {
   id: string
 }
@@ -17,7 +15,15 @@ export const Pokemon = () => {
 
   const { data: pokemon, isLoading } = useQuery({
     queryKey: ['pokemon', id],
-    queryFn: () => getPokemon(id),
+    queryFn: () => getPokemon(`/pokemon/${id}`),
+  })
+
+  const flavor_text = pokemon?.data?.species.url
+  const route = flavor_text?.split('v2')[1]
+
+  const { data: pokemonDescription } = useQuery({
+    queryKey: ['pokemonDescription', route],
+    queryFn: () => getPokemon(route),
   })
 
   return (
@@ -30,8 +36,10 @@ export const Pokemon = () => {
         <PokemonDetails.Root>
           <div className="col-span-1 flex flex-col justify-center gap-8 rounded-lg border-2 p-4">
             <img
-              src={pokemon?.data.sprites.other.home.front_default || missingno}
-              className="h-96 w-96 object-contain"
+              src={pokemon?.data.sprites.other.home.front_default}
+              height={384}
+              width={384}
+              className="object-contain"
               alt=""
             />
 
@@ -41,9 +49,15 @@ export const Pokemon = () => {
           </div>
 
           <div className="col-span-3 flex flex-col gap-4 rounded-lg border-2 p-4">
-            <PokemonDetails.Name name={pokemon?.data.name || 'missingno'} />
-            <PokemonDetails.Description description={pokemon?.data.name} />
-            <PokemonDetails.Moves moves={pokemon!.data.moves} />
+            <PokemonDetails.Name name={pokemon?.data.name} />
+            <PokemonDetails.Description
+              description={[
+                pokemonDescription?.data.flavor_text_entries[0].flavor_text,
+                pokemonDescription?.data.flavor_text_entries[2].flavor_text,
+              ]}
+            />
+            <PokemonDetails.Charts stats={pokemon?.data.stats} />
+            <PokemonDetails.Moves moves={pokemon?.data.moves} />
           </div>
         </PokemonDetails.Root>
       )}
