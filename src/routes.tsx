@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-// import { Error } from './pages/error'
+import { NotFound } from './pages/404'
 import { Home } from './pages/home'
 import { BaseLayout } from './pages/layouts/base-layout'
 import { Pokemon } from './pages/pokemon'
@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <BaseLayout />,
-    // errorElement: <Error />,
+    errorElement: <NotFound />,
     children: [
       {
         path: '/',
