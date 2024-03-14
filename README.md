@@ -1,10 +1,10 @@
 # National Pokédex
 
-Uma aplicação web simples, destinada a exibir itens retornados da PokéAPI (https://pokeapi.co/docs/v2).
+A web application meant to exhibit items returned from PokéAPI (https://pokeapi.co/docs/v2).
 
-É possível navegar em páginas específicas de cada pokémon, como também pesquisar por algum específico que não esteja presente na lista.
+It's possible to navigate in pages offering info regarding each pokémon, and also search for specific pocket monsters.
 
-## Requisitos mínimos
+## Minimum requirements
 
 - [x] In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
 - [x] Clicking on any pokemon shows a card/modal/page with that pokemon's info
@@ -21,6 +21,20 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 - [ ] Unit Testing
 - [ ] Ant Design
 
+## Running
+
+## Dev
+
+`pnpm i`, then `pnpm dev`.
+
+### Prod
+
+`pnpm build`
+
+### Testing
+
+`pnpm test`
+
 ## Stack
 
 - React
@@ -34,79 +48,81 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 - Recharts
 - Vitest/Testing Library
 
-## Detalhes do projeto
+### About
 
-### Execução
+This is the v2 release, developed after identifying the enhancement oportunities after tests conducted during the v1.
 
-`pnpm i`, então `pnpm dev`.
+### Elaborating upon the toolkit
 
-### Prod
+TailwindCSS and shadcn were selected with the aim of speeding up development, guarantee consistency and ease the development of high-quality interfaces. shadcn implements several solutions related to accessibility out-of-the-box, a bonus in several key metrics.
 
-`pnpm build`
+React Query (or Tanstack Query) was chosen due to how almost 100% of the state of the application comes from the servidor. Beyond managing state, it's also efficient on caching, memoization and deduplication, also offering several ways to easily deal with the request status. Integration with Axios offers a better error handling and further improves reliability of the results.
 
-### Testes
+Zod offers schema validation, allowing a stronger type checking than TypeScript em key aspects.
 
-`pnpm test`
+React Hook Form was chosen due to ease of use and performance gain during form handling.
 
-### Sobre
+Vitest offers a very significant performance impact in comparison to Jest, while maintaining a very similar API.
 
-Este é o v2 do projeto, iniciado em 11/03/2024. Eu decidi reiniciar o projeto, devido à minha insatisfação com os resultados anteriores na v1.
+Ps.: GraphQL, even though it has beta support by the API and facilitates typing, was not implemented due to currently lacking experience with such.
 
-TailwindCSS e shadcn foram selecionados devido ao interesse em agilizar o desenvolvimento, garantir consistência e facilitar a criação de interfaces de alta qualidade. Além disso, shadcn implementa várias considerações de acessibilidade, o que é sempre um bônus em diferentes métricas.
-
-Já que quase 100% do estado na aplicação é proveniente do servidor, React Query é a opção mais apropriada. Além de gerenciar o estado, também é eficiente no cacheamento, memoização e deduplicação, além de fornecer várias formas de lidar com os diferentes estados da requisição. A integração com o Axios fornece um melhor error handling e facilita ainda mais o manuseio dos resultados.
-
-Zod fornece validação de schemas, permitindo uma validação de tipos mais forte que o TypeScript em casos específicos.
-
-React Hook Form foi escolhido pela facilidade de uso e ganho de performance na manipulação de formulários.
-
-### Estrutura de pastas
+### Folder Structure
 
 #### api
 
-Armazena funções reutilizáveis, relacionados à requisições para a API.
+Stores reusable functions, always related to API requests.
 
 #### assets
 
-Imagens e ícones de uso geral.
+General usage images and icons.
 
 #### components
 
-Contém os vários componentes da aplicação. Possui subdivisões associados a cada página ou categoria: por exemplo, "ui" armazena componentes instalados pelo shadcn.
+Contains several components of the application.
 
-Componentes reutilizados em todas as páginas não pertencem a nenhuma subdivisão. Caso houvessem mais de 3, uma pasta "miscellaneous" ou semelhante seria apropriada.
+- Has subfolders associated to each page or category: for example, "ui" stores components installed by shadcn.
+
+- Componentes reused in all pages do not belong to any subdivision. If there were more than 3, a "miscellaneous" folder would be appropriate.
 
 #### lib
 
-Possui os arquivos de configuração para cada biblioteca.
+Has the configuration files for each library, as needed.
 
 #### pages
 
-Contém as páginas as quais o usuário irá navegar.
+Stores the pages navigated by the user.
 
-A subpasta "layouts" possui um template a ser reutilizado.
+- The subfolder "layouts" contains a template reused by all pages.
+
+### Others
+
+env.ts: used for validation of environment variables.
+
+test/setup.ts: folder meant to setup the integration between Vitest and Testing Library.
+
+---
 
 ### Performance
 
-O Lighthouse foi essencial para o desenvolvimento. Em conjunto com uma aba anônima e o modo **preview** fornecido pelo vite, é possível obter um resultado mais confiável e sem interferência externa (extensões, por exemplo).
+Lighthouse was essential for development. Along with a anonymous window and **preview** mode supplied by Vite, it's easier to obtain a reliable results, without external interference (extensions, for example).
 
-Várias otimizações foram realizadas em diversos aspectos, desde a largura e altura fixas em cada imagem como o uso de React.lazy().
+- Key optimizations were made in several aspects, such as fixed height and width of each image to prevent **layout shifts**.
 
-O objetivo foi atingir o mínimo de 90 em cada métrica, considerando a possibilidade de variância momentânea.
+- CSS bundle size is impacted positively by tailwindCSS' reuse of utility classes across the entire project.
 
-A Home exibe apenas 41 pokemóns, por causa do impacto na performance; renderizar apenas os 151 originais de Kanto afetou significativamente as métricas do Lighthouse.
+- My objective: target a 90 score (minimum) in each metric, considering the possibilities of a random variance related to network or other causes.
+
+- However, a compromise was needed: Home only shows 41 pokemóns, since even rendering the 151 from Kanto affected Lighthouse's metrics significantly.
+
+- Another key aspect relates to image formats: modern formats such as .webp and .avif are not applicable, due to the server serving png images assets in real time.
 
 ### Patterns
 
-A Composition Pattern foi bastante utilizada, tanto pelo shadcn quanto por componentes próprios. A intenção é repartir cada parte do componente e importá-las de forma modular, facilitando a manutenção e melhorando a legibilidade do código. Especialmente visível em "pokemon-details".
+Composition Patterns was employed frequently, by shadcn and my own custom components. The intent is slicing each part of a component and importing it in a modular manner, facilitating maintance and improving code legibility, meanwhile allowing reuse of code.
 
-### Outros
+### Useful links
 
-env.ts: responsável por validar se a variável de ambiente existe ou foi carregada corretamente.
-
-test/setup.ts: pasta responsável pelo setup da integração entre o Vitest e a Testing Library.
-
-### Links úteis
+https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/
 
 https://stackoverflow.com/questions/71275687/type-of-handlesubmit-parameter-in-react-hook-form
 
