@@ -1,14 +1,10 @@
 import { api } from '@/lib/axios'
 
-type TypeProps = {
+type TypesProps = {
   type: {
     name: string
     url: string
   }
-}
-
-type TypesProps = {
-  types: TypeProps[]
 }
 
 type SpritesProps = {
@@ -19,38 +15,17 @@ type SpritesProps = {
   }
 }
 
-type StatProps = {
-  name: string
-  url: string
-}
-
-type StatsProps = {
-  stats: {
-    base_stat: number
-    effort: 0
-    stat: StatProps
-  }[]
-}
-
-type AbilityProps = {
+type AbilitiesProps = {
   ability: {
     name: string
   }
 }
 
-type AbilitiesProps = {
-  abilities: AbilityProps[]
-}
-
-type MoveProps = {
+type MovesProps = {
   move: {
     name: string
     url: string
   }
-}
-
-type MovesProps = {
-  moves?: MoveProps[]
 }
 
 type SpeciesProps = {
@@ -60,19 +35,33 @@ type SpeciesProps = {
 
 type FlavorTextProps = {
   flavor_text: string
+
+  version: {
+    name: string
+    url: string
+  }
 }
 
 type PokemonTypes = {
   name: string
   id: number
   order: number
-  types: TypesProps
+  types: TypesProps[]
   sprites: SpritesProps
-  stats: StatsProps
-  abilities: AbilitiesProps
-  moves: MovesProps
+
+  stats: {
+    base_stat: number
+    effort: number
+    stat: {
+      name: string
+      url: string
+    }
+  }[]
+
+  abilities: AbilitiesProps[]
+  moves: MovesProps[]
   species: SpeciesProps
-  flavor_text_entries: FlavorTextProps
+  flavor_text_entries: FlavorTextProps[]
 }
 
 export async function getPokemon(value?: string) {

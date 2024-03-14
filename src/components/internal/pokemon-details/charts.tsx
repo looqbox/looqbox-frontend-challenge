@@ -1,7 +1,7 @@
 import { Line, LineChart, ResponsiveContainer, XAxis } from 'recharts'
 
 type ChartTypes = {
-  stats: {
+  value: {
     base_stat: number
     effort: number
 
@@ -12,26 +12,16 @@ type ChartTypes = {
   }[]
 }
 
-export function PokemonDetailsCharts({ stats }: ChartTypes) {
+export function PokemonDetailsCharts({ value }: ChartTypes) {
   const generalPokemonStats = [
     {
       hp: 1,
-      // lowestAttack: 5,
-      // lowestDefense: 5,
-      // lowestSpAttack: 10,
-      // lowestSpDefense: 20,
-      // lowestSpeed: 5,
     },
     {
-      hp: stats[0].base_stat,
+      hp: value[0].base_stat,
     },
     {
       hp: 255,
-      // highestAttack: 190,
-      // highestDefense: 230,
-      // highestSpAttack: 194,
-      // highestSpDefense: 230,
-      // highestSpeed: 200,
     },
   ]
 
@@ -50,7 +40,7 @@ export function PokemonDetailsCharts({ stats }: ChartTypes) {
       <ResponsiveContainer width="100%" height={240}>
         <LineChart data={generalPokemonStats} style={{ fontSize: 12 }}>
           <XAxis
-            dataKey={stats[0].stat.name}
+            dataKey={value[0].stat.name}
             stroke="#888"
             axisLine={false}
             tickLine={false}

@@ -13,60 +13,48 @@ type UseParamsTypes = {
 export const Pokemon = () => {
   const { id } = useParams<UseParamsTypes>()
 
-  const { data: pokemon, isLoading } = useQuery({
+  const { data: pokemon } = useQuery({
     queryKey: ['pokemon', id],
     queryFn: () => getPokemon(`/pokemon/${id}`),
   })
 
-  const flavor_text = pokemon?.data.species.url
-  const route = flavor_text?.split('v2')[1]
-
-  const { data: pokemonDescription } = useQuery({
-    queryKey: ['pokemonDescription', route],
-    queryFn: () => getPokemon(route),
-  })
-
-  // console.log('pokemon.data.stats is: ', pokemon?.data.stats)
-  // console.log('pokemonDescription.data is: ', pokemonDescription?.data)
+  const pokemonData = pokemon?.data
+  const flavorTextUrl = pokemonData?.species.url
+  // console.log(pokemonData?.stats)
 
   return (
     <>
-      <Helmet title={pokemon?.data.name} />
+      <Helmet title={pokemonData?.name} />
 
-      {isLoading ? (
-        <Loader />
-      ) : (
+      {pokemonData ? (
         <PokemonDetails.Root>
           <div className="col-span-3 flex flex-col gap-4 rounded-lg border border-white p-4">
-            <PokemonDetails.Name name={pokemon?.data.name} />
+            <PokemonDetails.Name value={pokemonData.name} />
 
-            <PokemonDetails.Description
-              description={[
-                pokemonDescription?.data.flavor_text_entries[0].flavor_text,
-                pokemonDescription?.data.flavor_text_entries[2].flavor_text,
-              ]}
-            />
+            <PokemonDetails.Description value={flavorTextUrl} />
 
-            <PokemonDetails.Charts stats={pokemon?.data.stats} />
+            <PokemonDetails.Charts value={pokemonData.stats} />
 
-            <PokemonDetails.Moves moves={pokemon?.data.moves} />
+            <PokemonDetails.Moves value={pokemonData.moves} />
           </div>{' '}
           <div className="col-span-1 flex flex-col justify-center gap-8 rounded-lg border border-white p-4">
             <img
-              src={pokemon?.data.sprites.other.home.front_default}
+              src={pokemonData?.sprites.other.home.front_default}
               height={384}
               width={384}
               className="self-center object-contain"
               alt=""
             />
 
-            <PokemonDetails.Stats stats={pokemon!.data.stats} />
+            <PokemonDetails.Stats value={pokemonData.stats} />
 
-            <PokemonDetails.Types types={pokemon!.data.types} />
+            <PokemonDetails.Types value={pokemonData.types} />
 
-            <PokemonDetails.Abilities abilities={pokemon!.data.abilities} />
+            <PokemonDetails.Abilities value={pokemonData?.abilities} />
           </div>
         </PokemonDetails.Root>
+      ) : (
+        <Loader />
       )}
     </>
   )

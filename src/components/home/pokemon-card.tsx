@@ -9,32 +9,26 @@ import {
   CardTitle,
 } from '../ui/card'
 
-type TypeProps = {
-  type: {
-    name: string
-    url: string
-  }
-}
-
-type TypesProps = {
-  types: TypeProps
-}
-
-type SpritesProps = {
-  other: {
-    home: {
-      front_default: string
-    }
-  }
-}
-
 type PokemonListProps = {
   data: {
     name: string
     id: number
     order: number
-    types: TypesProps[]
-    sprites: SpritesProps
+
+    types: {
+      type: {
+        name: string
+        url: string
+      }
+    }[]
+
+    sprites: {
+      other: {
+        home: {
+          front_default: string
+        }
+      }
+    }
   }
 }
 
