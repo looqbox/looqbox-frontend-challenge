@@ -2,7 +2,11 @@ import React from "react";
 import { ConfigProvider } from "antd";
 import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import HomePage from "./views/Home/index.tsx";
 import DetailsPage from "./views/Details/index.tsx";
 import NotFoundPage from "./views/NotFound/index.tsx";
@@ -12,7 +16,7 @@ import "./index.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: <Navigate to="/home" replace />,
     errorElement: <NotFoundPage />,
   },
   {

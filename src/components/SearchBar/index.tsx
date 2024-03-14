@@ -11,7 +11,6 @@ type Props = {
 const SearchBar = (props: Props) => {
   return (
     <SearchInput
-      allowClear
       variant={props.variant || "outlined"}
       placeholder={props.placeholder}
       onChange={props.onChange}
