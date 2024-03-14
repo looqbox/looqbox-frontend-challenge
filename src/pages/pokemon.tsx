@@ -34,7 +34,7 @@ export const Pokemon = () => {
         <Loader />
       ) : (
         <PokemonDetails.Root>
-          <div className="col-span-1 flex flex-col justify-center gap-8 rounded-lg border-2 p-4">
+          <div className="col-span-1 flex flex-col justify-center gap-8 rounded-lg border border-white p-4">
             <img
               src={pokemon?.data.sprites.other.home.front_default}
               height={384}
@@ -48,7 +48,7 @@ export const Pokemon = () => {
             <PokemonDetails.Abilities abilities={pokemon!.data.abilities} />
           </div>
 
-          <div className="col-span-3 flex flex-col gap-4 rounded-lg border-2 p-4">
+          <div className="col-span-3 flex flex-col gap-4 rounded-lg border border-white p-4">
             <PokemonDetails.Name name={pokemon?.data.name} />
             <PokemonDetails.Description
               description={[

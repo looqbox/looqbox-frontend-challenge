@@ -41,7 +41,7 @@ export const Search = () => {
   }
 
   return (
-    <div className="flex w-full justify-center border-b pb-8">
+    <div className="flex w-full justify-center border-b border-white pb-8">
       <form
         className="flex w-full max-w-96 gap-4"
         onSubmit={handleSubmit(handleSearch)}
