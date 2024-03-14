@@ -23,7 +23,7 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 
 ## Running
 
-## Dev
+### Dev
 
 `pnpm i`, then `pnpm dev`.
 
@@ -48,9 +48,7 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 - Recharts
 - Vitest/Testing Library
 
----
-
-### About
+## About
 
 This is the v2 release, developed after identifying the enhancement oportunities after tests conducted during the v1.
 
@@ -66,19 +64,17 @@ This is the v2 release, developed after identifying the enhancement oportunities
 
 Ps.: **GraphQL**, even though it has beta support by the API and facilitates typing, was not implemented due to currently lacking experience with such.
 
----
+## Folder Structure
 
-### Folder Structure
-
-#### api
+### api
 
 Stores reusable functions, always related to API requests.
 
-#### assets
+### assets
 
 General usage images and icons.
 
-#### components
+### components
 
 Contains several components of the application.
 
@@ -86,25 +82,23 @@ Contains several components of the application.
 
 - Componentes reused in all pages do not belong to any subdivision. If there were more than 3, a "miscellaneous" folder would be appropriate.
 
-#### lib
+### lib
 
 Has the configuration files for each library, as needed.
 
-#### pages
+### pages
 
 Stores the pages navigated by the user.
 
 - The subfolder "layouts" contains a template reused by all pages.
 
-#### Others
+### Others
 
 env.ts: used for validation of environment variables.
 
 test/setup.ts: folder meant to setup the integration between Vitest and Testing Library.
 
----
-
-### Performance
+## Performance
 
 **Lighthouse** was essential for development. Along with a anonymous window and **preview** mode supplied by **Vite**, it's easier to obtain a reliable results, without external interference (extensions, for example).
 
@@ -118,15 +112,11 @@ test/setup.ts: folder meant to setup the integration between Vitest and Testing 
 
 - Another key aspect relates to image formats: modern formats such as .webp and .avif are not applicable, due to the server serving png images assets in real time.
 
----
-
-### Patterns
+## Patterns
 
 Composition Patterns was employed frequently, by shadcn and my own custom components. The intent is slicing each part of a component and importing it in a modular manner, facilitating maintance and improving code legibility, meanwhile allowing reuse of code.
 
----
-
-### Useful links
+## Useful links
 
 https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/
 
