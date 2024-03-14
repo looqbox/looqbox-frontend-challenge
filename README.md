@@ -2,6 +2,22 @@
 
 Este é um projeto que consome a API [PokeAPI](https://pokeapi.co) para exibir informações sobre diferentes Pokémon's.
 
+***
+
+Esse projeto foi feito para o desafio frontend da [looqbox](https://github.com/looqbox)
+
+
+Data de inicio: 11/03/2024 - 12:54:17
+
+
+![Initial commit print](/initial-commit-date.png)
+
+Data de finalização: 14/03/2024 - 13:00:32
+
+
+![Final commit print](/final-commit-date.png)
+***
+
 ## 🎨 Funcionalidades
 
 - **Home (/)** Exibe uma lista de cards de Pokémon e uma barra de busca que permite buscar Pokémon's pelo nome ou ID.
