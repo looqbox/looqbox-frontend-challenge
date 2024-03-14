@@ -1,6 +1,18 @@
-import { Line, LineChart, ResponsiveContainer, XAxis, YAxis } from 'recharts'
+import { Line, LineChart, ResponsiveContainer, XAxis } from 'recharts'
 
-export function PokemonDetailsCharts({ stats }) {
+type ChartTypes = {
+  stats: {
+    base_stat: number
+    effort: number
+
+    stat: {
+      name: string
+      url: string
+    }
+  }[]
+}
+
+export function PokemonDetailsCharts({ stats }: ChartTypes) {
   const generalPokemonStats = [
     {
       hp: 1,

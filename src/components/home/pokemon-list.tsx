@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
+import pokeball from '@/assets/pokeball.png'
 import { env } from '@/env'
 
-import pokeball from '../../assets/pokeball.png'
 import { Loader } from '../loader'
 import { PokemonCard } from './pokemon-card'
 
@@ -40,8 +40,11 @@ export const PokemonList = () => {
     <section className="mx-auto w-full max-w-[1400px]">
       <div className="flex w-full justify-end pb-4">
         <p className="flex items-center justify-end gap-1">
-          <img src={pokeball} alt="" />
-          <span className="flex-1 text-2xl">1302</span>
+          <img src={pokeball} height={48} width={48} alt="" />
+
+          <span className="flex-1 text-2xl font-semibold tracking-tight">
+            1302
+          </span>
         </p>
       </div>
 
@@ -50,7 +53,7 @@ export const PokemonList = () => {
       ) : (
         <div className="grid grid-cols-4 gap-4">
           {pokemonList?.map((listItem) => {
-            return <PokemonCard key={listItem.id} data={listItem} />
+            return <PokemonCard key={crypto.randomUUID()} data={listItem} />
           })}
         </div>
       )}

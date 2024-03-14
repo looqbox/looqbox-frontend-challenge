@@ -1,4 +1,3 @@
-import { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Badge } from '../ui/badge'
@@ -10,54 +9,58 @@ import {
   CardTitle,
 } from '../ui/card'
 
-type PokemonListTypes = {
-  data: {
-    forEach(arg0: (pokemonUnit: any) => void): unknown
+type TypeProps = {
+  type: {
     name: string
-    id: number
-    order: number
-    types: {
-      map(
-        arg0: (typeItem: {
-          type: { name: string }
-        }) => import('react/jsx-runtime').JSX.Element
-      ): ReactNode
-      name: string
-      url: string
-    }
-    sprites: {
-      other: {
-        home: {
-          front_default: string
-        }
-      }
+    url: string
+  }
+}
+
+type TypesProps = {
+  types: TypeProps
+}
+
+type SpritesProps = {
+  other: {
+    home: {
+      front_default: string
     }
   }
 }
 
-export const PokemonCard = ({ data }: PokemonListTypes) => {
+type PokemonListProps = {
+  data: {
+    name: string
+    id: number
+    order: number
+    types: TypesProps[]
+    sprites: SpritesProps
+  }
+}
+
+export function PokemonCard({ data }: PokemonListProps) {
+  const { id, sprites, name, order, types } = data
+
   return (
-    <Link to={`/pokemon/${data.id}`}>
+    <Link to={`/pokemon/${id}`}>
       <Card className="flex min-h-[492px] flex-col justify-end border-white transition-[background] hover:bg-white/10">
         <img
           height={336}
           width={336}
-          src={data.sprites?.other?.home?.front_default}
+          src={sprites?.other?.home?.front_default}
           alt=""
         />
 
         <CardHeader className="mt-4 scroll-m-20 border-b border-t py-4 text-2xl font-semibold capitalize">
-          <CardTitle className="capitalize tracking-tight">
-            {data.name}
-          </CardTitle>
+          <CardTitle className="capitalize tracking-tight">{name}</CardTitle>
 
           <CardDescription className="tracking-tighter">
-            #{data.order?.toString().padStart(4, '0')}
+            #{order?.toString().padStart(4, '0')}
           </CardDescription>
         </CardHeader>
 
         <CardFooter className="flex gap-2 py-4">
-          {data.types?.map((typeItem: { type: { name: string } }) => {
+          {types?.map((typeItem) => {
             return (
               <Badge
                 key={crypto.randomUUID()}

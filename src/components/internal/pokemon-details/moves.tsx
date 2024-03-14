@@ -1,22 +1,24 @@
 import { Badge } from '../../ui/badge'
 
-type MovesProps = {
-  moves?: {
-    move: {
-      name: string
-      url: string
-    }
-  }[]
+type MoveProps = {
+  move: {
+    name: string
+    url: string
+  }
 }
 
-export const PokemonDetailsMoves = (data: MovesProps) => {
+type MovesProps = {
+  moves?: MoveProps[]
+}
+
+export const PokemonDetailsMoves = ({ moves }: MovesProps) => {
   return (
-    data.moves && (
+    moves && (
       <div className="flex flex-col gap-2">
         <strong className="border-b pb-2 tracking-tight">Moves</strong>
 
         <div className="flex flex-wrap gap-2">
-          {data.moves.map((item) => {
+          {moves.map((item) => {
             return (
               <Badge
                 variant={'outline'}
