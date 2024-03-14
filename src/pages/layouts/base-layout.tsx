@@ -5,7 +5,7 @@ import { Search } from '@/components/search'
 
 export const BaseLayout = () => {
   return (
-    <section className="flex min-h-screen flex-col items-center gap-8 px-8 py-10">
+    <section className="flex min-h-screen flex-col items-center gap-8 px-4 py-10 lg:px-8">
       <Heading />
 
       <Search />

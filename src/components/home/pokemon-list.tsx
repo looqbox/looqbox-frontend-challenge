@@ -51,7 +51,7 @@ export const PokemonList = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="grid grid-cols-4 gap-4">
+        <div className="tablet:grid-cols-3 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {pokemonList?.map((listItem) => {
             return <PokemonCard key={crypto.randomUUID()} data={listItem} />
           })}

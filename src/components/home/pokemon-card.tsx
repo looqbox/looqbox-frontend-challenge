@@ -43,7 +43,7 @@ export function PokemonCard({ data }: PokemonListProps) {
 
   return (
     <Link to={`/pokemon/${id}`}>
-      <Card className="flex min-h-[492px] flex-col justify-end border-white transition-[background] hover:bg-white/10">
+      <Card className="flex min-h-[492px] flex-col items-center justify-end border-white transition-[background] hover:bg-white/10">
         <img
           height={336}
           width={336}
@@ -51,7 +51,7 @@ export function PokemonCard({ data }: PokemonListProps) {
           alt=""
         />
 
-        <CardHeader className="mt-4 scroll-m-20 border-b border-t py-4 text-2xl font-semibold capitalize">
+        <CardHeader className="mt-4 w-full scroll-m-20 border-b border-t py-4 text-2xl font-semibold capitalize">
           <CardTitle className="capitalize tracking-tight">{name}</CardTitle>
 
           <CardDescription className="tracking-tighter">
@@ -59,7 +59,7 @@ export function PokemonCard({ data }: PokemonListProps) {
           </CardDescription>
         </CardHeader>
 
-        <CardFooter className="flex gap-2 py-4">
+        <CardFooter className="flex w-full gap-2 py-4">
           {types?.map((typeItem) => {
             return (
               <Badge
