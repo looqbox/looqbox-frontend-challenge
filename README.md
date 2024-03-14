@@ -47,6 +47,7 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 - React Query
 - Recharts
 - Vitest/Testing Library
+- pnpm
 
 ## About
 
@@ -61,6 +62,8 @@ This is the v2 release, developed after identifying the enhancement oportunities
 **React Hook Form** was chosen, due to ease of use and performance gain during form handling.
 
 **Vitest** offers a very significant performance impact in comparison to Jest, while maintaining a very similar API.
+
+**pnpm** is a fast and stable package manager, reusing packages efficiently across several projects.
 
 Ps.: **GraphQL**, even though it has beta support by the API and facilitates typing, was not implemented due to currently lacking experience with such.
 
