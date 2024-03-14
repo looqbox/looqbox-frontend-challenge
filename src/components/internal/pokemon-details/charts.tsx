@@ -24,15 +24,19 @@ export function PokemonDetailsCharts({ stats }) {
   ]
 
   return (
-    <div>
-      <strong className="block pb-4">
-        HP Stat Comparison (Min, Current & Max)
-      </strong>
+    <>
+      <div className="border-b pb-3">
+        <strong className="text-lg font-semibold tracking-tight">
+          HP Stat Comparison
+        </strong>
+
+        <small className="block text-sm leading-none tracking-tight">
+          (against Min & Max base stat of all pokémons)
+        </small>
+      </div>
 
       <ResponsiveContainer width="100%" height={240}>
         <LineChart data={generalPokemonStats} style={{ fontSize: 12 }}>
-          <YAxis stroke="#888" axisLine={false} tickLine={false} />
-
           <XAxis
             dataKey={stats[0].stat.name}
             stroke="#888"
@@ -43,6 +47,6 @@ export function PokemonDetailsCharts({ stats }) {
           <Line type="linear" strokeWidth={2} dataKey="hp" stroke="#fff" />
         </LineChart>
       </ResponsiveContainer>
-    </div>
+    </>
   )
 }
