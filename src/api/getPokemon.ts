@@ -40,6 +40,6 @@ type PokemonTypes = {
 
 export async function getPokemon(value?: string) {
   if (value) {
-    return await api.get<PokemonTypes>(`/pokemon/${value}`)
+    return await api.get<PokemonTypes>(`${value}`)
   }
 }
