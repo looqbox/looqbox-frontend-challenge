@@ -12,16 +12,20 @@ export default function Details () {
   const { pokemon, pokemonSpecie, isFetching, isFetchingSpecies } = usePokemonDetailsController()
 
   return (
-        <main style={{ maxWidth: '1200px', margin: '24px auto 0' }}>
-            {isFetching && (
-                <ScreenLoader />
-            )}
-            {pokemon && (
-                <Flex gap={48} vertical className='pokemon-details-wrapper'>
-                    <PokemonBanner pokemon={pokemon}/>
-                    <PokemonAdditionalInfo specieInfo={pokemonSpecie} isFetchingSpecies={isFetchingSpecies} baseStats={pokemon.stats} />
-                </Flex>
-            )}
-        </main>
+    <main style={{ maxWidth: '1200px', margin: '24px auto 0' }}>
+        {isFetching && (
+            <ScreenLoader />
+        )}
+        {pokemon && !isFetching && (
+            <Flex gap={48} vertical className='pokemon-details-wrapper'>
+                <PokemonBanner pokemon={pokemon}/>
+                <PokemonAdditionalInfo
+                    specieInfo={pokemonSpecie}
+                    isFetchingSpecies={isFetchingSpecies}
+                    baseStats={pokemon.stats}
+                />
+            </Flex>
+        )}
+    </main>
   )
 }
