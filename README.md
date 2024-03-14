@@ -1,49 +1,35 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+<h1 align="center">
+  <br>
+  <img src="./src\assets\pokeball.png" alt="Pokeball" width="150">
+  <br>
+</h1>
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+## Funcionalidades
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+- Home: Lista de Pokemons
+  - Listagem dos cards de pokemons com seus nomes e fotos
+  <!-- - Opção de "Load More" para carregar mais pokemons quando o scroll atinge o fim da lista -->
+  - Barra de pesquisa pelo nome do pokemon
+- Details: Detalhes do Pokemon
+  - Informações básicas do pokemon
+  - Informações em barras sobre as estatísticas
+  - Lista de habilidades do pokemon
+  - Botão para adicionar pokemon na lista de comparação
+    <!-- * Compare: Comparação entre pokemons -->
+      <!-- - Cards comparativos das estatísticas dos pokemons -->
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+## Como Usar
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+```bash
+# Instalar dependências
+$ npm install
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+# Inicializar a aplicação
+$ npm start
 
-You have **one week** to finish your test, we'll check the time with your "Initial" and "Final" Commits.
+# Rodar testes
+$ npm run test
 
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
-
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please **mind how many times you request data**
-
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
-
-You can use any dependency you want, (axios, bootstrap, material ui...)
-
-## Bonus points!
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
-
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
-- [Redux](https://redux.js.org/)
+# Abrir Documentação
+$ npm run storybook
+```
