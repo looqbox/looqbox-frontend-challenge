@@ -1,4 +1,5 @@
 import { PokemonDetailsAbilities } from './abilities'
+import { PokemonDetailsCharts } from './charts'
 import { PokemonDetailsDescription } from './description'
 import { PokemonDetailsMoves } from './moves'
 import { PokemonDetailsName } from './name'
@@ -14,4 +15,5 @@ export const PokemonDetails = {
   Name: PokemonDetailsName,
   Description: PokemonDetailsDescription,
   Moves: PokemonDetailsMoves,
+  Charts: PokemonDetailsCharts,
 }
