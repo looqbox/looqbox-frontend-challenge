@@ -9,5 +9,4 @@ export const CardDetails = styled(Card)`
   align-self: stretch;
   width: 100%;
   max-width: 300px;
-  //   min-width: 240px;
 `;
