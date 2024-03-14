@@ -15,7 +15,7 @@ export function PokemonInformationContextProvider ({ children }: { children: Rea
   const { data: pokemonListData, fetchNextPage, isFetching, isFetchingNextPage, isError } = useInfiniteQuery({
     queryKey: ['pokemonList'],
     queryFn: getPokemonList,
-    initialPageParam: 'https://pokeapi.co/api/v2/pokemon?limit=25&offset=0',
+    initialPageParam: 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0',
     getNextPageParam: (lastPage) => lastPage.next,
     staleTime: 300000 // 5min in miliseconds
   })

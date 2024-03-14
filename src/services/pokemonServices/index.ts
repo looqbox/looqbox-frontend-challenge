@@ -25,8 +25,6 @@ export async function getPokemonData (search?: string): Promise<IPokemonData> {
 
   const { data } = await axios.get<IPokemonData>(`https://pokeapi.co/api/v2/pokemon/${search}`)
 
-  await new Promise((resolve) => setTimeout(resolve, 2000))
-
   return data
 }
 

@@ -1,6 +1,7 @@
-import { Input } from 'antd'
+import { Input, message } from 'antd'
 
 import Pokeball from '../../../assets/icons/PokeBall'
+import { useState } from 'react'
 
 interface ISearchbarProps {
   onHandleSearch: (value: string) => Promise<void>
@@ -8,12 +9,16 @@ interface ISearchbarProps {
   onHandleSearchClear: () => void
 }
 
-export function Searchbar ({ onHandleSearch, isLoading, onHandleSearchClear }: ISearchbarProps) {
-  function handleClear (event: React.FormEvent<HTMLInputElement>) {
-    if (!event) return
+export function Searchbar ({ onHandleSearch, isLoading }: ISearchbarProps) {
+  const [status, setStatus] = useState<'error' | 'warning' | undefined>()
 
-    if (!event.currentTarget.value) {
-      onHandleSearchClear()
+  function handleSearch (value: string) {
+    if (/^[a-zA-Z0-9 ]*$/.test(value)) {
+      setStatus(undefined)
+      void onHandleSearch(value)
+    } else {
+      setStatus('error')
+      void message.warning('Please enter a valid search term.')
     }
   }
 
@@ -23,8 +28,8 @@ export function Searchbar ({ onHandleSearch, isLoading, onHandleSearchClear }: I
         prefix={<Pokeball />}
         loading={isLoading}
         placeholder="Search for the pokemon name or id"
-        onSearch={onHandleSearch}
-        onChange={handleClear}
+        onSearch={handleSearch}
+        status={status}
     />
   )
 }

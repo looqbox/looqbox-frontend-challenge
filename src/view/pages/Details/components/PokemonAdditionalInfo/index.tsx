@@ -34,23 +34,23 @@ export function PokemonAdditionalInfo ({ specieInfo, baseStats, isFetchingSpecie
   return (
     <section className="pokemon-additional-section">
       <Flex vertical gap={24} flex={1} justify='flex-end' className="pokemon-additional">
-      {isFetchingSpecies && (
-        <Card title={<h1>About:</h1>} className="pokemon-additional__card">
-          <Skeleton loading={isFetchingSpecies} active paragraph={{ rows: 2 }} title={false}></Skeleton>
-        </Card>
-      )}
-      {!isFetchingSpecies && (
-        <Card title={<h1>About:</h1>} className="pokemon-additional__card" loading={isFetchingSpecies}>
-          {specieInfo?.flavor_text_entries[0] && (
-            <p>{specieInfo.flavor_text_entries[0]?.flavor_text}</p>
-          )}
-          {!specieInfo?.flavor_text_entries[0] && (
-            <p>No about information available.</p>
-          )}
-        </Card>
-      )}
+        {isFetchingSpecies && (
+          <Card title={<h1>About:</h1>} className="pokemon-additional__card">
+            <Skeleton loading={isFetchingSpecies} active paragraph={{ rows: 2 }} title={false}></Skeleton>
+          </Card>
+        )}
+        {!isFetchingSpecies && (
+          <Card title={<h1>About:</h1>} className="pokemon-additional__card" loading={isFetchingSpecies}>
+            {specieInfo?.flavor_text_entries[0] && (
+              <p>{specieInfo.flavor_text_entries[0]?.flavor_text}</p>
+            )}
+            {!specieInfo?.flavor_text_entries[0] && (
+              <p>No about information available.</p>
+            )}
+          </Card>
+        )}
 
-        {baseStats && (
+        {(baseStats?.length) && (
           <Card title={<h1>Base stats:</h1>} className="pokemon-additional__card pokemon-additional__stats">
             <Flex vertical gap={8}>
               {baseStats.map(stat => {

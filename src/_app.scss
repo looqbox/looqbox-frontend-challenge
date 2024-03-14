@@ -10,7 +10,11 @@ body {
 }
 
 @media screen and (max-width: $mobile__breakpoint) {
-    main {
-        padding: 0 16px; 
+    body {
+        padding: 48px 0;
+
+        main {
+            padding: 0 16px; 
+        }
     }
 }

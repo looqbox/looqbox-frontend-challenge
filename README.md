@@ -1,30 +1,66 @@
-# React + TypeScript + Vite
+# <div style="display: flex; align-items:center; gap:8px;"><span>Pokedex</span><img src="./src/assets/icons/pokeball.svg" alt="Pokeball icon" width="32" height="32"></div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto que consome a API [PokeAPI](https://pokeapi.co) para exibir informações sobre diferentes Pokémon's.
 
-Currently, two official plugins are available:
+## 🎨 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Home (/)** Exibe uma lista de cards de Pokémon e uma barra de busca que permite buscar Pokémon's pelo nome ou ID.
+- **Details (/pokemon/:id)** Permite visualizar detalhes específicos do pokemon selecionado.
 
-## Expanding the ESLint configuration
+## 🛠️ Instalação
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Certifique-se de ter o Node.js instalado em seu sistema. Em seguida, siga as etapas abaixo:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone este repositório:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/joaobelarmino/pokedex
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Navegue até o diretório do projeto:
+
+```bash
+cd pokedex
+```
+
+3. Instale as dependências:
+
+Com [Yarn](https://yarnpkg.com/):
+
+```bash
+yarn
+```
+
+ou com [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
+
+```bash
+npm install
+```
+
+## ▶️ Como usar
+
+Após a instalação, você pode iniciar o servidor de desenvolvimento local executando:
+
+Com Yarn:
+
+```bash
+yarn dev
+#ou com npm:
+npm run dev
+```
+
+Isso iniciará o servidor de desenvolvimento em [http://localhost:5173](http://localhost:5173) (porta padrão do Vite), onde você pode visualizar a aplicação no navegador.
+
+## 💻 Tecnologias Utilizadas
+
+- **[React](https://react.dev)**
+- **[TypeScript](https://www.typescriptlang.org)**
+- **[React Router DOM](https://reactrouter.com/en/main)**
+- **[React Query](https://tanstack.com/query/latest)**
+- **[Axios](https://axios-http.com)**
+- **[Ant Design](https://ant.design)**
+- **[Sass](https://sass-lang.com)**
+
+## ✍️ Autor
+
+João Belarmino - [GitHub](https://github.com/joaobelarmino)

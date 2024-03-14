@@ -1,7 +1,6 @@
 import Routes from './Router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConfigProvider } from 'antd'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import 'antd/dist/reset.css'
 import './_app.scss'
@@ -32,7 +31,6 @@ export default function App () {
     >
       <Routes/>
     </ConfigProvider>
-    <ReactQueryDevtools />
     </QueryClientProvider>
   )
 }

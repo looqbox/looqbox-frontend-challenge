@@ -12,7 +12,7 @@ export default function usePokemonDetailsController () {
 
   const { data: pokemonFetched, error, isFetching } = useQuery({
     queryKey: ['pokemonDetails', id],
-    queryFn: async () => await getPokemonData(id),
+    queryFn: async () => await getPokemonData(id?.toLowerCase()),
     staleTime: 180000,
     enabled: !currentPokemon && !!id
   })
@@ -21,7 +21,7 @@ export default function usePokemonDetailsController () {
 
   const { data: pokemonSpecie, isFetching: isFetchingSpecies } = useQuery({
     queryKey: ['pokemonDetails', 'pokemonSpecies', id],
-    queryFn: async () => await getPokemonSpecie(id),
+    queryFn: async () => await getPokemonSpecie(id?.toLowerCase()),
     staleTime: 180000,
     enabled: !!pokemon && !!id
   })
