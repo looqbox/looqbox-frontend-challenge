@@ -17,11 +17,11 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 
 - [x] Documentation
 - [x] Linting
-- [ ] Charts
+- [x] Charts
 - [ ] Unit Testing
 - [ ] Ant Design
 
-### Stack
+## Stack
 
 - React
 - TypeScript
@@ -32,14 +32,27 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 - Axios
 - React Query
 - Recharts
+- Vitest/Testing Library
 
 ## Detalhes do projeto
+
+### Execução
+
+`pnpm i`, então `pnpm dev`.
+
+### Prod
+
+`pnpm build`
+
+### Testes
+
+`pnpm test`
 
 ### Sobre
 
 Este é o v2 do projeto, iniciado em 11/03/2024. Eu decidi reiniciar o projeto, devido à minha insatisfação com os resultados anteriores na v1.
 
-A adoção de TailwindCSS/shadcn ocorreu devido ao interesse em agilizar o desenvolvimento, garantir consistência e facilitar a criação de interfaces de alta qualidade. Além disso, shadcn implementa várias considerações de acessibilidade, o que é sempre um bônus em diferentes métricas.
+TailwindCSS e shadcn foram selecionados devido ao interesse em agilizar o desenvolvimento, garantir consistência e facilitar a criação de interfaces de alta qualidade. Além disso, shadcn implementa várias considerações de acessibilidade, o que é sempre um bônus em diferentes métricas.
 
 Já que quase 100% do estado na aplicação é proveniente do servidor, React Query é a opção mais apropriada. Além de gerenciar o estado, também é eficiente no cacheamento, memoização e deduplicação, além de fornecer várias formas de lidar com os diferentes estados da requisição. A integração com o Axios fornece um melhor error handling e facilita ainda mais o manuseio dos resultados.
 
@@ -91,13 +104,7 @@ A Composition Pattern foi bastante utilizada, tanto pelo shadcn quanto por compo
 
 env.ts: responsável por validar se a variável de ambiente existe ou foi carregada corretamente.
 
-### Dev
-
-`pnpm i`, então `pnpm dev`.
-
-### Prod
-
-`pnpm build`
+test/setup.ts: pasta responsável pelo setup da integração entre o Vitest e a Testing Library.
 
 ### Links úteis
 
@@ -108,3 +115,5 @@ https://web.dev/articles/code-splitting-suspense?hl=pt-br
 https://tkdodo.eu/blog/practical-react-query#treat-the-query-key-like-a-dependency-array
 
 https://stackoverflow.com/questions/71967007/how-to-fetch-with-parameters-using-react-query
+
+https://stackoverflow.com/questions/76081552/typeerror-cannot-destructure-property-basename-of-react-namespace-usecontex
