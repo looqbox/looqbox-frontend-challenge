@@ -69,6 +69,84 @@ Ps.: **GraphQL**, even though it has beta support by the API and facilitates typ
 
 ## Folder Structure
 
+```
+└── 📁looqbox-frontend-challenge
+    └── .env.local
+    └── .eslintrc.cjs
+    └── .gitignore
+    └── .prettierrc
+    └── 📁.vscode
+        └── settings.json
+    └── components.json
+    └── index.html
+    └── package.json
+    └── pnpm-lock.yaml
+    └── postcss.config.js
+    └── 📁public
+        └── vite.svg
+    └── README.md
+    └── 📁src
+        └── 📁api
+            └── getPokemon.ts
+            └── searchPokemon.ts
+        └── App.tsx
+        └── 📁assets
+            └── loader.svg
+            └── missingno.gif
+            └── pokeball.png
+            └── react.svg
+        └── 📁components
+            └── heading.tsx
+            └── 📁home
+                └── pokemon-card.tsx
+                └── pokemon-list.tsx
+            └── 📁internal
+                └── 📁pokemon-details
+                    └── abilities.tsx
+                    └── charts.tsx
+                    └── description.tsx
+                    └── index.tsx
+                    └── moves.tsx
+                    └── name.tsx
+                    └── root.tsx
+                    └── stats.tsx
+                    └── types.tsx
+            └── loader.tsx
+            └── search.tsx
+            └── 📁ui
+                └── badge.tsx
+                └── button.tsx
+                └── card.tsx
+                └── input.tsx
+                └── pagination.tsx
+                └── skeleton.tsx
+        └── env.ts
+        └── index.css
+        └── 📁lib
+            └── axios.ts
+            └── react-query.ts
+            └── utils.ts
+        └── main.tsx
+        └── 📁modules
+            └── replaceDashWithWhiteSpace.ts
+        └── 📁pages
+            └── 404.tsx
+            └── home.tsx
+            └── 📁layouts
+                └── base-layout.tsx
+            └── pokemon.tsx
+        └── routes.tsx
+        └── 📁tests
+            └── heading.spec.tsx
+        └── vite-env.d.ts
+    └── tailwind.config.js
+    └── 📁test
+        └── setup.ts
+    └── tsconfig.json
+    └── tsconfig.node.json
+    └── vite.config.ts
+```
+
 ### api
 
 Stores reusable functions, always related to API requests.
