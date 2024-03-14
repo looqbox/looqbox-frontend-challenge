@@ -1,49 +1,82 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# <div style="display: flex; align-items:center; gap:8px;"><span>Pokedex</span><img src="./src/assets/icons/pokeball.svg" alt="Pokeball icon" width="32" height="32"></div>
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+Este é um projeto que consome a API [PokeAPI](https://pokeapi.co) para exibir informações sobre diferentes Pokémon's.
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+***
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+Esse projeto foi feito para o desafio frontend da [looqbox](https://github.com/looqbox)
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+Data de inicio: 11/03/2024 - 12:54:17
 
-You have **one week** to finish your test, we'll check the time with your "Initial" and "Final" Commits.
 
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
+![Initial commit print](/initial-commit-date.png)
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please **mind how many times you request data**
+Data de finalização: 14/03/2024 - 13:00:32
 
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
 
-You can use any dependency you want, (axios, bootstrap, material ui...)
+![Final commit print](/final-commit-date.png)
+***
 
-## Bonus points!
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
+## 🎨 Funcionalidades
 
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
-- [Redux](https://redux.js.org/)
+- **Home (/)** Exibe uma lista de cards de Pokémon e uma barra de busca que permite buscar Pokémon's pelo nome ou ID.
+- **Details (/pokemon/:id)** Permite visualizar detalhes específicos do pokemon selecionado.
+
+## 🛠️ Instalação
+
+Certifique-se de ter o Node.js instalado em seu sistema. Em seguida, siga as etapas abaixo:
+
+1. Clone este repositório:
+
+```bash
+git clone https://github.com/joaobelarmino/pokedex
+```
+
+2. Navegue até o diretório do projeto:
+
+```bash
+cd pokedex
+```
+
+3. Instale as dependências:
+
+Com [Yarn](https://yarnpkg.com/):
+
+```bash
+yarn
+```
+
+ou com [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
+
+```bash
+npm install
+```
+
+## ▶️ Como usar
+
+Após a instalação, você pode iniciar o servidor de desenvolvimento local executando:
+
+Com Yarn:
+
+```bash
+yarn dev
+#ou com npm:
+npm run dev
+```
+
+Isso iniciará o servidor de desenvolvimento em [http://localhost:5173](http://localhost:5173) (porta padrão do Vite), onde você pode visualizar a aplicação no navegador.
+
+## 💻 Tecnologias Utilizadas
+
+- **[React](https://react.dev)**
+- **[TypeScript](https://www.typescriptlang.org)**
+- **[React Router DOM](https://reactrouter.com/en/main)**
+- **[React Query](https://tanstack.com/query/latest)**
+- **[Axios](https://axios-http.com)**
+- **[Ant Design](https://ant.design)**
+- **[Sass](https://sass-lang.com)**
+
+## ✍️ Autor
+
+João Belarmino - [GitHub](https://github.com/joaobelarmino)

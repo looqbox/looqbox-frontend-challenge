@@ -1,0 +1,25 @@
+@import 'variables';
+
+@mixin setPropertyBasedOnType($property, $darken: false) {
+    @each $type, $color in $type-color-map {
+        &[data-type="#{$type}"] {
+            @if $darken {
+                #{$property}: darken(map-get($type-color-map, $type), 10%);
+            } @else {
+                #{$property}: map-get($type-color-map, $type);
+            }
+        }
+    }
+}
+
+@mixin setGradientBasedOnType() {
+    @each $type, $color in $type-color-map {
+        &[data-type="#{$type}"] {
+            background-image: linear-gradient(
+                90deg,
+                $color-white 70%,
+                map-get($type-color-map, $type) 100%
+            );
+        }
+    }
+}
