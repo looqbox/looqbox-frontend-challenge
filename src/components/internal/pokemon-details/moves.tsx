@@ -12,6 +12,12 @@ type MovesProps = {
 }
 
 export const PokemonDetailsMoves = ({ moves }: MovesProps) => {
+  function replaceDashWithWhiteSpace(value: string) {
+    if (value !== undefined) {
+      return value.replace(/-/g, ' ')
+    }
+  }
+
   return (
     moves && (
       <div className="flex flex-col gap-2">
@@ -25,7 +31,7 @@ export const PokemonDetailsMoves = ({ moves }: MovesProps) => {
                 key={crypto.randomUUID()}
                 className="capitalize tracking-tight text-white"
               >
-                {item.move.name}
+                {replaceDashWithWhiteSpace(item.move.name)}
               </Badge>
             )
           })}
