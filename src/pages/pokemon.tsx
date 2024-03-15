@@ -20,7 +20,6 @@ export const Pokemon = () => {
 
   const pokemonData = pokemon?.data
   const flavorTextUrl = pokemonData?.species.url
-  // console.log(pokemonData?.stats)
 
   return (
     <>
