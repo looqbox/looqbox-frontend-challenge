@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import { NotFound } from './pages/404'
-import { Home } from './pages/home'
+import { Home } from './pages/Home'
 import { BaseLayout } from './pages/layouts/base-layout'
 import { Pokemon } from './pages/pokemon'
 

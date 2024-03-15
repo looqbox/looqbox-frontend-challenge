@@ -200,7 +200,7 @@ test/setup.ts: folder meant to setup the integration between Vitest and Testing 
 
 ## Patterns
 
-Composition Patterns were employed frequently, by shadcn and my application's custom components. The intent is slicing each part of a component and importing it in a modular manner, facilitating maintenance, improving code legibility and allowing reuse of code.
+Composition Patterns were used frequently, by shadcn and my application's custom components. The intent is slicing each part of a component and importing it in a modular manner, facilitating maintenance, improving code legibility and allowing reuse of code.
 
 ## Useful links
 
