@@ -5,6 +5,7 @@ import { z } from 'zod'
 
 import { searchPokemon } from '@/api/searchPokemon'
 
+import { Loader } from './loader'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 
@@ -19,13 +20,17 @@ export const Search = () => {
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<SearchFormTypes>()
+  } = useForm<SearchFormTypes>({
+    defaultValues: {
+      search: '',
+    },
+  })
 
   const navigate = useNavigate()
 
   const { mutateAsync: search } = useMutation({
     mutationFn: searchPokemon,
-    retry: 3,
+    retry: 1,
   })
 
   const handleSearch = async (data: SearchFormTypes) => {
@@ -47,14 +52,15 @@ export const Search = () => {
         onSubmit={handleSubmit(handleSearch)}
       >
         <Input
+          data-testid="search-input"
           className="w-full border-white"
           type="search"
           placeholder="Search for pokémon; e.g. Lucario"
           {...register('search')}
         />
 
-        <Button disabled={isSubmitting} className="text-white">
-          Submit
+        <Button disabled={isSubmitting} className="min-w-20 text-white">
+          {isSubmitting ? <Loader height={30} width={30} /> : 'Submit'}
         </Button>
       </form>
     </div>
