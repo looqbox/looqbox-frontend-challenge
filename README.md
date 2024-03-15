@@ -18,7 +18,7 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 - [x] Documentation
 - [x] Linting
 - [x] Charts
-- [ ] Unit Testing
+- [x] Unit Testing
 - [ ] Ant Design
 
 ## Running
@@ -30,6 +30,10 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 ### Prod
 
 `pnpm build`
+
+### Preview
+
+`pnpm preview`
 
 ### Testing
 
@@ -51,21 +55,21 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 
 ## About
 
-This is the v2 release, developed after identifying the enhancement oportunities after tests conducted during the v1.
+This is the v2 release, developed after identifying the enhancement oportunities after tests conducted in v1.
 
-**TailwindCSS** and **shadcn** were selected with the aim of speeding up development, guarantee consistency and ease the development of high-quality interfaces. **shadcn** implements several solutions related to accessibility out-of-the-box, a bonus in several key metrics.
+**TailwindCSS** and **shadcn** were selected to speed up development, guarantee consistency and ease the development of high-quality interfaces. **shadcn** implements several solutions related to accessibility out-of-the-box, a bonus in several key metrics.
 
-**React Query** (also known as **Tanstack Query**) was chosen due to how almost 100% of the state of the application comes from the servidor. Beyond managing state, it's also efficient on caching, memoization and deduplication, also offering several ways to easily deal with the request status. Integration with **Axios** offers a better error handling and further improves reliability of the results.
+**React Query** (also known as **Tanstack Query**) was selected because the majority of the application state originates from the server. Beyond managing state, it's efficient in caching, memoization and deduplication, also offering several ways to easily deal with the request status. Integration with **Axios** offers a better error handling and further improves reliability of the results.
 
-**Zod** offers schema validation, allowing a stronger type checking than TypeScript em key aspects.
+**Zod** offers schema validation, allowing stronger type checking than TypeScript em key aspects.
 
-**React Hook Form** was chosen, due to ease of use and performance gain during form handling.
+**React Hook Form** was selected for its ease of use and performance advantages during form handling.
 
-**Vitest** offers a very significant performance impact in comparison to Jest, while maintaining a very similar API.
+**Vitest** offers a very significant performance impact in comparison to Jest, while maintaining a very similar API. Integrating with **Testing Library** offers a deeper layer of testing, while **user-event** allows triggering user events.
 
 **pnpm** is a fast and stable package manager, reusing packages efficiently across several projects.
 
-Ps.: **GraphQL**, even though it has beta support by the API and facilitates typing, was not implemented due to currently lacking experience with such.
+Ps.: During testing, it was identified that **GraphQL** would've been useful for typing and other functionalities, however it was not implemented due to time constraints.
 
 ## Folder Structure
 
@@ -181,21 +185,21 @@ test/setup.ts: folder meant to setup the integration between Vitest and Testing 
 
 ## Performance
 
-**Lighthouse** was essential for development. Along with a anonymous window and **preview** mode supplied by **Vite**, it's easier to obtain a reliable results, without external interference (extensions, for example).
+**Lighthouse** was essential for development. Along with a anonymous window and **preview** mode supplied by **Vite**, it's easier to obtain reliable results, without external interference (extensions, for example).
 
 - Key optimizations were made in several aspects, such as fixed height and width of each image to prevent **layout shifts**.
 
 - CSS bundle size is impacted positively by tailwindCSS' reuse of utility classes across the entire project.
 
-- My objective: target a 90 score (minimum) in each metric, considering the possibilities of a random variance related to network or other causes.
+- The objective was to target a 90 score (minimum) in each metric. However, there may be random variance related to network or other causes.
 
-- However, a compromise was needed: Home only shows 41 pokémon, since even rendering only the first 151 pokémon from Kanto affected Lighthouse's metrics significantly.
+- The Home displays 41 pokémon, as rendering the first 151 pokémon from Kanto affected Lighthouse's metrics.
 
-- Another key aspect relates to image formats: modern formats such as .webp and .avif are not applicable, due to the server serving png images assets in real time.
+- Another key aspect relates to modern image formats: .webp and .avif are not applicable, due to the server providing png image assets in real time.
 
 ## Patterns
 
-Composition Patterns was employed frequently, by shadcn and my own custom components. The intent is slicing each part of a component and importing it in a modular manner, facilitating maintance and improving code legibility, meanwhile allowing reuse of code.
+Composition Patterns were employed frequently, by shadcn and my application's custom components. The intent is slicing each part of a component and importing it in a modular manner, facilitating maintenance and improving code legibility, while allowing reuse of code.
 
 ## Useful links
 
