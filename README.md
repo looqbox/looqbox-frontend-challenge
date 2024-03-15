@@ -25,7 +25,7 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 
 ### Dev
 
-`pnpm i`, then `pnpm dev`.
+`pnpm i`, then `pnpm dev`
 
 ### Prod
 
