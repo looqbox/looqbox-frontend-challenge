@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { searchPokemon } from '@/api/searchPokemon'
@@ -12,7 +13,6 @@ import { Input } from './ui/input'
 const searchForm = z.object({
   search: z.string(),
 })
-import { toast } from 'sonner'
 
 export type SearchFormTypes = z.infer<typeof searchForm>
 
