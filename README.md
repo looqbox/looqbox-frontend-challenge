@@ -122,8 +122,7 @@ Ps.: During testing, it was identified that **GraphQL** would've been useful for
                 └── button.tsx
                 └── card.tsx
                 └── input.tsx
-                └── pagination.tsx
-                └── skeleton.tsx
+                └── sonner.tsx
         └── env.ts
         └── index.css
         └── 📁lib
@@ -142,6 +141,8 @@ Ps.: During testing, it was identified that **GraphQL** would've been useful for
         └── routes.tsx
         └── 📁tests
             └── heading.spec.tsx
+            └── pokemon-card.spec.tsx
+            └── pokemon-details.spec.tsx
         └── vite-env.d.ts
     └── tailwind.config.js
     └── 📁test
