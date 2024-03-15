@@ -36,7 +36,7 @@ export function PokemonCard({ data }: PokemonListProps) {
   const { id, sprites, name, order, types } = data
 
   return (
-    <Link to={`/pokemon/${id}`}>
+    <Link data-testid="pokemon-link" to={`/pokemon/${id}`}>
       <Card className="flex min-h-[492px] flex-col items-center justify-end border-white transition-[background] hover:bg-white/10">
         <img
           height={336}
