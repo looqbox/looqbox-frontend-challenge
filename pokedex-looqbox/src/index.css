@@ -1,5 +1,18 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+* {
+  font-family: "Squada One", sans-serif;
   font-weight: 400;
+  font-style: normal;
+}
+
+body { 
+  background-image: url(./assets/background-image.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+ul {
+  list-style-type: none;
+  list-style: none;
+  padding: 0;
 }

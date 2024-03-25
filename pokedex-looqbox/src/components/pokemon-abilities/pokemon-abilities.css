@@ -1,0 +1,19 @@
+.pokemon-abilities {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemon-abilities h4 {
+    background-color: #B8860B;
+    color: #000000;
+    padding: 4px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 8px; 
+    font-size: 18px;
+}
+
+.pokemon-abilities p {
+    text-align: center;
+}

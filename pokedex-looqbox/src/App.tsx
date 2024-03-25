@@ -1,10 +1,16 @@
+import TitlePage from "./components/title-page/title-page";
+import { AppRoutes } from "./routes/routes";
+import { ThemeProvider } from "./contexts/theme-context";
 
 function App() {
 
 
   return (
     <>
-      <p>Initial Commit</p>
+    <ThemeProvider>
+      <TitlePage />
+      <AppRoutes />
+    </ThemeProvider>
     </>
   )
 }
