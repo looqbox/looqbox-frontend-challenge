@@ -1,49 +1,43 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
 
 # Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+<img src="./logo.png" alt="logo-looqbox">
+
+## Table of Contents
+
+- [Challenge](#challenge)
+- [Objective](#objective)
+- [Screenshot](#screenshot)
+- [Tools](#tools)
+- [Author](#author)
 
 ## Challenge
 In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
 
 We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
 
-## Stack
-We use:
-- ReactJS
-- Redux
+## Objective
+
+The objective of this project was the development of a Pokédex, a web application with Pokémon data using the [PokéAPI](https://pokeapi.co/) to fetch this data.<br>
+The Pokédex primary function is to provide information about various Pokémon species. Each Pokédex entry contains details about a specific Pokémon, such as name, id, type(s), abilities with description and main moves.<br>
+The main page contains 10 Pokémons, and the Load More Button at the end load more species.<br>
+With the Search Bar, it is possible to the user to search for a Pokémon with the name or ID of the Pokémon of his choice.<br>
+The page has two themes, light and dark. The user can change it by clicking on the Theme Toggler Button. 
+
+## Screenshot
+
+<img src="./desktop-screen.gif" alt="desktop layout">
+
+## Tools
+
+- React.JS
 - TypeScript
+- CSS
 - AntDesign
+- Context API to create the Theme Toggler (light and dark)
+- React-router-dom to configure the routes between the pages 'Pokemon Home' and 'Pokemon Details'
+- [PokéAPI](https://pokeapi.co/)
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+## Author
 
-You have **one week** to finish your test, we'll check the time with your "Initial" and "Final" Commits.
-
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
-
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please **mind how many times you request data**
-
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
-
-You can use any dependency you want, (axios, bootstrap, material ui...)
-
-## Bonus points!
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
-
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
-- [Redux](https://redux.js.org/)
+- LinkedIn - [Camila Katayama](https://www.linkedin.com/in/camila-katayama-ab1a42153/)
+- GitHub - [@camilakataa](https://github.com/camilakataa)

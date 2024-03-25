@@ -1,0 +1,22 @@
+
+.theme-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: #B8860B;
+    border-radius: 20px;
+    width: 60px;
+    height: 35px;
+    box-shadow: 0 4px 8px #000000;
+}
+
+.theme-button:hover {
+    opacity: 0.7;
+    transition-timing-function: ease-in-out;
+    transition: 0.5s;
+}
+
+.theme-icon {
+    width: 24px;
+    height: 24px;
+}
