@@ -10,7 +10,7 @@ export default class PokemonService {
 
   async get(numberPage: number): Promise<PokemonList | null> {
 
-    const limit = 20;
+    const limit = 10;
     const offset = (numberPage - 1) * limit;
 
     try {
