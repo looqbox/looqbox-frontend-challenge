@@ -1,32 +1,42 @@
 module.exports = {
-    env: {
-      browser: true,
-      es2021: true,
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    "eslint:recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ],
+  overrides: [
+    {
+      env: {
+        node: true,
+      },
+      files: [".eslintrc.{js,cjs}"],
+      parserOptions: {
+        sourceType: "script",
+      },
     },
-    extends: ["airbnb", "prettier"],
-    overrides: [
+  ],
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "./tsconfig.json",
+    tsconfigRootDir: __dirname,
+  },
+  rules: {
+    "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
+    "react/function-component-definition": [
+      2,
       {
-        env: {
-          node: true,
-        },
-        files: [".eslintrc.{js,cjs}"],
-        parserOptions: {
-          sourceType: "script",
-        },
+        namedComponents: "arrow-function",
+        unnamedComponents: "arrow-function",
       },
     ],
-    parserOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-    },
-    rules: {
-      "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
-      "react/function-component-definition": [
-        2,
-        {
-          namedComponents: "arrow-function",
-          unnamedComponents: "arrow-function",
-        },
-      ],
-    },
-  };
+    "react/no-unescaped-entities": "off",
+  },
+};
