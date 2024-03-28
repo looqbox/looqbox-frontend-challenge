@@ -1,0 +1,33 @@
+{
+  "extends": "next/core-web-vitals",
+  "plugins": [
+    "import"
+  ],
+  "ignorePatterns": [
+    "node_modules/",
+    ".next/"
+  ],
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-unused-vars": "error",
+    "no-console": "warn",
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "no-trailing-spaces": "error",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1
+      }
+    ]
+  }
+}
