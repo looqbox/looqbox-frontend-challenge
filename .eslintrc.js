@@ -25,8 +25,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: "./tsconfig.json",
-    tsconfigRootDir: __dirname,
+    project: ["./tsconfig.json", "./webpack.config.js"],
   },
   rules: {
     "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
@@ -38,5 +37,6 @@ module.exports = {
       },
     ],
     "react/no-unescaped-entities": "off",
+    "no-console": "off",
   },
 };
