@@ -37,6 +37,7 @@ module.exports = {
       },
     ],
     "react/no-unescaped-entities": "off",
+    "react/require-default-props": "off",
     "no-console": "off",
   },
 };
