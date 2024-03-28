@@ -1,5 +1,6 @@
 import React from "react";
 import { Layout } from "antd";
+import logo from "../../assets/logo.png";
 
 const { Header } = Layout;
 
@@ -12,11 +13,7 @@ const HeaderStyle: React.CSSProperties = {
 
 const CustomHeader: React.FC = () => (
   <Header style={HeaderStyle}>
-    <img
-      src="https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png"
-      alt="Pokédex"
-      height={50}
-    />
+    <img src={logo} alt="Pokédex" height={60} />
   </Header>
 );
 
