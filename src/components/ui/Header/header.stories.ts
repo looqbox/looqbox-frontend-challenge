@@ -1,8 +1,8 @@
-import StyledHeader from './index'
+import StyledHeader from './index';
 
 export default {
-    title: 'Components/Header',
-    component: StyledHeader,
-}
+  title: 'Components/Header',
+  component: StyledHeader
+};
 
 export const Default = {};
