@@ -17,11 +17,13 @@ const App: React.FC = () => (
         colorPrimary: "#312e98",
       },
       components: {
+        Avatar: { containerSizeLG: 150 },
         Breadcrumb: {
           lastItemColor: "#312e98",
         },
         Layout: {
           headerHeight: 72,
+          headerBg: "#5c4c92",
         },
       },
     }}
