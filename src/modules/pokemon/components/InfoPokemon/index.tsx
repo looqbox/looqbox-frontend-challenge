@@ -8,6 +8,8 @@ import { Flex } from "antd/lib";
 import ButtonComponent from "@/components/ui/Button";
 import { useDispatch } from "react-redux";
 import { removePokemon } from "@/modules/pokemon/store";
+import { GiWeight } from "react-icons/gi";
+import { MdHeight } from "react-icons/md";
 
 export type InfoPokemonProps = {
     pokemon: Pokemon;
@@ -38,13 +40,11 @@ export default function InfoPokemon({pokemon}: InfoPokemonProps) {
             </Flex>
             <TypesBadge types={pokemon.types} />
             <Image src={pokemon.image.vector} alt={pokemon.name} width="400" height="400" style={{padding: '10px'}} />
+            <span>
+              <p><GiWeight /> {pokemon.weight / 10} kg <MdHeight /> {pokemon.height / 10} m</p>
+            </span>
           </Flex>
           <ChartComponent stats={pokemon.stats} color={colors[pokemon.types[0]]} />
-          <h3>Info</h3>
-          <ul>
-            <li>Height: {pokemon.height / 10} m</li>
-            <li>Weight: {pokemon.weight / 10} kg</li>
-          </ul>
         </Col>
       </Row>
     </div>

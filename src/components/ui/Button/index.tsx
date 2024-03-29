@@ -5,9 +5,9 @@ type ButtonProps = {
         type?: "link" | "text" | "default" | "primary" | "dashed",
 } & React.ButtonHTMLAttributes<HTMLButtonElement>
 
-export default function ButtonComponent({children, ...props}: ButtonProps) {
+export default function ButtonComponent({children, type, ...props}: ButtonProps) {
   return (
-    <Button {...props}>
+    <Button {...props} type={type}>
       {children}
     </Button>
   );
