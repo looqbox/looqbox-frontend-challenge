@@ -1,0 +1,14 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 64px);
+    width: 100vw;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    padding: 40px 18px;
+
+    @media (min-width: 992px) {
+        width: 992px;
+    }
+}

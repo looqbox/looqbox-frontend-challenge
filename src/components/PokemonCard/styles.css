@@ -1,0 +1,16 @@
+.pokemon-card {
+  min-height: 100%;
+  text-align: center;
+  width: 90vw;
+
+  @media (min-width: 576px) {
+    width: 300px;
+  }
+}
+
+.pokemon-card-name {
+  margin: 0 !important;
+  text-transform: capitalize;
+  font-weight: 700;
+  color: #515052 !important;
+}

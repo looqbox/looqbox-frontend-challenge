@@ -1,18 +1,12 @@
 import React from "react";
 import { Layout } from "antd";
-import logo from "../../assets/logo.png";
+import logo from "../../../assets/logo.png";
+import "./styles.css";
 
 const { Header } = Layout;
 
-const HeaderStyle: React.CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundColor: "#5c4c92",
-};
-
 const CustomHeader: React.FC = () => (
-  <Header style={HeaderStyle}>
+  <Header className="header">
     <img src={logo} alt="Pokédex" height={60} />
   </Header>
 );

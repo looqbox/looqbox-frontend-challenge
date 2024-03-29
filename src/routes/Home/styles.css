@@ -1,0 +1,12 @@
+.intro {
+  margin-bottom: 24px;
+}
+
+.search-bar {
+  margin-bottom: 40px;
+  width: 100%;
+
+  @media (min-width: 576px) {
+    width: 50%;
+  }
+}
