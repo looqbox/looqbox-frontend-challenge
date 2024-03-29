@@ -31,7 +31,7 @@ export default class PokemonService {
 
       return data;
     } catch (err) {
-      // fix this later
+      //TODO fix this later
       console.log(err);
       return null;
     }

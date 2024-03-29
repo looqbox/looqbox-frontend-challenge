@@ -2,7 +2,7 @@
 import { Layout, Menu } from 'antd/lib';
 const { Header } = Layout;
 import HomeOutlined from '@ant-design/icons/HomeOutlined';
-import AreaChartOutlined from '@ant-design/icons/AreaChartOutlined';
+import StarOutlined from '@ant-design/icons/StarOutlined';
 import { MenuProps } from 'antd/lib/menu';
 
 const items: MenuProps['items'] = [{
@@ -10,9 +10,9 @@ const items: MenuProps['items'] = [{
   key: "",
   icon: <HomeOutlined/>
 }, {
-  label: "Estatísticas",
-  key: "/charts",
-  icon: <AreaChartOutlined/>
+  label: "Favorites",
+  key: "/favorites",
+  icon: <StarOutlined />
 }];
 
 const onClick: MenuProps['onClick'] = (e) => {
