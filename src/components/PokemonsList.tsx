@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Spin, Row, Col, Grid } from "antd";
+import { Spin, Row, Col, Grid, Empty } from "antd";
 import { RootState } from "../store";
 import PokemonCard from "./PokemonCard";
 
@@ -13,13 +13,12 @@ const PokemonsList: React.FC = () => {
 
   return (
     <div>
-      {pokemonState.loading ? (
-        <Spin tip="Loading" size="large" fullscreen />
-      ) : (
+      {pokemonState.loading && <Spin tip="Loading" size="large" fullscreen />}
+
+      {!pokemonState.error ? (
         <Row
           style={{
             marginBottom: "40px",
-            maxWidth: isDesktop ? `992px` : `100vw`,
           }}
           gutter={[16, 16]}
           justify="center"
@@ -30,6 +29,8 @@ const PokemonsList: React.FC = () => {
             </Col>
           ))}
         </Row>
+      ) : (
+        <Empty description={pokemonState.error} />
       )}
     </div>
   );
