@@ -5,31 +5,11 @@ import TypesBadge from "../TypesBadge";
 import { useDispatch } from 'react-redux';
 import PokemonService from '@modules/pokemon/service';
 import { setPokemon, removePokemon } from '@/modules/pokemon/store';
+import { pastelColors } from "@modules/pokemon/styles/colors";
 
 type PokemonProps = {
     pokemon: Pokemon;
 }
-
-const colors: {[key: string]: string} = {
-  bug: '#C4E8A1',
-  dark: '#94AFC6',
-  dragon: '#A6C5E1',
-  electric: '#FDF4C1',
-  fairy: '#F9D9DF',
-  fighting: '#F6D3AC',
-  fire: '#EFAAAA',
-  flying: '#D8F2F8',
-  ghost: '#BAAEB9',
-  grass: '#A6D7B8',
-  ground: '#D8CAB3',
-  ice: '#C2EAF7',
-  normal: '#E8DFD5',
-  poison: '#E3C9FF',
-  psychic: '#FBB7CC',
-  rock: '#BFBFBF',
-  steel: '#EDEDED',
-  water: '#A9E1ED'
-};
 
 export default function CardPokemon({pokemon}: PokemonProps) {
   const id = pokemon.id.toString().padStart(3, '0');
@@ -51,7 +31,7 @@ export default function CardPokemon({pokemon}: PokemonProps) {
     <Card
       hoverable
       onClick={handleClick}
-      style={{ padding: 10, width: 240, backgroundColor: colors[pokemon.types[0]]}}
+      style={{ padding: 10, width: 240, backgroundColor: pastelColors[pokemon.types[0]]}}
       cover={(
         <>
           <h3 style={{textTransform: 'capitalize', display: 'flex', justifyContent: 'center'}}>{`#${id} - ${pokemon.name}`}</h3>

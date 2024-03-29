@@ -4,6 +4,7 @@ import { GetServerSideProps } from "next";
 import { PokemonList } from "@/modules/pokemon/types";
 import ListPokemon from "@/modules/pokemon/components/ListPokemon";
 import { useSelector } from "react-redux";
+import InfoPokemon from "@/modules/pokemon/components/InfoPokemon";
 
 type Props = {
   data: PokemonList;
@@ -18,9 +19,7 @@ export default function Home({data}: Props) {
 
   if (hasPokemon) return (
     <MainLayout>
-      <div>
-        <h1>{pokemon.name}</h1>
-      </div>
+      <InfoPokemon pokemon={pokemon} />
     </MainLayout>
   );
 

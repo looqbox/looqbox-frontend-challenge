@@ -1,0 +1,41 @@
+export const colors: {[key: string]: string} = {
+  bug: '#A2CE6F',
+  dark: '#002E4E',
+  dragon: '#53a4cf',
+  electric: '#FFF050',
+  fairy: '#FFB3C6',
+  fighting: '#F79D65',
+  fire: '#DD393C',
+  flying: '#CAF0F8',
+  ghost: '#542650',
+  grass: '#52B788',
+  ground: '#B08968',
+  ice: '#ADE8F4',
+  normal: '#E3D5CA',
+  poison: '#C77DFF',
+  psychic: '#FB6F92',
+  rock: '#575757',
+  steel: '#E5E5E5',
+  water: '#48CAE4'
+};
+
+export const pastelColors: {[key: string]: string} = {
+  bug: '#C4E8A1',
+  dark: '#94AFC6',
+  dragon: '#A6C5E1',
+  electric: '#FDF4C1',
+  fairy: '#F9D9DF',
+  fighting: '#F6D3AC',
+  fire: '#EFAAAA',
+  flying: '#D8F2F8',
+  ghost: '#BAAEB9',
+  grass: '#A6D7B8',
+  ground: '#D8CAB3',
+  ice: '#C2EAF7',
+  normal: '#E8DFD5',
+  poison: '#E3C9FF',
+  psychic: '#FBB7CC',
+  rock: '#BFBFBF',
+  steel: '#EDEDED',
+  water: '#A9E1ED'
+};
