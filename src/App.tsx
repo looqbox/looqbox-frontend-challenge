@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Home from "./routes/Home";
 import "./styles/global.css";
+import Character from "./routes/Character";
+import NotFound from "./routes/NotFound";
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -15,6 +17,9 @@ const App: React.FC = () => (
         colorPrimary: "#312e98",
       },
       components: {
+        Breadcrumb: {
+          lastItemColor: "#312e98",
+        },
         Layout: {
           headerHeight: 72,
         },
@@ -25,6 +30,8 @@ const App: React.FC = () => (
       <BrowserRouter>
         <Routes>
           <Route element={<Home />} path="/" />
+          <Route element={<Character />} path="/pokemon/:character" />
+          <Route element={<NotFound />} path="*" />
         </Routes>
       </BrowserRouter>
     </Provider>
