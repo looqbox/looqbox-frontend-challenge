@@ -38,6 +38,7 @@ module.exports = {
     ],
     "react/no-unescaped-entities": "off",
     "react/require-default-props": "off",
+    "import/prefer-default-export": "off",
     "no-console": "off",
   },
 };
