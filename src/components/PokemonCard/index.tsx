@@ -6,14 +6,14 @@ import "./styles.css";
 
 const { Title, Text } = Typography;
 
-export type PokemonBaseInfo = {
+export type PokemonCardProps = {
   character: {
     id: number;
     name: string;
   };
 };
 
-const PokemonCard: React.FC<PokemonBaseInfo> = ({ character }) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ character }) => {
   const { id, name } = character;
   return (
     <Link to={`/pokemon/${name}`}>
