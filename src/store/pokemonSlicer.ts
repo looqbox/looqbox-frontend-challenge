@@ -33,8 +33,6 @@ export const searchPokemon = createAsyncThunk(
     const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${term}`);
 
     const pokemonInfo = await data.json();
-    console.log(pokemonInfo);
-
     return pokemonInfo;
   },
 );
@@ -54,6 +52,7 @@ const pokemonSlice = createSlice({
       .addCase(fetchPokemons.pending, (state) => {
         state.loading = true;
         state.error = "";
+        state.data = [];
       })
       .addCase(fetchPokemons.fulfilled, (state, action) => {
         state.loading = false;
@@ -63,11 +62,13 @@ const pokemonSlice = createSlice({
       })
       .addCase(fetchPokemons.rejected, (state) => {
         state.loading = false;
+        state.data = [];
         state.error = "Sorry, an error occured. Try again!";
         state.numTotalResults = 0;
       })
       .addCase(searchPokemon.pending, (state) => {
         state.loading = true;
+        state.data = [];
         state.error = "";
       })
       .addCase(searchPokemon.fulfilled, (state, action) => {
@@ -79,6 +80,7 @@ const pokemonSlice = createSlice({
       .addCase(searchPokemon.rejected, (state) => {
         state.loading = false;
         state.error = "No pokemon found. Try again!";
+        state.data = [];
         state.numTotalResults = 0;
       });
   },
