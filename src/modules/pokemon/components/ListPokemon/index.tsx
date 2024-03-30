@@ -39,6 +39,7 @@ export default function ListPokemon({data, onSearch, onSearchList}: ListPokemonP
       <Pagination
         current={current}
         onChange={handleChangePagination}
+        pageSize={pageSize}
         onShowSizeChange={handleChangeSize}
         responsive
         total={data.count}
