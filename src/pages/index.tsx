@@ -8,8 +8,8 @@ import InfoPokemon from "@/modules/pokemon/components/InfoPokemon";
 import { Modal } from 'antd/lib';
 
 export default function Home() {
-  const pokemon = useSelector((state: any) => state.pokemon.pokemonDetail);
-  const list = useSelector((state: any) => state.pokemon.pokemonList);
+  const pokemon = useSelector((state: any) => state.pokemonDetail);
+  const list = useSelector((state: any) => state.pokemonList);
   const service = new PokemonService();
   const dispatch = useDispatch();
 

@@ -19,6 +19,7 @@ const onClick: MenuProps['onClick'] = (e) => {
   window.location.href = e.key;
 };
 
+// TODO: Bug fix
 export default function StyledHeader() {
   return (
     <Header>

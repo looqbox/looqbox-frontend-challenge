@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removePokemon } from "@/modules/pokemon/store";
 import { GiWeight } from "react-icons/gi";
 import { MdHeight } from "react-icons/md";
-import { addFavorite } from "@/modules/pokemon/store";
+import { addFavorite, removeFavorite } from "@/modules/pokemon/store";
 
 export type InfoPokemonProps = {
     pokemon: Pokemon;
@@ -18,26 +18,31 @@ export type InfoPokemonProps = {
 
 export default function InfoPokemon({pokemon}: InfoPokemonProps) {
   const id = pokemon.id.toString().padStart(3, '0');
-  const favorites = useSelector((state: any) => state.pokemon.pokemonFavorites);
+  const favorites = useSelector((state: any) => state.pokemonFavorites);
   const dispatch = useDispatch();
 
-  const isFavorite = favorites.results.find((item: Pokemon) => item.id === pokemon.id);
+  const isFavorite: boolean = favorites.results.find((item: Pokemon) => item.id === pokemon.id) !== undefined;
 
   function handleBack() {
     dispatch(removePokemon());
   }
 
   function handleFavorite() {
+    if(isFavorite) {
+      dispatch(removeFavorite(pokemon));
+      return;
+    }
+
     dispatch(addFavorite(pokemon));
   }
 
   return (
     <Row>
-      <Col md={{ span: 24 }} lg={{ offset: 6, span: 12 }}>
+      <Col xs={{ span: 24 }} lg={{ offset: 6, span: 12 }}>
         <Flex vertical align="center">
-          <Flex justify="space-between" style={{width: '100%'}}>
+          <Flex justify="space-between" style={{padding: '10px'}}>
             <ButtonComponent onClick={() => handleBack()}>Back</ButtonComponent>
-            <h1 style={{textTransform: 'capitalize'}}>#{id} - {pokemon.name}</h1>
+            <h1 style={{textTransform: 'capitalize', margin: "0 10px"}}>#{id} - {pokemon.name}</h1>
             <ButtonComponent styleType={isFavorite ? "default" : "primary"} onClick={() => handleFavorite()}>{isFavorite ? "Remove" : "Favorite"}</ButtonComponent>
           </Flex>
           <TypesBadge types={pokemon.types} />

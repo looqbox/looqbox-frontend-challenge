@@ -1,18 +1,18 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Pokemon, PokemonList } from './types';
 
+const initialState = {
+  pokemonList: {} as PokemonList,
+  pokemonFavorites: {
+    count: 0,
+    results: [] as Pokemon[]
+  },
+  pokemonDetail: {} as Pokemon
+};
+
 const pokemonSlice = createSlice({
   name: 'pokemon',
-  initialState: {
-    pokemonList: {} as PokemonList,
-    pokemonFavorites: {
-      count: 0,
-      next: null,
-      previous: null,
-      results: [] as Pokemon[]
-    },
-    pokemonDetail: {} as Pokemon
-  },
+  initialState: initialState,
   reducers: {
     setList: (state, action: PayloadAction<PokemonList>) => {
       state.pokemonList = action.payload;
@@ -24,9 +24,13 @@ const pokemonSlice = createSlice({
       state.pokemonDetail = {} as Pokemon;
     },
     addFavorite: (state, action: PayloadAction<Pokemon>) => {
-      state.pokemonFavorites.results.push(action.payload);
-      state.pokemonFavorites.count = state.pokemonFavorites.count + 1;
+      const exists = state.pokemonFavorites.results.find((pokemon) => pokemon.id === action.payload.id);
+      if(exists) return;
 
+      const newFavorites = [...state.pokemonFavorites.results, action.payload];
+
+      state.pokemonFavorites.results = newFavorites;
+      state.pokemonFavorites.count = newFavorites.length;
     },
     removeFavorite: (state, action: PayloadAction<Pokemon>) => {
       state.pokemonFavorites.results = state.pokemonFavorites.results.filter((pokemon) => pokemon.id !== action.payload.id);
