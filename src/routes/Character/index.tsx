@@ -19,6 +19,7 @@ import emptyImg from "../../../assets/no-pictures.png";
 import "./styles.css";
 import InfoCard from "./InfoCard";
 import Stats from "./Stats";
+import { capitalizeString } from "../../utils";
 
 const { Title } = Typography;
 
@@ -41,7 +42,7 @@ const Character: React.FC = () => {
           <Breadcrumb
             items={[
               { title: <a href="/">Home</a> },
-              { title: activePokemon.name },
+              { title: capitalizeString(activePokemon.name) },
             ]}
             className="breadcrumb"
           />

@@ -3,6 +3,7 @@ import { Typography, Flex } from "antd";
 import getAbilities from "../../utils/getAttributesList";
 import "./styles.css";
 import { Pokemon } from "./types";
+import { capitalizeString } from "../../utils";
 
 const { Text } = Typography;
 
@@ -31,7 +32,8 @@ const InfoCard: React.FC<Pokemon> = ({ character }) => {
         <div className="info-text">
           {abilitiesList.map((ability, index) => (
             <Text strong key={ability}>
-              {index === abilitiesList.length - 1 ? ability : `${ability}, `}
+              {capitalizeString(ability)}
+              {index === abilitiesList.length - 1 ? "" : `, `}
             </Text>
           ))}
         </div>
