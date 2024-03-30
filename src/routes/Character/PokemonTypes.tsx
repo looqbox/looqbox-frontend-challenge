@@ -1,9 +1,8 @@
 import React from "react";
 import { Typography, Flex } from "antd";
 import { Pokemon } from "./types";
-import getAttributesList from "../../utils/getAttributesList";
+import { capitalizeString, getAttributesList, getTypeColor } from "../../utils";
 import "./styles.css";
-import getTypeColor from "../../utils/getTypeColor";
 
 const { Title, Text } = Typography;
 
@@ -21,7 +20,7 @@ const PokemonTypes: React.FC<Pokemon> = ({ character }) => {
             style={{ backgroundColor: getTypeColor(item) }}
             key={item}
           >
-            {item}
+            {capitalizeString(item)}
           </Text>
         ))}
       </div>
