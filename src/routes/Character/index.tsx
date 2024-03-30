@@ -47,7 +47,7 @@ const Character: React.FC = () => {
             className="breadcrumb"
           />
 
-          <Flex className="info-header" align="center">
+          <Flex align="center" className="info-wrapper">
             <Avatar size="large" className="pokemon-avatar">
               <Image
                 width={150}
