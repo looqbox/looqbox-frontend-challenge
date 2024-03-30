@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 
   box-shadow: 1px 8px 13px -3px rgba(41, 41, 41, 0.51);
   -webkit-box-shadow: 1px 8px 13px -3px rgba(41, 41, 41, 0.51);
