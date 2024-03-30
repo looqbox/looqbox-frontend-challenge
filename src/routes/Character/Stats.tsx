@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Flex, Grid } from "antd";
-import getStatsList from "../../utils/getStatsList";
+import { getStatsList } from "../../utils";
 
 type StatsProps = {
   stats: Array<{
@@ -24,7 +24,7 @@ const Stats: React.FC<StatsProps> = ({ stats }) => {
       <Title level={3}>Base Stats</Title>
 
       {statsList.map((stat) => (
-        <>
+        <div key={stat.name}>
           <Text type="secondary">{stat.name.toUpperCase()}</Text>
           <Flex>
             <div
@@ -35,7 +35,7 @@ const Stats: React.FC<StatsProps> = ({ stats }) => {
             />
             <Text strong>{stat.value}</Text>
           </Flex>
-        </>
+        </div>
       ))}
     </div>
   );
