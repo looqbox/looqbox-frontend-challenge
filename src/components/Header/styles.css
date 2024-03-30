@@ -1,9 +1,13 @@
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    box-shadow: 1px 8px 13px -3px rgba(41,41,41,0.51);
-    -webkit-box-shadow: 1px 8px 13px -3px rgba(41,41,41,0.51);
-    -moz-box-shadow: 1px 8px 13px -3px rgba(41,41,41,0.51);
+  box-shadow: 1px 8px 13px -3px rgba(41, 41, 41, 0.51);
+  -webkit-box-shadow: 1px 8px 13px -3px rgba(41, 41, 41, 0.51);
+  -moz-box-shadow: 1px 8px 13px -3px rgba(41, 41, 41, 0.51);
+
+  img {
+    vertical-align: middle;
+  }
 }
