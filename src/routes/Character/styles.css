@@ -1,3 +1,9 @@
+@keyframes grow {
+  0% {
+    width: 0;
+  }
+}
+
 .breadcrumb {
   margin-bottom: 40px;
   align-self: flex-start;
@@ -26,5 +32,78 @@
 
   @media (min-width: 576px) {
     flex-direction: row;
+  }
+}
+
+.info-card {
+  border-radius: 8px;
+  background-color: #e6c229;
+  padding: 20px;
+  margin-bottom: 24px;
+
+  @media (min-width: 576px) {
+    margin-top: 40px;
+    text-align: start;
+  }
+}
+
+.info-text {
+  margin-bottom: 14px;
+  font-size: 20px;
+
+  & > span {
+    margin-bottom: 14px;
+    font-size: 20px;
+  }
+
+  @media (min-width: 576px) {
+    margin-bottom: 0;
+    padding-left: 8px;
+  }
+}
+
+.info-group {
+  flex-direction: column;
+  align-items: center;
+
+  & > span:first-child {
+    min-width: fit-content;
+  }
+
+  @media (min-width: 576px) {
+    flex-direction: row;
+    margin-bottom: 8px;
+  }
+}
+
+.type-badge {
+  padding: 4px 24px;
+  border-radius: 16px;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.stat-range {
+  margin: 0 4px 8px 0;
+  background-color: #48a9a6;
+  height: 24px;
+  border-radius: 2px;
+
+  animation-name: grow;
+  animation-duration: 1s;
+  float: right;
+}
+
+.stats-wrapper {
+  width: 100%;
+  text-align: start;
+  margin-top: 40px;
+
+  span {
+    min-width: fit-content;
+  }
+
+  @media (min-width: 768px) {
+    padding-left: 40px;
   }
 }
