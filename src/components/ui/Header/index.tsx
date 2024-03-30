@@ -7,7 +7,7 @@ import { MenuProps } from 'antd/lib/menu';
 
 const items: MenuProps['items'] = [{
   label: "Home",
-  key: "",
+  key: "/",
   icon: <HomeOutlined/>
 }, {
   label: "Favorites",
@@ -22,7 +22,7 @@ const onClick: MenuProps['onClick'] = (e) => {
 export default function StyledHeader() {
   return (
     <Header>
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['']} onClick={onClick} items={items}/>
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['/']} onClick={onClick} items={items}/>
     </Header>
   );
 }

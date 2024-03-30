@@ -22,6 +22,16 @@ export default function Home() {
   async function handleSearch(name: string) {
     try{
       const pokemon = await service.getDetails(name);
+
+      if(!pokemon) {
+        dispatch(removePokemon());
+        Modal.warning({
+          title: 'Warning',
+          content: 'No pokemon found with this name.'
+        });
+        return;
+      };
+
       dispatch(setPokemon(pokemon));
     }catch(e) {
       dispatch(removePokemon());
@@ -31,6 +41,15 @@ export default function Home() {
   async function handleSearchList(numberPage: number, pageSize?: number) {
     try{
       const list = await service.get(numberPage, pageSize);
+
+      if(!list) {
+        Modal.error({
+          title: 'Error',
+          content: 'An error occurred while trying to fetch the data. Try again later.'
+        });
+        return;
+      };
+
       dispatch(setList(list));
     }catch(e) {
       Modal.error({
@@ -50,7 +69,6 @@ export default function Home() {
     <MainLayout>
       <h1>Pokemon List</h1>
       <ListPokemon data={list} onSearch={handleSearch} onSearchList={handleSearchList} />
-
     </MainLayout>
   );
 }

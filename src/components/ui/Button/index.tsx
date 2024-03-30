@@ -2,12 +2,12 @@ import { Button } from "antd/lib";
 
 type ButtonProps = {
         children: React.ReactNode,
-        type?: "link" | "text" | "default" | "primary" | "dashed",
+        styleType?: "link" | "text" | "default" | "primary" | "dashed",
 } & React.ButtonHTMLAttributes<HTMLButtonElement>
 
-export default function ButtonComponent({children, type, ...props}: ButtonProps) {
+export default function ButtonComponent({children, styleType, ...props}: ButtonProps) {
   return (
-    <Button {...props} type={type}>
+    <Button {...props} type={styleType}>
       {children}
     </Button>
   );
