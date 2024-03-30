@@ -1,0 +1,11 @@
+.footer {
+  text-align: center;
+
+  a {
+    color: #947eb0;
+  }
+
+  a:hover {
+    color: #20a39e;
+  }
+}
