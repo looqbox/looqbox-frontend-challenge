@@ -1,24 +1,22 @@
 import MainLayout from "@/components/layout/main";
 import PokemonService from "@/modules/pokemon/service";
-import { GetServerSideProps } from "next";
-import { PokemonList } from "@/modules/pokemon/types";
 import ListPokemon from "@/modules/pokemon/components/ListPokemon";
 import { useDispatch, useSelector } from "react-redux";
 import InfoPokemon from "@/modules/pokemon/components/InfoPokemon";
-import { removePokemon, setPokemon } from "@/modules/pokemon/store";
+import { removePokemon, setPokemon, setList } from "@/modules/pokemon/store";
+import { useEffect } from "react";
 
-type Props = {
-  data: PokemonList;
-}
-
-export default function Home({data}: Props) {
+export default function Home() {
   const pokemon = useSelector((state: any) => state.pokemon.pokemonDetail);
   const list = useSelector((state: any) => state.pokemon.pokemonList);
   const service = new PokemonService();
   const dispatch = useDispatch();
 
   const hasPokemon = pokemon && pokemon.name !== undefined;
-  const hasList = list && list.results > 0;
+
+  useEffect(() => {
+    handleSearchList(1);
+  }, []);
 
   async function handleSearch(name: string) {
     try{
@@ -26,6 +24,16 @@ export default function Home({data}: Props) {
       dispatch(setPokemon(pokemon));
     }catch(e) {
       dispatch(removePokemon());
+    }
+  }
+
+  async function handleSearchList(numberPage: number, pageSize?: number) {
+    try{
+      const list = await service.get(numberPage, pageSize);
+      dispatch(setList(list));
+    }catch(e) {
+      //TODO: handle error
+      console.log(e);
     }
   }
 
@@ -38,18 +46,7 @@ export default function Home({data}: Props) {
   return (
     <MainLayout>
       <h1>Pokemon List</h1>
-      <ListPokemon data={hasList ? list : data} onSearch={handleSearch} />
+      <ListPokemon data={list} onSearch={handleSearch} onSearchList={handleSearchList} />
     </MainLayout>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const service = new PokemonService();
-  const data: PokemonList | null = await service.get(1);
-
-  return {
-    props: {
-      data
-    }
-  };
-};

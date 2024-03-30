@@ -8,9 +8,9 @@ export default class PokemonService {
     this.ApiClient = new ApiClient();
   }
 
-  async get(numberPage: number): Promise<PokemonList | null> {
+  async get(numberPage: number, pageSize?: number): Promise<PokemonList | null> {
 
-    const limit = 10;
+    const limit = pageSize || 20;
     const offset = (numberPage - 1) * limit;
 
     try {
