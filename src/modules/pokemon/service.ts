@@ -1,4 +1,5 @@
 import ApiClient from "@/service/httpClient";
+import { Modal } from 'antd/lib';
 import { APIPokemon, APIPokemonList, Pokemon, PokemonList } from "./types";
 
 export default class PokemonService {
@@ -30,9 +31,11 @@ export default class PokemonService {
       data.results.push(...pokemons.filter((poke) => poke !== null) as Pokemon[]);
 
       return data;
-    } catch (err) {
-      //TODO fix this later
-      console.log(err);
+    } catch (e) {
+      Modal.error({
+        title: 'Error',
+        content: 'An error occurred while trying to fetch the data. Try again later.'
+      });
       return null;
     }
   }

@@ -1,10 +1,11 @@
 import MainLayout from "@/components/layout/main";
 import PokemonService from "@/modules/pokemon/service";
-import ListPokemon from "@/modules/pokemon/components/ListPokemon";
 import { useDispatch, useSelector } from "react-redux";
-import InfoPokemon from "@/modules/pokemon/components/InfoPokemon";
 import { removePokemon, setPokemon, setList } from "@/modules/pokemon/store";
 import { useEffect } from "react";
+import ListPokemon from "@/modules/pokemon/components/ListPokemon";
+import InfoPokemon from "@/modules/pokemon/components/InfoPokemon";
+import { Modal } from 'antd/lib';
 
 export default function Home() {
   const pokemon = useSelector((state: any) => state.pokemon.pokemonDetail);
@@ -32,8 +33,10 @@ export default function Home() {
       const list = await service.get(numberPage, pageSize);
       dispatch(setList(list));
     }catch(e) {
-      //TODO: handle error
-      console.log(e);
+      Modal.error({
+        title: 'Error',
+        content: 'An error occurred while trying to fetch the data. Try again later.'
+      });
     }
   }
 
@@ -47,6 +50,7 @@ export default function Home() {
     <MainLayout>
       <h1>Pokemon List</h1>
       <ListPokemon data={list} onSearch={handleSearch} onSearchList={handleSearchList} />
+
     </MainLayout>
   );
 }
