@@ -22,7 +22,7 @@ const getTypeColor = (type: string) => {
     water: "#23B5D3",
   };
 
-  return typeColors[type];
+  return typeColors[type] || "#FFF";
 };
 
 export default getTypeColor;
