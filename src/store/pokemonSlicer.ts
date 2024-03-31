@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import initialState from "./initialState";
 
 export const fetchPokemons = createAsyncThunk(
   "fetchPokemons",
@@ -40,12 +41,7 @@ export const searchPokemon = createAsyncThunk(
 const pokemonSlice = createSlice({
   /* eslint-disable no-param-reassign */
   name: "pokemon",
-  initialState: {
-    loading: false,
-    data: [],
-    error: "",
-    numTotalResults: 0,
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -86,4 +82,4 @@ const pokemonSlice = createSlice({
   },
 });
 
-export default pokemonSlice;
+export default pokemonSlice.reducer;
