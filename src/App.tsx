@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ConfigProvider } from "antd";
 import { Provider } from "react-redux";
-import store from "./store";
 import Home from "./routes/Home";
 import "./styles/global.css";
 import Character from "./routes/Character";
 import NotFound from "./routes/NotFound";
+import setupStore from "./store";
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -28,7 +28,7 @@ const App: React.FC = () => (
       },
     }}
   >
-    <Provider store={store}>
+    <Provider store={setupStore()}>
       <BrowserRouter>
         <Routes>
           <Route element={<Home />} path="/" />
