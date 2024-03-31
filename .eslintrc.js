@@ -41,6 +41,7 @@ module.exports = {
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
+    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
     "import/prefer-default-export": "off",
     "import/extensions": "off",
     "no-console": "off",
