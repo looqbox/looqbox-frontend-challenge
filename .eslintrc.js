@@ -2,43 +2,46 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
+    jest: true,
   },
-  extends: [
-    "eslint:recommended",
-    "airbnb",
-    "airbnb-typescript",
-    "plugin:import/typescript",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-  ],
+  extends: ["eslint:recommended", "airbnb", "prettier"],
   overrides: [
     {
-      env: {
-        node: true,
-      },
-      files: [".eslintrc.{js,cjs}"],
+      files: ["**/*.ts", "**/*.tsx"],
+      plugins: ["@typescript-eslint"],
+      extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/typescript",
+        "airbnb",
+        "airbnb-typescript",
+        "prettier",
+      ],
+      parser: "@typescript-eslint/parser",
       parserOptions: {
-        sourceType: "script",
+        ecmaVersion: "latest",
+        sourceType: "module",
+        project: ["./tsconfig.json", "./webpack.config.js"],
+      },
+      rules: {
+        "react/jsx-filename-extension": 1,
+        "react/no-unescaped-entities": "off",
+        "react/function-component-definition": [
+          2,
+          {
+            namedComponents: "arrow-function",
+            unnamedComponents: "arrow-function",
+          },
+        ],
       },
     },
   ],
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./webpack.config.js"],
-  },
   rules: {
-    "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
-    "react/function-component-definition": [
-      2,
-      {
-        namedComponents: "arrow-function",
-        unnamedComponents: "arrow-function",
-      },
-    ],
-    "react/no-unescaped-entities": "off",
     "react/require-default-props": "off",
     "import/prefer-default-export": "off",
+    "import/extensions": "off",
     "no-console": "off",
+    "import/no-unresolved": "off",
   },
 };
