@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Flex } from "antd";
 import getAbilities from "../../utils/getAttributesList";
 import "./styles.css";
-import { Pokemon } from "./types";
+import { Pokemon } from "../../types/pokemon";
 import { capitalizeString } from "../../utils";
 
 const { Text } = Typography;
