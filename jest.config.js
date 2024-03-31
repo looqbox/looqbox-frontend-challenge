@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
   collectCoverage: true,
   coverageDirectory: "coverage",
   moduleDirectories: ["node_modules"],
@@ -11,5 +11,3 @@ const config = {
   testEnvironment: "jsdom",
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
 };
-
-export default config;
