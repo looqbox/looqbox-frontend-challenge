@@ -1,14 +1,19 @@
 import StyledHeader from "@/components/ui/Header";
 import { Layout } from "antd/lib";
+import Head from "next/head";
 const { Content, Footer } = Layout;
 
 type MainLayoutProps = {
+    title: string,
     children: React.ReactNode
 }
 
-export default function MainLayout({children}: MainLayoutProps) {
+export default function MainLayout({title, children}: MainLayoutProps) {
   return (
     <Layout>
+      <Head>
+        <title>{title}</title>
+      </Head>
       <StyledHeader />
       <Content style={{ padding: "24px" }}>
         {children}

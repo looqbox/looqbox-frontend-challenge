@@ -28,13 +28,13 @@ export default function Favorites () {
   }
 
   if (hasPokemon) return (
-    <MainLayout>
+    <MainLayout title={`${pokemon.name} - Pokédex`}>
       <InfoPokemon pokemon={pokemon}  />
     </MainLayout>
   );
 
   return (
-    <MainLayout>
+    <MainLayout title="Favorites - Pokédex">
       <h1>Favorites</h1>
       <ListPokemon data={favorites} onSearch={handleSearch} onSearchList={() => {}} />
     </MainLayout>

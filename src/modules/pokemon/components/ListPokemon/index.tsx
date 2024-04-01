@@ -5,6 +5,7 @@ import { Flex, Pagination } from 'antd/lib';
 import Searchbar from "@components/ui/Searchbar";
 import Loading from "@components/ui/Loading";
 import PaginationComponent from "@/components/ui/Pagination";
+import ButtonComponent from "@/components/ui/Button";
 
 type ListPokemonProps = {
     data: PokemonList;
@@ -17,6 +18,12 @@ export default function ListPokemon({data, onSearch, onSearchList}: ListPokemonP
   if(!data || !data.results) return (
     <Flex vertical align="center">
       <Loading />
+    </Flex>
+  );
+
+  if(data.results.length === 0) return (
+    <Flex vertical align="center">
+      <h1>No pokemon found</h1>
     </Flex>
   );
 

@@ -60,13 +60,13 @@ export default function Home() {
   }
 
   if (hasPokemon) return (
-    <MainLayout>
+    <MainLayout title={`${pokemon.name} - Pokédex`}>
       <InfoPokemon pokemon={pokemon}  />
     </MainLayout>
   );
 
   return (
-    <MainLayout>
+    <MainLayout title="Pokédex">
       <h1>Pokédex</h1>
       <ListPokemon data={list} onSearch={handleSearch} onSearchList={handleSearchList} />
     </MainLayout>
