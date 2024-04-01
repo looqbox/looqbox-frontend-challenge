@@ -2,11 +2,14 @@ import { Layout, Menu } from 'antd/lib';
 import { useRouter } from 'next/router';
 import HomeOutlined from '@ant-design/icons/HomeOutlined';
 import StarOutlined from '@ant-design/icons/StarOutlined';
+import { useDispatch } from 'react-redux';
+import { removePokemon } from '@/modules/pokemon/store';
 
 const { Header } = Layout;
 
 export default function StyledHeader() {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const items = [
     {
@@ -22,6 +25,7 @@ export default function StyledHeader() {
   ];
 
   const onClick = (e: any) => {
+    dispatch(removePokemon());
     router.push(e.key);
   };
 

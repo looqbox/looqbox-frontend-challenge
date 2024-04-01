@@ -1,7 +1,6 @@
 import StyledHeader from "@/components/ui/Header";
-import { Footer } from "antd/es/layout/layout";
 import { Layout } from "antd/lib";
-const { Content } = Layout;
+const { Content, Footer } = Layout;
 
 type MainLayoutProps = {
     children: React.ReactNode
