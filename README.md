@@ -1,6 +1,6 @@
 <div align="center">
  <h1> Pokédex </h1>
-  <img src="public/assets/list.png" height=80% align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+  <img src="public/assets/list.png" />
   <br/>
   <br/>
  <a href="#-sobre">Sobre</a> •
@@ -37,6 +37,9 @@
     <li>
       <a href="https://ant.design/">Ant design</a>
     </li>
+   <li>
+     <a href="https://www.chartjs.org/">Chart.js</a>
+   </li>
   </ul>
 </div>
 
@@ -44,9 +47,9 @@
 
 ## 🎨 Layout
 <div id="layout">
-  <img src="public/assets/list.png" height=50% align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img src="public/assets/detail.png" height=50% align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img src="public/assets/favorites.png" height=50% align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+  <img src="public/assets/list.png" />
+  <img src="public/assets/detail.png" />
+  <img src="public/assets/favorites.png" />
 </div>
 
 
