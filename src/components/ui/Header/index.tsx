@@ -1,4 +1,4 @@
-import { Layout, Menu } from 'antd';
+import { Layout, Menu } from 'antd/lib';
 import { useRouter } from 'next/router';
 import HomeOutlined from '@ant-design/icons/HomeOutlined';
 import StarOutlined from '@ant-design/icons/StarOutlined';

@@ -12,6 +12,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         token: {
           colorPrimary: "#E0282E",
           colorBgContainer: "#f0f2f5"
+        },
+        components: {
+          Layout: {
+            headerColor: "#E0282E"
+          }
         }
       }}
     >

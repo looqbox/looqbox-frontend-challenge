@@ -6,7 +6,7 @@ export const colors: {[key: string]: string} = {
   fairy: '#FFB3C6',
   fighting: '#F79D65',
   fire: '#DD393C',
-  flying: '#CAF0F8',
+  flying: '#A2DBE5',
   ghost: '#542650',
   grass: '#52B788',
   ground: '#B08968',
