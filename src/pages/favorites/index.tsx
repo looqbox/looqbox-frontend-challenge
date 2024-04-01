@@ -4,10 +4,14 @@ import { setPokemon } from "@/modules/pokemon/store";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "antd/lib";
 import { PokemonList } from "@/modules/pokemon/types";
+import InfoPokemon from "@/modules/pokemon/components/InfoPokemon";
 
 export default function Favorites () {
   const favorites: PokemonList = useSelector((state: any) => state.pokemonFavorites);
+  const pokemon = useSelector((state: any) => state.pokemonDetail);
   const dispatch = useDispatch();
+
+  const hasPokemon = pokemon && pokemon.name !== undefined;
 
   async function handleSearch(name: string) {
     const pokemon = favorites.results.find((p: any) => p.name === name);
@@ -22,6 +26,12 @@ export default function Favorites () {
 
     dispatch(setPokemon(pokemon));
   }
+
+  if (hasPokemon) return (
+    <MainLayout>
+      <InfoPokemon pokemon={pokemon}  />
+    </MainLayout>
+  );
 
   return (
     <MainLayout>
