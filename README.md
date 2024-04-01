@@ -1,49 +1,61 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+<div align="center">
+ <h1> Pokédex </h1>
+  <img src="public/assets/list.png" height=80% align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+  <br/>
+  <br/>
+ <a href="#-sobre">Sobre</a> •
+ <a href="#-tecnologias">Tecnologias</a> • 
+ <a href="#-layout">Layout</a> • 
+ <a href="#-autora">Autora</a>
+</div>
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+---
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+## 💾 Sobre
+<div id="sobre">
+  <p>A Pokédex é um website interativo que consome a PokeAPI para exibir informações detalhadas sobre todos os pokémon. Feita para o desafio Looqbox de front-end.</p>
+</div>
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+---
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+## 🛠 Tecnologias
+<div id="tecnologias">
+  <p>As seguintes ferramentas foram usadas na construção do website:</p>
+  <ul>
+    <li> 
+      <a href="https://www.typescriptlang.org/">Typescript</a>
+    </li>
+    <li>
+      <a href="https://nextjs.org/">Next.js</a>
+    </li>
+    <li>
+      <a href="https://axios-http.com/ptbr/">Axios</a>
+    </li>
+    <li>
+      <a href="https://redux.js.org/">Redux</a>
+    </li>
+    <li>
+      <a href="https://ant.design/">Ant design</a>
+    </li>
+  </ul>
+</div>
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+---
 
-You have **one week** to finish your test, we'll check the time with your "Initial" and "Final" Commits.
+## 🎨 Layout
+<div id="layout">
+  <img src="public/assets/list.png" height=50% align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+  <img src="public/assets/detail.png" height=50% align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+  <img src="public/assets/favorites.png" height=50% align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+</div>
 
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please **mind how many times you request data**
+---
 
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
+## 👩🏻‍💻 Autora
+<a href="https://www.linkedin.com/in/larissa-sousa-silva-491893204/"><img style="border-radius: 20%;" src="https://avatars.githubusercontent.com/u/70920017?v=4" width="100px;"></a>
 
-You can use any dependency you want, (axios, bootstrap, material ui...)
+---
 
-## Bonus points!
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
-
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
-- [Redux](https://redux.js.org/)
+<br>
+<br>
