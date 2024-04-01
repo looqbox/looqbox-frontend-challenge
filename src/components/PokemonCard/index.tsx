@@ -3,14 +3,12 @@ import { Card, Image, Typography, Flex } from "antd";
 import { Link } from "react-router-dom";
 import emptyImg from "../../../assets/no-pictures.png";
 import "./styles.css";
+import { Pokemon } from "../../types/pokemon";
 
 const { Title, Text } = Typography;
 
 export type PokemonCardProps = {
-  character: {
-    id: number;
-    name: string;
-  };
+  character: Pokemon;
 };
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ character }) => {

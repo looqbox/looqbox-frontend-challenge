@@ -6,7 +6,11 @@ import "./styles.css";
 
 const { Title, Text } = Typography;
 
-const PokemonTypes: React.FC<Pokemon> = ({ character }) => {
+type PokemonTypesProps = {
+  character: Pokemon;
+};
+
+const PokemonTypes: React.FC<PokemonTypesProps> = ({ character }) => {
   const { types } = character;
   const typesList = getAttributesList(types, "type");
 
