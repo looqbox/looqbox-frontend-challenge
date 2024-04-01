@@ -1,49 +1,73 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# Test Frontend Looqbox
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+## Install
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+1. Clone the repository:
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+```
+git clone https://github.com/roquiles/looqbox-frontend-challenge
+```
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+2. Go to **challenge** branch:
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+```
+git checkout challenge
+```
 
-You have **one week** to finish your test, we'll check the time with your "Initial" and "Final" Commits.
+3. Install project's dependencies:
 
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
+```
+npm install
+```
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please **mind how many times you request data**
+4. Start the project:
 
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
+```
+npm start
+```
 
-You can use any dependency you want, (axios, bootstrap, material ui...)
+After npm start the project will be running at http://localhost:8080.
 
-## Bonus points!
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
+## Build
 
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
-- [Redux](https://redux.js.org/)
+The build results in two main files: index.html and bundle.js:
+
+```
+npm run build
+```
+
+## Lint
+
+This project uses ESLint to avoid errors and keep an organized and clean codebase. To run the linter, use the command below:
+
+```
+npm run lint
+```
+
+## Tests
+
+This project uses Jest with React Testing Library to test some components and utility functions. To run tests, use the command below:
+
+```
+npm run test
+```
+
+## Tooling
+
+**Webpack5**: For automatically bundle the app
+
+**Babel**: As a compiler
+
+**Eslint**: As a linter
+
+**Prettier**: For formatting the codebase
+
+**TypeScript**: As programming language
+
+**ReactJS**: As a JavaScript framework
+
+**Redux**: For controlling/manage state
+
+**Ant Design**: As a design system
+
+**Jest**: As a testing framework
