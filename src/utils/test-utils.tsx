@@ -18,6 +18,10 @@ const renderWithProviders = (
       pokemon: {
         ...initialState,
         numTotalResults: 80,
+        data: [
+          { name: "kakuna", id: 14 },
+          { name: "squirtle", id: 7 },
+        ],
       },
     },
     store = setupStore(preloadedState),
