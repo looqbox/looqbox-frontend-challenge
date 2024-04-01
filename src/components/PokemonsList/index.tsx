@@ -14,7 +14,7 @@ const PokemonsList: React.FC = () => {
 
       {!pokemonState.error ? (
         <Row className="cards-row" gutter={[16, 16]} justify="center">
-          {pokemonState.data.map((item: { id: number; name: string }) => (
+          {pokemonState.data.map((item) => (
             <Col key={item.id}>
               <PokemonCard character={item} />
             </Col>

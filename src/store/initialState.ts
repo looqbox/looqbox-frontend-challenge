@@ -1,8 +1,6 @@
-import { Pokemon } from "../types/pokemon";
-
 type InitialState = {
   loading: boolean;
-  data: Array<Pokemon>;
+  data: Array<{ name: string; id: number }>;
   error: string;
   numTotalResults: number;
 };
