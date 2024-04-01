@@ -67,7 +67,7 @@ export default function Home() {
 
   return (
     <MainLayout>
-      <h1>Pokemon List</h1>
+      <h1>Pokédex</h1>
       <ListPokemon data={list} onSearch={handleSearch} onSearchList={handleSearchList} />
     </MainLayout>
   );
