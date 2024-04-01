@@ -21,6 +21,12 @@ export default function CardPokemon({pokemon}: PokemonProps) {
     try{
       if (!pokemon.id) return;
       const detail = await service.getDetails(pokemon.id);
+
+      if(!detail) {
+        dispatch(removePokemon());
+        return;
+      };
+
       dispatch(setPokemon(detail));
     }catch(e) {
       dispatch(removePokemon());
