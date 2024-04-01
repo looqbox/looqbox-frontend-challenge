@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Flex } from "antd";
-import { Pokemon } from "./types";
+import { Pokemon } from "../../types/pokemon";
 import { capitalizeString, getAttributesList, getTypeColor } from "../../utils";
 import "./styles.css";
 
