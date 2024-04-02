@@ -43,6 +43,6 @@ Once done, just hit `npm start` to see the Pokédex on your screen.
 - [Redux Toolkit Guide](https://www.smashingmagazine.com/2023/05/guide-redux-toolkit-typescript/);
 - [Project for inspiration // TS](https://github.com/monbrey/pokeapi-typescript);
 - [Project for inspiration // Design](https://github.com/Lorenalgm/pokedex?tab=readme-ov-file);
-- [Pokédex App](https://github.com/dthabata/pokedex).
+- [Pokédex App: all was made here then transferred to the branch](https://github.com/dthabata/pokedex).
 
 -- feito por @[dornelasthabata](https://github.com/dthabata) 😊
