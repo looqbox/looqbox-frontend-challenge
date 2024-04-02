@@ -1,49 +1,48 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+## Pokédex
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+This project was done based on the [Looqbox FrontEnd Challenge](https://github.com/looqbox/looqbox-frontend-challenge).
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+#### 🚀 Start
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+Clone the project to your machine and run `npm install` to install the project's dependencies.
+Once done, just hit `npm start` to see the Pokédex on your screen.
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+#### 📋 Test prerequisites
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+- Dynamic SPA App that shows a list of Pokémons, and search them, using the [Pokeapi](https://pokeapi.co/).
+- In the main page you need a search bar and a loaded list of Pokémons (random or just hardcoded);
+- Clicking on any Pokémon shows a card/modal/page with that Pokémon's info;
+- Searching and pressing enter on the search bar will show the result instead of the list;
+- The App needs at least two different routes.
 
-You have **one week** to finish your test, we'll check the time with your "Initial" and "Final" Commits.
+#### 🛠️ How it was done
 
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
+- HTML/CSS;
+- React was used in the project through functional components, with arrow functions, also using `hooks`;
+- Redux Toolkit was applied as suggested;
+- The project was created with TypeScript formatting, however, not all objects were typed; I demonstrated how development should be done in the language - main reference of how I think it should be done is demonstrated in [this project](https://github.com/monbrey/pokeapi-typescript);
+- The API call was made asynchronously, using Redux Toolkit `createAsyncThunk`;
+- Responsiveness was a priority for the entire application;
+- The routes were done as requested;
+- No CSS framework was used beyond Styled Components and AntDesign, which was recommended.
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please **mind how many times you request data**
+#### ✒️ Observations
 
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
+- Some comments were left on purpose for the test evaluator to read;
 
-You can use any dependency you want, (axios, bootstrap, material ui...)
+#### 💻 Quick preview
 
-## Bonus points!
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
+![Pokédex App](https://github.com/dthabata/pokedex/assets/97548859/c70a270d-69e3-4834-890d-2aecdd8a7c1d)
 
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
-- [Redux](https://redux.js.org/)
+#### 📝 References
+
+- [React](https://legacy.reactjs.org/docs/getting-started.html);
+- [Redux](https://redux.js.org/);
+- [Redux Toolkit](https://redux-toolkit.js.org/);
+- [Redux Toolkit createAsyncThunk](https://redux-toolkit.js.org/api/createAsyncThunk);
+- [Redux Toolkit Guide](https://www.smashingmagazine.com/2023/05/guide-redux-toolkit-typescript/);
+- [Project for inspiration // TS](https://github.com/monbrey/pokeapi-typescript);
+- [Project for inspiration // Design](https://github.com/Lorenalgm/pokedex?tab=readme-ov-file);
+- [Pokédex App](https://github.com/dthabata/pokedex).
+
+-- feito por @[dornelasthabata](https://github.com/dthabata) 😊
