@@ -8,7 +8,7 @@ export const getAbilitiesListByPokemon = (pokemon: IPokemon | undefined) =>{
         ));
     }
     return list;
-}
+};
 
 export const getTypesListByPokemon  = (pokemon: IPokemon | undefined) =>{
     const list: String[] = [];
@@ -18,7 +18,7 @@ export const getTypesListByPokemon  = (pokemon: IPokemon | undefined) =>{
         ));
     }
     return list;
-}
+};
 
 
 export const getStatsListByPokemon  = (pokemon: IPokemon | undefined) =>{
@@ -30,4 +30,4 @@ export const getStatsListByPokemon  = (pokemon: IPokemon | undefined) =>{
         ));
     }
     return list;
-}
+};
