@@ -24,7 +24,7 @@ Once done, just hit `npm start` to see the Pokédex on your screen.
 - The API call was made asynchronously, using Redux Toolkit `createAsyncThunk`;
 - Responsiveness was a priority for the entire application;
 - The routes were done as requested;
-- No CSS framework was used beyond Styled Components and AntDesign, which was recommended.
+- No CSS framework was used beyond Styled Components and Ant Design, which was recommended.
 
 #### ✒️ Observations
 
@@ -40,9 +40,10 @@ Once done, just hit `npm start` to see the Pokédex on your screen.
 - [Redux](https://redux.js.org/);
 - [Redux Toolkit](https://redux-toolkit.js.org/);
 - [Redux Toolkit createAsyncThunk](https://redux-toolkit.js.org/api/createAsyncThunk);
+- [Ant Design](https://ant.design/);
 - [Redux Toolkit Guide](https://www.smashingmagazine.com/2023/05/guide-redux-toolkit-typescript/);
 - [Project for inspiration // TS](https://github.com/monbrey/pokeapi-typescript);
 - [Project for inspiration // Design](https://github.com/Lorenalgm/pokedex?tab=readme-ov-file);
-- [Pokédex App: all was made here then transferred to the branch](https://github.com/dthabata/pokedex).
+- [Pokédex App: All was made here then transferred to the branch](https://github.com/dthabata/pokedex).
 
 -- feito por @[dornelasthabata](https://github.com/dthabata) 😊

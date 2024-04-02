@@ -39,7 +39,7 @@ export const pokemonListSlice = createSlice({
             .addCase(fetchPokemonList.fulfilled, (state, action) => {
                 state.loading = false;    
                 state.pokemons.push(...action.payload,);
-                state.pokemonListRequest.offset  = state.pokemons.length
+                state.pokemonListRequest.offset = state.pokemons.length;
             })
             .addCase(fetchPokemonList.rejected, (state, action) => {
                 state.loading = false;

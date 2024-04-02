@@ -38,7 +38,7 @@ import { useAppDispatch, RootState, AppDispatch } from '../../redux/index';
 import { fetchPokemonDetail } from '../../redux/PokemonDetailsReducer';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { IPokemonDetailsState } from '../../interfaces/pokemon-types';
-import { getTypesListByPokemon } from '../../services/pokemon-formatter'
+import { getTypesListByPokemon } from '../../services/pokemon-formatter';
 
 const Details: React.FC = () => {
     const { name } = useParams();
@@ -51,7 +51,7 @@ const Details: React.FC = () => {
     const navigate = useNavigate();
     
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
     }, []);
 
     useEffect(() => {
@@ -63,7 +63,7 @@ const Details: React.FC = () => {
 
     useEffect(() => {
         if(!pokemonDetails) {
-            dispatch(fetchPokemonDetail(String(name)))
+            dispatch(fetchPokemonDetail(String(name)));
         }
     }, [dispatch]);
 

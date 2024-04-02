@@ -36,7 +36,7 @@ import { fetchPokemonList, pokemonListReset } from '../../redux/PokemonListReduc
 import { useNavigate } from 'react-router-dom';
 import { IPokemon } from '../../interfaces/pokemon-types';
 import { pokemonAdd } from '../../redux/PokemonDetailsReducer';
-import { getTypesListByPokemon } from '../../services/pokemon-formatter'
+import { getTypesListByPokemon } from '../../services/pokemon-formatter';
 
 const AppContent: React.FC = () => {
     const navigate = useNavigate();
@@ -45,21 +45,21 @@ const AppContent: React.FC = () => {
     const pokemonListLoading = useSelector((state: RootState) => state.pokemonList.loading);
 
     const onSearch: (value: string, event?: React.ChangeEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement> | React.MouseEvent<HTMLElement, MouseEvent>, info?: { source?: 'clear' | 'input' }) => void = (value, _e, info) => {
-        const pokemonName = value
+        const pokemonName = value;
     
-        dispatch(pokemonListReset())
-        dispatch(fetchPokemonList({name: pokemonName.toLowerCase(), offset: 0, limit: 30}))
+        dispatch(pokemonListReset());
+        dispatch(fetchPokemonList({name: pokemonName.toLowerCase(), offset: 0, limit: 30}));
     };
 
     useEffect(() => {
         // 500 was an arbitrary choice of number
         const randomOffset = Math.floor(Math.random() * (500 - 1 + 1) + 1);
-        dispatch(fetchPokemonList({offset: randomOffset, limit: 30}))
+        dispatch(fetchPokemonList({offset: randomOffset, limit: 30}));
     }, [dispatch]);
 
     const handleLoadPokemonDetail = (pokemon: IPokemon) => {
         // Set the Pokémon in the state before the navigation, so this way is not necessary to make any other request to get data
-        dispatch(pokemonAdd(pokemon))
+        dispatch(pokemonAdd(pokemon));
         navigate(`/details/${pokemon?.name}`);
     }
 

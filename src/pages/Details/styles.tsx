@@ -16,9 +16,9 @@ export const DetailsHeaderWrapper = styled.section<{ type: string }>`
     padding-bottom: 2rem;
     height: 210px;
 
-    ${({ type }) => type && `
-    background-color: ${accessPokemonBgColor(type)};
-`}
+        ${({ type }) => type && `
+        background-color: ${accessPokemonBgColor(type)};
+    `}
 `;
 
 export const DetailsHeader = styled.div`

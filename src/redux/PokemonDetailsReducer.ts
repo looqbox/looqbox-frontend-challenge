@@ -6,7 +6,7 @@ export const fetchPokemonDetail = createAsyncThunk<IPokemon, string, { rejectVal
     'pokemon/fetchPokemonDetail',
     async (name: String, thunkAPI) => {
         try {
-            return fetchPokemonDetailServiceByName(name)
+            return fetchPokemonDetailServiceByName(name);
         } catch (error) {
             return thunkAPI.rejectWithValue("Failed to fetch Pokémons.");
         }

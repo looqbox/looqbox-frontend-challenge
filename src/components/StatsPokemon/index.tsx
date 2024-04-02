@@ -8,7 +8,7 @@ import { Flex, Progress } from 'antd';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/index';
 import { IPokemonDetailsState } from '../../interfaces/pokemon-types';
-import { getStatsListByPokemon } from '../../services/pokemon-formatter'
+import { getStatsListByPokemon } from '../../services/pokemon-formatter';
 
 const StatsPokemon: React.FC = () => {
     const pokemonDetails = useSelector((state: RootState) => (state.pokemonDetails as IPokemonDetailsState).pokemon);

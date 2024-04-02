@@ -27,7 +27,7 @@ import badge18 from '../../assets/badge-18.png';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/index';
 import { IPokemonDetailsState } from '../../interfaces/pokemon-types';
-import { getAbilitiesListByPokemon, getTypesListByPokemon } from '../../services/pokemon-formatter'
+import { getAbilitiesListByPokemon, getTypesListByPokemon } from '../../services/pokemon-formatter';
 
 const AboutPokemon: React.FC = () => {
     const pokemonDetails = useSelector((state: RootState) => (state.pokemonDetails as IPokemonDetailsState).pokemon);

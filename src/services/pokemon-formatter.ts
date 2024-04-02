@@ -20,7 +20,6 @@ export const getTypesListByPokemon = (pokemon: IPokemon | undefined) => {
     return list;
 };
 
-
 export const getStatsListByPokemon = (pokemon: IPokemon | undefined) => {
     const list: { name: string; value: number }[] = [];
     if (pokemon?.stats && pokemon?.stats.length > 0) {
