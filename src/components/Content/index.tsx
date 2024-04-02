@@ -58,7 +58,7 @@ const AppContent: React.FC = () => {
     }, [dispatch]);
 
     const handleLoadPokemonDetail = (pokemon: IPokemon) => {
-        // Set the Polémon in the state before the navigation, so this way is not necessary to make any other request to get data
+        // Set the Pokémon in the state before the navigation, so this way is not necessary to make any other request to get data
         dispatch(pokemonAdd(pokemon))
         navigate(`/details/${pokemon?.name}`);
     }
