@@ -1,6 +1,6 @@
 import { IPokemon } from '../interfaces/pokemon-types';
 
-export const getAbilitiesListByPokemon = (pokemon: IPokemon | undefined) =>{
+export const getAbilitiesListByPokemon = (pokemon: IPokemon | undefined) => {
     const list: String[] = [];
     if (pokemon?.abilities && pokemon?.abilities.length > 0) {
         pokemon?.abilities?.map((ability: { ability: { name: any; }; }, index: any) => ( 
@@ -10,7 +10,7 @@ export const getAbilitiesListByPokemon = (pokemon: IPokemon | undefined) =>{
     return list;
 };
 
-export const getTypesListByPokemon  = (pokemon: IPokemon | undefined) =>{
+export const getTypesListByPokemon = (pokemon: IPokemon | undefined) => {
     const list: String[] = [];
     if (pokemon?.types && pokemon?.types.length > 0) {
         pokemon?.types?.map((type: { type: { name: any; }; }, index: any) => ( 
@@ -21,11 +21,11 @@ export const getTypesListByPokemon  = (pokemon: IPokemon | undefined) =>{
 };
 
 
-export const getStatsListByPokemon  = (pokemon: IPokemon | undefined) =>{
+export const getStatsListByPokemon = (pokemon: IPokemon | undefined) => {
     const list: { name: string; value: number }[] = [];
-    
     if (pokemon?.stats && pokemon?.stats.length > 0) {
-        pokemon?.stats?.map((item: any, index: any) => ( 
+        pokemon?.stats?.map((item: any, index: any) => (
+            // I assumed the maximum value for a stat would be 180 based on the endpoint
             list.push({ "name": item?.stat?.name, "value": (item?.base_stat * 100 / 180)})
         ));
     }
