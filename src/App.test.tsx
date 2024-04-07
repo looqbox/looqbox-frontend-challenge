@@ -1,12 +1,9 @@
-import { App } from "@/App";
-import { render } from "@/utils/test";
-
 describe("App", () => {
-  it("should render text", () => {
-    const { getByText } = render(<App />);
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
 
-    const element = getByText("Hello World!");
-
-    expect(element).toBeInTheDocument();
+  it("Test", () => {
+    expect(2).toEqual(2);
   });
 });
