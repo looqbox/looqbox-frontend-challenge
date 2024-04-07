@@ -29,5 +29,6 @@
   },
   "include": ["src", ".src/test/setup.ts"],
   "exclude": ["node_modules", "dist"],
+  "files": ["src/@types/styled.d.ts","src/@types/theme.d.ts","src/@types/error.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
