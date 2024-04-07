@@ -16,15 +16,22 @@
     "commit": "cz"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.3",
+    "antd": "^5.16.0",
     "lint-staged": "^15.2.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.3",
+    "redux": "^5.0.1",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
     "@types/eslint": "~8.56.6",
     "@types/eslint-config-prettier": "~6.11.3",
+    "@types/lint-staged": "~13.3.0",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
@@ -55,5 +62,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }
