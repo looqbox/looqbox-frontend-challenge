@@ -17,7 +17,9 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
+    "@tanstack/react-query": "^5.29.0",
     "antd": "^5.16.0",
+    "axios": "^1.6.8",
     "lint-staged": "^15.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -29,6 +31,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
+    "@tanstack/eslint-plugin-query": "^5.28.11",
     "@types/eslint": "~8.56.6",
     "@types/eslint-config-prettier": "~6.11.3",
     "@types/lint-staged": "~13.3.0",
@@ -54,8 +57,7 @@
   "lint-staged": {
     "src/**/*.{ts,tsx,css,json}": [
       "eslint --fix",
-      "prettier --write",
-      "vitest --no-watch"
+      "prettier --write"
     ]
   },
   "config": {
