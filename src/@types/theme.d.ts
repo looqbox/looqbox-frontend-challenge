@@ -10,6 +10,7 @@ export type ThemeTypes = "light" | "dark";
 type PokemonMainColors = {
   primary: string;
   secondary: string;
+  tertiary: string;
   contrast: string;
 };
 
@@ -24,11 +25,14 @@ type PokemonSpecieColor = {
   dark: string;
 };
 
+type PokemonTypesOfSpecies = keyof PokemonColors["species"];
+
 export type PokemonColors = {
   main: PokemonMainColors;
   light: PokemonThemeColors;
   dark: PokemonThemeColors;
   species: {
+    default: PokemonSpecieColor;
     bug: PokemonSpecieColor;
     dark: PokemonSpecieColor;
     dragon: PokemonSpecieColor;
@@ -47,6 +51,8 @@ export type PokemonColors = {
     rock: PokemonSpecieColor;
     steel: PokemonSpecieColor;
     water: PokemonSpecieColor;
+    unknown: PokemonSpecieColor;
+    shadow: PokemonSpecieColor;
   };
 };
 

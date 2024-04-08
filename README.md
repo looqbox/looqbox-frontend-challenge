@@ -5,12 +5,13 @@
   - [⚙️ Scripts](#️-scripts)
   - [💻 Made with](#-made-with)
   - [🚀 How to run](#-how-to-run)
+  - [👀 To be continued](#-to-be-continued)
 
 # PokeAPI - Frontend Challenge
 
 ## 🎯 Challenge
 
-Create a web application witch [ReactJS](https://reactjs.org/) that allows users to search for Pokémon by name and see details about the Pokémon. The API used is called [PokeAPI](https://pokeapi.co/docs/v2) and the details that should be displayed [here](./.github/challenge/rules.md).
+Create a web application witch [ReactJS](https://reactjs.org/) that allows users to search for Pokémon by name and see details about the Pokémon. The API used is called [PokeAPI](https://pokeapi.co/docs/v2) and the details that should be displayed [here](./.github/challenge/rules.md). For this project started in the [Figma](https://www.figma.com/file/S4v20i3QiDpfXO3iKnzzrB/PokeAPI---Frontend-Chanllenge?type=design&node-id=2105%3A1453&mode=design&t=SKVZzDFu6NO8YMWE-1) file to get the idea of a design.
 
 ## 🥳 App
 
@@ -84,3 +85,8 @@ This app already has some scripts configured:
    ```bash
     npm run dev
    ```
+
+## 👀 To be continued
+
+- [ ] Develop unit, integration and e2e tests
+- [ ] Make it responsive
