@@ -26,7 +26,6 @@ export const Layout = ({ children }: LayoutProps) => {
         <AntContent
           style={{
             margin: "1.5rem",
-            padding: 24,
             minHeight: 280,
           }}
         >
