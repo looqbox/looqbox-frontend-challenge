@@ -1,22 +1,45 @@
-import { Switch } from "antd";
-import { Header as AntdHeader } from "antd/es/layout/layout";
+import { useNavigate } from "react-router-dom";
 
 import { Theme } from "@/@types/theme";
 
-type HeaderProps = {
+import DarkThemeIcon from "/assets/svgs/icons/theme-dark.svg";
+import LightThemeIcon from "/assets/svgs/icons/theme-light.svg";
+import LogoImage from "/assets/svgs/logo.svg";
+
+import * as S from "./styles";
+
+export type HeaderProps = {
   theme: Theme;
   toggleTheme: () => void;
 };
 
 export const Header = ({ theme, toggleTheme }: HeaderProps) => {
+  const navigate = useNavigate();
+
+  const darkThemeIcon = (
+    <img src={DarkThemeIcon} alt="Dark theme icon" width={16} />
+  );
+
+  const lightThemeIcon = (
+    <img src={LightThemeIcon} alt="Light theme icon" width={16} />
+  );
+
   return (
-    <AntdHeader style={{ padding: 0 }}>
-      <Switch
-        checkedChildren="On"
-        unCheckedChildren="Off"
+    <S.Container>
+      <S.Main>
+        <S.Logo
+          src={LogoImage}
+          alt="Light theme icon"
+          onClick={() => navigate("/")}
+        />
+        <S.Title>Everyhing about Pokemon’s universe</S.Title>
+      </S.Main>
+      <S.Switch
+        checkedChildren={lightThemeIcon}
+        unCheckedChildren={darkThemeIcon}
         checked={theme.type === "dark"}
         onChange={toggleTheme}
       />
-    </AntdHeader>
+    </S.Container>
   );
 };
