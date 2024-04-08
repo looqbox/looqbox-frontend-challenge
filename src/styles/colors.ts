@@ -2,8 +2,9 @@ import { PokemonColors } from "@/@types/theme";
 
 export const pokemonColors: PokemonColors = {
   main: {
-    primary: "#0f1525",
-    secondary: "#101526",
+    primary: "#101526",
+    secondary: "#111F4B",
+    tertiary: "#002DC0",
     contrast: "#f1f1f1",
   },
   light: {
@@ -15,6 +16,11 @@ export const pokemonColors: PokemonColors = {
     text: "#f1f1f1",
   },
   species: {
+    default: {
+      main: "#D3D3D3",
+      light: "#FFFFFF",
+      dark: "#858585",
+    },
     bug: {
       main: "#9BBA48",
       light: "#C9EC69",
@@ -104,6 +110,16 @@ export const pokemonColors: PokemonColors = {
       main: "#88A3D4",
       light: "#B2C9F5",
       dark: "#5873A1",
+    },
+    unknown: {
+      main: "#A4AF90",
+      light: "#D4D9C4",
+      dark: "#6D7A5A",
+    },
+    shadow: {
+      main: "#723A3A",
+      light: "#A55F5F",
+      dark: "#4B2C2C",
     },
   },
 };
