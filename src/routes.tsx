@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "@/layout/index";
 import { ErrorPage } from "@/pages/error";
 import { HomePage } from "@/pages/home";
+import { TypePage } from "@/pages/type";
 
 export const routes = createBrowserRouter([
   {
@@ -19,8 +20,8 @@ export const routes = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/type",
-        element: <div>type</div>,
+        path: "/type/:type",
+        element: <TypePage />,
       },
     ],
   },

@@ -7,19 +7,9 @@ import { ThemeContext } from "styled-components";
 import { Pagination as PaginationProps, Result } from "@/@types/services";
 import { PokemonsList } from "@/components/PokemonsList";
 import { useGetPokemons } from "@/queries/pokemons";
+import { initialPagination, paginatedPokemons } from "@/utils/pagination";
 
 import * as S from "./styles";
-
-const paginatedPokemons = (
-  pokemons: Result[],
-  page: number,
-  pageSize: number,
-) => {
-  const startItemIndexPage = (page - 1) * pageSize;
-  const endItemIndexPage = startItemIndexPage + pageSize;
-
-  return pokemons.slice(startItemIndexPage, endItemIndexPage);
-};
 
 const filterPokemons = (pokemons: Result[], searchQuery: string) => {
   if (!searchQuery) return pokemons;
@@ -35,8 +25,6 @@ const filterPokemons = (pokemons: Result[], searchQuery: string) => {
     );
   });
 };
-
-const initialPagination: PaginationProps = { page: 1, pageSize: 20 };
 
 export const HomePage = () => {
   const theme = useContext(ThemeContext);

@@ -1,6 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { getPokemon, getPokemons, getPokemonTypes } from "@/services/pokemons";
+import {
+  getPokemon,
+  getPokemons,
+  getPokemonsByType,
+  getPokemonTypes,
+} from "@/services/pokemons";
 
 export const useGetPokemonTypes = () => {
   return useQuery({
@@ -25,6 +30,15 @@ export const useGetPokemon = (id: string) => {
     queryKey: ["pokemon", id],
     queryFn: async () => {
       return getPokemon(id);
+    },
+  });
+};
+
+export const useGetPokemonsByType = (typeName: string) => {
+  return useQuery({
+    queryKey: ["pokemon-by-type", typeName],
+    queryFn: async () => {
+      return getPokemonsByType(typeName);
     },
   });
 };

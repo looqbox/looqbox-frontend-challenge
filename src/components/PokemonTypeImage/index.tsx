@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
+import * as S from "./styles";
+
 type PokemonTypeImageProps = {
   type?: string;
   size?: number;
@@ -14,7 +16,7 @@ export const PokemonTypeImage = ({
   const navigate = useNavigate();
 
   return (
-    <img
+    <S.Image
       key={type}
       src={`/assets/svgs/species/${type}.svg`}
       alt={type}

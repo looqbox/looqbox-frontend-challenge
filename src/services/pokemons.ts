@@ -1,5 +1,6 @@
 import { Pokemon } from "@/@types/pokemon";
 import { Metadata, Result } from "@/@types/services";
+import { TypeOfPokemons } from "@/@types/type";
 import { api } from "@/services/api";
 import { ENDPOINTS } from "@/services/endpoints";
 
@@ -21,4 +22,10 @@ export const getPokemons = async () => {
 export const getPokemon = async (id: string) => {
   const { data } = await api.get(`${ENDPOINTS.POKEMON}/${id}`);
   return data as Pokemon;
+};
+
+export const getPokemonsByType = async (typeName: string) => {
+  const url = `${ENDPOINTS.TYPE}/${typeName}`;
+  const { data } = await api.get(url);
+  return data as TypeOfPokemons;
 };

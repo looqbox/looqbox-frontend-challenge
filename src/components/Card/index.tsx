@@ -8,6 +8,7 @@ import { PokemonTypeImage } from "@/components/PokemonTypeImage";
 import { useGetPokemon } from "@/queries/pokemons";
 import { getColorBySpecies } from "@/utils/theme";
 
+import { PokemonCardImage } from "@/components/Card/PokemonCardImage";
 import * as S from "./styles";
 
 type CardProps = {
@@ -43,17 +44,13 @@ export const Card = ({ pokemonId }: CardProps) => {
             <span>
               #<strong>{pokemon?.id}</strong>
             </span>
-            <PokemonTypeImage type={mainType} />
+            <S.CardTypes>
+              {pokemon?.types.map((type) => (
+                <PokemonTypeImage key={type.type.name} type={type.type.name} />
+              ))}
+            </S.CardTypes>
           </S.CardHeader>
-          <img
-            src={mainImage ?? "/assets/svgs/pokemon-shadow.svg"}
-            alt={pokemon?.name}
-            width={130}
-            onError={({ currentTarget }) => {
-              currentTarget.onerror = null;
-              currentTarget.src = "/assets/svgs/pokemon-shadow.svg";
-            }}
-          />
+          <PokemonCardImage image={mainImage} name={pokemon?.name} />
           <S.CardFooter>
             <p>{pokemon?.name}</p>
           </S.CardFooter>
