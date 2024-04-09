@@ -36,6 +36,7 @@ Create a web application witch [ReactJS](https://reactjs.org/) that allows users
 - [x] List of Pokémon
 - [x] Pagination
 - [x] Search for Pokémon by name or number
+- [ ] Pokemon card with image, name and types
 - [ ] Modal with Pokémon details
 - [ ] Page with type of species detailed
 
