@@ -12,13 +12,14 @@
     "test": "vitest --no-watch",
     "test:watch": "vitest",
     "test:coverage": "vitest --coverage",
-    "prepare": "husky install",
+    "prepare": "npx husky install",
     "commit": "cz"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "@tanstack/react-query": "^5.29.0",
     "@tanstack/react-query-devtools": "^5.29.0",
+    "@testing-library/react": "^14.3.0",
     "antd": "^5.16.0",
     "axios": "^1.6.8",
     "lint-staged": "^15.2.2",

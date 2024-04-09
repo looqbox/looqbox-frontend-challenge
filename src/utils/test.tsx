@@ -6,7 +6,7 @@ afterEach(() => {
 
 function customRender(ui: React.ReactElement, options = {}) {
   return render(ui, {
-    wrapper: ({ children }) => children,
+    wrapper: ({ children }: { children: React.ReactNode }) => children,
     ...options,
   });
 }
