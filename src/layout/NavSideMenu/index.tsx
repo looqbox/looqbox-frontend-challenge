@@ -1,10 +1,12 @@
 import { LeftCircleOutlined } from "@ant-design/icons";
 import { Button, Menu, Skeleton, Space } from "antd";
+import { ItemType, MenuItemType } from "antd/es/menu/hooks/useItems";
 import { useNavigate } from "react-router-dom";
 
+import { PokemonTypeImage } from "@/components/PokemonTypeImage";
 import { useGetPokemonTypes } from "@/queries/pokemons";
 import { getColorBySpecies } from "@/utils/theme";
-import { ItemType, MenuItemType } from "antd/es/menu/hooks/useItems";
+
 import * as S from "./styles";
 
 type NavSideMenuProps = {
@@ -23,15 +25,9 @@ export const NavSideMenu = ({ collapsed, setCollapsed }: NavSideMenuProps) => {
       return {
         key: type.name,
         icon: (
-          <img
-            src={`/assets/svgs/species/${type.name}.svg`}
-            alt={type.name}
-            width={20}
-            onError={({ currentTarget }) => {
-              currentTarget.onerror = null;
-              currentTarget.src = "/assets/svgs/icons/question-circle.svg";
-            }}
-          />
+          <span>
+            <PokemonTypeImage type={type.name} />
+          </span>
         ),
         label: type.name,
         style: {
@@ -62,12 +58,15 @@ export const NavSideMenu = ({ collapsed, setCollapsed }: NavSideMenuProps) => {
         mode="inline"
         defaultSelectedKeys={["1"]}
         onClick={({ key }) => {
-          key === "all" ? navigate("/") : navigate(`/species/${key}`);
+          key === "all" ? navigate("/") : navigate(`/type/${key}`);
         }}
         items={[
           {
             key: "all",
             label: "all",
+            style: {
+              color: "white",
+            },
             icon: (
               <img src={`/assets/svgs/icons/pokeball-blue.svg`} alt="all" />
             ),

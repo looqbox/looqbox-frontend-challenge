@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { Pokemon } from "@/@types/pokemon";
 import PokemonModal from "@/components/PokemonModal";
+import { PokemonTypeImage } from "@/components/PokemonTypeImage";
 import { useGetPokemon } from "@/queries/pokemons";
 import { getColorBySpecies } from "@/utils/theme";
 
@@ -42,15 +43,7 @@ export const Card = ({ pokemonId }: CardProps) => {
             <span>
               #<strong>{pokemon?.id}</strong>
             </span>
-            <img
-              src={`/assets/svgs/species/${mainType}.svg`}
-              alt={mainType}
-              width={20}
-              onError={({ currentTarget }) => {
-                currentTarget.onerror = null;
-                currentTarget.src = "/assets/svgs/icons/question-circle.svg";
-              }}
-            />
+            <PokemonTypeImage type={mainType} />
           </S.CardHeader>
           <img
             src={mainImage ?? "/assets/svgs/pokemon-shadow.svg"}

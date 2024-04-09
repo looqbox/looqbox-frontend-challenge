@@ -1,10 +1,10 @@
 import { Tooltip } from "antd";
-import { useNavigate } from "react-router-dom";
 
 import { Pokemon } from "@/@types/pokemon";
 import { PokemonSpecieColor } from "@/@types/theme";
 import { Info } from "@/components/PokemonModal/Info";
 import { Stats } from "@/components/PokemonModal/Stats";
+import { PokemonTypeImage } from "@/components/PokemonTypeImage";
 
 import * as S from "./styles";
 
@@ -21,7 +21,6 @@ const PokemonModal = ({
   setClosed,
   color,
 }: PokemonModalProps) => {
-  const navigate = useNavigate();
   const mainImage = pokemon?.sprites.other["official-artwork"].front_default;
   const types = pokemon?.types.map((type) => type.type.name);
 
@@ -57,17 +56,7 @@ const PokemonModal = ({
         <h2>{pokemon?.name}</h2>
         {types?.map((type) => (
           <Tooltip title={type} key={type}>
-            <img
-              key={type}
-              src={`/assets/svgs/species/${type}.svg`}
-              alt={type}
-              width={20}
-              onClick={() => navigate(`/type/${type}`)}
-              onError={({ currentTarget }) => {
-                currentTarget.onerror = null;
-                currentTarget.src = "/assets/svgs/icons/question-circle.svg";
-              }}
-            />
+            <PokemonTypeImage type={type} />
           </Tooltip>
         ))}
       </S.ModalHeader>
