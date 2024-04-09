@@ -1,6 +1,6 @@
 - [PokeAPI - Frontend Challenge](#pokeapi---frontend-challenge)
   - [🎯 Challenge](#-challenge)
-  - [🥳 App](#-app)
+  - [🥳 App demo](#-app-demo)
   - [✅ Features](#-features)
     - [App Architecture](#app-architecture)
     - [App functionalities](#app-functionalities)
@@ -16,9 +16,14 @@
 
 Create a web application witch [ReactJS](https://reactjs.org/) that allows users to search for Pokémon by name and see details about the Pokémon. The API used is called [PokeAPI](https://pokeapi.co/docs/v2) and the details that should be displayed [here](./.github/challenge/rules.md). For this project started in the [Figma](https://www.figma.com/file/S4v20i3QiDpfXO3iKnzzrB/PokeAPI---Frontend-Chanllenge?type=design&node-id=2105%3A1453&mode=design&t=SKVZzDFu6NO8YMWE-1) file to get the idea of a design.
 
-## 🥳 App
+## 🥳 App [demo]()
 
-<!-- TODO -->
+![pokeapi](./.github/printscreen/app-04.png)
+![pokeapi](./.github/printscreen/app-05.png)
+![pokeapi](./.github/printscreen/app-03.png)
+![pokeapi](./.github/printscreen/app-01.png)
+
+
 
 ## ✅ Features
 
