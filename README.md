@@ -1,6 +1,9 @@
 - [PokeAPI - Frontend Challenge](#pokeapi---frontend-challenge)
   - [🎯 Challenge](#-challenge)
   - [🥳 App](#-app)
+  - [✅ Features](#-features)
+    - [App Architecture](#app-architecture)
+    - [App functionalities](#app-functionalities)
   - [🖊️ Commit Messages](#️-commit-messages)
   - [⚙️ Scripts](#️-scripts)
   - [💻 Made with](#-made-with)
@@ -16,6 +19,25 @@ Create a web application witch [ReactJS](https://reactjs.org/) that allows users
 ## 🥳 App
 
 <!-- TODO -->
+
+## ✅ Features
+
+### App Architecture
+
+- [x] Create a good structured React App using Vite with TypeScript end config ESLint, Prettier, Husky and Lint Staged for code quality
+- [x] Ready for testing with Vitest and React Testing Library
+- [x] Setup Redux for state management and Redux Toolkit for better performance
+- [x] Themed application with `light` and `dark` mode using And Design and Styled Components
+- [x] Services and requests cached using Axios and React Query
+- [x] Documentation
+
+### App functionalities
+
+- [x] List of Pokémon
+- [x] Pagination
+- [ ] Search for Pokémon by name or Number
+- [ ] Modal with Pokémon details
+- [ ] Page with type of species detailed
 
 ## 🖊️ Commit Messages
 

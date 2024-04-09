@@ -56,12 +56,14 @@ export const Footer = () => {
       </S.Social>
       <S.Info>
         <S.Text>Developed by Larissa Rabelo</S.Text>
-        <S.Description
-          type="link"
-          onClick={() => handleGotoSite('"https://www.larissarabelo.com.br"')}
-        >
-          www.larissarabelo.com.br
-        </S.Description>
+        <Tooltip title="Portfolio" color={theme?.pokemon.colors.main.primary}>
+          <S.Description
+            type="link"
+            onClick={() => handleGotoSite('"https://www.larissarabelo.com.br"')}
+          >
+            www.larissarabelo.com.br
+          </S.Description>
+        </Tooltip>
       </S.Info>
       <Tooltip title="Poke API" color={theme?.pokemon.colors.main.primary}>
         <S.Image

@@ -1,28 +1,121 @@
-import { Button, Checkbox, Input, Radio, Select, Space } from "antd";
+import { CloseCircleFilled, LoadingOutlined } from "@ant-design/icons";
+import { Button, Spin, Tooltip } from "antd";
+import Search from "antd/es/input/Search";
+import { useContext, useEffect, useMemo, useState } from "react";
+import { ThemeContext } from "styled-components";
+
+import { Pagination as PaginationProps, Result } from "@/@types/services";
+import { PokemonsList } from "@/components/PokemonsList";
+import { useGetPokemons } from "@/queries/pokemons";
+
+import * as S from "./styles";
+
+const paginatedPokemons = (
+  pokemons: Result[],
+  page: number,
+  pageSize: number,
+) => {
+  const startItemIndexPage = (page - 1) * pageSize;
+  const endItemIndexPage = startItemIndexPage + pageSize;
+
+  return pokemons.slice(startItemIndexPage, endItemIndexPage);
+};
+
+const filterPokemons = (pokemons: Result[], searchQuery: string) => {
+  if (!searchQuery) return pokemons;
+
+  return pokemons.filter((pokemon) => {
+    const pokemonName = pokemon.name.toLowerCase();
+    const searchQueryLower = searchQuery.toLowerCase();
+    const pokemonNumber = pokemon.url.split("/")[6].toString();
+
+    return (
+      pokemonName.includes(searchQueryLower) ||
+      pokemonNumber.includes(searchQueryLower)
+    );
+  });
+};
+
+const initialPagination: PaginationProps = { page: 1, pageSize: 20 };
 
 export const HomePage = () => {
-  return (
-    <Space direction="vertical">
-      <p>Hello World!</p>
-      <Space direction="horizontal">
-        <Button type="primary">Button</Button>
-        <Button type="default">Button</Button>
-        <Button type="text">Button</Button>
-        <Button type="dashed">Button</Button>
-        <Button type="link">Button</Button>
-      </Space>
-      <Radio>Radio</Radio>
-      <Checkbox>Checkbox</Checkbox>
-      <Input placeholder="Input" />
-      <Select
-        placeholder="Select an option"
-        size="middle"
-        options={[
-          { label: "Option 1", value: "1" },
-          { label: "Option 2", value: "2" },
-          { label: "Option 3", value: "3" },
-        ]}
+  const theme = useContext(ThemeContext);
+
+  const [pagination, setPagination] =
+    useState<PaginationProps>(initialPagination);
+  const [pokemons, setPokemons] = useState<Result[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const { data, isLoading } = useGetPokemons();
+
+  const filteredPokemons = useMemo(
+    () => filterPokemons(data?.results || [], searchQuery),
+    [data, searchQuery],
+  );
+  const totalOfPokemons = filteredPokemons.length || 0;
+
+  useEffect(() => {
+    const pokemons = paginatedPokemons(
+      filteredPokemons,
+      pagination.page,
+      pagination.pageSize,
+    );
+
+    setPokemons(() => [...pokemons]);
+  }, [filteredPokemons, pagination, searchQuery]);
+
+  if (isLoading) {
+    return (
+      <Spin
+        spinning={true}
+        fullscreen
+        indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}
       />
-    </Space>
+    );
+  }
+
+  const handlePagination = (page: number, pageSize: number) => {
+    setPagination((prev) => ({ ...prev, page, pageSize }));
+  };
+
+  const handleCancelSearch = () => {
+    setSearchQuery("");
+  };
+
+  const handleSearch = (value: string) => {
+    setSearchQuery(value);
+  };
+
+  return (
+    <S.Space direction="vertical" align="center">
+      <S.SearchRow>
+        <p>
+          Total of <strong>{totalOfPokemons}</strong> pokemons
+        </p>
+        <Search
+          placeholder="Search pokemons by name or number..."
+          enterButton="Catch them all!"
+          size="large"
+          onSearch={handleSearch}
+          suffix={
+            <Tooltip
+              title="Clear search"
+              color={theme?.pokemon.colors.main.primary}
+            >
+              <Button onClick={handleCancelSearch} type="text">
+                <CloseCircleFilled style={{ color: "gray" }} />
+              </Button>
+            </Tooltip>
+          }
+        />
+      </S.SearchRow>
+      <PokemonsList
+        pokemons={pokemons}
+        page={pagination.page}
+        pageSize={pagination.pageSize}
+        total={totalOfPokemons}
+        handlePagination={handlePagination}
+      />
+    </S.Space>
   );
 };

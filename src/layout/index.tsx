@@ -1,5 +1,4 @@
 import { Layout as AntLayout } from "antd";
-import { Content as AntContent } from "antd/es/layout/layout";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
@@ -23,14 +22,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Header theme={theme} toggleTheme={toggleTheme} />
       <AntLayout>
         <NavSideMenu collapsed={collapsed} setCollapsed={setCollapsed} />
-        <AntContent
-          style={{
-            margin: "1.5rem",
-            minHeight: 280,
-          }}
-        >
-          {children || <Outlet />}
-        </AntContent>
+        <S.Content>{children || <Outlet />}</S.Content>
       </AntLayout>
       <Footer />
     </S.Layout>
