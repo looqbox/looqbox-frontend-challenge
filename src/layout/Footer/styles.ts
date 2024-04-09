@@ -10,6 +10,7 @@ export const Container = styled(AntFooter)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 6rem;
 `;
 
 export const Social = styled.div`
@@ -23,6 +24,7 @@ export const Info = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-top: 1rem;
 `;
 
 export const Text = styled.p`
@@ -40,7 +42,7 @@ export const Description = styled(Button)`
 `;
 
 export const Image = styled.img`
-  width: 6rem;
+  width: 5.5rem;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
 

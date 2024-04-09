@@ -6,6 +6,9 @@ import { SocialButton, SocialButtonProps } from "@/components/SocialButton";
 
 import { handleGotoSite } from "@/utils/navigate";
 
+import { Tooltip } from "antd";
+import { useContext } from "react";
+import { ThemeContext } from "styled-components";
 import * as S from "./styles";
 
 const socialsNetwork: SocialButtonProps[] = [
@@ -34,34 +37,39 @@ const socialsNetwork: SocialButtonProps[] = [
     icon: <EmailIcon />,
   },
 ];
-console.log("🚀 ~ socialsNetwork:", socialsNetwork);
 
-export const Footer = () => (
-  <S.Container>
-    <S.Social>
-      {socialsNetwork.map((social) => (
-        <SocialButton
-          key={social.name}
-          name={social.name}
-          me={social.me}
-          url={social.url}
-          icon={social.icon}
+export const Footer = () => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <S.Container>
+      <S.Social>
+        {socialsNetwork.map((social) => (
+          <SocialButton
+            key={social.name}
+            name={social.name}
+            me={social.me}
+            url={social.url}
+            icon={social.icon}
+          />
+        ))}
+      </S.Social>
+      <S.Info>
+        <S.Text>Developed by Larissa Rabelo</S.Text>
+        <S.Description
+          type="link"
+          onClick={() => handleGotoSite('"https://www.larissarabelo.com.br"')}
+        >
+          www.larissarabelo.com.br
+        </S.Description>
+      </S.Info>
+      <Tooltip title="Poke API" color={theme?.pokemon.colors.main.primary}>
+        <S.Image
+          src="/assets/images/pokeball-red.png"
+          alt="Light theme icon"
+          onClick={() => handleGotoSite("https://pokeapi.co/")}
         />
-      ))}
-    </S.Social>
-    <S.Info>
-      <S.Text>Developed by Larissa Rabelo</S.Text>
-      <S.Description
-        type="link"
-        onClick={() => handleGotoSite('"https://www.larissarabelo.com.br"')}
-      >
-        www.larissarabelo.com.br
-      </S.Description>
-    </S.Info>
-    <S.Image
-      src="/assets/images/pokeball-red.png"
-      alt="Light theme icon"
-      onClick={() => handleGotoSite("https://pokeapi.co/")}
-    />
-  </S.Container>
-);
+      </Tooltip>
+    </S.Container>
+  );
+};
