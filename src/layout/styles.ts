@@ -4,6 +4,15 @@ import { styled } from "styled-components";
 
 export const Layout = styled(AntLayout)`
   min-height: 100vh;
+
+  .ant-layout {
+    background-image: ${({ theme }) =>
+      theme.type === "light"
+        ? `url("/assets/images/background-light.png")`
+        : `url("/assets/images/background-dark.png")`};
+
+    background-size: cover;
+  }
 `;
 
 export const Content = styled(AntContent)`
