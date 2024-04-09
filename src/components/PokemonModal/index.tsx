@@ -49,10 +49,6 @@ const PokemonModal = ({
       footer={null}
     >
       <S.ModalHeader>
-        <span>
-          <strong>{pokemon?.base_experience}</strong>
-          xp
-        </span>
         <h2>{pokemon?.name}</h2>
         {types?.map((type) => (
           <Tooltip title={type} key={type}>
