@@ -6,6 +6,7 @@ import { Card } from "@/components/Card";
 import * as S from "./styles";
 
 type PokemonsListProps = {
+  isLoading: boolean;
   pokemons: Result[];
   page: number;
   pageSize: number;
@@ -14,12 +15,26 @@ type PokemonsListProps = {
 };
 
 export const PokemonsList = ({
+  isLoading,
   pokemons,
   page,
   pageSize,
   total,
   handlePagination,
 }: PokemonsListProps) => {
+  if ((!pokemons || !pokemons.length) && !isLoading) {
+    return (
+      <S.Container>
+        <img
+          src="/assets/images/snorlax-sad.png"
+          alt="sad snorlax pokemon"
+          width={300}
+        />
+        <h2>No pokemons found</h2>
+      </S.Container>
+    );
+  }
+
   return (
     <S.Container>
       <Row gutter={[16, 16]} justify="center">

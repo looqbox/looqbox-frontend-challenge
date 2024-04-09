@@ -84,6 +84,7 @@ export const HomePage = () => {
 
   const handleSearch = (value: string) => {
     setSearchQuery(value);
+    setPagination((prev) => ({ ...prev, page: 1 }));
   };
 
   return (
@@ -110,6 +111,7 @@ export const HomePage = () => {
         />
       </S.SearchRow>
       <PokemonsList
+        isLoading={isLoading}
         pokemons={pokemons}
         page={pagination.page}
         pageSize={pagination.pageSize}
