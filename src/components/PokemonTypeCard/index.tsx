@@ -10,7 +10,7 @@ interface Props extends FC<HTMLProps<HTMLButtonElement>> {
 
 export default function PokemonTypeCard({ value, isSelected, onClick }: Props) {
   const pokemonTypeSelected = pokemonTypes.find(
-    (type) => type.name === value.toLowerCase()
+    (type) => type.name === value
   );
 
   const imgUrl = new URL(
@@ -24,7 +24,7 @@ export default function PokemonTypeCard({ value, isSelected, onClick }: Props) {
       onClick={onClick}
       isSelected={isSelected}
     >
-      <img src={imgUrl} alt="Pokemon type card mage" />
+      <img src={imgUrl} alt="Pokemon type card image" />
       <p>{value}</p>
     </StyledContainer>
   ) : (

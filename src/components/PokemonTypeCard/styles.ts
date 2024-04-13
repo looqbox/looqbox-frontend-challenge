@@ -19,7 +19,7 @@ export const StyledContainer = styled.button<StatusProps>`
   transition: 0.3s;
 
   p {
-    color: ${(props) => props.theme.white};
+    color: #FFF;
     font-size: 1rem;
     line-height: 1.5;
 
@@ -29,7 +29,7 @@ export const StyledContainer = styled.button<StatusProps>`
   svg path {
     transition: 0.3s;
     fill: ${(props) =>
-      props.isSelected ? props.theme.white : props.colorType};
+      props.isSelected ? "#FFF" : props.colorType};
   }
 
   &:hover {
