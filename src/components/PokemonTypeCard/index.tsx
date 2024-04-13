@@ -1,18 +1,22 @@
-import { FC, HTMLProps } from "react";
+import { CSSProperties } from "react";
 import { pokemonTypes } from "../../constants/pokemonTypes";
 import { StyledContainer } from "./styles";
 import { capitalizeString } from "../../utils/capitalizeString";
 
-interface Props extends FC<HTMLProps<HTMLButtonElement>> {
+interface Props {
   value: string;
   isSelected: boolean;
   onClick?: () => void;
+  styles?: CSSProperties
 }
 
-export default function PokemonTypeCard({ value, isSelected, onClick }: Props) {
-  const pokemonTypeSelected = pokemonTypes.find(
-    (type) => type.name === value
-  );
+export default function PokemonTypeCard({
+  value,
+  isSelected,
+  onClick,
+  styles,
+}: Props) {
+  const pokemonTypeSelected = pokemonTypes.find((type) => type.name === value);
 
   const imgUrl = new URL(
     `/src/assets/p/${pokemonTypeSelected?.name}.svg`,
@@ -21,6 +25,7 @@ export default function PokemonTypeCard({ value, isSelected, onClick }: Props) {
 
   return pokemonTypeSelected?.name && pokemonTypeSelected.color ? (
     <StyledContainer
+      style={styles}
       colorType={pokemonTypeSelected.color}
       onClick={onClick}
       isSelected={isSelected}
