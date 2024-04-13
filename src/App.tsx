@@ -10,5 +10,5 @@ export default function App() {
 
       <Home />
     </Provider>
-  )
+  );
 }

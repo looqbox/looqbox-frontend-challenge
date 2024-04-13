@@ -23,10 +23,13 @@ export function Header() {
       <ContainerHeader>
         <HeaderContent>
           <a href="/">
-          <img src={PokemonLogo} alt="Pokémon logo" />
+            <img src={PokemonLogo} alt="Pokémon logo" />
           </a>
           <Medias>
-            <a href="https://www.linkedin.com/in/pedro-furlan-b77707245/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/pedro-furlan-b77707245/"
+              target="_blank"
+            >
               <img src={LogoLinkedin} alt="Linkedin logo" />
             </a>
             <a href="https://github.com/PedroFurlann" target="_blank">
@@ -39,14 +42,13 @@ export function Header() {
       <ContainerHero>
         <Heroes>
           <div>
+            <ImgSmallHero src={ImgIvysaur} alt="Ivysaur image" />
 
-          <ImgSmallHero src={ImgIvysaur} alt="Ivysaur image" />
-
-          <ImgHero
-            style={{ transform: "none" }}
-            src={ImgPokemonTrainer}
-            alt="imagem do treinador do pokemon"
-          />
+            <ImgHero
+              style={{ transform: "none" }}
+              src={ImgPokemonTrainer}
+              alt="imagem do treinador do pokemon"
+            />
           </div>
 
           <ImgBigHero src={ImgCharizar} alt="Charizard image" />
