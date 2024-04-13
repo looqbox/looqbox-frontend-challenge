@@ -6,17 +6,17 @@ interface PokemonState {
   pokemons: Pokemon[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: any | null;
-  totalPages: number;
+  totalPokemons: number;
 }
 
-export const fetchPokemonsByType = createAsyncThunk<{pokemons: Pokemon[], totalPages: number}, { type: string, page: number }>(
+export const fetchPokemonsByType = createAsyncThunk<{pokemons: Pokemon[], totalPokemons: number}, { type: string, page: number }>(
   'pokemon/fetchByType',
   async ({ type, page }) => {
     
     const response = await api.get(`/type/${type}`);
     const data = response.data;
 
-    const totalPages = data.pokemon.length % 9 === 0 ? data.pokemon.length / 9 : Math.trunc(data.pokemon.length / 9) + 1
+    const totalPokemons = data.pokemon.length;
 
     const offset = 9 * (page - 1);
 
@@ -32,11 +32,11 @@ export const fetchPokemonsByType = createAsyncThunk<{pokemons: Pokemon[], totalP
 
     const pokemonList = await Promise.all(promises);
 
-    return { pokemons: pokemonList, totalPages, };
+    return { pokemons: pokemonList, totalPokemons, };
   }
 );
 
-export const fetchPokemonsWithPagination = createAsyncThunk<{ pokemons: Pokemon[]; totalPages: number }, number>(
+export const fetchPokemonsWithPagination = createAsyncThunk<{ pokemons: Pokemon[]; totalPokemons: number }, number>(
   'pokemon/fetchWithPagination',
   async (page: number) => {
     const offset = 9 * (page - 1);
@@ -53,24 +53,24 @@ export const fetchPokemonsWithPagination = createAsyncThunk<{ pokemons: Pokemon[
 
     const pokemonList = await Promise.all(promises);
 
-    return { pokemons: pokemonList, totalPages: 145 };
+    return { pokemons: pokemonList, totalPokemons: 1302 };
   }
 );
 
-export const fetchPokemonByName = createAsyncThunk<{ pokemon: Pokemon, totalPages: number }, string>(
+export const fetchPokemonByName = createAsyncThunk<{ pokemon: Pokemon, totalPokemons: number }, string>(
   'pokemon/fetchById',
   async (pokemonName: string) => {
     const response = await api.get(`/pokemon/${pokemonName}`);
     const data = response.data
 
-    return { pokemon: data, totalPages: 1 }
+    return { pokemon: data, totalPokemons: 1 }
   }
 );
 
 const initialState: PokemonState = {
   pokemons: [],
   status: 'idle',
-  totalPages: 10,
+  totalPokemons: 1,
   error: null,
 };
 
@@ -86,7 +86,7 @@ const pokemonSlice = createSlice({
       .addCase(fetchPokemonsByType.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.pokemons = action.payload.pokemons;
-        state.totalPages = action.payload.totalPages
+        state.totalPokemons = action.payload.totalPokemons
       })
       .addCase(fetchPokemonsByType.rejected, (state, action) => {
         state.status = 'failed';
@@ -98,7 +98,7 @@ const pokemonSlice = createSlice({
       .addCase(fetchPokemonsWithPagination.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.pokemons = action.payload.pokemons;
-        state.totalPages = action.payload.totalPages
+        state.totalPokemons = action.payload.totalPokemons
       })
       .addCase(fetchPokemonsWithPagination.rejected, (state, action) => {
         state.status = 'failed';
@@ -110,7 +110,7 @@ const pokemonSlice = createSlice({
       .addCase(fetchPokemonByName.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.pokemons = [action.payload.pokemon];
-        state.totalPages = action.payload.totalPages
+        state.totalPokemons = action.payload.totalPokemons
       })
       .addCase(fetchPokemonByName.rejected, (state, action) => {
         state.status = 'failed';
