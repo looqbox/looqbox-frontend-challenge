@@ -1,6 +1,7 @@
 import { FC, HTMLProps } from "react";
 import { pokemonTypes } from "../../constants/pokemonTypes";
 import { StyledContainer } from "./styles";
+import { capitalizeString } from "../../utils/capitalizeString";
 
 interface Props extends FC<HTMLProps<HTMLButtonElement>> {
   value: string;
@@ -25,7 +26,7 @@ export default function PokemonTypeCard({ value, isSelected, onClick }: Props) {
       isSelected={isSelected}
     >
       <img src={imgUrl} alt="Pokemon type card image" />
-      <p>{value}</p>
+      <p>{capitalizeString(value)}</p>
     </StyledContainer>
   ) : (
     <div></div>
