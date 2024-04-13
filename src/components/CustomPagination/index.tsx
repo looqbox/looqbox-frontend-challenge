@@ -1,16 +1,18 @@
-import React from 'react';
+import { FC } from 'react';
 import { StyledPagination } from './styles';
+import { PaginationProps } from 'antd';
 
-interface PaginationProps {
+interface Props extends PaginationProps {
   currentPage: number;
   totalItens: number
   onChange: (page: number) => void;
 }
 
-const CustomPagination: React.FC<PaginationProps> = ({
+const CustomPagination: FC<Props> = ({
   currentPage,
   totalItens,
   onChange,
+  ...rest
 }) => {
 
   const handlePageChange = (page: number) => {
@@ -19,6 +21,7 @@ const CustomPagination: React.FC<PaginationProps> = ({
 
   return (
     <StyledPagination
+      {...rest}
       current={currentPage}
       total={totalItens}
       onChange={handlePageChange}

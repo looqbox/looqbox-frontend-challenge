@@ -1,12 +1,14 @@
 import { Provider } from "react-redux";
 import { GlobalStyle } from "./styles/global";
 import { store } from "./store";
+import Home from "./pages/Home";
 
 export default function App() {
   return (
     <Provider store={store}>
-      <div>olá</div>
       <GlobalStyle />
+
+      <Home />
     </Provider>
   )
 }
