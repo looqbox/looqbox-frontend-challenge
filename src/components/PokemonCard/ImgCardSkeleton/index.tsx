@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Container, Skeleton } from "./styles";
 
-type SkeletonLoadingProps = {
+interface SkeletonLoadingProps {
   src: string;
   alt: string;
-};
+}
 
 export default function ImgCardSkeleton({ src, alt }: SkeletonLoadingProps) {
   const [skeleton, setSkeleton] = useState(true);

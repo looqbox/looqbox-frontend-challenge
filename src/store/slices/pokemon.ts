@@ -1,10 +1,14 @@
-import { createSlice, createAsyncThunk, SerializedError } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  createAsyncThunk,
+  SerializedError,
+} from "@reduxjs/toolkit";
 import { api } from "../../lib/axios";
 import { Pokemon } from "../../DTOs/Pokemon";
 
 interface PokemonState {
   pokemons: Pokemon[];
-  status: "idle" | "loading" | "succeeded" | "failed";
+  status: "default" | "loading" | "succeeded" | "failed";
   error: SerializedError | null;
   totalPokemons: number;
 }
@@ -24,10 +28,12 @@ export const fetchPokemonsByType = createAsyncThunk<
 
   const paginatedData = [...data.pokemon].slice(offset, endIndex);
 
-  const promises = paginatedData.map(async (item: { pokemon: { name: string, url: string } }) => {
-    const pokemonResponse = await api.get(`/pokemon/${item.pokemon.name}`);
-    return pokemonResponse.data;
-  });
+  const promises = paginatedData.map(
+    async (item: { pokemon: { name: string; url: string } }) => {
+      const pokemonResponse = await api.get(`/pokemon/${item.pokemon.name}`);
+      return pokemonResponse.data;
+    }
+  );
 
   const pokemonList = await Promise.all(promises);
 
@@ -67,7 +73,7 @@ export const fetchPokemonByName = createAsyncThunk<
 
 const initialState: PokemonState = {
   pokemons: [],
-  status: "idle",
+  status: "default",
   totalPokemons: 1,
   error: null,
 };
@@ -85,11 +91,16 @@ const pokemonSlice = createSlice({
         state.status = "succeeded";
         state.pokemons = action.payload.pokemons;
         state.totalPokemons = action.payload.totalPokemons;
+        state.error = null;
       })
       .addCase(fetchPokemonsByType.rejected, (state, action) => {
         state.status = "failed";
         state.error =
           action.error ?? "Erro ao buscar pokemons. Tente novamente mais tarde";
+        state.pokemons = action.error.message?.includes("404")
+          ? []
+          : state.pokemons;
+          state.totalPokemons = action.error.message?.includes("404") ? 0 : state.totalPokemons
       })
       .addCase(fetchPokemonsWithPagination.pending, (state) => {
         state.status = "loading";
@@ -98,11 +109,16 @@ const pokemonSlice = createSlice({
         state.status = "succeeded";
         state.pokemons = action.payload.pokemons;
         state.totalPokemons = action.payload.totalPokemons;
+        state.error = null;
       })
       .addCase(fetchPokemonsWithPagination.rejected, (state, action) => {
         state.status = "failed";
         state.error =
           action.error ?? "Erro ao buscar pokemons. Tente novamente mais tarde";
+        state.pokemons = action.error.message?.includes("404")
+          ? []
+          : state.pokemons;
+          state.totalPokemons = action.error.message?.includes("404") ? 0 : state.totalPokemons
       })
       .addCase(fetchPokemonByName.pending, (state) => {
         state.status = "loading";
@@ -111,11 +127,16 @@ const pokemonSlice = createSlice({
         state.status = "succeeded";
         state.pokemons = [action.payload.pokemon];
         state.totalPokemons = action.payload.totalPokemons;
+        state.error = null;
       })
       .addCase(fetchPokemonByName.rejected, (state, action) => {
         state.status = "failed";
         state.error =
           action.error ?? "Erro ao buscar pokemons. Tente novamente mais tarde";
+        state.pokemons = action.error.message?.includes("404")
+          ? []
+          : state.pokemons;
+          state.totalPokemons = action.error.message?.includes("404") ? 0 : state.totalPokemons
       });
   },
 });
