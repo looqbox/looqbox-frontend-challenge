@@ -24,7 +24,7 @@ import PokeballIcon from "../../../../assets/pokeball-icon-colored.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../store";
 import {
-  fetchPokemonByName,
+  fetchPokemonByNameOrId,
   fetchPokemonsByType,
   fetchPokemonsWithPagination,
 } from "../../../../store/slices/pokemon";
@@ -36,10 +36,10 @@ import CustomPagination from "../../../../components/CustomPagination";
 import { useNavigate } from "react-router-dom";
 
 export default function Content() {
-  const [pokemonNameField, setPokemonNameField] = useState<string>("");
+  const [pokemonNameOrId, setPokemonNameOrId] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
   const [typeSelected, setTypeSelected] = useState<string | null>(null);
-  const [makeRequestByName, setMakeRequestByName] = useState<boolean>(false)
+  const [makeRequestByNameOrId, setMakeRequestByNameOrId] = useState<boolean>(false)
 
   const { error, pokemons, status, totalPokemons } = useSelector(
     (state: RootState) => state.pokemon
@@ -47,19 +47,19 @@ export default function Content() {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate()
 
-  const handleFetchPokemonByName = (e: FormEvent) => {
+  const handleFetchPokemonByNameOrId = (e: FormEvent) => {
     e.preventDefault();
-    if (pokemonNameField.length <= 0) {
+    if (pokemonNameOrId.length <= 0) {
       dispatch(fetchPokemonsWithPagination(1));
       setTypeSelected(null)
-      setMakeRequestByName(false)
+      setMakeRequestByNameOrId(false)
       setCurrentPage(1)
       return;
     }
 
     setTypeSelected(null);
-    setMakeRequestByName(true)
-    dispatch(fetchPokemonByName(pokemonNameField.toLocaleLowerCase()));
+    setMakeRequestByNameOrId(true)
+    dispatch(fetchPokemonByNameOrId(pokemonNameOrId.toLocaleLowerCase()));
 
     setCurrentPage(1);
   };
@@ -76,40 +76,40 @@ export default function Content() {
     if (type === typeSelected) {
       setTypeSelected(null);
       setCurrentPage(1)
-      setMakeRequestByName(false)
+      setMakeRequestByNameOrId(false)
       return;
     }
 
     setTypeSelected(type);
-    setMakeRequestByName(false)
+    setMakeRequestByNameOrId(false)
     dispatch(fetchPokemonsByType({ page: currentPage, type }));
     setCurrentPage(1);
   };
 
   useEffect(() => {
-    if (!typeSelected && currentPage && !makeRequestByName) {
+    if (!typeSelected && currentPage && !makeRequestByNameOrId) {
       dispatch(fetchPokemonsWithPagination(currentPage));
     }
-  }, [currentPage, typeSelected, dispatch, makeRequestByName]);
+  }, [currentPage, typeSelected, dispatch, makeRequestByNameOrId]);
 
   useEffect(() => {
-    if (typeSelected && currentPage && !makeRequestByName) {
+    if (typeSelected && currentPage && !makeRequestByNameOrId) {
       dispatch(fetchPokemonsByType({ page: currentPage, type: typeSelected }));
     }
-  }, [currentPage, typeSelected, dispatch, makeRequestByName]);
+  }, [currentPage, typeSelected, dispatch, makeRequestByNameOrId]);
 
   return (
     <StyledContainerBody>
       <SearchContainer>
         <InputSearchContainer>
-          <form onSubmit={(e) => handleFetchPokemonByName(e)}>
+          <form onSubmit={(e) => handleFetchPokemonByNameOrId(e)}>
             <InputSearch
               type="text"
               placeholder="Pesquisar Pokemon"
               onChange={(e) =>
-                setPokemonNameField(e.target.value)
+                setPokemonNameOrId(e.target.value)
               }
-              value={pokemonNameField}
+              value={pokemonNameOrId}
             />
             <ButtonSearch type="submit">
               <img src={IconSearch} alt="icone de lupa" />

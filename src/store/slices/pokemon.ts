@@ -61,11 +61,11 @@ export const fetchPokemonsWithPagination = createAsyncThunk<
   return { pokemons: pokemonList, totalPokemons: 1302 };
 });
 
-export const fetchPokemonByName = createAsyncThunk<
+export const fetchPokemonByNameOrId = createAsyncThunk<
   { pokemon: Pokemon; totalPokemons: number },
   string
->("pokemon/fetchById", async (pokemonName: string) => {
-  const response = await api.get(`/pokemon/${pokemonName}`);
+>("pokemon/fetchById", async (pokemonNameOrId: string) => {
+  const response = await api.get(`/pokemon/${pokemonNameOrId}`);
   const data = response.data;
 
   return { pokemon: data, totalPokemons: 1 };
@@ -120,16 +120,16 @@ const pokemonSlice = createSlice({
           : state.pokemons;
           state.totalPokemons = action.error.message?.includes("404") ? 0 : state.totalPokemons
       })
-      .addCase(fetchPokemonByName.pending, (state) => {
+      .addCase(fetchPokemonByNameOrId.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchPokemonByName.fulfilled, (state, action) => {
+      .addCase(fetchPokemonByNameOrId.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.pokemons = [action.payload.pokemon];
         state.totalPokemons = action.payload.totalPokemons;
         state.error = null;
       })
-      .addCase(fetchPokemonByName.rejected, (state, action) => {
+      .addCase(fetchPokemonByNameOrId.rejected, (state, action) => {
         state.status = "failed";
         state.error =
           action.error ?? "Erro ao buscar pokemons. Tente novamente mais tarde";

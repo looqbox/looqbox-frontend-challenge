@@ -20,7 +20,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../store";
 import { useEffect } from "react";
-import { fetchPokemonByName } from "../../../../store/slices/pokemon";
+import { fetchPokemonByNameOrId } from "../../../../store/slices/pokemon";
 import { basePokemonImgUrl } from "../../../../constants/basePokemonImgUrl";
 import Loading from "../../../../components/Loading";
 import { capitalizeString } from "../../../../utils/capitalizeString";
@@ -43,7 +43,7 @@ export default function Content() {
 
   useEffect(() => {
     if (pokemonName) {
-      dispatch(fetchPokemonByName(pokemonName));
+      dispatch(fetchPokemonByNameOrId(pokemonName));
     }
   }, [dispatch, pokemonName]);
 
