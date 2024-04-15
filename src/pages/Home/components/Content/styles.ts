@@ -107,6 +107,7 @@ export const ButtonSearch = styled.button`
 
   transition: background-color 0.3s;
 `;
+
 export const ContainerDivider = styled.div`
   max-width: 76rem;
   margin: 4.5rem auto 12rem;

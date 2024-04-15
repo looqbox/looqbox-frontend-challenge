@@ -7,9 +7,9 @@ export const formatPokemonStatus = (statName: string) => {
     case "defense":
       return "Defesa";
     case "special-attack":
-      return "Ataque especial";
+      return "At. especial";
     case "special-defense":
-      return "Defesa especial";
+      return "Def. especial";
     case "speed":
       return "Velocidade";
   }

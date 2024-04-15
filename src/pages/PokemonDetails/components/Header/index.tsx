@@ -10,25 +10,26 @@ import PokemonLogo from "../../../../assets/logo-pokemon.svg";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleBackToHome = () => {
-    navigate("/home")
-  }
+    navigate("/home");
+  };
 
   return (
-    <StyledContainerHeader>
-      <ContainerBack onClick={handleBackToHome} >
-        <img src={ArrowBack} alt="Arrow back" />
+    <>
+      <StyledContainerHeader>
+        <ContainerBack onClick={handleBackToHome}>
+          <img src={ArrowBack} alt="Arrow back" />
 
-        <TextBack>Voltar</TextBack>
-      </ContainerBack>
-
+          <TextBack>Voltar</TextBack>
+        </ContainerBack>
+      </StyledContainerHeader>
       <ContainerLogo>
         <ContainerImage onClick={handleBackToHome}>
           <img src={PokemonLogo} alt="Pokemon logo" />
         </ContainerImage>
       </ContainerLogo>
-    </StyledContainerHeader>
+    </>
   );
 }

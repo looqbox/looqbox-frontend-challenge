@@ -13,16 +13,15 @@ export const StyledContainerHeader = styled.div`
 `;
 
 export const ContainerLogo = styled.div`
-  width: 100%;
   display: flex;
+  margin-top: -2.2rem;
   align-items: center;
   justify-content: center;
-  flex: 1;
 
   @media (max-width: 768px) {
     display: none;
   }
-`
+`;
 
 export const ContainerImage = styled.div`
   transition: 0.3s;
@@ -31,13 +30,12 @@ export const ContainerImage = styled.div`
     cursor: pointer;
     opacity: 0.7;
   }
-`
+`;
 
 export const ContainerBack = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 30px;
   margin-left: 1.5rem;
   transition: 0.3s;
 
@@ -46,14 +44,21 @@ export const ContainerBack = styled.div`
     opacity: 0.7;
   }
 
+  p {
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+
   @media (max-width: 768px) {
     margin-left: 0;
   }
-`
+`;
 
 export const TextBack = styled.p`
   color: #fff;
   font-size: 1rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-`
+`;

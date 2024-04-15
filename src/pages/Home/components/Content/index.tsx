@@ -131,7 +131,7 @@ export default function Content() {
 
       <ContainerDivider>
         <DividerLeft />
-        <StyledPokeballIcon src={PokeballIcon} alt="" />
+        <StyledPokeballIcon src={PokeballIcon} alt="Pokeball icon" />
         <DividerRight />
       </ContainerDivider>
       {status === "loading" ? (

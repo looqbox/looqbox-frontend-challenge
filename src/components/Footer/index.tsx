@@ -5,8 +5,8 @@ import {
   Medias,
   StyledGlobalContainer,
 } from "./styles";
-import LogoLinkedin from "../../../../assets/logo-linkedin.svg";
-import LogoGithub from "../../../../assets/logo-github.svg";
+import LogoLinkedin from "../../assets/logo-linkedin.svg";
+import LogoGithub from "../../assets/logo-github.svg";
 
 
 export function Footer() {
