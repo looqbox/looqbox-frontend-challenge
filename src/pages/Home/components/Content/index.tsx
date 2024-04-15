@@ -39,6 +39,7 @@ export default function Content() {
   const [pokemonNameField, setPokemonNameField] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
   const [typeSelected, setTypeSelected] = useState<string | null>(null);
+  const [makeRequestByName, setMakeRequestByName] = useState<boolean>(false)
 
   const { error, pokemons, status, totalPokemons } = useSelector(
     (state: RootState) => state.pokemon
@@ -50,12 +51,14 @@ export default function Content() {
     e.preventDefault();
     if (pokemonNameField.length <= 0) {
       dispatch(fetchPokemonsWithPagination(1));
+      setTypeSelected(null)
+      setMakeRequestByName(false)
       setCurrentPage(1)
       return;
     }
 
     setTypeSelected(null);
-
+    setMakeRequestByName(true)
     dispatch(fetchPokemonByName(pokemonNameField.toLocaleLowerCase()));
 
     setCurrentPage(1);
@@ -73,26 +76,27 @@ export default function Content() {
     if (type === typeSelected) {
       setTypeSelected(null);
       setCurrentPage(1)
+      setMakeRequestByName(false)
       return;
     }
 
     setTypeSelected(type);
-
+    setMakeRequestByName(false)
     dispatch(fetchPokemonsByType({ page: currentPage, type }));
     setCurrentPage(1);
   };
 
   useEffect(() => {
-    if (!typeSelected && currentPage) {
+    if (!typeSelected && currentPage && !makeRequestByName) {
       dispatch(fetchPokemonsWithPagination(currentPage));
     }
-  }, [currentPage, typeSelected, dispatch]);
+  }, [currentPage, typeSelected, dispatch, makeRequestByName]);
 
   useEffect(() => {
-    if (typeSelected && currentPage) {
+    if (typeSelected && currentPage && !makeRequestByName) {
       dispatch(fetchPokemonsByType({ page: currentPage, type: typeSelected }));
     }
-  }, [currentPage, typeSelected, dispatch]);
+  }, [currentPage, typeSelected, dispatch, makeRequestByName]);
 
   return (
     <StyledContainerBody>
