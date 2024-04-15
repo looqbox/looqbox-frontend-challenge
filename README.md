@@ -2,6 +2,9 @@
 
 # Pokedéx
 
+# Access it now via the link below
+## [Access Pokedex](https://looqbox-frontend-challenge-kappa.vercel.app/favorite-pokemons)
+
 <p>
   <img src="https://img.shields.io/badge/made%20by-Vitor%20Santana-DC0A2D?style=flat-square">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/vitorSantanaDev/client-codesec-clone?color=DC0A2D&style=flat-square">
@@ -41,6 +44,9 @@ $ git clone https://github.com/vitorSantanaDev/looqbox-frontend-challenge.git
 
 # Enter the folder with
 $ cd looqbox-frontend-challenge
+
+# Create an .env file in the root of the project, add the same variable as in the env.example file and add the following url: 
+$ https://pokeapi.co/api/v2/
 
 # Install the dependencies
 $ yarn install
