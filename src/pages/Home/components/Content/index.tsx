@@ -62,7 +62,7 @@ export default function Content() {
   };
 
   const handleGoToPokemonDetails = (pokemonName: string) => {
-    navigate(`/pokemon-details/${pokemonName}`)
+    navigate(`/details/${pokemonName}`)
   }
 
   const handlePageChange = (page: number) => {

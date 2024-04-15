@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   AttributesContainer,
   AttributesList,
@@ -31,9 +31,13 @@ import PokemonTypeCard from "../../../../components/PokemonTypeCard";
 import { formatPokemonStatus } from "../../../../utils/formatPokemonStatus";
 
 export default function Content() {
-  const { pokemons, status } = useSelector((state: RootState) => state.pokemon);
+  const { pokemons, status, error } = useSelector(
+    (state: RootState) => state.pokemon
+  );
+
   const dispatch = useDispatch<AppDispatch>();
   const { pokemonName } = useParams();
+  const navigate = useNavigate();
 
   const pokemonImg = basePokemonImgUrl + `${pokemons[0]?.id}.png`;
 
@@ -42,6 +46,13 @@ export default function Content() {
       dispatch(fetchPokemonByName(pokemonName));
     }
   }, [dispatch, pokemonName]);
+
+  useEffect(() => {
+    if (error?.message?.includes("404")) {
+      navigate("/home");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error]);
 
   return (
     <>
@@ -64,7 +75,9 @@ export default function Content() {
           <BaseStatsContainer>
             <StatsLine>
               <LineTitle>Nome:</LineTitle>
-              <LineDescription>{capitalizeString(pokemons[0]?.name)}</LineDescription>
+              <LineDescription>
+                {capitalizeString(pokemons[0]?.name)}
+              </LineDescription>
             </StatsLine>
 
             <StatsLine>
@@ -97,17 +110,19 @@ export default function Content() {
 
           <AttributesContainer>
             <LineTitle style={{ marginBottom: 42 }}>Atributos</LineTitle>
-              {pokemons[0]?.stats?.map(({ stat, base_stat }) => (
-                <AttributesList>
-                  <LineTitle style={{ width: 120 }}>{formatPokemonStatus(stat.name)}</LineTitle>
-                  <LineDescription style={{ width: 30 }}>{base_stat}</LineDescription>
-                  <ProgressBar>
-                    <ProgressBarFill
-                      status={base_stat}
-                    ></ProgressBarFill>
-                  </ProgressBar>
-                </AttributesList>
-              ))}
+            {pokemons[0]?.stats?.map(({ stat, base_stat }) => (
+              <AttributesList>
+                <LineTitle style={{ width: 120 }}>
+                  {formatPokemonStatus(stat.name)}
+                </LineTitle>
+                <LineDescription style={{ width: 30 }}>
+                  {base_stat}
+                </LineDescription>
+                <ProgressBar>
+                  <ProgressBarFill status={base_stat}></ProgressBarFill>
+                </ProgressBar>
+              </AttributesList>
+            ))}
           </AttributesContainer>
         </BodyContainer>
       )}
