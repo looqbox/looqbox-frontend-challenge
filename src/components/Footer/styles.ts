@@ -15,7 +15,7 @@ max-width: 76rem;
 width: 100%;
 margin: 0 auto;
 
-border-top: 1px solid ${props => props.theme["pokemon-card-border"]};
+border-top: 1px solid #24293F;
 
 @media (max-width: 768px) {
   padding-top: 0.5rem;
@@ -49,7 +49,7 @@ gap: 1.5rem;
 export const Copyright = styled.div`
 
 > p {
-  color: ${props => props.theme.white};
+  color: #fff;
   font-size: 0.75rem;
   line-height: 1.5;
 }

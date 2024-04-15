@@ -22,9 +22,7 @@ export function Header() {
     <StyledGlobalContainer>
       <ContainerHeader>
         <HeaderContent>
-          <a href="/">
-            <img src={PokemonLogo} alt="Pokémon logo" />
-          </a>
+            <img src={PokemonLogo} alt="Pokemon logo" />
           <Medias>
             <a
               href="https://www.linkedin.com/in/pedro-furlan-b77707245/"

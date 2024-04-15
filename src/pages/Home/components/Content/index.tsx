@@ -33,6 +33,7 @@ import PokemonTypeCard from "../../../../components/PokemonTypeCard";
 import Loading from "../../../../components/Loading";
 import PokemonCard from "../../../../components/PokemonCard";
 import CustomPagination from "../../../../components/CustomPagination";
+import { useNavigate } from "react-router-dom";
 
 export default function Content() {
   const [pokemonNameField, setPokemonNameField] = useState<string>("");
@@ -43,6 +44,7 @@ export default function Content() {
     (state: RootState) => state.pokemon
   );
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate()
 
   const handleFetchPokemonByName = (e: FormEvent) => {
     e.preventDefault();
@@ -56,9 +58,12 @@ export default function Content() {
 
     dispatch(fetchPokemonByName(pokemonNameField.toLocaleLowerCase()));
 
-    setPokemonNameField("");
     setCurrentPage(1);
   };
+
+  const handleGoToPokemonDetails = (pokemonName: string) => {
+    navigate(`/pokemon-details/${pokemonName}`)
+  }
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -138,7 +143,7 @@ export default function Content() {
           </ContainerGif>
           <TextPokemonNotFound>
             Desculpe, pokemon não encontrado! (Dica: Digite o nome inteiro do
-            pokemon para a pesquisa funcionar.)
+            pokemon para a pesquisa funcionar)
           </TextPokemonNotFound>
         </PokemonNotFound>
       ) : (
@@ -147,7 +152,7 @@ export default function Content() {
             <PokemonCard
               key={pokemon.id}
               pokemon={pokemon}
-              goToDetails={() => console.log("ir para outra página")}
+              goToDetails={() => handleGoToPokemonDetails(pokemon.name)}
             />
           ))}
         </ContainerCards>

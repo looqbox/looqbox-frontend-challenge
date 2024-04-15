@@ -19,6 +19,7 @@ import {
 import { formatPokemonId } from "../../utils/formatPokemonId";
 import ImgCardSkeleton from "./ImgCardSkeleton";
 import { basePokemonImgUrl } from "../../constants/basePokemonImgUrl";
+import { capitalizeString } from "../../utils/capitalizeString";
 
 interface Props {
   goToDetails: () => void;
@@ -39,7 +40,7 @@ export default function PokemonCard({ pokemon, goToDetails }: Props) {
         <ImgCardSkeleton src={pokemonImg} alt={pokemon.name} />
       </PokemonImg>
       <PokemonNumber>{formatPokemonId(pokemon.id)}</PokemonNumber>
-      <PokemonName>{pokemon.name}</PokemonName>
+      <PokemonName>{capitalizeString(pokemon.name)}</PokemonName>
       <PokemonType>
         {pokemon.types.map(({ type }) => (
           <PokemonTypeCard

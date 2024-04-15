@@ -80,7 +80,6 @@ export const PokemonName = styled.span`
   font-size: 2rem;
   line-height: 135%;
   font-weight: 700;
-  text-transform: capitalize;
   text-align: center;
   display: block;
   margin: 0.25rem 0.5rem 0.75rem;
@@ -124,6 +123,7 @@ export const PokemonHeight = styled(PokemonWeight)``;
 export const MoreDetailsButton = styled.button<{ color: string }>`
   width: calc(100% + 2px);
   height: 3rem;
+  transition: 0.3s;
   background: ${(props) => props.color};
   border-radius: 0 0 1.5rem 1.5rem;
   display: flex;
@@ -138,5 +138,9 @@ export const MoreDetailsButton = styled.button<{ color: string }>`
   svg {
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  &:hover {
+    opacity: 0.7;
   }
 `;

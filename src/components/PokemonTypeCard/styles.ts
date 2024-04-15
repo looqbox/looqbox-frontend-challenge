@@ -22,8 +22,6 @@ export const StyledContainer = styled.button<StatusProps>`
     color: #FFF;
     font-size: 1rem;
     line-height: 1.5;
-
-    text-transform: capitalize;
   }
 
   svg path {
