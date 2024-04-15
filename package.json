@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
+    "@styled-icons/boxicons-regular": "^10.47.0",
     "@tanstack/react-query": "^5.29.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
