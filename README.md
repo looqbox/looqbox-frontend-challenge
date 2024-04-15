@@ -45,7 +45,8 @@ $ git clone https://github.com/vitorSantanaDev/looqbox-frontend-challenge.git
 # Enter the folder with
 $ cd looqbox-frontend-challenge
 
-# Create an .env file in the root of the project, add the same variable as in the env.example file and add the following url: 
+# Create an .env file in the root of the project, add the same variable as in the env.example
+# and add the url below as a value
 $ https://pokeapi.co/api/v2/
 
 # Install the dependencies
