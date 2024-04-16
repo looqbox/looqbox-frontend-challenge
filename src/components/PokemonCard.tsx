@@ -9,7 +9,6 @@ import axios from "axios";
 
 type CardProps = {
   name: string;
-  url: string;
 };
 
 export interface PokemonData {
@@ -37,7 +36,7 @@ interface Sprites {
   back_default: string;
   // Add other sprite types as needed
 }
-export default function PokemonCard({ name, url }: CardProps) {
+export default function PokemonCard({ name }: CardProps) {
   const [pokemon, setPokemon] = useState<PokemonData>();
 
   useEffect(() => {
@@ -45,7 +44,9 @@ export default function PokemonCard({ name, url }: CardProps) {
   }, []);
 
   const getPokemon = async () => {
-    const response = await axios.get(url);
+    const response = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon/${name}/`
+    );
     setPokemon(response.data);
   };
 

@@ -14,7 +14,7 @@ import React, { useEffect, useState } from "react";
 
 type PageParams = {
   params: {
-    id: string;
+    name: string;
   };
 };
 
@@ -27,7 +27,7 @@ const ProfilePage = ({ params }: PageParams) => {
 
   const getPokemon = async () => {
     const response = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${params.id}/`
+      `https://pokeapi.co/api/v2/pokemon/${params.name}/`
     );
     setPokemon(response.data);
   };

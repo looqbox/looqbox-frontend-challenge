@@ -53,9 +53,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 type PropsNavbar = {
   pokemonFilter: (name: string) => Pokemon[];
+  getPokemon: (e: React.KeyboardEvent<HTMLInputElement>) => Promise<void>;
 };
 
-export default function Navbar({ pokemonFilter }: PropsNavbar) {
+export default function Navbar({ pokemonFilter, getPokemon }: PropsNavbar) {
   return (
     <Box sx={{ flexGrow: 1, marginBottom: "1rem" }}>
       <AppBar position="static" sx={{ backgroundColor: "black" }}>
@@ -76,6 +77,7 @@ export default function Navbar({ pokemonFilter }: PropsNavbar) {
                 placeholder="Procurar..."
                 inputProps={{ "aria-label": "search" }}
                 onChange={(e) => pokemonFilter(e.target.value)}
+                onKeyDown={getPokemon}
               />
             </Search>
           </Box>
