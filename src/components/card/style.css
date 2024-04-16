@@ -1,0 +1,332 @@
+.card {
+  width: 356px;
+  height: 100%;
+  border-radius: 16px;
+  gap: 12px;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.55s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.description-card-container {
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+}
+
+.name-card-container {
+  gap: 2px;
+  flex-direction: column;
+}
+
+.pokemon-id {
+  color: #333333;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.pokemon-name {
+  color: #333333;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+}
+
+.image-container {
+  position: relative;
+  width: 150px;
+  justify-content: space-between;
+  border-radius: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-card {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Types variation */
+
+.card-normal {
+  background-color: rgba(145, 154, 162, 0.5);
+}
+
+.card-fire {
+  background-color: rgba(255, 157, 85, 0.5);
+}
+
+.card-water {
+  background-color: rgba(80, 144, 214, 0.5);
+}
+
+.card-grass {
+  background-color: rgba(99, 188, 90, 0.5);
+}
+
+.card-flying {
+  background-color: rgba(137, 170, 227, 0.5);
+}
+
+.card-fighting {
+  background-color: rgba(206, 65, 107, 0.5);
+}
+
+.card-poison {
+  background-color: rgba(181, 103, 206, 0.5);
+}
+
+.card-electric {
+  background-color: rgba(244, 210, 60, 0.5);
+}
+
+.card-ground {
+  background-color: rgba(217, 120, 69, 0.5);
+}
+
+.card-rock {
+  background-color: rgba(197, 183, 140, 0.5);
+}
+
+.card-psychic {
+  background-color: rgba(250, 113, 121, 0.5);
+}
+
+.card-ice {
+  background-color: rgba(115, 206, 192, 0.5);
+}
+
+.card-bug {
+  background-color: rgba(145, 193, 47, 0.5);
+}
+
+.card-ghost {
+  background-color: rgba(82, 105, 173, 0.5);
+}
+
+.card-steel {
+  background-color: rgba(90, 142, 162, 0.5);
+}
+
+.card-dragon {
+  background-color: rgba(11, 109, 195, 0.5);
+}
+
+.card-dark {
+  background-color: rgba(217, 120, 69, 0.5);
+}
+
+.card-fairy {
+  background-color: rgba(236, 143, 230, 0.5);
+}
+
+.card-normal:hover {
+  background-color: rgba(145, 154, 162, 0.55);
+}
+
+.card-fire:hover {
+  background-color: rgba(255, 157, 85, 0.55);
+}
+
+.card-water:hover {
+  background-color: rgba(80, 144, 214, 0.55);
+}
+
+.card-grass:hover {
+  background-color: rgba(99, 188, 90, 0.55);
+}
+
+.card-flying:hover {
+  background-color: rgba(137, 170, 227, 0.55);
+}
+
+.card-fighting:hover {
+  background-color: rgba(206, 65, 107, 0.55);
+}
+
+.card-poison:hover {
+  background-color: rgba(181, 103, 206, 0.55);
+}
+
+.card-electric:hover {
+  background-color: rgba(244, 210, 60, 0.55);
+}
+
+.card-ground:hover {
+  background-color: rgba(217, 120, 69, 0.55);
+}
+
+.card-rock:hover {
+  background-color: rgba(197, 183, 140, 0.55);
+}
+
+.card-psychic:hover {
+  background-color: rgba(250, 113, 121, 0.55);
+}
+
+.card-ice:hover {
+  background-color: rgba(115, 206, 192, 0.55);
+}
+
+.card-bug:hover {
+  background-color: rgba(145, 193, 47, 0.55);
+}
+
+.card-ghost:hover {
+  background-color: rgba(82, 105, 173, 0.55);
+}
+
+.card-steel:hover {
+  background-color: rgba(90, 142, 162, 0.55);
+}
+
+.card-dragon:hover {
+  background-color: rgba(11, 109, 195, 0.55);
+}
+
+.card-dark:hover {
+  background-color: rgba(217, 120, 69, 0.55);
+}
+
+.card-fairy:hover {
+  background-color: rgba(236, 143, 230, 0.55);
+}
+
+.image-container-normal {
+  background-color: rgba(145, 154, 162, 0.9);
+}
+
+.image-container-fire {
+  background-color: rgba(255, 157, 85, 0.9);
+}
+
+.image-container-water {
+  background-color: rgba(80, 144, 214, 0.9);
+}
+
+.image-container-grass {
+  background-color: rgba(99, 188, 90, 0.9);
+}
+
+.image-container-flying {
+  background-color: rgba(137, 170, 227, 0.9);
+}
+
+.image-container-fighting {
+  background-color: rgba(206, 65, 107, 0.9);
+}
+
+.image-container-poison {
+  background-color: rgba(181, 103, 206, 0.9);
+}
+
+.image-container-electric {
+  background-color: rgba(244, 210, 60, 0.9);
+}
+
+.image-container-ground {
+  background-color: rgba(217, 120, 69, 0.9);
+}
+
+.image-container-rock {
+  background-color: rgba(197, 183, 140, 0.9);
+}
+
+.image-container-psychic {
+  background-color: rgba(250, 113, 121, 0.9);
+}
+
+.image-container-ice {
+  background-color: rgba(115, 206, 192, 0.9);
+}
+
+.image-container-bug {
+  background-color: rgba(145, 193, 47, 0.9);
+}
+
+.image-container-ghost {
+  background-color: rgba(82, 105, 173, 0.9);
+}
+
+.image-container-steel {
+  background-color: rgba(90, 142, 162, 0.9);
+}
+
+.image-container-dragon {
+  background-color: rgba(11, 109, 195, 0.9);
+}
+
+.image-container-dark {
+  background-color: rgba(217, 120, 69, 0.9);
+}
+
+.image-container-fairy {
+  background-color: rgba(236, 143, 230, 0.9);
+}
+
+.image-container-flying:hover {
+  background-color: rgba(137, 170, 227, 0.95);
+}
+
+.image-container-fighting:hover {
+  background-color: rgba(206, 65, 107, 0.95);
+}
+
+.image-container-poison:hover {
+  background-color: rgba(181, 103, 206, 0.95);
+}
+
+.image-container-electric:hover {
+  background-color: rgba(244, 210, 60, 0.95);
+}
+
+.image-container-ground:hover {
+  background-color: rgba(217, 120, 69, 0.95);
+}
+
+.image-container-rock:hover {
+  background-color: rgba(197, 183, 140, 0.95);
+}
+
+.image-container-psychic:hover {
+  background-color: rgba(250, 113, 121, 0.95);
+}
+
+.image-container-ice:hover {
+  background-color: rgba(115, 206, 192, 0.95);
+}
+
+.image-container-bug:hover {
+  background-color: rgba(145, 193, 47, 0.95);
+}
+
+.image-container-ghost:hover {
+  background-color: rgba(82, 105, 173, 0.95);
+}
+
+.image-container-steel:hover {
+  background-color: rgba(90, 142, 162, 0.95);
+}
+
+.image-container-dragon:hover {
+  background-color: rgba(11, 109, 195, 0.95);
+}
+
+.image-container-dark:hover {
+  background-color: rgba(217, 120, 69, 0.95);
+}
+
+.image-container-fairy:hover {
+  background-color: rgba(236, 143, 230, 0.95);
+}
