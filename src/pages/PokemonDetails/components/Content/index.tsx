@@ -101,7 +101,7 @@ export default function Content() {
             size: 18,
             weight: "bold",
           },
-          color: "#e4e4e7",
+          color: "#FFF",
         },
       },
       y: {
@@ -110,7 +110,7 @@ export default function Content() {
             size: 18,
             weight: "bold",
           },
-          color: "#e4e4e7",
+          color: "#FFF",
         },
       },
     },
@@ -120,11 +120,10 @@ export default function Content() {
     labels: categories,
     datasets: [
       {
-        label: undefined,
         data: chartDatasetsData,
-        backgroundColor: chartBackgroundColorBar, // Cor das barras
-        borderColor: chartBorderColorBar, // Cor da borda das barras
-        borderWidth: 6, // Largura da borda das barras
+        backgroundColor: chartBackgroundColorBar,
+        borderColor: chartBorderColorBar,
+        borderWidth: 6,
       },
     ],
   };
