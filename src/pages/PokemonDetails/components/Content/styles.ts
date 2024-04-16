@@ -135,7 +135,7 @@ export const ProgressBarFill = styled.div<{ status: number }>`
   max-width: 100%;
   border-radius: 4px;
 
-  background-color: ${({ status }) => (status >= 50 ? "#1CD80E" : "#ff215b")};
+  background-color: ${({ status }) => (status >= 50 ? "#1CD80E" : "#FF0000")};
 
   box-shadow: 0px 0px 12px 4px rgba(28, 216, 14, 0.25);
 
@@ -144,3 +144,12 @@ export const ProgressBarFill = styled.div<{ status: number }>`
 
   width: ${(props) => props.status}%;
 `;
+
+export const ChartContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 800px;
+  margin-bottom: -120px;
+`

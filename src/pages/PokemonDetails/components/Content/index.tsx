@@ -4,6 +4,7 @@ import {
   AttributesList,
   BaseStatsContainer,
   BodyContainer,
+  ChartContainer,
   ContainerDivider,
   ContainerPokemon,
   DividerLeft,
@@ -17,6 +18,7 @@ import {
   StyledContentContainer,
   StyledPokeballIcon,
 } from "./styles";
+import { Bar } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../store";
 import { useEffect } from "react";
@@ -28,7 +30,26 @@ import PokeballIcon from "../../../../assets/pokeball-icon-colored.svg";
 import { ReactComponent as WeightIcon } from "../../../../assets/icon-weight.svg";
 import { ReactComponent as RulerIcon } from "../../../../assets/icon-ruler.svg";
 import PokemonTypeCard from "../../../../components/PokemonTypeCard";
+import {
+  BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
+  Title,
+  Tooltip,
+} from "chart.js";
 import { formatPokemonStatus } from "../../../../utils/formatPokemonStatus";
+import { useWindowSize } from "../../../../hooks/useWindowSize";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 export default function Content() {
   const { pokemons, status, error } = useSelector(
@@ -39,7 +60,74 @@ export default function Content() {
   const { pokemonName } = useParams();
   const navigate = useNavigate();
 
+  const { width } = useWindowSize();
+
   const pokemonImg = basePokemonImgUrl + `${pokemons[0]?.id}.png`;
+
+  const categories: (string | undefined)[] = [];
+  const chartDatasetsData: number[] = [];
+  const chartBackgroundColorBar: string[] = [];
+  const chartBorderColorBar: string[] = [];
+
+  pokemons[0]?.id &&
+    pokemons[0]?.stats?.forEach(({ stat, base_stat }) => {
+      categories.push(formatPokemonStatus(stat.name));
+
+      chartDatasetsData.push(base_stat);
+
+      if (base_stat >= 50) {
+        chartBackgroundColorBar.push("#1CD80E");
+        chartBorderColorBar.push("#11ff00");
+      } else {
+        chartBackgroundColorBar.push("#FF0000");
+        chartBorderColorBar.push("#f84d4d");
+      }
+    });
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        boxPadding: 6,
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            size: 18,
+            weight: "bold",
+          },
+          color: "#e4e4e7",
+        },
+      },
+      y: {
+        ticks: {
+          font: {
+            size: 18,
+            weight: "bold",
+          },
+          color: "#e4e4e7",
+        },
+      },
+    },
+  };
+
+  const chartData = {
+    labels: categories,
+    datasets: [
+      {
+        label: undefined,
+        data: chartDatasetsData,
+        backgroundColor: chartBackgroundColorBar, // Cor das barras
+        borderColor: chartBorderColorBar, // Cor da borda das barras
+        borderWidth: 6, // Largura da borda das barras
+      },
+    ],
+  };
 
   useEffect(() => {
     if (pokemonName) {
@@ -109,20 +197,27 @@ export default function Content() {
           </ContainerDivider>
 
           <AttributesContainer>
-            <LineTitle style={{ marginBottom: 42 }}>Atributos</LineTitle>
-            {pokemons[0]?.stats?.map(({ stat, base_stat }) => (
-              <AttributesList>
-                <LineTitle style={{ width: 120 }}>
-                  {formatPokemonStatus(stat.name)}
-                </LineTitle>
-                <LineDescription style={{ width: 30 }}>
-                  {base_stat}
-                </LineDescription>
-                <ProgressBar>
-                  <ProgressBarFill status={base_stat}></ProgressBarFill>
-                </ProgressBar>
-              </AttributesList>
-            ))}
+            <LineTitle style={{ marginBottom: width > 850 ? -140 : 42 }}>Atributos</LineTitle>
+
+            {width > 850 ? (
+              <ChartContainer>
+                <Bar data={chartData} options={chartOptions} />
+              </ChartContainer>
+            ) : (
+              pokemons[0]?.stats?.map(({ stat, base_stat }) => (
+                <AttributesList>
+                  <LineTitle style={{ width: 120 }}>
+                    {formatPokemonStatus(stat.name)}
+                  </LineTitle>
+                  <LineDescription style={{ width: 30 }}>
+                    {base_stat}
+                  </LineDescription>
+                  <ProgressBar>
+                    <ProgressBarFill status={base_stat}></ProgressBarFill>
+                  </ProgressBar>
+                </AttributesList>
+              ))
+            )}
           </AttributesContainer>
         </BodyContainer>
       )}

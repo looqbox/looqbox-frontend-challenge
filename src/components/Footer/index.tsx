@@ -19,11 +19,11 @@ export function Footer() {
             <p>Dados pegos da API - pokeapi.co</p>
           </Copyright>
           <Medias>
-            <a href="https://www.linkedin.com/in/pedro-furlan-b77707245/">
+            <a href="https://www.linkedin.com/in/pedro-furlan-b77707245/" target="_blank">
               <img src={LogoLinkedin} alt="Linkedin logo" />
             </a>
 
-            <a href="https://github.com/PedroFurlann">
+            <a href="https://github.com/PedroFurlann" target="_blank">
               <img src={LogoGithub} alt="Github Logo" />
             </a>
           </Medias>
