@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("caminho/para/poppins-300.woff2") format("woff2"),
+    /* Poppins Light */ url("caminho/para/poppins-300.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("caminho/para/poppins-regular.woff2") format("woff2"),
+    /* Poppins Regular */ url("caminho/para/poppins-regular.woff")
+      format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("caminho/para/poppins-500.woff2") format("woff2"),
+    /* Poppins Medium */ url("caminho/para/poppins-500.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("caminho/para/poppins-600.woff2") format("woff2"),
+    /* Poppins Semibold */ url("caminho/para/poppins-600.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("caminho/para/poppins-700.woff2") format("woff2"),
+    /* Poppins Bold */ url("caminho/para/poppins-700.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+
