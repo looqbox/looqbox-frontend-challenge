@@ -184,7 +184,7 @@ export default function Content() {
                 {pokemons[0]?.types?.length > 1 ? "Tipos:" : "Tipo:"}
               </LineTitle>
               {pokemons[0]?.types?.map(({ type: { name } }) => (
-                <PokemonTypeCard key={name} value={name} isSelected={true} />
+                <PokemonTypeCard key={name} value={name} isSelected={true} styles={{ cursor: "auto" }} />
               ))}
             </StatsLine>
           </BaseStatsContainer>

@@ -83,6 +83,7 @@ export default function Content() {
     setTypeSelected(type);
     setMakeRequestByNameOrId(false)
     dispatch(fetchPokemonsByType({ page: currentPage, type }));
+    setPokemonNameOrId("")
     setCurrentPage(1);
   };
 
@@ -140,7 +141,7 @@ export default function Content() {
       </ContainerDivider>
       {status === "loading" ? (
         <Loading />
-      ) : error?.message?.includes("404") || pokemons.length === 0 ? (
+      ) : error?.message?.includes("404") && pokemons.length === 0 ? (
         <PokemonNotFound>
           <ContainerGif>
             <img src={GifPikachuCrying} alt="" />
