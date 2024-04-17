@@ -76,13 +76,20 @@ export const PokemonType = styled.div`
   }
 `;
 
-export const PokemonName = styled.span`
+export const PokemonName = styled.p`
   font-size: 2rem;
-  line-height: 135%;
   font-weight: 700;
   text-align: center;
+  line-height: 135%;
   display: block;
   margin: 0.25rem 0.5rem 0.75rem;
+  
+  @media (min-width: 800px) {
+    max-height: 1.2em;
+    line-height: 1.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 
 export const PokemonFeatures = styled.div`

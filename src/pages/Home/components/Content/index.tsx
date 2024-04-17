@@ -146,7 +146,7 @@ export default function Content() {
             <img src={GifPikachuCrying} alt="" />
           </ContainerGif>
           <TextPokemonNotFound>
-            Desculpe, pokemon não encontrado! (Dica: Digite o nome inteiro do
+            Desculpe, pokemon não encontrado! (Dica: Digite o nome inteiro ou o id do
             pokemon para a pesquisa funcionar)
           </TextPokemonNotFound>
         </PokemonNotFound>

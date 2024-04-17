@@ -99,7 +99,7 @@ export default function Content() {
         ticks: {
           font: {
             size: 18,
-            weight: "bold",
+            weight: "bold" as const,
           },
           color: "#FFF",
         },
@@ -108,7 +108,7 @@ export default function Content() {
         ticks: {
           font: {
             size: 18,
-            weight: "bold",
+            weight: "bold" as const,
           },
           color: "#FFF",
         },
