@@ -1,0 +1,1 @@
+export const FAVOURITES_SLICE = 'favourites-slice'

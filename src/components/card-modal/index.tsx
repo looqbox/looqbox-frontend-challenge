@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Flex } from "rebass";
 import { CardProps } from "./interface";
 import "./style.css";
@@ -6,36 +6,54 @@ import classNames from "classnames";
 import { PokemonTypeTypes } from "../../types";
 import { Tag } from "../tag";
 import { typeIconsBackground } from "../../types/constants.type";
-import Modal from "../modal";
 import usePokemon from "../../hooks/usePokemon";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addFavourite,
+  removeFavourite,
+} from "../../store/slices/favouritesSlice";
 import {
   IconGrid,
+  IconHeart,
   IconHeight,
   IconSmallPokeball,
   IconStar,
   IconWeight,
 } from "../../assets/icons";
 import GenderChart from "../chart";
+import { FavouritesState } from "../../store";
 
 export const CardModal: React.FC<CardProps> = ({ pokemon }) => {
+  const dispatch = useDispatch();
   const typeKey: string = pokemon.types[0].type.name ?? "";
   const IconComponent = typeIconsBackground[typeKey as PokemonTypeTypes];
 
   const {
-    fetchCharacteristicPokemonById,
-    pokemonDescription,
+    fetchPokemonCharacteristicById,
     fetchSpeciePokemonById,
     pokemonSpecie,
+    pokemonCharacteristic,
   } = usePokemon();
+
+  const { favouritePokemons } = useSelector(
+    (state: FavouritesState) => state.favourites
+  );
+
+  const isFavorite = () => {
+    return (
+      pokemon &&
+      favouritePokemons &&
+      favouritePokemons.length &&
+      favouritePokemons.filter((item) => item.id === pokemon.id).length > 0
+    );
+  };
 
   useEffect(() => {
     if (pokemon?.id) {
-      fetchCharacteristicPokemonById(pokemon.id);
+      fetchPokemonCharacteristicById(pokemon.id);
       fetchSpeciePokemonById(pokemon.id);
     }
   }, [pokemon?.id]);
-
-  console.log("pokemonSpecie", pokemonSpecie);
 
   return (
     <Flex
@@ -44,6 +62,19 @@ export const CardModal: React.FC<CardProps> = ({ pokemon }) => {
           pokemon.types[0].type.name,
       })}
     >
+      <Flex
+        className={classNames("card-modal-favorite", {
+          [`card-modal-favorite-active`]: isFavorite(),
+        })}
+        onClick={() => {
+          isFavorite()
+            ? dispatch(removeFavourite(pokemon.id))
+            : dispatch(addFavourite(pokemon));
+        }}
+      >
+        <IconHeart />
+      </Flex>
+
       <div
         className={classNames("background-modal", {
           [`background-modal-${pokemon.types[0].type.name}`]:
@@ -78,9 +109,9 @@ export const CardModal: React.FC<CardProps> = ({ pokemon }) => {
           <Flex className="pokemon-id"># {pokemon.id}</Flex>
         </Flex>
 
-        {pokemonDescription && pokemonDescription.descriptions && (
+        {pokemonCharacteristic && pokemonCharacteristic.descriptions && (
           <Flex>
-            {pokemonDescription.descriptions
+            {pokemonCharacteristic.descriptions
               .filter((item: any) => item.language.name === "en")
               .map((item: any, index: number) => (
                 <div className="pokemon-description" key={index}>

@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from "victory";
-
-interface GenderData {
-  gender: "Male" | "Female" | "Undefined";
-  percentage: number;
-}
+import { GenderData } from "../../interfaces/gender.model";
 
 const GenderChart: React.FC<{ pokemonSpecie: any }> = ({ pokemonSpecie }) => {
   const [genderData, setGenderData] = useState<GenderData[]>([]);

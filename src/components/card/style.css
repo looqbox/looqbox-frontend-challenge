@@ -1,4 +1,6 @@
 .card {
+  position: relative;
+
   width: 356px;
   height: 100%;
   border-radius: 16px;
@@ -10,6 +12,49 @@
 
   &:hover {
     transform: scale(1.02);
+  }
+}
+
+.card-favorite {
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  padding: 4px;
+  border: 1px solid #fff;
+  background: rgba(0, 0, 0, 0.4);
+  top: 6px;
+  right: 6px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: scale(1.02);
+    svg,
+    path {
+      fill: red;
+      fill-opacity: 0.5;
+    }
+  }
+
+  svg,
+  path {
+    width: 20px;
+    height: 18px;
+    padding-top: 2px;
+    stroke-width: 2;
+  }
+}
+
+.card-favorite-active {
+  background: rgba(255, 255, 255, 0.5);
+
+  svg,
+  path {
+    fill: red;
+    fill-opacity: 0.5;
+    stroke: red;
+    stroke-opacity: 0.5;
   }
 }
 

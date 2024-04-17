@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import usePokemon from "../../hooks/usePokemon";
-import { Pokemon } from "../../interfaces/pokemon.model";
-import { Input } from "../../components/Input";
-import { Box, Flex } from "rebass";
+import { Input } from "../../components/input";
+import { Flex } from "rebass";
 import { Card } from "../../components/card";
 import "./style.css";
 import { Spinner } from "../../components/spinner";
 import { IconEmptyView } from "../../assets/icons/empty-view";
 import imagePokemon from "../../assets/images/pokemon.png";
 import imagePokemonBackground from "../../assets/images/pokemon-bg.png";
+import { Link } from "react-router-dom";
+import PokemonList from "../../components/list";
+import { FavouritesState } from "../../store";
+import { useSelector } from "react-redux";
 
 const Home: React.FC = () => {
   const [searchName, setSearchName] = useState<string>("");
@@ -16,38 +19,46 @@ const Home: React.FC = () => {
   const {
     fetchPokemonByName,
     fetchPokemonNames,
-    fetchPopularPokemons,
     error,
     pokemon,
     setPokemon,
     pokemonNames,
-    initialPokemons,
-    loadingPokemon,
-    loadingPokemonNames,
+    loading,
   } = usePokemon();
 
-  const handleSearch = () => {
-    if (searchName !== "") {
-      fetchPokemonByName(searchName);
+  const { favouritePokemons } = useSelector(
+    (state: FavouritesState) => state.favourites
+  );
+
+  const handleSearch = (text?: string) => {
+    if (!text) {
+      if (searchName !== "") {
+        fetchPokemonByName(searchName);
+      }
+    } else {
+      fetchPokemonByName(text);
     }
   };
-
-  useEffect(() => {
-    fetchPokemonNames();
-    fetchPopularPokemons();
-  }, []);
 
   const clearSearch = () => {
     setSearchName("");
     setPokemon(null);
   };
 
+  useEffect(() => {
+    fetchPokemonNames();
+  }, []);
+
   return (
     <>
       <img className="logo" src={imagePokemon} alt="Pokemon" />
 
+      <Link className="link-button" to={"/favorites"}>
+        {`Favoritos (${favouritePokemons?.length})`}
+      </Link>
+
       <Flex className="container">
-        {!loadingPokemon && !loadingPokemonNames && (
+        {!loading && (
           <>
             <Flex className="input-container">
               <Flex width="40%">
@@ -67,27 +78,21 @@ const Home: React.FC = () => {
                   iconRight={searchName !== ""}
                   iconRightOnClick={() => clearSearch()}
                   dropdown={pokemonNames}
-                  onClickDropdown={() => handleSearch()}
+                  onClickDropdown={(value: string) => {
+                    setSearchName(value);
+                    handleSearch(value);
+                  }}
                 />
               </Flex>
             </Flex>
+
+            {!error && !pokemon && <PokemonList />}
 
             {!error && pokemon && searchName !== "" && (
               <Flex className="card-container">
                 <Card pokemon={pokemon} />
               </Flex>
             )}
-
-            {!error &&
-              initialPokemons &&
-              initialPokemons.length > 0 &&
-              !pokemon && (
-                <div className="cards-container">
-                  {initialPokemons.map((item: Pokemon, index: number) => (
-                    <Card key={index} pokemon={item} />
-                  ))}
-                </div>
-              )}
 
             {searchName !== "" && error && (
               <Flex className="empty-view-container">
@@ -98,8 +103,9 @@ const Home: React.FC = () => {
           </>
         )}
 
-        {loadingPokemon && loadingPokemonNames && <Spinner />}
+        {loading && <Spinner />}
       </Flex>
+
       <img className="bg" src={imagePokemonBackground} alt="Pokemon" />
     </>
   );

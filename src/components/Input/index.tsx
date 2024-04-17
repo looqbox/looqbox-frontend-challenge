@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { IInput } from "./interface";
-import * as css from "./style";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { IconSearch } from "../../assets/icons/search";
 import { IconClose } from "../../assets/icons/close";
+import { IInput } from "./interface";
+import * as css from "./style";
 
 export const Input: React.FC<IInput> = ({ ...props }) => {
   const dropdownRef = useRef(null);
@@ -41,7 +41,7 @@ export const Input: React.FC<IInput> = ({ ...props }) => {
       setDropdownOpened(false);
     }, 10);
 
-    props.onClickDropdown && props?.onClickDropdown();
+    props.onClickDropdown && props?.onClickDropdown(itemValue);
 
     props.onClickDropdownItem &&
       props.onClickDropdownItem(itemValue, itemLabel);
@@ -114,7 +114,7 @@ export const Input: React.FC<IInput> = ({ ...props }) => {
                 key={`input-dropdown-item-${dropdownItem.value}-${index}`}
                 onClick={() => {
                   if (props.onClickDropdown) {
-                    props.onClickDropdown();
+                    props.onClickDropdown(dropdownItem.value);
                   }
                   if (dropdownOpened) {
                     onClickDropdownItem(dropdownItem.value, dropdownItem.label);

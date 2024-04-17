@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Flex } from "rebass";
 import { CardProps } from "./interface";
 import "./style.css";
@@ -8,15 +8,24 @@ import { Tag } from "../tag";
 import { typeIconsBackground } from "../../types/constants.type";
 import Modal from "../modal";
 import { CardModal } from "../card-modal";
-import usePokemon from "../../hooks/usePokemon";
+import { useDispatch, useSelector } from "react-redux";
+import { FavouritesState } from "../../store";
+import {
+  addFavourite,
+  removeFavourite,
+} from "../../store/slices/favouritesSlice";
+import { IconHeart } from "../../assets/icons";
 
 export const Card: React.FC<CardProps> = ({ pokemon }) => {
+  const dispatch = useDispatch();
+  const [modalOpen, setModalOpen] = useState(false);
+
   const typeKey: string = pokemon.types[0].type.name ?? "";
   const IconComponent = typeIconsBackground[typeKey as PokemonTypeTypes];
 
-  const { fetchCharacteristicPokemonById, pokemonDescription } = usePokemon();
-
-  const [modalOpen, setModalOpen] = useState(false);
+  const { favouritePokemons } = useSelector(
+    (state: FavouritesState) => state.favourites
+  );
 
   const handleOpenModal = () => {
     setModalOpen(true);
@@ -26,6 +35,15 @@ export const Card: React.FC<CardProps> = ({ pokemon }) => {
   const handleCloseModal = () => {
     setModalOpen(false);
     document.body.style.overflow = "auto";
+  };
+
+  const isFavorite = () => {
+    return (
+      pokemon &&
+      favouritePokemons &&
+      favouritePokemons.length &&
+      favouritePokemons.filter((item) => item.id === pokemon.id).length > 0
+    );
   };
 
   return (
@@ -40,6 +58,20 @@ export const Card: React.FC<CardProps> = ({ pokemon }) => {
         })}
         onClick={handleOpenModal}
       >
+        <Flex
+          className={classNames("card-favorite", {
+            [`card-favorite-active`]: isFavorite(),
+          })}
+          onClick={(e) => {
+            e.stopPropagation();
+            isFavorite()
+              ? dispatch(removeFavourite(pokemon.id))
+              : dispatch(addFavourite(pokemon));
+          }}
+        >
+          <IconHeart />
+        </Flex>
+
         <Flex className="description-card-container">
           <Flex className="name-card-container">
             <Flex className="pokemon-id poppins-light"># {pokemon.id}</Flex>

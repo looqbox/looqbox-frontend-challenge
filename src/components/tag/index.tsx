@@ -4,7 +4,7 @@ import classNames from "classnames";
 import "./style.css";
 import { ITag } from "./interface";
 import { PokemonTypeTypes } from "../../types";
-import { typeIcons, typeTranslations } from "../../types/constants.type";
+import { typeIcons } from "../../types/constants.type";
 import { Flex } from "rebass";
 
 export const Tag: React.FC<ITag> = ({
@@ -14,7 +14,6 @@ export const Tag: React.FC<ITag> = ({
   loading,
   ...props
 }) => {
-  const translatedType = typeTranslations[pokemonType] || pokemonType;
   const typeKey: string = pokemonType;
   const IconComponent = typeIcons[typeKey as PokemonTypeTypes];
 
@@ -27,7 +26,9 @@ export const Tag: React.FC<ITag> = ({
     >
       <Flex className="tag-icon">{IconComponent && <IconComponent />}</Flex>
 
-      <span className="tag-label">{pokemonType.charAt(0).toUpperCase() + pokemonType.slice(1)}</span>
+      <span className="tag-label">
+        {pokemonType.charAt(0).toUpperCase() + pokemonType.slice(1)}
+      </span>
 
       {loading && (
         <div className="tag-loading-container">

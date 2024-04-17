@@ -43,24 +43,3 @@ export const typeIcons: { [key in PokemonTypeTypes]: React.FC } = {
   dark: Icon.IconDark,
   fairy: Icon.IconFairy,
 };
-
-export const typeTranslations: Record<string, string> = {
-  normal: "Normal",
-  fire: "Fogo",
-  water: "Água",
-  grass: "Grama",
-  flying: "Voador",
-  fighting: "Lutador",
-  poison: "Venenoso",
-  electric: "Elétrico",
-  ground: "Terra",
-  rock: "Pedra",
-  psychic: "Psíquico",
-  ice: "Gelo",
-  bug: "Inseto",
-  ghost: "Fantasma",
-  steel: "Metal",
-  dragon: "Dragão",
-  dark: "Noturno",
-  fairy: "Fada",
-};

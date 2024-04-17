@@ -1,0 +1,18 @@
+.container {
+  /* height: 100vh; */
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+  position: relative;
+  padding-top: 148px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(356px, 1fr));
+  grid-gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+  place-items: center;
+}
+

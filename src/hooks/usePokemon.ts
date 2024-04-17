@@ -1,51 +1,29 @@
 import { useState } from "react";
 import { Pokemon } from "../interfaces/pokemon.model";
-import { Pokemons } from "../interfaces/pokemons.mode";
-import { popularPokemons } from "../types";
+import { PokemonSpecie } from "../interfaces/pokemon-specie.model";
+import { PokemonCharacteristic } from "../interfaces/pokemon-characteristic.model";
 
 const usePokemon = () => {
   const [pokemon, setPokemon] = useState<Pokemon | null>();
-  const [pokemonDescription, setPokemonDescription] = useState<any | null>();
-  const [pokemonSpecie, setPokemonSpecie] = useState<any | null>();
-  const [initialPokemons, setInitialPokemons] = useState<Pokemon[]>([]);
+  const [pokemonList, setPokemonList] = useState<Pokemon[] | null>();
   const [pokemonNames, setPokemonNames] = useState<
     {
       value: string;
       label?: string;
     }[]
   >([]);
-  const [loadingPokemon, setLoadingPokemon] = useState<boolean>(false);
-  const [loadingPokemonNames, setLoadingPokemonNames] =
-    useState<boolean>(false);
+
+  const [pokemonCharacteristic, setPokemonCharacteristic] =
+    useState<PokemonCharacteristic | null>();
+
+  const [pokemonSpecie, setPokemonSpecie] = useState<PokemonSpecie | null>();
+
   const [error, setError] = useState<string | null>(null);
-
-  const [weaknesses, setWeaknesses] = useState<any | null>();
-
-  const fetchTypesPokemonById = async (id: number) => {
-    try {
-      setLoadingPokemonNames(true);
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon-species/${id}/`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch Pokemon names");
-      }
-      const data = await response.json();
-
-      setPokemonSpecie(data);
-
-      setError(null);
-    } catch (error: any) {
-      setPokemonSpecie([]);
-      setError(error.message);
-    } finally {
-      setLoadingPokemonNames(false);
-    }
-  };
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchPokemonByName = async (name: string) => {
     try {
-      setLoadingPokemon(true);
+      setLoading(true);
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
       if (!response.ok) {
         throw new Error("Pokemon not found!");
@@ -58,13 +36,13 @@ const usePokemon = () => {
       setPokemon(null);
       setError(error.message);
     } finally {
-      setLoadingPokemon(false);
+      setLoading(false);
     }
   };
 
   const fetchPokemonNames = async () => {
     try {
-      setLoadingPokemonNames(true);
+      setLoading(true);
       const response = await fetch(
         `https://pokeapi.co/api/v2/pokemon/?limit=1302`
       );
@@ -86,20 +64,72 @@ const usePokemon = () => {
       });
 
       setPokemonNames(names);
-
       setError(null);
     } catch (error: any) {
       setPokemonNames([]);
       setError(error.message);
     } finally {
-      setLoadingPokemonNames(false);
+      setLoading(false);
     }
   };
 
-  const fetchPopularPokemons = async () => {
+  const fetchPokemonCharacteristicById = async (id: number) => {
     try {
-      const fetchPokemonDataPromises = popularPokemons.map(
-        async (pokemonName) => {
+      setLoading(true);
+      const response = await fetch(
+        `https://pokeapi.co/api/v2/characteristic/${id}/`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch Pokemon characteristic");
+      }
+      const data = await response.json();
+
+      setPokemonCharacteristic(data);
+      setError(null);
+    } catch (error: any) {
+      setPokemonCharacteristic(null);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchSpeciePokemonById = async (id: number) => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `https://pokeapi.co/api/v2/pokemon-species/${id}/`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch Pokemon names");
+      }
+      const data = await response.json();
+
+      setPokemonSpecie(data);
+      setError(null);
+    } catch (error: any) {
+      setPokemonSpecie(null);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchPokemonsList = async (offset: number) => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=15`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch Pokemon list");
+      }
+      const data = await response.json();
+
+      const pokemonNames = data.results.map((pokemon: any) => pokemon.name);
+
+      const fetchPokemonDataPromises = pokemonNames.map(
+        async (pokemonName: string) => {
           try {
             const pokemonResponse = await fetch(
               `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
@@ -117,79 +147,34 @@ const usePokemon = () => {
       );
 
       const fetchedPokemonData = await Promise.all(fetchPokemonDataPromises);
+
       const filteredPokemonData = fetchedPokemonData.filter(
         (data) => data !== null
       ) as Pokemon[];
 
-      setInitialPokemons(filteredPokemonData);
+      setPokemonList(filteredPokemonData);
       setError(null);
     } catch (error: any) {
-      setInitialPokemons([]);
       setError(error.message);
     } finally {
-      setLoadingPokemonNames(false);
-    }
-  };
-
-  const fetchCharacteristicPokemonById = async (id: number) => {
-    try {
-      setLoadingPokemonNames(true);
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/characteristic/${id}/`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch Pokemon names");
-      }
-      const data = await response.json();
-
-      setPokemonDescription(data);
-
-      setError(null);
-    } catch (error: any) {
-      setPokemonDescription([]);
-      setError(error.message);
-    } finally {
-      setLoadingPokemonNames(false);
-    }
-  };
-
-  const fetchSpeciePokemonById = async (id: number) => {
-    try {
-      setLoadingPokemonNames(true);
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon-species/${id}/`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch Pokemon names");
-      }
-      const data = await response.json();
-
-      setPokemonSpecie(data);
-
-      setError(null);
-    } catch (error: any) {
-      setPokemonSpecie([]);
-      setError(error.message);
-    } finally {
-      setLoadingPokemonNames(false);
+      setLoading(false);
     }
   };
 
   return {
-    fetchPokemonByName,
     fetchPokemonNames,
-    fetchPopularPokemons,
-    pokemon,
-    setPokemon,
-    initialPokemons,
     pokemonNames,
-    loadingPokemon,
-    loadingPokemonNames,
-    error,
-    fetchCharacteristicPokemonById,
-    pokemonDescription,
+    fetchPokemonByName,
+    setPokemon,
+    pokemon,
+    fetchPokemonCharacteristicById,
+    pokemonCharacteristic,
     fetchSpeciePokemonById,
     pokemonSpecie,
+    fetchPokemonsList,
+    pokemonList,
+    loading,
+    error,
   };
 };
 

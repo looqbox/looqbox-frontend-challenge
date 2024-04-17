@@ -7,8 +7,22 @@
   flex-direction: column;
 }
 
+.card-modal-favorite {
+  position: absolute;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.card-modal-favorite-active {
+  svg,
+  path {
+    fill: red;
+    fill-opacity: 0.5;
+  }
+}
+
 .description-card-modal-container {
-  padding-top: 280px !important;
+  padding-top: 260px !important;
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
@@ -64,11 +78,11 @@
 
 .image-card-modal {
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 270px;
+  height: 270px;
   top: 0;
   left: 50%;
-  transform: translate(-50%, 20%);
+  transform: translate(-50%, 18%);
   z-index: 2;
 }
 
@@ -203,5 +217,3 @@
 .background-modal-fairy {
   background-color: rgba(236, 143, 230, 0.9);
 }
-
-

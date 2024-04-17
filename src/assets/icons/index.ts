@@ -25,4 +25,7 @@ export * from "./height";
 export * from "./weight";
 export * from "./small-pokeball";
 export * from "./star";
+export * from "./heart";
+export * from "./chevron-left";
+
 

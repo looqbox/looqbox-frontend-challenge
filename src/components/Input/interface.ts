@@ -16,7 +16,7 @@ export interface IInput extends IInputHTML {
 
   onClickDropdownItem?: (itemValue: string, itemLabel?: string) => void;
 
-  onClickDropdown?: () => void;
+  onClickDropdown?: (value: string) => void;
 
   dropdown?: {
     value: string;

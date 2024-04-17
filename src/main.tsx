@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import store from "./store";
+import { Provider } from "react-redux";
 import Home from "./pages/home";
-import { About } from "./pages/about";
+import Favorites from "./pages/favorites";
 
 const router = createBrowserRouter([
   {
-    path: "/about",
-    element: <About />,
+    path: "/favorites",
+    element: <Favorites />,
   },
   {
     path: "/",
@@ -19,6 +20,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
