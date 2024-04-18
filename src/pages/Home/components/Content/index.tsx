@@ -39,34 +39,35 @@ export default function Content() {
   const [pokemonNameOrId, setPokemonNameOrId] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
   const [typeSelected, setTypeSelected] = useState<string | null>(null);
-  const [makeRequestByNameOrId, setMakeRequestByNameOrId] = useState<boolean>(false)
+  const [makeRequestByNameOrId, setMakeRequestByNameOrId] =
+    useState<boolean>(false);
 
   const { error, pokemons, status, totalPokemons } = useSelector(
     (state: RootState) => state.pokemon
   );
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleFetchPokemonByNameOrId = (e: FormEvent) => {
     e.preventDefault();
     if (pokemonNameOrId.length <= 0) {
       dispatch(fetchPokemonsWithPagination(1));
-      setTypeSelected(null)
-      setMakeRequestByNameOrId(false)
-      setCurrentPage(1)
+      setTypeSelected(null);
+      setMakeRequestByNameOrId(false);
+      setCurrentPage(1);
       return;
     }
 
     setTypeSelected(null);
-    setMakeRequestByNameOrId(true)
+    setMakeRequestByNameOrId(true);
     dispatch(fetchPokemonByNameOrId(pokemonNameOrId.toLocaleLowerCase()));
 
     setCurrentPage(1);
   };
 
   const handleGoToPokemonDetails = (pokemonName: string) => {
-    navigate(`/details/${pokemonName}`)
-  }
+    navigate(`/details/${pokemonName}`);
+  };
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -75,15 +76,15 @@ export default function Content() {
   const handleFetchPokemonByType = (type: string) => {
     if (type === typeSelected) {
       setTypeSelected(null);
-      setCurrentPage(1)
-      setMakeRequestByNameOrId(false)
+      setCurrentPage(1);
+      setMakeRequestByNameOrId(false);
       return;
     }
 
     setTypeSelected(type);
-    setMakeRequestByNameOrId(false)
+    setMakeRequestByNameOrId(false);
     dispatch(fetchPokemonsByType({ page: currentPage, type }));
-    setPokemonNameOrId("")
+    setPokemonNameOrId("");
     setCurrentPage(1);
   };
 
@@ -107,9 +108,7 @@ export default function Content() {
             <InputSearch
               type="text"
               placeholder="Pesquisar Pokemon"
-              onChange={(e) =>
-                setPokemonNameOrId(e.target.value)
-              }
+              onChange={(e) => setPokemonNameOrId(e.target.value)}
               value={pokemonNameOrId}
             />
             <ButtonSearch type="submit">
@@ -147,8 +146,8 @@ export default function Content() {
             <img src={GifPikachuCrying} alt="" />
           </ContainerGif>
           <TextPokemonNotFound>
-            Desculpe, pokemon não encontrado! (Dica: Digite o nome inteiro ou o id do
-            pokemon para a pesquisa funcionar)
+            Desculpe, pokemon não encontrado! (Dica: Digite o nome inteiro ou o
+            id do pokemon para a pesquisa funcionar)
           </TextPokemonNotFound>
         </PokemonNotFound>
       ) : (

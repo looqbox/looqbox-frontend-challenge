@@ -102,7 +102,7 @@ export default function PokemonTypeCard({
       onClick={onClick}
       isSelected={isSelected}
     >
-      {TypeSvgComponent && <TypeSvgComponent/>}
+      {TypeSvgComponent && <TypeSvgComponent />}
       <p>{capitalizeString(value)}</p>
     </StyledContainer>
   ) : (

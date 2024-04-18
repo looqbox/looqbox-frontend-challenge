@@ -152,4 +152,4 @@ export const ChartContainer = styled.div`
   width: 800px;
   height: 800px;
   margin-bottom: -120px;
-`
+`;

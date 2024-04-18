@@ -31,7 +31,7 @@ export default function PokemonCard({ pokemon, goToDetails }: Props) {
     (type) => pokemon.types[0].type.name.indexOf(type.name) !== -1
   );
 
-  const pokemonImg = basePokemonImgUrl + `${pokemon.id}.png`
+  const pokemonImg = basePokemonImgUrl + `${pokemon.id}.png`;
 
   return (
     <Container>

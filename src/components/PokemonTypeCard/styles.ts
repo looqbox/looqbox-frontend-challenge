@@ -19,15 +19,14 @@ export const StyledContainer = styled.button<StatusProps>`
   transition: 0.3s;
 
   p {
-    color: #FFF;
+    color: #fff;
     font-size: 1rem;
     line-height: 1.5;
   }
 
   svg path {
     transition: 0.3s;
-    fill: ${(props) =>
-      props.isSelected ? "#FFF" : props.colorType};
+    fill: ${(props) => (props.isSelected ? "#FFF" : props.colorType)};
   }
 
   &:hover {

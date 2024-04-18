@@ -184,7 +184,12 @@ export default function Content() {
                 {pokemons[0]?.types?.length > 1 ? "Tipos:" : "Tipo:"}
               </LineTitle>
               {pokemons[0]?.types?.map(({ type: { name } }) => (
-                <PokemonTypeCard key={name} value={name} isSelected={true} styles={{ cursor: "auto" }} />
+                <PokemonTypeCard
+                  key={name}
+                  value={name}
+                  isSelected={true}
+                  styles={{ cursor: "auto" }}
+                />
               ))}
             </StatsLine>
           </BaseStatsContainer>
@@ -196,7 +201,9 @@ export default function Content() {
           </ContainerDivider>
 
           <AttributesContainer>
-            <LineTitle style={{ marginBottom: width > 850 ? -140 : 42 }}>Atributos</LineTitle>
+            <LineTitle style={{ marginBottom: width > 850 ? -140 : 42 }}>
+              Atributos
+            </LineTitle>
 
             {width > 850 ? (
               <ChartContainer>

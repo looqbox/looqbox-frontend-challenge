@@ -27,7 +27,6 @@ const CustomPagination: FC<Props> = ({
       showSizeChanger={false}
       showQuickJumper
       defaultPageSize={9}
-        
     />
   );
 };

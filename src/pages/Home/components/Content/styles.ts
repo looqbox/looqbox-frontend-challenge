@@ -170,7 +170,6 @@ export const ContainerGif = styled.div`
   }
 `;
 
-
 export const TextPokemonNotFound = styled.p`
   color: #fff;
   font-family: "Montserrat", sans-serif;

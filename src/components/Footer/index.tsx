@@ -8,7 +8,6 @@ import {
 import LogoLinkedin from "../../assets/logo-linkedin.svg";
 import LogoGithub from "../../assets/logo-github.svg";
 
-
 export function Footer() {
   return (
     <StyledGlobalContainer>
@@ -19,7 +18,10 @@ export function Footer() {
             <p>Dados pegos da API - pokeapi.co</p>
           </Copyright>
           <Medias>
-            <a href="https://www.linkedin.com/in/pedro-furlan-b77707245/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/pedro-furlan-b77707245/"
+              target="_blank"
+            >
               <img src={LogoLinkedin} alt="Linkedin logo" />
             </a>
 
@@ -29,7 +31,6 @@ export function Footer() {
           </Medias>
         </FooterContent>
       </ContainerFooter>
-
     </StyledGlobalContainer>
   );
 }

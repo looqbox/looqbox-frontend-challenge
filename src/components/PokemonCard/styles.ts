@@ -83,7 +83,7 @@ export const PokemonName = styled.p`
   line-height: 135%;
   display: block;
   margin: 0.25rem 0.5rem 0.75rem;
-  
+
   @media (min-width: 800px) {
     max-height: 1.2em;
     line-height: 1.2em;

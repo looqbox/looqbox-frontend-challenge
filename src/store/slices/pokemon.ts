@@ -100,7 +100,9 @@ const pokemonSlice = createSlice({
         state.pokemons = action.error.message?.includes("404")
           ? []
           : state.pokemons;
-          state.totalPokemons = action.error.message?.includes("404") ? 0 : state.totalPokemons
+        state.totalPokemons = action.error.message?.includes("404")
+          ? 0
+          : state.totalPokemons;
       })
       .addCase(fetchPokemonsWithPagination.pending, (state) => {
         state.status = "loading";
@@ -118,7 +120,9 @@ const pokemonSlice = createSlice({
         state.pokemons = action.error.message?.includes("404")
           ? []
           : state.pokemons;
-          state.totalPokemons = action.error.message?.includes("404") ? 0 : state.totalPokemons
+        state.totalPokemons = action.error.message?.includes("404")
+          ? 0
+          : state.totalPokemons;
       })
       .addCase(fetchPokemonByNameOrId.pending, (state) => {
         state.status = "loading";
@@ -136,7 +140,9 @@ const pokemonSlice = createSlice({
         state.pokemons = action.error.message?.includes("404")
           ? []
           : state.pokemons;
-          state.totalPokemons = action.error.message?.includes("404") ? 0 : state.totalPokemons
+        state.totalPokemons = action.error.message?.includes("404")
+          ? 0
+          : state.totalPokemons;
       });
   },
 });

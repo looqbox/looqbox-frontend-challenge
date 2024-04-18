@@ -7,10 +7,7 @@ export default function Router() {
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home />} />
-      <Route
-        path="/details/:pokemonName"
-        element={<PokemonDetails />}
-      />
+      <Route path="/details/:pokemonName" element={<PokemonDetails />} />
     </Routes>
   );
 }

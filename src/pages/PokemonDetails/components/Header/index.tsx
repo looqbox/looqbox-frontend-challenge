@@ -17,7 +17,7 @@ export default function Header() {
     window.scrollTo({
       top: 2000,
       behavior: "smooth",
-    })
+    });
   };
 
   return (
