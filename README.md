@@ -62,7 +62,7 @@ $ npm run dev
 
 - [x] Documentation
 - [x] Charts 
-- [x] Testes Unitários
+- [x] Unit tests
 - [x] Linting
 - [x] Ant Design
 - [x] Deploy
