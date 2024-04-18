@@ -53,19 +53,21 @@ $ npm run dev
 <br>
 
 ### Application funcionalities:
-### - [x] Fetch pokemons using [PokeAPI](https://pokeapi.co/docs/v2)
-### - [x] Fetch pokemons by name and id
-### - [x] Fetch pokemons by type
-### - [x] Show pokemons with pagination implemented
-### - [x] Page with details about the selected pokemon
+
+- [x] Fetch pokemons using [PokeAPI](https://pokeapi.co/docs/v2)
+- [x] Fetch pokemons by name and id
+- [x] Fetch pokemons by type
+- [x] Show pokemons with pagination implemented
+- [x] Page with details about the selected pokemon
 
 ### Application technical specifications :bookmark_tabs::
-### - [x] Documentation
-### - [x] Charts 
-### - [x] Testes Unitários
-### - [x] Linting
-### - [x] Ant Design
-### - [x] Deploy
+
+- [x] Documentation
+- [x] Charts 
+- [x] Testes Unitários
+- [x] Linting
+- [x] Ant Design
+- [x] Deploy
 
 ### Main technologies used :computer:
 
@@ -109,4 +111,9 @@ $ npm run dev
 ### Imagens da Pokédex / Pokedex images :camera:
 
 <div>
-  <!-- <img src="https://raw.githubusercontent.com/PedroFurlann/Pokédex/master/public/Captura%20de%20tela%20de%202023-11-04%2016-22-03.png" /> -->
+  <img src="https://raw.githubusercontent.com/PedroFurlann/looqbox-frontend-challenge/master/public/screencapture-looqbox-frontend-challenge-pokedex-vercel-app-home-2024-04-17-23_28_54.png" /> 
+
+  <img src="https://raw.githubusercontent.com/PedroFurlann/looqbox-frontend-challenge/master/public/screencapture-looqbox-frontend-challenge-pokedex-vercel-app-home-2024-04-17-23_29_27.png" /> 
+
+  <img src="https://raw.githubusercontent.com/PedroFurlann/looqbox-frontend-challenge/master/public/screencapture-looqbox-frontend-challenge-pokedex-vercel-app-details-moltres-2024-04-17-23_29_42.png" /> 
+</div>
