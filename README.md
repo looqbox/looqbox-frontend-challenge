@@ -1,21 +1,19 @@
 # Pokédex :iphone:
 
-## (PT-BR)
-
 ### Funcionalidades da aplicação:
-### - [x] Buscar os pokemons usando a [PokeAPI](https://pokeapi.co/docs/v2)
-### - [x] Buscar pokemons pelo nome e id 
-### - [x] Buscar pokemons pelo tipo
-### - [x] Exibir pokemons com paginação implementada
-### - [x] Página com detalhes sobre o pokemon selecionado
+- [x] Buscar os pokemons usando a [PokeAPI](https://pokeapi.co/docs/v2)
+- [x] Buscar pokemons pelo nome e id 
+- [x] Buscar pokemons pelo tipo
+- [x] Exibir pokemons com paginação implementada
+- [x] Página com detalhes sobre o pokemon selecionado
 
 ### Especificações técnicas da aplicação :bookmark_tabs::
-### - [x] Documentação
-### - [x] Gráficos 
-### - [x] Testes Unitários
-### - [x] Linting
-### - [x] Ant Design
-### - [x] Deploy
+- [x] Documentação
+- [x] Gráficos 
+- [x] Testes Unitários
+- [x] Linting
+- [x] Ant Design
+- [x] Deploy
 
 
 ### Principais tecnologias utilizadas :computer:
@@ -102,7 +100,6 @@ $ npm run dev
 
 ### [Pokédex](https://looqbox-frontend-challenge-pokedex.vercel.app)
 
-<hr>
 <br>
 
 ### Imagens da Pokédex / Pokedex images :camera:
