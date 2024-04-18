@@ -1,49 +1,112 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# Pokédex :iphone:
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+## (PT-BR)
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+### Funcionalidades da aplicação:
+### - [x] Buscar os pokemons usando a [PokeAPI](https://pokeapi.co/docs/v2)
+### - [x] Buscar pokemons pelo nome e id 
+### - [x] Buscar pokemons pelo tipo
+### - [x] Exibir pokemons com paginação implementada
+### - [x] Página com detalhes sobre o pokemon selecionado
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+### Especificações técnicas da aplicação :bookmark_tabs::
+### - [x] Documentação
+### - [x] Gráficos 
+### - [x] Testes Unitários
+### - [x] Linting
+### - [x] Ant Design
+### - [x] Deploy
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+### Principais tecnologias utilizadas :computer:
 
-You have **one week** to finish your test, we'll check the time with your "Initial" and "Final" Commits.
+- ####  Typescript
+- ####  Vite
+- ####  ReactJs
+- ####  Redux
+- ####  Ant Design
+- ####  Styled components
 
-# Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
+### Instalação e uso
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please **mind how many times you request data**
+Siga o passo a passo abaixo:
 
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
+```bash
+# Abra o terminal e clone esse repostório com o seguinte comando
+$ git clone https://github.com/PedroFurlann/looqbox-frontend-challenge.git
 
-You can use any dependency you want, (axios, bootstrap, material ui...)
+# Navegue até a pasta abaixo
+$ cd looqbox-frontend-challenge
 
-## Bonus points!
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
+# Instale as dependências
+$ npm install
 
-## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
-- [Redux](https://redux.js.org/)
+# Rode a aplicação
+$ npm run dev
+```
+
+### Pokédex :arrow_down:
+
+### [Pokédex](https://looqbox-frontend-challenge-pokedex.vercel.app)
+
+<hr>
+<br>
+
+### Application funcionalities:
+### - [x] Fetch pokemons using [PokeAPI](https://pokeapi.co/docs/v2)
+### - [x] Fetch pokemons by name and id
+### - [x] Fetch pokemons by type
+### - [x] Show pokemons with pagination implemented
+### - [x] Page with details about the selected pokemon
+
+### Application technical specifications :bookmark_tabs::
+### - [x] Documentation
+### - [x] Charts 
+### - [x] Testes Unitários
+### - [x] Linting
+### - [x] Ant Design
+### - [x] Deploy
+
+### Main technologies used :computer:
+
+- ####  Typescript
+- ####  Vite
+- ####  ReactJs
+- ####  Redux
+- ####  Ant Design
+- ####  Styled components
+
+### Installation and use
+
+Follow the steps below:
+
+```bash
+# Open a terminal and clone this repository with the command
+$ git clone https://github.com/PedroFurlann/looqbox-frontend-challenge.git
+
+# Enter the folder with
+$ cd looqbox-frontend-challenge
+
+# Install the dependencies
+$ npm install
+
+# Run the application
+$ npm run dev
+```
+
+<br>
+
+### Pokedex :arrow_down:
+
+### [Pokédex](https://looqbox-frontend-challenge-pokedex.vercel.app)
+
+<hr>
+<br>
+
+<hr>
+<br>
+
+### Imagens da Pokédex / Pokedex images :camera:
+
+<div>
+  <!-- <img src="https://raw.githubusercontent.com/PedroFurlann/Pokédex/master/public/Captura%20de%20tela%20de%202023-11-04%2016-22-03.png" /> -->
