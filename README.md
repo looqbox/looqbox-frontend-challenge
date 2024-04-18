@@ -105,9 +105,6 @@ $ npm run dev
 <hr>
 <br>
 
-<hr>
-<br>
-
 ### Imagens da Pokédex / Pokedex images :camera:
 
 <div>
