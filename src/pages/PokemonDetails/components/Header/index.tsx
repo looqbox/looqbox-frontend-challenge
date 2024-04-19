@@ -14,10 +14,6 @@ export default function Header() {
 
   const handleBackToHome = () => {
     navigate("/home");
-    window.scrollTo({
-      top: 2000,
-      behavior: "smooth",
-    });
   };
 
   return (
