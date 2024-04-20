@@ -7,7 +7,7 @@ function Menu() {
     <nav
       className="
       bg-slate-50 w-full max-w-[1024px] mx-auto 
-      mt-8 px-4 flex items-center rounded-2xl shadow-md border-red-500
+      mt-8 px-4 flex items-center justify-center rounded-2xl shadow-md border-red-500
       ">
       <ul className="flex gap-4 text-black">
         <MenuItem

@@ -24,8 +24,8 @@ function MenuItem({ url, text, icon }: MenuItemProps) {
     <Link to={url}>
       <li
         className={cn(
-          `flex gap-2 py-12 px-8 cursor-pointer items-center
-            text-lg font-semibold
+          `flex flex-col sm:flex-row gap-2 py-12 px-4 sm:px-8 cursor-pointer items-center
+            text-sm sm:text-lg font-semibold
           `,
           isActive ? "border-b-red-500 border-b-4" : ""
         )}>

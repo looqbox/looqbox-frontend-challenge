@@ -1,4 +1,4 @@
-import Pokemon from "../core/models/Pokemon";
+import Pokemon from "../../core/models/Pokemon";
 import PokemonCard from "./PokemonCard";
 
 interface PokemonCardListProps {
@@ -14,6 +14,7 @@ function PokemonCardList({ pokemons }: PokemonCardListProps) {
           image={pokemon.sprites.front_default}
           name={pokemon.name}
           types={pokemon.types}
+          payload={pokemon}
         />
       ))}
     </div>
