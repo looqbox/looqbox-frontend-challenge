@@ -13,8 +13,6 @@ export const usePokemons = (
     return pokemons;
   };
 
-  console.log(pokemonsUrl);
-
   const {
     data: pokemons,
     isLoading,
