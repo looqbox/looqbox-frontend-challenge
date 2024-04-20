@@ -5,7 +5,9 @@ import Footer from "../components/Footer";
 function Root() {
   return (
     <div className="flex flex-col h-full w-full">
-      <Menu />
+      <header className="w-full px-2">
+        <Menu />
+      </header>
       <Outlet />
       <Footer />
     </div>
