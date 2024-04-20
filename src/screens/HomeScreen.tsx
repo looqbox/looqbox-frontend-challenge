@@ -6,12 +6,20 @@ import { usePokemons } from "../hooks/usePokemons";
 
 function HomeScreen() {
   const { pokemonsUrls } = usePokemonsUrl(1);
-  const pokemons = usePokemons(pokemonsUrls);
+  const { pokemons, isLoading, error } = usePokemons(pokemonsUrls);
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <PageLayout>
       <SearchBar />
-      <PokemonCardList pokemons={pokemons} />
+      <PokemonCardList pokemons={pokemons ?? []} />
     </PageLayout>
   );
 }

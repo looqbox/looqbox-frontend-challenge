@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 function PokemonsScreen() {
   const [page, setPage] = useState(1);
   const { totalPages, pokemonsUrls } = usePokemonsUrl(page);
-  const pokemons = usePokemons(pokemonsUrls);
+  const { pokemons } = usePokemons(pokemonsUrls, page);
 
   const navigate = useNavigate();
 
@@ -45,7 +45,7 @@ function PokemonsScreen() {
     <PageLayout>
       <SearchBar />
       <Suspense fallback={<div>Loading...</div>}>
-        <PokemonCardList pokemons={pokemons} />
+        <PokemonCardList pokemons={pokemons ?? []} />
       </Suspense>
       <div className="mt-16">
         <Pagination

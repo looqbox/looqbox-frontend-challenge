@@ -1,20 +1,28 @@
 // usePokemons.ts
-import { useEffect, useContext } from "react";
 import { getPokemons } from "../core/usecases/Pokemons/getPokemons";
-import { PokemonContext } from "../contexts/PokemonContextProvider";
 import { NamedAPIResource } from "../core/models/Pokemon";
+import { useQuery } from "@tanstack/react-query";
 
-export const usePokemons = (pokemonsUrl: NamedAPIResource[]) => {
-  const { pokemons, setPokemons } = useContext(PokemonContext);
+export const usePokemons = (
+  pokemonsUrl: NamedAPIResource[],
+  page: number = 1
+) => {
+  const fetchPokemons = async () => {
+    const pokemons = await getPokemons(pokemonsUrl);
 
-  useEffect(() => {
-    const fetchPokemons = async () => {
-      const pokemons = await getPokemons(pokemonsUrl);
-      setPokemons(pokemons);
-    };
+    return pokemons;
+  };
 
-    fetchPokemons();
-  }, [pokemonsUrl]);
+  console.log(pokemonsUrl);
 
-  return pokemons;
+  const {
+    data: pokemons,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["pokemons", page, pokemonsUrl],
+    queryFn: fetchPokemons,
+  });
+
+  return { pokemons, isLoading, error };
 };
