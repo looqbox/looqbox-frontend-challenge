@@ -1,11 +1,12 @@
 import { Suspense, useEffect, useState } from "react";
 import PageLayout from "../components/UI/icons/PageLayout";
-import PokemonCardList from "../components/PokemonCardList";
+import PokemonCardList from "../components/Pokemon/PokemonCardList";
 import SearchBar from "../components/SearchBar";
 import { Pagination, PaginationProps } from "antd";
 import { usePokemonsUrl } from "../hooks/usePokemonsUrl";
 import { usePokemons } from "../hooks/usePokemons";
 import { useNavigate } from "react-router-dom";
+import useSearch from "../hooks/useSearch";
 
 function PokemonsScreen() {
   const [page, setPage] = useState(1);
@@ -13,6 +14,8 @@ function PokemonsScreen() {
   const { pokemons } = usePokemons(pokemonsUrls, page);
 
   const navigate = useNavigate();
+
+  const search = useSearch();
 
   const itemRender: PaginationProps["itemRender"] = (
     _,
@@ -43,7 +46,7 @@ function PokemonsScreen() {
   }, []);
   return (
     <PageLayout>
-      <SearchBar />
+      <SearchBar onSubmitSearch={search} placeholder="Buscar pokémon" />
       <Suspense fallback={<div>Loading...</div>}>
         <PokemonCardList pokemons={pokemons ?? []} />
       </Suspense>
