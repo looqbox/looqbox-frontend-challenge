@@ -1,9 +1,19 @@
 import { ReactNode } from 'react';
+import { TypeOptions } from 'react-toastify';
 
 export interface ILayoutProps {
 	children: ReactNode,
 	routerProps?: any,
 	currentActiveItem?: string
+}
+
+export interface IToastProps {
+	label: string;
+	message: string;
+	icon?: TypeOptions;
+	type: TypeOptions;
+	toastId?: string;
+	autoClose?: number | false;
 }
 
 export interface INavigationItem {
@@ -13,17 +23,3 @@ export interface INavigationItem {
 	component: React.LazyExoticComponent<any>,
 	layout: ({ children }: ILayoutProps)=> JSX.Element
 }
-
-export interface IAPIOptions {
-	successMessage?: string;
-	errorMessage?: string;
-	label: string;
-	showSuccessFeedback?: boolean;
-	showErrorFeedback?: boolean;
-	autoClose?: number | false;
-	endpointIdentificator?: string | number;
-}
-
-export type TAxiosResponse<T> = {
-	message?: string;
-} & T;
