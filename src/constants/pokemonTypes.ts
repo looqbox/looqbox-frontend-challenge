@@ -17,4 +17,5 @@ export const pokemonTypeStyle = {
   ice: "bg-cyan-400 text-cyan-800",
   steel: "bg-slate-400 text-slate-800",
   dark: "bg-black text-white",
+  unknown: "bg-gray-200 text-gray-900",
 };
