@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PageLayout from "../components/UI/icons/PageLayout";
 import PokemonCardList from "../components/Pokemon/PokemonCardList";
 import SearchBar from "../components/SearchBar";
@@ -7,11 +7,12 @@ import { usePokemonsUrl } from "../hooks/usePokemonsUrl";
 import { usePokemons } from "../hooks/usePokemons";
 import { useNavigate } from "react-router-dom";
 import useSearch from "../hooks/useSearch";
+import Loading from "../components/UI/Loader/Loading";
 
 function PokemonsScreen() {
   const [page, setPage] = useState(1);
   const { totalPages, pokemonsUrls } = usePokemonsUrl(page);
-  const { pokemons } = usePokemons(pokemonsUrls, page);
+  const { pokemons, isLoading } = usePokemons(pokemonsUrls, page);
 
   const navigate = useNavigate();
 
@@ -44,12 +45,15 @@ function PokemonsScreen() {
       setPage(parseInt(page));
     }
   }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <PageLayout>
       <SearchBar onSubmitSearch={search} placeholder="Buscar pokémon" />
-      <Suspense fallback={<div>Loading...</div>}>
-        <PokemonCardList pokemons={pokemons ?? []} />
-      </Suspense>
+      <PokemonCardList pokemons={pokemons ?? []} />
       <div className="mt-16">
         <Pagination
           total={totalPages}

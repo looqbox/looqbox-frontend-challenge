@@ -4,6 +4,7 @@ import PageLayout from "../components/UI/icons/PageLayout";
 import { usePokemonsUrl } from "../hooks/usePokemonsUrl";
 import { usePokemons } from "../hooks/usePokemons";
 import useSearch from "../hooks/useSearch";
+import Loading from "../components/UI/Loader/Loading";
 
 function HomeScreen() {
   const { pokemonsUrls } = usePokemonsUrl(1);
@@ -16,7 +17,7 @@ function HomeScreen() {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
