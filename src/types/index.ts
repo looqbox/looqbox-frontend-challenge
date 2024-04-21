@@ -15,7 +15,6 @@ export interface IToastProps {
 	toastId?: string;
 	autoClose?: number | false;
 }
-
 export interface INavigationItem {
 	path: string,
 	kind?: 'main',

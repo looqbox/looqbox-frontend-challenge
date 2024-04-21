@@ -1,3 +1,3 @@
 export const QUERY_KEYS = {
-  POKEMONS: 'pokemons',
+  POKEMONS: 'pokemon',
 };

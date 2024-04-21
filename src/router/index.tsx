@@ -1,9 +1,6 @@
 import { Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-// import { StorageService } from '../services';
-// import { INavigationItem } from '../types';
-
 import BlankLayout from '../components/template/Blank-layout';
 
 import { DefaultRoute, AppRoutes } from './routes';

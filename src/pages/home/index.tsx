@@ -1,5 +1,12 @@
+import PokemonsList from "../../components/pokemons-list";
+
+import './styles.css';
 export default function HomePage() {
+
   return (
-    <div>HOME</div>
+    <section id="hero" className="container">
+      <h1>What are you looking for ?</h1>
+      <PokemonsList/>
+    </section>
   )
-}
+};

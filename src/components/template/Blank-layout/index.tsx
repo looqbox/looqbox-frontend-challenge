@@ -2,7 +2,7 @@ import { ILayoutProps } from '../../../types';
 
 const BlankLayout = ({ children }: ILayoutProps) => {
 	return (
-		<div className='min-h-screen h-full bg-body-background'>
+		<div style={{paddingTop: 40, paddingBottom: 64}}>
 			{children}
 		</div>
 	);

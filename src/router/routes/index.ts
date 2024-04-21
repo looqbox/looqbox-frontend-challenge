@@ -10,6 +10,11 @@ const Routes: INavigationItem[] = [
 		path: '/home',
 		component: lazy(() => import('../../pages/home')),
 		layout: BlankLayout
+	},
+	{
+		path: '/pokemon/:name',
+		component: lazy(() => import('../../pages/pokemon-details')),
+		layout: BlankLayout
 	}
 ];
 
