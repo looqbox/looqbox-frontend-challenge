@@ -1,0 +1,37 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:prettier/recommended"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "multiline-ternary": "off",
+    "no-trailing-spaces": "off",
+    "no-unneeded-ternary": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/indent": "off",
+    "import/no-duplicates": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "spaced-comment": "off",
+    "no-useless-escape": "off",
+    "@typescript-eslint/array-type": "off"
+  }
+}
