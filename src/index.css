@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: "Pokemon";
+  src: url("/fonts/Pokemon.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
@@ -48,4 +54,13 @@
   background-repeat: no-repeat;
   opacity: 0.2; /* Ajuste o valor de 0 a 1 para controlar a opacidade */
   z-index: -1; /* Certifique-se de que a imagem de fundo fique atrás do conteúdo */
+}
+
+.glass-effect {
+  background: rgba(125, 211, 252, 0.5);
+  border-radius: 50%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.1px);
+  -webkit-backdrop-filter: blur(5.1px);
+  border: 1px solid rgba(125, 211, 252, 0.3);
 }
