@@ -5,6 +5,7 @@ import {
   UnfoldVertical,
   Weight,
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import { Pokemon } from '@/@types/pokemon';
 
@@ -59,7 +60,6 @@ export function PokemonDialog({ pokemon }: PokemonDialogProps) {
   return (
     <DialogContent
       style={{
-        borderBottom: `3px solid ${pokemon.species.color.name}`,
         backgroundColor: definedCardColor[pokemon.types[0].type.name],
       }}
     >
@@ -84,6 +84,7 @@ export function PokemonDialog({ pokemon }: PokemonDialogProps) {
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
+            borderBottom: `3px solid ${pokemon.species.color.name}`,
           }}
         >
           <img
@@ -114,12 +115,16 @@ export function PokemonDialog({ pokemon }: PokemonDialogProps) {
           ))}
         </div>
 
-        <Button
-          style={{ backgroundColor: definedColor[pokemon.types[0].type.name] }}
-          className="mt-6 w-full gap-2 text-base font-bold uppercase tracking-widest text-background transition hover:opacity-90"
-        >
-          See Pokemon's page
-        </Button>
+        <Link to={`/pokemons/${pokemon.name}`}>
+          <Button
+            style={{
+              backgroundColor: definedColor[pokemon.types[0].type.name],
+            }}
+            className="mt-6 w-full gap-2 text-base font-bold uppercase tracking-widest text-background transition hover:opacity-90"
+          >
+            See Pokemon's page
+          </Button>
+        </Link>
       </div>
     </DialogContent>
   );

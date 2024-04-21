@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import { pokemons } from './slices/pokemons';
+import { pokeball } from './slices/pokeball';
 
 export const store = configureStore({
   reducer: {
-    pokemons,
+    pokeball,
   },
 });
 

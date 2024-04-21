@@ -4,7 +4,7 @@ import { Pokemon } from '@/@types/pokemon';
 
 export const PER_PAGE = 12;
 
-export type PokemonsState = {
+export type PokeballState = {
   pageIndex: number;
   totalCount: number;
   perPage: number;
@@ -12,7 +12,7 @@ export type PokemonsState = {
   pokemons: Pokemon[];
 };
 
-const initialState: PokemonsState = {
+const initialState: PokeballState = {
   pageIndex: 0,
   totalCount: 0,
   perPage: PER_PAGE,
@@ -20,8 +20,8 @@ const initialState: PokemonsState = {
   pokemons: [],
 };
 
-export const pokemonsSlice = createSlice({
-  name: 'pokemons',
+export const pokeballSlice = createSlice({
+  name: 'pokeball',
   initialState,
   reducers: {
     setPokemonsCount(state, action: PayloadAction<[number]>) {
@@ -46,7 +46,7 @@ export const pokemonsSlice = createSlice({
   },
 });
 
-export const pokemons = pokemonsSlice.reducer;
+export const pokeball = pokeballSlice.reducer;
 
 export const { setPokemonsCount, addPokemons, nextPage } =
-  pokemonsSlice.actions;
+  pokeballSlice.actions;
