@@ -8,6 +8,7 @@ import {
 } from "./../../utils/index";
 import { pokemonTypeStyle } from "./../../constants/pokemonTypes";
 import PokedexTopSvg from "/pokedex-top.svg";
+import Loading from "../UI/Loader/Loading";
 
 interface PokemonInfoProps {
   pokemonName: string;
@@ -17,7 +18,7 @@ function PokemonInfo({ pokemonName }: PokemonInfoProps) {
   const { pokemon, isLoading } = usePokemon(pokemonName);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (!pokemon) {
@@ -30,13 +31,13 @@ function PokemonInfo({ pokemonName }: PokemonInfoProps) {
        bg-red-700 w-full max-w-[600px] min-h-[700px] px-4 py-10 rounded-2xl flex 
       flex-col items-center justify-around gap-4 shadow-pokedex relative
     ">
-      <div className="absolute top-2 left-2 sm:top-5 sm:left-5 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-slate-200 flex items-center justify-center shadow-card">
-        <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-sky-300"></div>
+      <div className="absolute top-2 left-2 sm:top-5 sm:left-5 w-9 h-9 sm:w-16 sm:h-16 rounded-full bg-slate-200 flex items-center justify-center shadow-card">
+        <div className="w-7 h-7 sm:w-12 sm:h-12 rounded-full glass-effect"></div>
       </div>
       <img
         src={PokedexTopSvg}
         alt="Pokedex Icon"
-        className="w-full absolute top-0 -translate-y-20"
+        className="w-full absolute top-0 -translate-y-20 opacity-50"
       />
       <div className="relative flex gap-2 items-center self-end translate-y-10">
         <h1

@@ -22,7 +22,13 @@ function PokemonCard({ name, image, types }: PokemonCardProps) {
           <img src={image} alt={`${name} sprite`} className="w-full" />
         </div>
         <div className="flex flex-col gap-12 text-center -translate-y-24">
-          <p className="text-xl capitalize">{name}</p>
+          <p
+            className="text-3xl capitalize font-pokemon"
+            style={{
+              textShadow: "1px 1px 10px rgba(29, 78, 216, 0.8)",
+            }}>
+            {name}
+          </p>
           <div className="flex gap-2">
             {types.map((type, index) => (
               <span

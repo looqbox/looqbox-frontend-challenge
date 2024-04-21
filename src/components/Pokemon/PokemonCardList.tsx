@@ -14,7 +14,6 @@ function PokemonCardList({ pokemons }: PokemonCardListProps) {
           image={pokemon.sprites.front_default}
           name={pokemon.name}
           types={pokemon.types}
-          payload={pokemon}
         />
       ))}
     </div>
