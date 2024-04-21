@@ -1,15 +1,12 @@
-import { useEffect, useState } from 'react';
 import { Col, Row } from 'antd';
 
 import PokemonCard from '../pokemon-card';
 import { useGetPokemons } from '../../api/pokemons/useGetPokemons';
 import SearchBar from '../search-bar';
-import { IPokemon } from '../../types/models';
+import PokemonsListLoader from '../pokemons-list-loader';
 
 const PokemonsList = () => {
-  const [offset, setOffset] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const { data: pokemons=[], isLoading, refetch } = useGetPokemons(offset);
+  const { data: pokemons=[], isLoading } = useGetPokemons(0);
 
   return (
     <div>
@@ -27,7 +24,7 @@ const PokemonsList = () => {
             />
           </Col>
         ))}
-        {isLoading && <p>Carregando...</p>}
+        {isLoading && <PokemonsListLoader/>}
       </Row>
     </div>
   )

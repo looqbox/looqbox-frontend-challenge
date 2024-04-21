@@ -6,6 +6,7 @@ import { handlePokemonCardAnimationDelay, handlePokemonTypeColor } from '../../u
 import background from '../../assets/images/gray-pokebox.svg';
 
 import './styles.css';
+import { useNavigate } from 'react-router-dom';
 
 interface Iprops {
   pokemon: IPokemon,
@@ -15,10 +16,11 @@ interface Iprops {
 
 const PokemonCard = (props: Iprops) => {
   const { pokemon, index, customClass } = props;
-
+  const navigate = useNavigate();
   return (
-    <div 
+    <button 
       className={`${customClass} pokemon-card`}
+      onClick={() => navigate('/pokemon/' + pokemon.name)}
       style={{ 
         backgroundColor: handlePokemonTypeColor(pokemon?.types[0]), 
         animationDelay: handlePokemonCardAnimationDelay(index)
@@ -34,7 +36,7 @@ const PokemonCard = (props: Iprops) => {
           <span key={index} className="pokemon-type">{type}</span>
         ))}
       </div>
-    </div>
+    </button>
   )
 }
 
