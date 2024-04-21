@@ -61,6 +61,10 @@ export type PokemonSpecies = {
       name: string;
     };
   }>;
+  evolution_chain: { url: string };
+  habitat: { name: string; url: string };
+  capture_rate: number;
+  base_happiness: number;
 };
 
 export type PokemonSprites = {
