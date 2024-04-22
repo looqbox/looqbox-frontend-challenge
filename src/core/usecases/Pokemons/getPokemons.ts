@@ -9,5 +9,5 @@ export const getPokemons = async (pokemons: NamedAPIResource[]) => {
     })
   );
 
-  return result ? result : [];
+  return result;
 };

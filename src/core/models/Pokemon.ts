@@ -4,11 +4,15 @@ export default interface Pokemon {
   base_experience: number;
   height: number;
   is_default: boolean;
+  isHidden?: boolean;
   order: number;
   weight: number;
   abilities: PokemonAbility[];
   forms: NamedAPIResource[];
-  game_indices: NamedAPIResource[];
+  game_indices: {
+    game_index: number;
+    version: NamedAPIResource;
+  }[];
   held_items: PokemonHeldItem[];
   location_area_encounters: string;
   moves: PokemonMove[];
@@ -48,7 +52,7 @@ export interface NamedAPIResource {
 }
 
 export interface PokemonAbility {
-  is_hidden: boolean;
+  is_hidden?: boolean;
   slot: number;
   ability: NamedAPIResource;
 }
