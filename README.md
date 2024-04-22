@@ -4,7 +4,7 @@
 
 Este projeto é uma implementação de uma Pokedex, usando React, TypeScript, Tailwind CSS, Ant Design e React Router, consumindo a API publica da PokeAPI para obter informações sobre os Pokemons.
 
-### Recursos
+### Recursos:
 
 - Lista de todos os Pokemons
 - Detalhes de cada Pokemon, incluindo suas tipos, habilidades e Ataques.
