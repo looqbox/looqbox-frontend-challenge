@@ -21,7 +21,7 @@ Para instalar e rodar o projeto, siga os seguintes passos:
 1. Clone o repositório para a sua máquina local.
 2. Navegue até a pasta do projeto
 3. Instale as dependências com `npm install`
-4. Inicie o servidor com `npm start`
+4. Inicie o servidor com `npm run dev`
 5. Abra o navegador e acesse http://localhost:5173
 
 ### Teste
