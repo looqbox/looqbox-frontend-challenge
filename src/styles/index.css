@@ -1,3 +1,8 @@
+body {
+  margin: 0px;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
 .container{
   position:relative;
   margin-left:auto;
@@ -8,6 +13,22 @@
 
 .ant-image-mask {
   display: none !important;
+}
+
+.ant-select {
+  width: 100% !important;
+  max-width: 564px;
+}
+
+.ant-select input{
+  border-color: transparent !important;
+  background-color: #f5f5f5 !important;
+  border-radius: 16px;
+  padding-left: 16px;
+}
+
+.ant-select .ant-btn{
+  border-radius: 16px;
 }
 
 @media (min-width: 476px){

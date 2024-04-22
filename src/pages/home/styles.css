@@ -3,3 +3,29 @@
   height: auto;
   object-fit: contain;
 }
+
+.tags-list-container {
+  position: relative;
+  background-color: #fff;
+  border-radius: 0px 0px 64px 64px;
+  padding: 80px 0px 40px 0px;
+  margin-bottom: 64px;
+}
+
+.tags-list-container h1{
+  font-size: 48px;
+  line-height: 132%;
+  font-family: 'Asap', sans-serif;
+  margin: 0px;
+  margin-bottom: 32px;
+}
+
+.gray-pokebox-background {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 60vh;
+  width: auto;
+  transform: translate(30%, -40%);
+  max-height: 490px;
+}
