@@ -13,6 +13,7 @@ function PokemonCard({ name, image, types }: PokemonCardProps) {
   return (
     <Link to={`/pokemons/${name}`} onClick={() => window.scrollTo(0, 0)}>
       <div
+        data-testid="pokemon-card"
         className="
         bg-slate-50 w-[280px] h-[240px] p-8 rounded-2xl flex flex-col 
         items-center gap-4 shadow-card transition-all duration-300 hover:scale-110

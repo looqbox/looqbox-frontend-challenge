@@ -9,6 +9,7 @@ import {
 import { pokemonTypeStyle } from "./../../constants/pokemonTypes";
 import PokedexTopSvg from "/pokedex-top.svg";
 import Loading from "../UI/Loader/Loading";
+import NotFound from "../UI/NotFound";
 
 interface PokemonInfoProps {
   pokemonName: string;
@@ -22,7 +23,7 @@ function PokemonInfo({ pokemonName }: PokemonInfoProps) {
   }
 
   if (!pokemon) {
-    return <div>Pokemon not found</div>;
+    return <NotFound message="Pokemon não encontrado!" />;
   }
 
   return (

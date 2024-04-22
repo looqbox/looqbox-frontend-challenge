@@ -14,6 +14,7 @@ function RenderPokemonMoves({ pokemon }: RenderPokemonMovesProps) {
       <ul className="flex flex-col gap-2 w-full max-w-[250px] max-h-[250px] overflow-y-auto custom-scrollbar">
         {pokemon?.moves.map((ability, index) => (
           <li
+            role="listitem"
             key={index}
             className="flex mt-2 gap-1 text-lg font-medium capitalize text-gray-600">
             {ability.move.name.replace("-", " ")}

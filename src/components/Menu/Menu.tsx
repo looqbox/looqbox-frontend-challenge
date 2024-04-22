@@ -5,6 +5,7 @@ import IconPokedex from "../UI/icons/IconPokedex";
 function Menu() {
   return (
     <nav
+      data-testid="menu"
       className="
       bg-slate-50 w-full max-w-[1024px] mx-auto 
       mt-8 px-4 flex items-center justify-center rounded-2xl shadow-md border-red-500

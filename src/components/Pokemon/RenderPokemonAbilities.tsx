@@ -14,6 +14,7 @@ function RenderPokemonAbilities({ pokemon }: RenderPokemonAbilitiesProps) {
       <ul className="flex mt-2 flex-col gap-2 w-full max-w-[400px]">
         {pokemon?.abilities.map((ability) => (
           <li
+            role="listitem"
             key={ability.slot}
             className="flex gap-1 text-lg font-medium capitalize text-gray-600">
             <span>{ability.slot}. </span>
