@@ -9,5 +9,19 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./__test__/setup.ts",
+    coverage: {
+      exclude: [
+        "**/node_modules/**",
+        "**/dist/**",
+        "**__test__/**",
+        "**/src/utils/**",
+        "**/src/data/**",
+        "**/src/core/models/**",
+        "*.json",
+        "*.config.js",
+        "*.d.ts",
+        ".eslintrc.cjs",
+      ],
+    },
   },
 });
