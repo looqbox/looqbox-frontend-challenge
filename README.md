@@ -27,6 +27,7 @@ Para instalar e rodar o projeto, siga os seguintes passos:
 ### Teste
 
 1. `npm test` ou `npm run test:ui`
+2. Para verificar a cobertura de teste `npm run test:coverage`
 
 ### Tecnologias usadas
 
