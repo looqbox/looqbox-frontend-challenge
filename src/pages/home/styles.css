@@ -15,17 +15,19 @@
 .tags-list-container h1{
   font-size: 48px;
   line-height: 132%;
-  font-family: 'Asap', sans-serif;
   margin: 0px;
   margin-bottom: 32px;
 }
 
-.gray-pokebox-background {
+.gray-pokeball-background {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: -180px;
+  right: -140px;
   height: 60vh;
   width: auto;
-  transform: translate(30%, -40%);
   max-height: 490px;
+  animation: rotate 10s linear infinite;
+}
+.pokemons-list-container {
+  padding-bottom: 40px;
 }

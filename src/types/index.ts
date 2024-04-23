@@ -22,3 +22,10 @@ export interface INavigationItem {
 	component: React.LazyExoticComponent<any>,
 	layout: ({ children }: ILayoutProps)=> JSX.Element
 }
+
+export interface IAPIResponse<T> {
+	count: number,
+	next: string | null,
+	previous: string | null,
+	results: T[]
+}

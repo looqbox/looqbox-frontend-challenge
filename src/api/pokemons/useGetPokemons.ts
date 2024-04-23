@@ -1,31 +1,27 @@
+import { AxiosResponse } from 'axios';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 
 import { QUERY_KEYS } from '../query-keys';
 import api from '../base';
-import { IPokemon, IPokemonType } from '../../types/models';
+import { IPokemon, IPokemonList } from '../../types/models';
+import { IAPIResponse } from '../../types';
 
-const getPokemons = async (offset: number): Promise<Array<IPokemon>> => {
+const getPokemonsDetails = async (pokemons: IPokemonList[]): Promise<IPokemon[]> => {
+	return await Promise.all(
+		pokemons.map(async (pokemon: IPokemonList) => {
+			const response = await api.get(pokemon.url);
+			return response.data;
+		})
+	)
+};
+
+const getPokemons = async (offset: number): Promise<IPokemon[]> => {
 	try {
-		const response = await api.get(`${QUERY_KEYS.POKEMONS}/?limit=18&offset=${offset}`);
+		const response: AxiosResponse<IAPIResponse<IPokemonList>> = await api.get(`${QUERY_KEYS.POKEMON}/?limit=18&offset=${offset}`);
 		const pokemons = response.data.results;
 
-		const pokemonDetails = await Promise.all(
-			pokemons?.map(async (pokemon: IPokemon) => {
-				const detailResponse = await api.get(pokemon.url);
-				const { id, name, sprites, types } = detailResponse.data;
-
-				return {
-					id,
-					name,
-					image: sprites.other['official-artwork'].front_default,
-					number: `#${id.toString().padStart(3, '0')}`,
-					types: types.map((typeInfo: IPokemonType) => typeInfo.type.name)
-				};
-			})
-		);
-
-		return pokemonDetails;
+		return getPokemonsDetails(pokemons);
 	} catch(error) {
 		toast.error('Erro ao buscar pokemons!', { toastId: 'pokemons-error' });
 		throw new Error('Erro ao buscar pokemons');

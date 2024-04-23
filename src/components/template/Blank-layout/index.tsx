@@ -2,7 +2,7 @@ import { ILayoutProps } from '../../../types';
 
 const BlankLayout = ({ children }: ILayoutProps) => {
 	return (
-		<div style={{paddingBottom: 64}}>
+		<div>
 			{children}
 		</div>
 	);

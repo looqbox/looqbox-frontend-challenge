@@ -2,6 +2,7 @@ body {
   margin: 0px;
   background-color: #f5f5f5;
   overflow-x: hidden;
+  font-family: 'Asap', sans-serif;
 }
 .container{
   position:relative;
@@ -82,5 +83,26 @@ body {
   .container{
     width:1340px;
     max-width:100%
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

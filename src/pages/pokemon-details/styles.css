@@ -1,0 +1,125 @@
+.pokemon-details {
+  min-height: 100vh;
+  height: 100%;
+  position: relative;
+  color: #fff;
+  background-image: url('../../assets/images/background-illustration.svg');
+  background-repeat: no-repeat;
+  background-position: top right 0px ;
+  background-size: 100px;
+}
+.back-button {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  width: -moz-fiz-content;
+  color: #fff;
+  padding: 0px;
+  transition: .3s ease-in-out;
+}
+.back-button:hover {
+  cursor: pointer;
+  transform: translateX(-4px);
+}
+.pokemon-top-section-wrapper {
+  display: flex;
+  flex: 1;
+  height: 60vh;
+  position: relative;
+  z-index: 3;
+}
+.pokemon-top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+}
+.pokemon-top-info-align {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 32px;
+}
+.pokemons-name {
+  font-size: 56px;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin: 0px;
+  margin-top: 16px;
+}
+.pokemons-number {
+  margin: 0px;
+  font-size: 32px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
+}
+.pokemons-name-and-number-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pokemon-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.pokemon-type {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.pokemon-image-container {
+  position: absolute;
+  width: 320px;
+  height: auto;
+  max-width: calc(100vw - 32px);
+  left: 50%;
+  transform: translate(-50%, 20%);
+  bottom: 0px;
+}
+.pokemon-image {
+  position: relative;
+  z-index: 2;
+}
+.pokemon-image:hover {
+  cursor: pointer;
+}
+.pokeball-background {
+  position: absolute;
+  left: calc(50% - 170px);
+  top: calc(60vh - 220px);
+  z-index: 1;
+  height: 340px;
+  width: 340px;
+  animation: rotate 6s linear infinite;
+}
+.pokemon-bottom-section {
+  display: flex;
+  flex: 1;
+  min-height: 40vh;
+  background-color: #fff;
+  border-radius: 40px 40px 0px 0px;
+  position: relative;
+  z-index: 2;
+  padding-top: 56px;
+}
+
+.pokemon-bottom-section .ant-tabs {
+  width: 100%;
+}
+
+.pokemon-bottom-section .ant-tabs-nav-wrap {
+  justify-content: center;
+}
+
+.pokemon-bottom-section .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #000 !important;
+  text-shadow: 0 0 2.25px currentcolor !important;
+}
