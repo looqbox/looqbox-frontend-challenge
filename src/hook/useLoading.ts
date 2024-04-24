@@ -1,21 +1,32 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { setLoading } from '../redux/loadingSlice'
+import { setLoading, incrementCalls, decrementCalls } from '../redux/loadingSlice'
+import { useEffect, useState } from 'react'
 
 interface loadingState {
-  loading: { isLoading: boolean }
+  loading: { isLoading: boolean; calls: number }
 }
 
 const useLoading = () => {
   const loading = useSelector((state: loadingState) => state.loading.isLoading)
+  const calls = useSelector((state: loadingState) => state.loading.calls)
 
   const dispatch = useDispatch()
 
+  useEffect(() => {
+    if (calls) {
+      dispatch(setLoading(true))
+    } else {
+      dispatch(setLoading(false))
+    }
+    console.log(calls)
+  }, [calls])
+
   const showLoading = () => {
-    dispatch(setLoading(true))
+    dispatch(incrementCalls())
   }
 
   const hideLoading = () => {
-    dispatch(setLoading(false))
+    dispatch(decrementCalls())
   }
 
   return { loading, showLoading, hideLoading }

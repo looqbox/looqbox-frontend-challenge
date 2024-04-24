@@ -8,9 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.6",
     "@babel/eslint-parser": "^7.5.4",
     "@reduxjs/toolkit": "^2.2.3",
     "antd": "^5.16.2",
+    "axios": "^1.6.8",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.0",

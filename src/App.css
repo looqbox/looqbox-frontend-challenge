@@ -2,10 +2,12 @@
   font-family: 'BarcadeBrawl';
   src: url('/src/assets/fonts/BarcadeBrawl.ttf') format('truetype');
 }
-
-* {
+body {
   background-image: url('/src/assets/images/day.png');
   background-attachment: fixed;
   background-size: cover;
+}
+
+* {
   font-family: BarcadeBrawl, Arial, sans-serif;
 }

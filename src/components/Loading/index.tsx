@@ -10,11 +10,11 @@ interface MyStyles extends CSSProperties {
 function Loading() {
   const { loading } = useLoading()
 
-  if (loading) return <></>
+  if (!loading) return <></>
 
   return (
     <Flex vertical justify='center' align='center' style={styles.container}>
-      <p style={styles.text}>Loading</p>
+      <p style={styles.text}>Carregando</p>
       <img
         src='https://i.gifer.com/VgI.gif'
         alt='loading-gif'
