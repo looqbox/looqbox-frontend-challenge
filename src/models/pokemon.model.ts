@@ -43,7 +43,7 @@ export default interface Pokemon {
     slot: number;
   }
   
-  interface ReferenceToEndpoint {
+  export interface ReferenceToEndpoint {
     name: string;
     url: string;
   }
