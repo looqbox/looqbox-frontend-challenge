@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import Pokemon, { ReferenceToEndpoint } from "../models/pokemon.model";
-import { Habitat } from "../models/habitat.model";
+import Pokemon, { ReferenceToEndpoint } from "../../models/pokemon.model";
+import { Habitat } from "../../models/habitat.model";
 
 type APIResponse = {
   count: number;

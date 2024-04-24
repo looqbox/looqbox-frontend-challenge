@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useGetPokemonByNameQuery } from "../services/pokemon";
+import { useGetPokemonByNameQuery } from "../state/services/pokemon";
 
 export default function PokemonPage() {
   const { name } = useParams();
