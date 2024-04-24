@@ -5,27 +5,34 @@ import {
 } from "../state/services/pokemon";
 import { useEffect, useState } from "react";
 const { Content } = Layout;
-import { Pagination } from "antd";
 import { ReferenceToEndpoint } from "../models/pokemon.model";
-import usePagination from "../hooks/usePagination";
 import PokemonCard from "../components/PokemonCard";
 import ListSorter from "../components/ListSorter";
 import SearchBar from "../components/SearchBar";
+import ListPagination from "../components/ListPagination";
+import { useSelector } from "react-redux";
+import { RootState } from "../state/store";
 
 export default function Home() {
-  const { qParams, onPageChange, queryOnlyPageSize } = usePagination();
-
   const [selectedHabitat, setSelectedHabitat] = useState("");
   const { data: habitatInfo, error: habitatInfoError } =
     useGetPokemonHabitatByNameQuery(selectedHabitat, {
       skip: selectedHabitat === "",
     });
 
+  const pagination = useSelector((state: RootState) => state.pagination);
+  const { offset, pageSize } = pagination;
+
+  const queryParams = new URLSearchParams({
+    offset: offset.toString(),
+    limit: pageSize.toString(),
+  }).toString();
+
   const {
     data: pokemonList,
     isLoading: loadingPokemonList,
     error: pokemonListError,
-  } = useGetPokemonListQuery(qParams);
+  } = useGetPokemonListQuery(queryParams);
 
   const [pokemons, setPokemons] = useState<{
     renderPokemons: ReferenceToEndpoint[];
@@ -37,7 +44,8 @@ export default function Home() {
 
   useEffect(() => {
     if (selectedHabitat !== "") {
-      const pokesToQuery = queryOnlyPageSize(habitatInfo?.pokemon_species);
+      const pokesToQuery =
+        habitatInfo?.pokemon_species.slice(offset, offset + pageSize) ?? [];
       setPokemons({
         renderPokemons: pokesToQuery,
         totalCount: habitatInfo?.pokemon_species?.length ?? 0,
@@ -48,12 +56,7 @@ export default function Home() {
         totalCount: pokemonList?.count ?? 0,
       });
     }
-  }, [
-    habitatInfo?.pokemon_species,
-    pokemonList,
-    queryOnlyPageSize,
-    selectedHabitat,
-  ]);
+  }, [habitatInfo?.pokemon_species, offset, pageSize, pokemonList, selectedHabitat]);
 
   if (loadingPokemonList) return <p>Loading pókemons...</p>;
   if (pokemonListError)
@@ -74,14 +77,7 @@ export default function Home() {
             return <PokemonCard name={poke?.name} key={poke.name} />;
           })}
         </Flex>
-        <Pagination
-          pageSizeOptions={[12, 24, 36, 60, 96]}
-          defaultPageSize={12}
-          defaultCurrent={1}
-          total={pokemons?.totalCount}
-          onChange={onPageChange}
-          showSizeChanger
-        />
+        <ListPagination pokemonsCount={pokemons?.totalCount} />
       </Content>
     </Layout>
   );
