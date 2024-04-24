@@ -3,11 +3,16 @@ import {
   useGetPokemonByNameQuery,
   useGetPokemonListQuery,
 } from "../services/pokemon";
+import { Link, redirect } from "react-router-dom";
 const { Search } = Input;
 const { Content } = Layout;
 
 export default function Home() {
   const { data, isLoading } = useGetPokemonListQuery();
+
+  const goToPokemon = (nameOrId: string) => {
+    redirect(`pokemon/${nameOrId}`);
+  };
 
   return (
     <Layout>
@@ -16,10 +21,10 @@ export default function Home() {
           placeholder="input search text"
           enterButton="Search"
           size="large"
-        //   onSearch={(e) => setSearchTerm(e)}
-        //   onPressEnter={(e) =>
-        //     setSearchTerm((e?.target as HTMLInputElement)?.value)
-        //   }
+          onSearch={(e) => goToPokemon(e)}
+          onPressEnter={(e) =>
+            goToPokemon((e?.target as HTMLInputElement)?.value)
+          }
           loading={isLoading}
         />
         <Flex wrap="wrap" justify="center" gap="24px">
@@ -39,8 +44,10 @@ function PokemonCard({ name }: { name: string }) {
   if (error) return <div>Error: {error?.message}</div>;
 
   return (
-    <Card title={pokemon?.name} style={{ width: "376px" }}>
-      <p>{pokemon?.name}</p>
-    </Card>
+    <Link to={`pokemon/${pokemon?.name}`}>
+      <Card title={pokemon?.name} style={{ width: "376px" }}>
+        <p>{pokemon?.name}</p>
+      </Card>
+    </Link>
   );
 }
