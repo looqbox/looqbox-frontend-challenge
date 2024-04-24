@@ -1,21 +1,12 @@
 import { Card, Flex, Input, Layout } from "antd";
-import { useEffect, useState } from "react";
-import Pokemon from "../models/pokemon.model";
+import { useState } from "react";
+import { useGetPokemonByNameQuery } from "../services/pokemon";
 const { Search } = Input;
 const { Content } = Layout;
 
 export default function Home() {
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon/").then(
-        (res) => res.json()
-      );
-      setPokemons(response.results);
-    };
-
-    fetchData();
-  }, []);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const { data, isLoading } = useGetPokemonByNameQuery(searchTerm);
 
   return (
     <Layout>
@@ -24,18 +15,21 @@ export default function Home() {
           placeholder="input search text"
           enterButton="Search"
           size="large"
+          onSearch={(e) => setSearchTerm(e)}
+          onPressEnter={(e) =>
+            setSearchTerm((e?.target as HTMLInputElement)?.value)
+          }
+          loading={isLoading}
         />
         <Flex wrap="wrap" justify="center" gap="24px">
-          {pokemons?.map((poke) => {
+          {data?.results?.map((poke) => {
             return (
               <Card
                 title={poke.name}
-                extra={poke.id}
-                key={poke.id}
+                key={poke.name}
                 style={{ width: "376px" }}
               >
                 <p>{poke.name}</p>
-                <p>{poke.base_experience}</p>
               </Card>
             );
           })}
