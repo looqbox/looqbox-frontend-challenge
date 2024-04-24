@@ -1,4 +1,4 @@
-import { Flex, Layout } from "antd";
+import { Flex, Layout, Spin, message } from "antd";
 import {
   useGetPokemonHabitatByNameQuery,
   useGetPokemonListQuery,
@@ -15,10 +15,12 @@ import { RootState } from "../state/store";
 
 export default function Home() {
   const [selectedHabitat, setSelectedHabitat] = useState("");
-  const { data: habitatInfo, error: habitatInfoError } =
-    useGetPokemonHabitatByNameQuery(selectedHabitat, {
+  const { data: habitatInfo } = useGetPokemonHabitatByNameQuery(
+    selectedHabitat,
+    {
       skip: selectedHabitat === "",
-    });
+    }
+  );
 
   const pagination = useSelector((state: RootState) => state.pagination);
   const { offset, pageSize } = pagination;
@@ -56,20 +58,51 @@ export default function Home() {
         totalCount: pokemonList?.count ?? 0,
       });
     }
-  }, [habitatInfo?.pokemon_species, offset, pageSize, pokemonList, selectedHabitat]);
+  }, [
+    habitatInfo?.pokemon_species,
+    offset,
+    pageSize,
+    pokemonList,
+    selectedHabitat,
+  ]);
 
-  if (loadingPokemonList) return <p>Loading pókemons...</p>;
-  if (pokemonListError)
+  const [messageApi, contextHolder] = message.useMessage();
+  if (loadingPokemonList || pokemonListError) {
+    if (pokemonListError) {
+      messageApi.open({
+        type: "error",
+        content:
+          "Failed to load pokémon. Check your connection and refresh the page.",
+      });
+    }
     return (
-      <p>
-        Error fetching pokémons. Check your internet connection and reload the
-        page.
-      </p>
+      <div
+        style={{
+          width: `100vw`,
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Spin size="large" />
+        {contextHolder}
+      </div>
     );
+  }
 
   return (
     <Layout>
-      <Content style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <Content
+        style={{
+          maxWidth: "1200px",
+          margin: "40px auto",
+          display: "flex",
+          alignItems: `center`,
+          gap: "48px",
+          flexDirection: "column",
+        }}
+      >
         <ListSorter setSelectedHabitat={setSelectedHabitat} />
         <SearchBar />
         <Flex wrap="wrap" justify="center" gap="24px">

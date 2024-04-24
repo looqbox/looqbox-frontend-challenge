@@ -31,39 +31,55 @@ export default function ListSorter({
 
   if (habitatListError) return <p>Error loading sort</p>;
   return (
-    <Flex>
-      <Dropdown
-        menu={{
-          items,
-          selectable: true,
-          onSelect: ({ key }) => {
-            setSelected([key]);
-            setSelectedHabitat(habitatList?.results?.[Number(key)].name ?? "");
-          },
-          selectedKeys: selected,
-        }}
-        placement="bottom"
-        dropdownRender={(menu) => (
-          <div style={contentStyle}>
-            {cloneElement(menu as React.ReactElement, { style: menuStyle })}
-            <Divider style={{ margin: 0 }} />
-            <Space style={{ padding: 8 }}>
-              <Button
-                type="default"
-                onClick={() => {
-                  dispatch(setPage(1));
-                  setSelectedHabitat("");
-                  setSelected([]);
-                }}
-              >
-                Clear
-              </Button>
-            </Space>
-          </div>
-        )}
-      >
-        <Button>Habitats</Button>
-      </Dropdown>
+    <Flex
+      style={{
+        height: "80px",
+        minWidth: "400px",
+        border: "1px solid lightGrey",
+        borderRadius: "8px",
+      }}
+      justify="center"
+      align="center"
+      vertical
+      gap="12px"
+    >
+      <p style={{fontWeight: 'bold'}}>Filter</p>
+      <Flex>
+        <Dropdown
+          menu={{
+            items,
+            selectable: true,
+            onSelect: ({ key }) => {
+              setSelected([key]);
+              setSelectedHabitat(
+                habitatList?.results?.[Number(key)].name ?? ""
+              );
+            },
+            selectedKeys: selected,
+          }}
+          placement="bottom"
+          dropdownRender={(menu) => (
+            <div style={contentStyle}>
+              {cloneElement(menu as React.ReactElement, { style: menuStyle })}
+              <Divider style={{ margin: 0 }} />
+              <Space style={{ padding: 8 }}>
+                <Button
+                  type="default"
+                  onClick={() => {
+                    dispatch(setPage(1));
+                    setSelectedHabitat("");
+                    setSelected([]);
+                  }}
+                >
+                  Clear
+                </Button>
+              </Space>
+            </div>
+          )}
+        >
+          <Button>Habitats</Button>
+        </Dropdown>
+      </Flex>
     </Flex>
   );
 }
