@@ -1,4 +1,4 @@
-import { Card, Flex, Input, Layout } from "antd";
+import { Card, Flex, Input, Layout, PaginationProps } from "antd";
 import {
   useGetPokemonByNameQuery,
   useGetPokemonListQuery,
@@ -8,12 +8,17 @@ import { useEffect, useState } from "react";
 const { Search } = Input;
 const { Content } = Layout;
 import { message } from "antd";
+import { Pagination } from "antd";
 
 export default function Home() {
+  const initialPageSize = 12;
   const [searchTerm, setSearchTerm] = useState("");
   const [messageApi, contextHolder] = message.useMessage();
+  const [qParams, setQParams] = useState<string | null>(
+    `limit=${initialPageSize}`
+  );
 
-  const { data, isLoading, error } = useGetPokemonListQuery();
+  const { data, isLoading, error } = useGetPokemonListQuery(qParams);
 
   const {
     data: pokemon,
@@ -53,6 +58,15 @@ export default function Home() {
       </p>
     );
 
+  const onPageChange: PaginationProps["onChange"] = (page, pageSize) => {
+    const searchParams = new URLSearchParams({
+      offset: ((page - 1) * pageSize).toString(),
+      limit: pageSize.toString(),
+    });
+
+    setQParams(searchParams.toString());
+  };
+
   return (
     <Layout>
       <Content style={{ maxWidth: "1200px", margin: "0 auto" }}>
@@ -71,6 +85,14 @@ export default function Home() {
             return <PokemonCard name={poke?.name} key={poke.name} />;
           })}
         </Flex>
+        <Pagination
+          pageSizeOptions={[12, 24, 36, 60, 96]}
+          defaultPageSize={initialPageSize}
+          defaultCurrent={1}
+          total={data?.count}
+          onChange={onPageChange}
+          showSizeChanger
+        />
       </Content>
       {contextHolder}
     </Layout>
