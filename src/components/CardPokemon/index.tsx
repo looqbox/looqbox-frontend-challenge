@@ -46,14 +46,14 @@ function CardPokemon({ pokemon }: CardProps) {
       title={`#${String(pokemon?.id).padStart(3, '0')}`}
       cover={
         <img
-          style={styles.img}
+          style={{ ...styles.img }}
           alt='example'
           src={pokemon?.sprites?.other['dream_world'].front_default}
         />
       }
     >
       <div style={{ textAlign: 'center' }}>{pokemon?.name}</div>
-      <Flex justify='center'>
+      <Flex justify={'center'}>
         {pokemon?.types.map((type: any, key: number) => (
           <Tooltip
             overlayStyle={{ fontSize: '8px' }}
@@ -79,14 +79,17 @@ export default CardPokemon
 
 const styles = {
   card: {
-    width: 200,
-    height: 350,
     backgroundColor: '#fff',
     margin: '20px',
-    border: 'none'
+    border: 'none',
+    borderRadius: '15px',
+    transition: '0.5s ease-in-out',
+    width: 200,
+    height: 350
   },
   img: {
     height: '150px',
+    width: '150px',
     margin: 'auto',
     padding: '15px 5px 5px 5px'
   },
