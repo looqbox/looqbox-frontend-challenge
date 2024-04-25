@@ -14,7 +14,8 @@
     "test:prettier": "prettier --config .prettierrc --check \"**/*.{js,jsx,ts,tsx}\"",
     "test:typescript": "npx tsc --noEmit",
     "checks": "yarn lint && yarn test:prettier && yarn test:typescript",
-    "checks:fix": "npx tsc --noEmit && npx eslint --fix . && npx prettier --write ."
+    "checks:fix": "npx tsc --noEmit && npx eslint --fix . && npx prettier --write .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@tanstack/react-query": "5.29.2",
@@ -43,6 +44,7 @@
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.4.6",
+    "husky": "^9.0.11",
     "pokeapi-types": "0.0.2",
     "postcss": "8.4.38",
     "prettier": "3.2.5",
