@@ -8,10 +8,9 @@ export default function ListPagination({
 }) {
   const { page, pageSize, setParams } = useQueryParams();
 
-  const onPageChange: PaginationProps["onChange"] = (page, formPageSize) => {
-    setParams(page, formPageSize);
-
-    window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+  const onPageChange: PaginationProps["onChange"] = (currPage, formPageSize) => {
+    if(page !== currPage) window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+    setParams(currPage, formPageSize);
   };
 
   return (

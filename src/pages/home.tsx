@@ -3,14 +3,15 @@ import {
   useGetPokemonHabitatByNameQuery,
   useGetPokemonListQuery,
 } from "../state/services/pokemon";
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 const { Content } = Layout;
 import { ReferenceToEndpoint } from "../models/pokemon.model";
 import ListSorter from "../components/ListSorter";
 import SearchBar from "../components/SearchBar";
 import ListPagination from "../components/ListPagination";
 import useQueryParams from "../hooks/useQueryParams";
-import PokemonCard from "../components/PokemonCard";
+
+const PokemonCardLazy = lazy(() => import("../components/PokemonCard"));
 
 export default function Home() {
   const [selectedHabitat, setSelectedHabitat] = useState("");
@@ -91,7 +92,6 @@ export default function Home() {
     );
   }
 
-
   return (
     <Layout>
       <Content
@@ -102,13 +102,14 @@ export default function Home() {
           alignItems: `center`,
           gap: "48px",
           flexDirection: "column",
+          minHeight: `${(pageSize / 3) * 400}px`,
         }}
       >
         <ListSorter setSelectedHabitat={setSelectedHabitat} />
         <SearchBar />
         <Flex wrap="wrap" justify="center" gap="24px">
           {pokemons?.renderPokemons.map((poke) => {
-            return <PokemonCard name={poke?.name} key={poke.name} />;
+            return <PokemonCardLazy name={poke?.name} key={poke.name} />;
           })}
         </Flex>
         <ListPagination pokemonsCount={pokemons?.totalCount} />

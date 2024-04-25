@@ -2,9 +2,31 @@ import { Link } from "react-router-dom";
 import { useGetPokemonByNameQuery } from "../state/services/pokemon";
 import { Card, Flex, Skeleton, Tooltip } from "antd";
 import svgMap from "../utils/svgMap";
+import { useEffect, useRef, useState } from "react";
 
 export default function PokemonCard({ name }: { name: string }) {
-  const { data: pokemon, error, isLoading } = useGetPokemonByNameQuery(name);
+  const targetElement = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+  console.log(name, isInView);
+  const {
+    data: pokemon,
+    error,
+    isLoading,
+  } = useGetPokemonByNameQuery(name, { skip: !isInView });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+          setIsInView(false);
+        }
+      });
+    });
+    if (targetElement?.current) observer.observe(targetElement?.current);
+    return () => observer.disconnect();
+  }, []);
 
   if (error) return <div>Error: failed to fetch {name}</div>;
 
@@ -12,10 +34,11 @@ export default function PokemonCard({ name }: { name: string }) {
     <Link to={`pokemon/${pokemon?.name}`}>
       <Card
         title={pokemon?.name}
-        style={{ width: "376px" }}
+        style={{ width: "376px", height: "400px" }}
         extra={pokemon?.id}
+        ref={targetElement}
       >
-        <Skeleton loading={isLoading} active></Skeleton>
+        <Skeleton loading={!isInView || isLoading} active></Skeleton>
         <img
           style={{ width: `50%`, margin: `auto`, display: "block" }}
           src={pokemon?.sprites.front_default}
