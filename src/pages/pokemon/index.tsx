@@ -46,7 +46,7 @@ export function PokemonPage() {
   const { data: pokemon, isLoading: isLoadingPokemon } = useQuery({
     queryKey: ['pokemon', pokemonName],
     queryFn: () => getPokemonByName(pokemonName ?? ''),
-    staleTime: Infinity,
+    staleTime: 1000 * 60 * 10, // 10 min
   });
 
   const pokemonTypeUrls = pokemon?.types.map((t) => t.type.url);
@@ -159,10 +159,13 @@ export function PokemonPage() {
     {
       icon: Shrub,
       name: 'Habitat',
-      value: pokemon.species.habitat.name
-        .charAt(0)
-        .toLocaleUpperCase()
-        .concat(pokemon.species.habitat.name.substring(1)),
+      value:
+        pokemon.species.habitat && pokemon.species.habitat
+          ? pokemon.species.habitat.name
+              .charAt(0)
+              .toLocaleUpperCase()
+              .concat(pokemon.species.habitat.name.substring(1))
+          : '-',
     },
   ];
 
@@ -189,7 +192,7 @@ export function PokemonPage() {
         className="min-h-screen"
       >
         <div className="container mt-10">
-          <div className="flex h-[680px] items-stretch gap-8">
+          <div className="max-h relative flex gap-8">
             <div
               style={{
                 backgroundColor: definedColor[pokemon.types[0].type.name],
@@ -199,7 +202,7 @@ export function PokemonPage() {
                 backgroundPosition: 'center',
                 borderBottom: `3px solid ${pokemon.species.color.name}`,
               }}
-              className="flex h-full min-w-[520px] items-center justify-center rounded-3xl bg-red-600 shadow-lg"
+              className="sticky top-0 flex h-[500px] min-w-[520px] items-center justify-center rounded-3xl bg-red-600 shadow-lg"
             >
               <img
                 src={pokemon.sprites.front_default}

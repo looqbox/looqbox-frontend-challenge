@@ -1,5 +1,4 @@
 import { api } from '@/lib/axios';
-import { PER_PAGE } from '@/store/slices/pokeball';
 
 type PokemonsBaseDataResponse = {
   count: number;
@@ -7,7 +6,7 @@ type PokemonsBaseDataResponse = {
 };
 
 type GetPokemonsParams = {
-  offset: number;
+  currentPage: number;
 };
 
 export type GetPokemonsNamesResponse = {
@@ -15,12 +14,14 @@ export type GetPokemonsNamesResponse = {
   pokemonsName: string[];
 };
 
+export const PER_PAGE = 12;
+
 export async function getPokemonsNameAndCount({
-  offset,
+  currentPage,
 }: GetPokemonsParams): Promise<GetPokemonsNamesResponse> {
   const pokemonsBaseDataResponse = await api.get<PokemonsBaseDataResponse>(
     '/pokemon',
-    { params: { limit: PER_PAGE, offset } }
+    { params: { limit: PER_PAGE, offset: (currentPage - 1) * PER_PAGE } }
   );
 
   const count = pokemonsBaseDataResponse.data.count;

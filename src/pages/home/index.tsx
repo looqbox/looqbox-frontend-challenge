@@ -1,7 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useQueries, useQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useSearchParams } from 'react-router-dom';
+import { z } from 'zod';
 
 import { Pokemon } from '@/@types/pokemon';
 import { Loading } from '@/components/Loading';
@@ -9,26 +9,27 @@ import { PokemonCard } from '@/components/PokemonCard';
 import { Input } from '@/components/ui/input';
 import { getPokemonByName } from '@/requests/get-pokemon-by-name';
 import { getPokemonsNameAndCount } from '@/requests/get-pokemons-name-and-count';
-import { useAppDispatch, useAppSelector } from '@/store';
-import { addPokemons, setPokemonsCount } from '@/store/slices/pokeball';
+
+import { NotFound } from '../404';
+import { Pagination } from './Pagination';
 
 export function Home() {
-  const totalCount = useAppSelector((state) => state.pokeball.totalCount);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const dispatch = useAppDispatch();
-  const offset = useAppSelector((state) => state.pokeball.pageOffset);
+  const currentPage = z.coerce.number().parse(searchParams.get('page') ?? '1');
+
   let isPokemonsLoading = true;
 
-  const { data: pokemonsNameResponse, isLoading: isLoadingPokemonsName } =
+  const { data: pokemonsInfoResponse, isLoading: isLoadingPokemonsName } =
     useQuery({
-      queryKey: ['pokemons'],
-      queryFn: () => getPokemonsNameAndCount({ offset }),
+      queryKey: ['pokemons', currentPage],
+      queryFn: () => getPokemonsNameAndCount({ currentPage }),
       staleTime: 1000 * 60 * 10, // 10 min
     });
 
   const results = useQueries({
-    queries: pokemonsNameResponse
-      ? pokemonsNameResponse.pokemonsName.map((name) => ({
+    queries: pokemonsInfoResponse
+      ? pokemonsInfoResponse.pokemonsName.map((name) => ({
           queryKey: ['pokemon', name],
           queryFn: () => getPokemonByName(name),
           staleTime: 1000 * 60 * 10, // 10 min
@@ -38,39 +39,41 @@ export function Home() {
 
   const pokemons: Pokemon[] = [];
 
-  results.forEach((result) => {
-    const { data, isLoading } = result;
+  if (results.length > 0) {
+    results.forEach((result) => {
+      const { data, isLoading } = result;
 
-    isPokemonsLoading = isLoading;
+      isPokemonsLoading = isLoading;
 
-    if (!data) {
-      return;
-    }
+      if (!data) {
+        return;
+      }
 
-    const pokemon: Pokemon = {
-      id: data.id,
-      name: data.name,
-      sprites: data.sprites,
-      types: data.types,
-      abilities: data.abilities,
-      stats: data.stats,
-      weight: data.weight,
-      height: data.height,
-      species: data.species,
-    };
+      const pokemon: Pokemon = {
+        id: data.id,
+        name: data.name,
+        sprites: data.sprites,
+        types: data.types,
+        abilities: data.abilities,
+        stats: data.stats,
+        weight: data.weight,
+        height: data.height,
+        species: data.species,
+      };
 
-    pokemons.push(pokemon);
-  });
+      pokemons.push(pokemon);
+    });
+  } else {
+    isPokemonsLoading = false;
+  }
 
-  useEffect(() => {
-    if (pokemonsNameResponse) {
-      dispatch(setPokemonsCount([pokemonsNameResponse.count]));
-    }
+  function handlePaginate(newPage: number) {
+    setSearchParams((prev) => {
+      prev.set('page', newPage.toString());
 
-    if (!isPokemonsLoading) {
-      dispatch(addPokemons([pokemons]));
-    }
-  }, [pokemonsNameResponse, isPokemonsLoading, pokemons]);
+      return prev;
+    });
+  }
 
   if (isLoadingPokemonsName || isPokemonsLoading) {
     return (
@@ -80,14 +83,19 @@ export function Home() {
     );
   }
 
+  if (!pokemonsInfoResponse) {
+    return <NotFound />;
+  }
+
   return (
     <>
       <Helmet title="Home" />
       <div className="container mt-10 flex w-full flex-1 flex-col items-center  justify-center">
         <div className="flex flex-col items-center justify-center gap-8">
           <h1 className="text-4xl tracking-wide">
-            {totalCount} <strong className="font-semibold">Pokémons</strong> for
-            you to choose your favorite
+            {pokemonsInfoResponse.count}{' '}
+            <strong className="font-semibold">Pokémons</strong> for you to
+            choose your favorite
           </h1>
 
           <Input
@@ -100,6 +108,14 @@ export function Home() {
           {pokemons.map((pokemon) => (
             <PokemonCard key={pokemon.id} pokemon={pokemon} />
           ))}
+        </div>
+
+        <div className="mt-6 w-full px-20">
+          <Pagination
+            currentPage={currentPage}
+            totalCount={pokemonsInfoResponse.count}
+            onPageChange={handlePaginate}
+          />
         </div>
       </div>
     </>

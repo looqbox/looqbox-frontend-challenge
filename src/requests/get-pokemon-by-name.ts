@@ -11,7 +11,7 @@ export async function getPokemonByName(pokemonName: string) {
   const pokemonWithoutSpecie = pokemonResponseWithoutSpecie.data;
 
   const pokemonSpeciesResponse = await api.get<PokemonSpecies>(
-    `/pokemon-species/${pokemonName}`
+    `/pokemon-species/${pokemonWithoutSpecie.species.name}`
   );
 
   return { ...pokemonWithoutSpecie, species: pokemonSpeciesResponse.data };

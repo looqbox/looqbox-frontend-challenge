@@ -2,12 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { Pokemon } from '@/@types/pokemon';
 
-export const PER_PAGE = 12;
-
 export type PokeballState = {
   pageIndex: number;
   totalCount: number;
-  perPage: number;
   pageOffset: number;
   pokemons: Pokemon[];
 };
@@ -15,7 +12,6 @@ export type PokeballState = {
 const initialState: PokeballState = {
   pageIndex: 0,
   totalCount: 0,
-  perPage: PER_PAGE,
   pageOffset: 0,
   pokemons: [],
 };
@@ -32,7 +28,6 @@ export const pokeballSlice = createSlice({
     },
     nextPage(state, action: PayloadAction<[Pokemon[]]>) {
       state.pageIndex += 1;
-      state.pageOffset = state.pageIndex * state.perPage;
       const nextPagePokemons = action.payload[0];
 
       const comparePokemonsList = nextPagePokemons.every((pokemon) =>

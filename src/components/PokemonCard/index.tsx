@@ -47,7 +47,7 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
             <span className="text-sm font-semibold text-secondary-foreground">
               #{pokemon.id}
             </span>
-            <h4 className="text-xl font-bold">
+            <h4 className="max-w-[160px] truncate text-xl font-bold">
               {pokemon.name
                 .charAt(0)
                 .toLocaleUpperCase()
