@@ -2,10 +2,15 @@
 
 Here you can know better the Pokémons you like!
 
-<p style="display:flex;flex:1;gap:20px">
-  <img style="flex:1" src="https://res.cloudinary.com/jpbast/image/upload/v1713997903/Personal/d84a91e7-f268-44c0-b95a-3acb35785975.png" width="300" />
-  <img style="flex:1" src="https://res.cloudinary.com/jpbast/image/upload/v1714005953/Personal/5338b74d-35e3-4566-a8ed-99712fcfdd80.png" width="300" /> 
-</p>
+You can visit [https://pokemon-jpbast.vercel.app](https://pokemon-jpbast.vercel.app) for checking it
+on production
+
+<p>
+  <img style="flex:1" src="https://res.cloudinary.com/jpbast/image/upload/v1713997903/Personal/d84a91e7-f268-44c0-b95a-3acb35785975.png" style="width:80%" />
+  </p>
+  <p>
+  <img style="flex:1" src="https://res.cloudinary.com/jpbast/image/upload/v1714005953/Personal/5338b74d-35e3-4566-a8ed-99712fcfdd80.png" style="width:80%" /> 
+  </p>
 
 ## How to run the app
 
