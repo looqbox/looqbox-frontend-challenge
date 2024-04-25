@@ -141,4 +141,5 @@ For the animations, you can find it on the skeletons and the stats bar filling u
 
 ## Linting
 
-The linting is being handled by ESLint and Prettier with some rules I usually set.
+The linting is being handled by ESLint and Prettier with some rules I usually set. I also added
+Husky for checking lint errors when I commit.
