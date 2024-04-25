@@ -3,10 +3,19 @@ import { useGetPokemonByNameQuery } from "../state/services/pokemon";
 import { Card, Flex, Skeleton, Tooltip } from "antd";
 import svgMap from "../utils/svgMap";
 import { useEffect, useRef, useState } from "react";
+import useQueryParams from "../hooks/useQueryParams";
 
 export default function PokemonCard({ name }: { name: string }) {
   const targetElement = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
+  const { page, pageSize, habitat } = useQueryParams();
+
+  const queryParams = new URLSearchParams({
+    pageSize: pageSize.toString(),
+    page: page.toString(),
+  });
+
+  if (habitat && habitat !== "") queryParams.set("habitat", habitat);
 
   const {
     data: pokemon,
@@ -31,7 +40,7 @@ export default function PokemonCard({ name }: { name: string }) {
   if (error) return <div>Error: failed to fetch {name}</div>;
 
   return (
-    <Link to={`pokemon/${pokemon?.name}`}>
+    <Link to={`pokemon/${pokemon?.name}`} state={queryParams.toString()}>
       <Card
         title={pokemon?.name}
         style={{ width: "376px", height: "400px" }}
