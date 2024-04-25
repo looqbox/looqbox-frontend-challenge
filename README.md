@@ -3,9 +3,8 @@
 Here you can know better the Pokémons you like!
 
 <p style="display:flex;flex:1;gap:20px">
-  <img style="flex:1" src="https://res.cloudinary.com/jpbast/image/upload/v1713997903/Personal/d84a91e7-f268-44c0-b95a-3acb35785975.png" width="200" />
-  <img style="flex:1" src="https://res.cloudinary.com/jpbast/image/upload/v1714003986/Personal/b8f23c16-d5da-4561-97ad-f2c64ec3b88f.png" width="200" /> 
- 
+  <img style="flex:1" src="https://res.cloudinary.com/jpbast/image/upload/v1713997903/Personal/d84a91e7-f268-44c0-b95a-3acb35785975.png" width="300" />
+  <img style="flex:1" src="https://res.cloudinary.com/jpbast/image/upload/v1714005953/Personal/5338b74d-35e3-4566-a8ed-99712fcfdd80.png" width="300" /> 
 </p>
 
 ## How to run the app
@@ -90,20 +89,20 @@ a response error from the requests happens, a error page is displayed. This page
 can reload the app.
 
 <p>
-<img src="https://res.cloudinary.com/jpbast/image/upload/v1713998791/Personal/4ed8cbe3-c600-41f1-a267-99d328ec5b07.png" style="width:40%;display:block">
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1713998791/Personal/4ed8cbe3-c600-41f1-a267-99d328ec5b07.png" style="width:50%;display:block">
 </p>
 
 For not found pages I created another page component that is quite similar to the error page.
 
 <p>
-<img src="https://res.cloudinary.com/jpbast/image/upload/v1713998764/Personal/0ea299a9-dfe0-4bf8-b906-7cc86850e830.png" style="width:40%;display:block">
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1713998764/Personal/0ea299a9-dfe0-4bf8-b906-7cc86850e830.png" style="width:50%;display:block">
 </img>
 </p>
 
 If a searched Pokémon is not found, this is the feedback you'll see
 
 <p>
-<img src="https://res.cloudinary.com/jpbast/image/upload/v1714004308/Personal/4cc3ba9c-96ab-487e-82b5-610f2f68da77.png" style="width:40%;display:block">
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1714004308/Personal/4cc3ba9c-96ab-487e-82b5-610f2f68da77.png" style="width:50%;display:block">
 </img>
 </p>
 
@@ -127,7 +126,7 @@ Furthermore, every component and page is responsive.
 For the animations, you can find it on the skeletons and the stats bar filling up on the detail page
 
 <p>
-<img src="https://res.cloudinary.com/jpbast/image/upload/v1714001061/Personal/c58cb9db-e809-408a-aed9-0361048400c8.png" style="width:40%;display:block">
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1714001061/Personal/c58cb9db-e809-408a-aed9-0361048400c8.png" style="width:50%;display:block">
 </p>
 
 ## Linting
