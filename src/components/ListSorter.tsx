@@ -1,13 +1,9 @@
 import { Button, Divider, Dropdown, Flex, Space } from "antd";
-import { Dispatch, cloneElement, useState } from "react";
+import { cloneElement, useState } from "react";
 import { useGetPokemonHabitatsListQuery } from "../state/services/pokemon";
 import useQueryParams from "../hooks/useQueryParams";
 
-export default function ListSorter({
-  setSelectedHabitat,
-}: {
-  setSelectedHabitat: Dispatch<string>;
-}) {
+export default function ListSorter() {
   const { setParams } = useQueryParams();
   const [selected, setSelected] = useState<string[]>([]);
   const { data: habitatList, error: habitatListError } =
@@ -42,17 +38,17 @@ export default function ListSorter({
       vertical
       gap="12px"
     >
-      <p style={{fontWeight: 'bold'}}>Filter</p>
+      <p style={{ fontWeight: "bold" }}>Filter</p>
       <Flex>
         <Dropdown
           menu={{
             items,
             selectable: true,
             onSelect: ({ key }) => {
+              const habitatName =
+                habitatList?.results?.[Number(key)].name ?? "";
               setSelected([key]);
-              setSelectedHabitat(
-                habitatList?.results?.[Number(key)].name ?? ""
-              );
+              setParams("habitat", habitatName);
             },
             selectedKeys: selected,
           }}
@@ -65,8 +61,7 @@ export default function ListSorter({
                 <Button
                   type="default"
                   onClick={() => {
-                    setParams(1)
-                    setSelectedHabitat("");
+                    setParams(`page`, 1);
                     setSelected([]);
                   }}
                 >

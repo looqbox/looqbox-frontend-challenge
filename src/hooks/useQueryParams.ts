@@ -3,22 +3,15 @@ import { useSearchParams } from "react-router-dom";
 export default function useQueryParams() {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  function setParams(
-    currPage?: string | number,
-    currPageSize?: string | number
-  ) {
+  function setParams(key: string, val: string | number) {
     const params = searchParams;
-    if (currPage) {
-      params.set("page", `${currPage}`);
-    }
-    if (currPageSize) {
-      params.set("pageSize", `${currPageSize}`);
-    }
+    params.set(key, `${val}`);
 
     setSearchParams(params);
   }
   const pageSize = Number(searchParams.get("pageSize") ?? 12);
   const page = Number(searchParams.get("page") ?? 1);
+  const habitat = searchParams.get("habitat");
 
-  return { page, pageSize, setParams };
+  return { page, habitat, pageSize, setParams };
 }

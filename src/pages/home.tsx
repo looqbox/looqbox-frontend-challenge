@@ -3,26 +3,23 @@ import {
   useGetPokemonHabitatByNameQuery,
   useGetPokemonListQuery,
 } from "../state/services/pokemon";
-import { lazy, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 const { Content } = Layout;
 import { ReferenceToEndpoint } from "../models/pokemon.model";
 import ListSorter from "../components/ListSorter";
 import SearchBar from "../components/SearchBar";
 import ListPagination from "../components/ListPagination";
 import useQueryParams from "../hooks/useQueryParams";
-
-const PokemonCardLazy = lazy(() => import("../components/PokemonCard"));
+import PokemonCard from "../components/PokemonCard";
 
 export default function Home() {
-  const [selectedHabitat, setSelectedHabitat] = useState("");
+  const { page, pageSize, habitat } = useQueryParams();
   const { data: habitatInfo } = useGetPokemonHabitatByNameQuery(
-    selectedHabitat,
+    habitat!,
     {
-      skip: selectedHabitat === "",
+      skip: habitat === "",
     }
   );
-
-  const { page, pageSize } = useQueryParams();
 
   const offset = (page - 1) * pageSize;
 
@@ -46,7 +43,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    if (selectedHabitat !== "") {
+    if (habitat !== "") {
       const pokesToQuery =
         habitatInfo?.pokemon_species.slice(offset, offset + pageSize) ?? [];
       setPokemons({
@@ -64,7 +61,7 @@ export default function Home() {
     offset,
     pageSize,
     pokemonList,
-    selectedHabitat,
+    habitat,
   ]);
 
   const [messageApi, contextHolder] = message.useMessage();
@@ -105,11 +102,11 @@ export default function Home() {
           minHeight: `${(pageSize / 3) * 400}px`,
         }}
       >
-        <ListSorter setSelectedHabitat={setSelectedHabitat} />
+        <ListSorter />
         <SearchBar />
         <Flex wrap="wrap" justify="center" gap="24px">
-          {pokemons?.renderPokemons.map((poke) => {
-            return <PokemonCardLazy name={poke?.name} key={poke.name} />;
+          {pokemons?.renderPokemons.map((poke, i) => {
+            return <PokemonCard name={poke?.name} key={poke.name + i} />;
           })}
         </Flex>
         <ListPagination pokemonsCount={pokemons?.totalCount} />

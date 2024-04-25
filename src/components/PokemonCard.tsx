@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 export default function PokemonCard({ name }: { name: string }) {
   const targetElement = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
-  console.log(name, isInView);
+
   const {
     data: pokemon,
     error,
@@ -46,7 +46,7 @@ export default function PokemonCard({ name }: { name: string }) {
         <Flex gap="12px" justify="center" align="center">
           {pokemon?.types.map((type) => {
             return (
-              <Tooltip title={type.type.name}>
+              <Tooltip title={type.type.name} key={type.type.name}>
                 <div
                   style={{
                     background: svgMap[type.type.name].color,
