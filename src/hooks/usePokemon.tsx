@@ -8,5 +8,6 @@ export default function usePokemon({ name, enabled = true }: { name: string; ena
     enabled: enabled,
     retry: false,
     refetchOnWindowFocus: false,
+    refetchOnMount: false,
   });
 }

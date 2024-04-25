@@ -44,8 +44,9 @@ For checking all the content within the app, you can visit the following pages:
 ## Home page
 
 On the top of the page we have a search input where you can find a specific Pokémon by its `name` or
-`id`. The search is only triggered if you hit the `Search` button. If the Pokémon exists, it will be
-displayed below replacing the list. If it does not exist, a error message will be displayed.
+`id`. The search is only triggered if you hit `Enter` or the `Search` button. If the Pokémon exists,
+it will be displayed below replacing the list. If it does not exist, a error message will be
+displayed.
 
 If you have searched for a Pokémon but want to display the list again, simply erase the input value
 or hit the Pokémon logo.
@@ -90,6 +91,9 @@ Cache and overall performance were the main concerns so both hooks were develope
 `usePokemon` has the same `queryKey` used on the `usePokemonList`, so the detail page is fully built
 consuming the cache if it exists. The opposite might also happen: if you first visit Pikachu page,
 for example, and then navigate to the list, Pikachu information will be pulled from the cache.
+
+Navigation between pages is pretty fast since no new requests are made. Page refresh is also pretty
+fast since it pulls the data from cache if it exists.
 
 ## Search input
 

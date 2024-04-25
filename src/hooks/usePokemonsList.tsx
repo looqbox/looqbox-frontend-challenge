@@ -13,6 +13,7 @@ export default function usePokemonsList() {
     },
     retry: false,
     refetchOnWindowFocus: false,
+    refetchOnMount: false,
   });
 
   const pokemonsList = data?.pages.reduce((acc, page) => {
@@ -25,6 +26,7 @@ export default function usePokemonsList() {
       queryFn: () => getPokemon(p.name),
       retry: false,
       refetchOnWindowFocus: false,
+      refetchOnMount: false,
     })),
     combine: (results) => ({
       ...rest,
