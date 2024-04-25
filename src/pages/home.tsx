@@ -14,12 +14,9 @@ import PokemonCard from "../components/PokemonCard";
 
 export default function Home() {
   const { page, pageSize, habitat } = useQueryParams();
-  const { data: habitatInfo } = useGetPokemonHabitatByNameQuery(
-    habitat!,
-    {
-      skip: habitat === "",
-    }
-  );
+  const { data: habitatInfo } = useGetPokemonHabitatByNameQuery(habitat!, {
+    skip: !habitat || habitat === "",
+  });
 
   const offset = (page - 1) * pageSize;
 
@@ -43,7 +40,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    if (habitat !== "") {
+    if (habitat && habitat !== "") {
       const pokesToQuery =
         habitatInfo?.pokemon_species.slice(offset, offset + pageSize) ?? [];
       setPokemons({
@@ -56,13 +53,7 @@ export default function Home() {
         totalCount: pokemonList?.count ?? 0,
       });
     }
-  }, [
-    habitatInfo?.pokemon_species,
-    offset,
-    pageSize,
-    pokemonList,
-    habitat,
-  ]);
+  }, [habitatInfo?.pokemon_species, offset, pageSize, pokemonList, habitat]);
 
   const [messageApi, contextHolder] = message.useMessage();
   if (loadingPokemonList || pokemonListError) {
