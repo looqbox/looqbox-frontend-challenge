@@ -14,7 +14,7 @@ function Loading() {
 
   return (
     <Flex vertical justify='center' align='center' style={styles.container}>
-      <p style={styles.text}>Carregando</p>
+      <p style={styles.text}>loading...</p>
       <img
         src='https://i.gifer.com/VgI.gif'
         alt='loading-gif'

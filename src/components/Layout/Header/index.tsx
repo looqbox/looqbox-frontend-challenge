@@ -8,6 +8,10 @@ interface MyStyles extends CSSProperties {
 }
 
 function Header() {
+  const { loading } = useLoading()
+
+  if (loading) return <></>
+
   return (
     <Flex vertical justify='center' align='center' style={styles.container}>
       <img src='/src/assets/images/pokedex.png' alt='logo' style={styles.logo} />

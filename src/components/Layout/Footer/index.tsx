@@ -10,6 +10,10 @@ interface MyStyles extends CSSProperties {
 }
 
 function Footer() {
+  const { loading } = useLoading()
+
+  if (loading) return <></>
+
   return (
     <Flex vertical justify='center' align='center' style={styles.container}>
       <div style={styles.text}>

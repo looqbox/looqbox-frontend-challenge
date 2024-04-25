@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
-import Loading from '../components/Loading'
-import Header from '../components/Layout/Header'
 import useLoading from '../hook/useLoading'
-import { Pokemon, getAllPokemon, getPokemonData } from '../services/pokemon'
+import { getAllPokemon, getPokemonData } from '../services/pokemon'
 import CardPokemon from '../components/CardPokemon'
 import { Flex, Input, Row } from 'antd'
-import Footer from '../components/Layout/Footer'
+import DetailsPokemon from '../components/DetailsPokemon'
 
 const { Search } = Input
 
@@ -43,49 +41,54 @@ function Home() {
     getPokemon()
   }, [])
 
+  if (loading) return <></>
+
   return (
     <Flex vertical align='center'>
-      <Loading />
-      {!loading && (
-        <>
-          <Header />
-          <Search
-            style={styles.input}
-            placeholder='Pesquise pelo pokemon...'
-            enterButton
-            onChange={(e) => {
-              setSearch(e.target.value)
-            }}
-          />
+      <Search
+        style={styles.input}
+        placeholder='Search for pokemon..'
+        enterButton
+        onChange={(e) => {
+          setSelectPokemon(undefined)
+          setSearch(e.target.value)
+        }}
+      />
 
-          <Row
-            justify='center'
-            style={{
-              width: '1000px',
-              margin: 'auto',
-              overflow: 'auto',
-              height: '700px',
-              scrollbarWidth: 'none'
-            }}
-          >
-            {selectPokemon && (
-              <div style={{ width: '100%', height: '300px', backgroundColor: '#000' }}>
-                teste
+      <Row
+        justify='center'
+        style={{
+          width: '100%',
+          maxWidth: '1000px',
+          margin: 'auto',
+          overflow: 'auto',
+          maxHeight: '700px',
+          scrollbarWidth: 'none'
+        }}
+      >
+        {selectPokemon && (
+          <div onClick={() => setSelectPokemon(undefined)}>
+            <DetailsPokemon pokemon={selectPokemon} />
+          </div>
+        )}
+        {listDetailsPokemon.filter((pokemon: any) =>
+          pokemon.name.toLowerCase().includes(search.toLowerCase())
+        ).length === 0 && (
+          <Flex style={{ height: '400px' }} align='center' justify='center'>
+            Nothing found :c
+          </Flex>
+        )}
+        {!selectPokemon &&
+          listDetailsPokemon
+            .filter((pokemon: any) =>
+              pokemon.name.toLowerCase().includes(search.toLowerCase())
+            )
+            .map((object: any, key: number) => (
+              <div onClick={() => setSelectPokemon(object)}>
+                <CardPokemon key={key} pokemon={object} />
               </div>
-            )}
-            {listDetailsPokemon
-              .filter((pokemon: any) =>
-                pokemon.name.toLowerCase().includes(search.toLowerCase())
-              )
-              .map((object: any, key: number) => (
-                <div onClick={() => setSelectPokemon(object)}>
-                  <CardPokemon key={key} pokemon={object} />
-                </div>
-              ))}
-          </Row>
-          <Footer />
-        </>
-      )}
+            ))}
+      </Row>
     </Flex>
   )
 }
@@ -94,7 +97,10 @@ export default Home
 
 const styles = {
   input: {
-    width: '500px',
+    maxWidth: '500px',
+    width: '100%',
+    paddingLeft: '20px',
+    paddingRight: '20px',
     marginTop: '80px',
     paddingBottom: '20px'
   }

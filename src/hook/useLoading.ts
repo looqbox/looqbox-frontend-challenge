@@ -18,7 +18,6 @@ const useLoading = () => {
     } else {
       dispatch(setLoading(false))
     }
-    console.log(calls)
   }, [calls])
 
   const showLoading = () => {
