@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-Regular.ttf');
+}
+
+body {
+  overflow-x: hidden;
+}
+
+* {
+  font-family: 'Inter' !important;
+}
+
+/* Could not change AntD Tabs' component styles through Tailwind, so let's change it down here */
+.antd-tabs-container {
+  div[aria-selected='true'] {
+    color: white !important;
+  }
+
+  div[aria-selected='false'] {
+    color: #ffffff70 !important;
+  }
+
+  .ant-tabs-nav::before {
+    border-color: #ffffff70 !important;
+  }
+
+  .ant-tabs-ink-bar {
+    background-color: white !important;
+  }
+}

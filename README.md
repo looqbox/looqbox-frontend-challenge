@@ -1,57 +1,135 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# Pokémon App
 
-# Looqbox FrontEnd Challenge
+Here you can know better the Pokémons you like!
 
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+<p style="display:flex;flex:1;gap:20px">
+  <img style="flex:1" src="https://res.cloudinary.com/jpbast/image/upload/v1713997903/Personal/d84a91e7-f268-44c0-b95a-3acb35785975.png" width="200" />
+  <img style="flex:1" src="https://res.cloudinary.com/jpbast/image/upload/v1714003986/Personal/b8f23c16-d5da-4561-97ad-f2c64ec3b88f.png" width="200" /> 
+ 
+</p>
 
-## Challenge
+## How to run the app
 
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+Make sure you are using Node version `>=18.x`.
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+On your terminal, run:
 
-## Stack
+```
+yarn install
+```
 
-We use:
+Then:
 
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+```
+yarn dev
+```
 
-## Submitting
+Finally, the app should be running at:
 
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+```
+http://localhost:3000
+```
 
-You have **one week** to finish your test, we'll check the time with your "Initial" and "Final" Commits.
+## Pages
 
-# Guidelines
+For checking all the content within the app, you can visit the following pages:
 
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
+- Home page (`/`)
+- Pokémon detail (`/:name`)
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please **mind how many times you request data**
+## Home page
 
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
+On the top of the page we have a search input where you can find a specific Pokémon by its `name` or
+`id`. The search is only triggered if you hit the `Search` button. If the Pokémon exists, it will be
+displayed below replacing the list. If it does not exist, a error message will be displayed.
 
-You can use any dependency you want, (axios, bootstrap, material ui...)
+If you have searched for a Pokémon but want to display the list again, simply erase the input value
+or hit the Pokémon logo.
 
-## Bonus points!
+To improve performance, the list was implemented with `Infinite Scroll`. Pokémons are loaded every
+20 as you scroll through the page. For better user experience, a `Skeleton` is displayed for each
+card every time a request is ongoing. If you scrolls too much and decide to return to the top, just
+hit the floating button on the bottom right.
 
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
+To access detailed Pokémon info, just click on the card and you be sent to another page.
 
-## Useful links
+## Pokémon detail
 
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
-- [Redux](https://redux.js.org/)
+Here you can find a more detailed information about the Pokémon you want. The entire page's color
+scheme is dynamic and it depends on the Pokémon color type.
+
+The entire page is responsive just like the Home page.
+
+# Technical details
+
+## Data and cache
+
+In order to improve performance, user and development experience, I decided to go with
+[TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview). All requests are
+handled by the following custom hooks:
+
+- `usePokemonList`: this hook gets all the Pokémon data needed on the home page and it's ready to
+  use with infinite scroll. All the data needed is fetched here and then parsed to make it easier to
+  consume through the components
+
+- `usePokemon`: used for building the detail page and for getting the result from the search input.
+
+Cache and overall performance were the main concerns so both hooks were developed with it in mind.
+`usePokemon` has the same `queryKey` used on the `usePokemonList`, so the detail page is fully built
+consuming the cache if it exists. The opposite might also happen: if you first visit Pikachu page,
+for example, and then navigate to the list, Pikachu information will be pulled from the cache.
+
+## Routes
+
+The app router was built with [React Router Dom](https://reactrouter.com/en/main).
+
+## Error handling
+
+Every error is handled by the `Error Boundary` and the `React Router Dom`. If an unexpected error or
+a response error from the requests happens, a error page is displayed. This page has a button so you
+can reload the app.
+
+<p>
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1713998791/Personal/4ed8cbe3-c600-41f1-a267-99d328ec5b07.png" style="width:40%;display:block">
+</p>
+
+For not found pages I created another page component that is quite similar to the error page.
+
+<p>
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1713998764/Personal/0ea299a9-dfe0-4bf8-b906-7cc86850e830.png" style="width:40%;display:block">
+</img>
+</p>
+
+If a searched Pokémon is not found, this is the feedback you'll see
+
+<p>
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1714004308/Personal/4cc3ba9c-96ab-487e-82b5-610f2f68da77.png" style="width:40%;display:block">
+</img>
+</p>
+
+## Styles
+
+Most of the styles and components were made with [Tailwind](https://tailwindcss.com/) and
+[Ant Design](https://ant.design/).
+
+For the fonts, the whole app is consuming the Google Inter. For improving performance and avoiding
+layout shift, I downloaded the `.ttf` files inside the `/assets` folder and loaded it from there.
+
+Furthermore, every component and page is responsive.
+
+<p style="display:flex;">
+  <img src="https://res.cloudinary.com/jpbast/image/upload/v1713998917/Personal/4776eaf2-460a-4b1a-9a78-44bf0c6d489c.png" style="height:500px">
+  </img>
+  <img src="https://res.cloudinary.com/jpbast/image/upload/v1714000184/Personal/3ae8bb4b-12d5-427a-9af7-9cc858b27813.png" style="height:500px;margin-left:40px">
+  </img>
+</p>
+
+For the animations, you can find it on the skeletons and the stats bar filling up on the detail page
+
+<p>
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1714001061/Personal/c58cb9db-e809-408a-aed9-0361048400c8.png" style="width:40%;display:block">
+</p>
+
+## Linting
+
+The linting is being handled by ESLint and Prettier with some rules I usually set.
