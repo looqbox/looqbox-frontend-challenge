@@ -11,6 +11,13 @@ type StatsProps = {
 const parseStatName = (stat: string) => stat.replace('-', ' ');
 
 const Stats: React.FC<StatsProps> = ({ stats, color }) => {
+  let maxValue = 0;
+  stats.forEach((stat) => {
+    if (stat.base_stat > maxValue) {
+      maxValue = stat.base_stat;
+    }
+  });
+
   return (
     <Flex className="flex-col gap-3 w-full">
       {stats.map((stat) => (
@@ -18,13 +25,17 @@ const Stats: React.FC<StatsProps> = ({ stats, color }) => {
           key={stat.stat.name}
           className="flex flex-1 items-center gap-4 max-[550px]:gap-2 max-[550px]:flex-col max-[550px]:items-stretch"
         >
-          <div className="flex flex-row gap-10 justify-between">
-            <h3 className="capitalize min-w-36 text-lg max-[550px]:min-w-0 max-[550px]:flex-1 max-[550px]:gap-1 max-md:text-base">
+          <div className="flex flex-row gap-10 justify-between min-w-52 max-[550px]:min-w-0">
+            <h3 className="capitalize text-lg max-[550px]:flex-1 max-[550px]:gap-1 max-md:text-base">
               {parseStatName(stat.stat.name)}
             </h3>
             <span className="text-lg">{stat.base_stat}</span>
           </div>
-          <ProgressBar value={stat.base_stat} color={color} />
+          <ProgressBar
+            maxValue={maxValue}
+            value={stat.base_stat}
+            color={color === '#000000' ? '#f2f2f2' : color}
+          />
         </div>
       ))}
     </Flex>

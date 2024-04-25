@@ -136,6 +136,7 @@ const Home: React.FC = () => {
             ))
           ) : (
             pokemons.map((pokemon, index) => {
+              if (!pokemon) return null;
               return (
                 <PokemonCard
                   key={index}

@@ -22,6 +22,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, innerRef }) => {
   const darkColor = `${hexColor}d0`;
   const textColor = getTextColor(darkColor);
 
+  const isBlack = color.name === 'black';
+
   // Animation for displaying the card on first render
   useEffect(() => {
     setTimeout(() => setVisible(true), 1 * 100);
@@ -31,12 +33,12 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, innerRef }) => {
     <Link
       ref={innerRef}
       to={`/${name}`}
-      className={`w-full shadow-[2px_5px_10px_rgba(0,0,0,0.2)] rounded-2xl overflow-clip transition-all duration-300 hover:scale-105 min-h-[300px]  bg-gradient-to-bl from-gray-950 to-gray-600 ${visible ? 'opacity-1' : 'opacity-0'}`}
+      className={`w-full shadow-[2px_5px_10px_rgba(0,0,0,0.2)] rounded-2xl overflow-clip transition-all duration-300 hover:scale-105 min-h-[300px]   from-gray-950 to-gray-600 ${visible ? 'opacity-1' : 'opacity-0'} ${isBlack ? 'bg-gradient-to-br' : 'bg-gradient-to-bl'}`}
     >
       <div
         className="shadow-md w-full flex-1 h-full flex flex-col items-center justify-between border-none relative"
         style={{
-          backgroundColor: lightColor,
+          backgroundColor: isBlack ? 'transparent' : lightColor,
         }}
       >
         <PokemonTypeIcon
