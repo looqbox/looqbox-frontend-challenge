@@ -74,6 +74,9 @@ The entire page is responsive just like the Home page.
 - TanStack Query
 - Tailwind
 - Ant Design
+- Axios
+- ESLint
+- Prettier
 
 ## Data and cache
 
@@ -155,3 +158,15 @@ For the animations, you can find it on the skeletons and the stats bar filling u
 
 The linting is being handled by ESLint and Prettier with some rules I usually set. I also added
 Husky for checking lint errors when I commit.
+
+# Project structure
+
+- `src/assets`: font files and Pokémons type icons
+- `src/components`: visual components
+- `src/hooks`: custom hooks for managing the API requests
+- `src/layouts`: app containers
+- `src/pages`: all app pages
+- `src/router`: React Router Dom setup
+- `src/styles`: global styles
+- `src/typings`: most important types used multiple types
+- `src/utils`: utility functions and axios setup
