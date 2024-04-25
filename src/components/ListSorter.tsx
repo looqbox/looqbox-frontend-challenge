@@ -1,16 +1,15 @@
 import { Button, Divider, Dropdown, Flex, Space } from "antd";
 import { Dispatch, cloneElement, useState } from "react";
 import { useGetPokemonHabitatsListQuery } from "../state/services/pokemon";
-import { useDispatch } from "react-redux";
-import { setPage } from "../state/services/paginationSlice";
+import useQueryParams from "../hooks/useQueryParams";
 
 export default function ListSorter({
   setSelectedHabitat,
 }: {
   setSelectedHabitat: Dispatch<string>;
 }) {
+  const { setParams } = useQueryParams();
   const [selected, setSelected] = useState<string[]>([]);
-  const dispatch = useDispatch();
   const { data: habitatList, error: habitatListError } =
     useGetPokemonHabitatsListQuery();
 
@@ -66,7 +65,7 @@ export default function ListSorter({
                 <Button
                   type="default"
                   onClick={() => {
-                    dispatch(setPage(1));
+                    setParams(1)
                     setSelectedHabitat("");
                     setSelected([]);
                   }}

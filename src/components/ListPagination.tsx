@@ -1,24 +1,15 @@
 import { Pagination, PaginationProps } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../state/store";
-import { setPage, setPageSize } from "../state/services/paginationSlice";
+import useQueryParams from "../hooks/useQueryParams";
 
 export default function ListPagination({
   pokemonsCount,
 }: {
   pokemonsCount: number;
 }) {
-  const pagination = useSelector((state: RootState) => state.pagination);
-  const dispatch = useDispatch();
-
-  const { pageSize, currPage } = pagination;
+  const { page, pageSize, setParams } = useQueryParams();
 
   const onPageChange: PaginationProps["onChange"] = (page, formPageSize) => {
-    dispatch(setPage(page));
-
-    if (formPageSize !== pageSize) {
-      dispatch(setPageSize(formPageSize));
-    }
+    setParams(page, formPageSize);
 
     window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
   };
@@ -28,7 +19,7 @@ export default function ListPagination({
       pageSizeOptions={[12, 24, 36, 60, 96]}
       defaultPageSize={12}
       pageSize={pageSize}
-      current={currPage}
+      current={page}
       defaultCurrent={1}
       total={pokemonsCount}
       onChange={onPageChange}

@@ -6,12 +6,11 @@ import {
 import { useEffect, useState } from "react";
 const { Content } = Layout;
 import { ReferenceToEndpoint } from "../models/pokemon.model";
-import PokemonCard from "../components/PokemonCard";
 import ListSorter from "../components/ListSorter";
 import SearchBar from "../components/SearchBar";
 import ListPagination from "../components/ListPagination";
-import { useSelector } from "react-redux";
-import { RootState } from "../state/store";
+import useQueryParams from "../hooks/useQueryParams";
+import PokemonCard from "../components/PokemonCard";
 
 export default function Home() {
   const [selectedHabitat, setSelectedHabitat] = useState("");
@@ -22,8 +21,9 @@ export default function Home() {
     }
   );
 
-  const pagination = useSelector((state: RootState) => state.pagination);
-  const { offset, pageSize } = pagination;
+  const { page, pageSize } = useQueryParams();
+
+  const offset = (page - 1) * pageSize;
 
   const queryParams = new URLSearchParams({
     offset: offset.toString(),
@@ -90,6 +90,7 @@ export default function Home() {
       </div>
     );
   }
+
 
   return (
     <Layout>
