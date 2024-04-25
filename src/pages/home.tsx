@@ -99,7 +99,7 @@ export default function Home() {
           alignItems: `center`,
           gap: "48px",
           flexDirection: "column",
-          minHeight: `${(pageSize / 3) * 400}px`,
+          minHeight: `${(pokemons.renderPokemons.length / 3) * 400}px`,
         }}
       >
         <ListSorter />
