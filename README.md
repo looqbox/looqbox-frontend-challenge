@@ -99,20 +99,20 @@ a response error from the requests happens, a error page is displayed. This page
 can reload the app.
 
 <p>
-<img src="https://res.cloudinary.com/jpbast/image/upload/v1713998791/Personal/4ed8cbe3-c600-41f1-a267-99d328ec5b07.png" style="width:50%;display:block">
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1713998791/Personal/4ed8cbe3-c600-41f1-a267-99d328ec5b07.png" style="width:80%;display:block">
 </p>
 
 For not found pages I created another page component that is quite similar to the error page.
 
 <p>
-<img src="https://res.cloudinary.com/jpbast/image/upload/v1713998764/Personal/0ea299a9-dfe0-4bf8-b906-7cc86850e830.png" style="width:50%;display:block">
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1713998764/Personal/0ea299a9-dfe0-4bf8-b906-7cc86850e830.png" style="width:80%;display:block">
 </img>
 </p>
 
 If a searched Pokémon is not found, this is the feedback you'll see
 
 <p>
-<img src="https://res.cloudinary.com/jpbast/image/upload/v1714008118/c683c150-8344-4b52-90f3-70b5cc610bf2.png" style="width:50%;display:block">
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1714008118/c683c150-8344-4b52-90f3-70b5cc610bf2.png" style="width:80%;display:block">
 </img>
 </p>
 
@@ -136,7 +136,7 @@ Furthermore, every component and page is responsive.
 For the animations, you can find it on the skeletons and the stats bar filling up on the detail page
 
 <p>
-<img src="https://res.cloudinary.com/jpbast/image/upload/v1714001061/Personal/c58cb9db-e809-408a-aed9-0361048400c8.png" style="width:50%;display:block">
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1714001061/Personal/c58cb9db-e809-408a-aed9-0361048400c8.png" style="width:80%;display:block">
 </p>
 
 ## Linting
