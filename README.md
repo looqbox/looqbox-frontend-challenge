@@ -78,6 +78,11 @@ Cache and overall performance were the main concerns so both hooks were develope
 consuming the cache if it exists. The opposite might also happen: if you first visit Pikachu page,
 for example, and then navigate to the list, Pikachu information will be pulled from the cache.
 
+## Search input
+
+In order to prevent unnecessary renders and requests, the search input was built using `ref`. I've
+added a state to display the single card and trigger the search request, but that's it.
+
 ## Routes
 
 The app router was built with [React Router Dom](https://reactrouter.com/en/main).
@@ -102,7 +107,7 @@ For not found pages I created another page component that is quite similar to th
 If a searched Pokémon is not found, this is the feedback you'll see
 
 <p>
-<img src="https://res.cloudinary.com/jpbast/image/upload/v1714004308/Personal/4cc3ba9c-96ab-487e-82b5-610f2f68da77.png" style="width:50%;display:block">
+<img src="https://res.cloudinary.com/jpbast/image/upload/v1714008118/c683c150-8344-4b52-90f3-70b5cc610bf2.png" style="width:50%;display:block">
 </img>
 </p>
 

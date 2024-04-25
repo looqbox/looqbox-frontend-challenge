@@ -1,12 +1,11 @@
 import React, { useCallback, useRef, useState, FormEvent, useEffect } from 'react';
 import PokemonCard from '@/components/PokemonCard';
 import usePokemonsList from '@/hooks/usePokemonsList';
-import { Button, Input, InputRef, Skeleton } from 'antd';
+import { Button, Input, InputRef, Skeleton, message } from 'antd';
 import { IoSearch } from 'react-icons/io5';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import MainLayout from '@/layouts/MainLayout';
 import { LIMIT } from '@/utils/api';
-import { IoWarningOutline } from 'react-icons/io5';
 import usePokemon from '@/hooks/usePokemon';
 import { Helmet } from 'react-helmet';
 
@@ -23,7 +22,6 @@ const Home: React.FC = () => {
     data: pokemonData,
     isLoading: isLoadingPokemon,
     isFetching: isFetchingPokemon,
-    isError: isErrorSearch,
     refetch,
   } = usePokemon({ name: pokemonSearch.toLowerCase().trim(), enabled: false });
 
@@ -51,7 +49,12 @@ const Home: React.FC = () => {
 
   const onSearch = useCallback(async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!inputRef.current?.input?.value) {
+      return;
+    }
+
     setPokemonSearch(inputRef.current?.input?.value || '');
+    setShowPokemon(true);
   }, []);
 
   // If we set a state to control de input value, it would trigger many rerenders
@@ -63,8 +66,8 @@ const Home: React.FC = () => {
 
     (async () => {
       const res = await refetch();
-      if (!res.isError) {
-        setShowPokemon(true);
+      if (res.isError) {
+        message.error("We couldn't find your Pokémon", 3);
       }
     })();
   }, [pokemonSearch, refetch]);
@@ -101,12 +104,6 @@ const Home: React.FC = () => {
                 }
               }}
             />
-            {isErrorSearch && (
-              <p className="absolute text-white font-semibold flex items-center gap-1 top-11">
-                <IoWarningOutline size={22} />
-                We couldn't find your Pokémon
-              </p>
-            )}
             <Button
               type="primary"
               className="absolute h-8 bottom-0 rounded-2xl top-1 right-1 border-none flex items-center gap-1 disabled:bg-[#4096ff]  disabled:opacity-80 disabled:text-white"
