@@ -49,6 +49,7 @@ export default function ListSorter() {
                 habitatList?.results?.[Number(key)].name ?? "";
               setSelected([key]);
               setParams("habitat", habitatName);
+              setParams("page", 1);
             },
             selectedKeys: selected,
           }}
