@@ -1,10 +1,12 @@
-import "./App.css";
+import { Outlet } from 'react-router-dom';
+
+import './App.css';
 
 function App() {
   return (
-    <>
-      <h1>Pokédex</h1>
-    </>
+    <div style={{ padding: 24, height: '100vh' }}>
+      <Outlet />
+    </div>
   );
 }
 
