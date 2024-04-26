@@ -41,7 +41,7 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
             borderBottom: `3px solid ${pokemon.species.color.name}`,
             backgroundColor: definedCardColor[pokemon.types[0].type.name],
           }}
-          className="flex h-[132px] w-[328px] items-start justify-between rounded-2xl p-0 shadow-md transition-all hover:scale-105"
+          className="flex max-h-[180px] w-full items-start justify-between rounded-2xl p-0 shadow-md transition-all hover:scale-105 lg:h-[132px] lg:w-[328px]"
         >
           <div className="flex flex-col items-start justify-start px-4 py-3">
             <span className="text-sm font-semibold text-secondary-foreground">
@@ -54,7 +54,7 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
                 .concat(pokemon.name.substring(1))}
             </h4>
 
-            <div className="mt-5 flex items-center gap-2">
+            <div className="mt-5 flex flex-col gap-2 lg:flex-row lg:items-center">
               {pokemon.types.slice(0, 2).map((p) => (
                 <PokemonType key={p.type.name} type={p.type.name} />
               ))}

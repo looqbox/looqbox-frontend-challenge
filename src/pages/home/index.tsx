@@ -136,9 +136,9 @@ export function Home() {
   return (
     <>
       <Helmet title="Home" />
-      <div className="container mt-10 flex w-full flex-1 flex-col items-center  justify-center">
+      <div className="mt-10 flex w-full flex-1 flex-col items-center justify-center px-3 lg:container lg:px-0">
         <div className="flex flex-col items-center justify-center gap-8">
-          <h1 className="text-4xl tracking-wide">
+          <h1 className="text-center text-3xl tracking-wide lg:text-4xl">
             {pokemonsInfoResponse.count}{' '}
             <strong className="font-semibold">Pokémons</strong> for you to
             choose your favorite
@@ -146,7 +146,7 @@ export function Home() {
 
           <Input
             placeholder="Find your pokémon..."
-            className=" w-3/5 rounded-full"
+            className="w-full rounded-full lg:w-3/5"
             onKeyDown={handleSearch}
             defaultValue={pokemonNameFromSearchParams ?? ''}
             onChange={(e) => {
@@ -161,14 +161,14 @@ export function Home() {
           />
         </div>
 
-        <div className="mt-10 grid grid-cols-3 gap-8">
+        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
           {pokemons.map((pokemon) => (
             <PokemonCard key={pokemon.id} pokemon={pokemon} />
           ))}
         </div>
 
         {!pokemonNameFromSearchParams && (
-          <div className="mt-6 w-full px-36">
+          <div className="mt-6 w-full lg:px-36">
             <Pagination
               currentPage={currentPage}
               totalCount={pokemonsInfoResponse.count}

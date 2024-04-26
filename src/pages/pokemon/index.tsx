@@ -186,13 +186,12 @@ export function PokemonPage() {
       />
       <div
         style={{
-          // borderBottom: `3px solid ${pokemon.species.color.name}`,
           backgroundColor: definedCardColor[pokemon.types[0].type.name],
         }}
         className="min-h-screen"
       >
-        <div className="container mt-10">
-          <div className="max-h relative flex gap-8">
+        <div className="mt-10 px-3 lg:container">
+          <div className="max-h flex flex-col items-center gap-8 lg:relative lg:flex-row lg:items-start">
             <div
               style={{
                 backgroundColor: definedColor[pokemon.types[0].type.name],
@@ -202,20 +201,20 @@ export function PokemonPage() {
                 backgroundPosition: 'center',
                 borderBottom: `3px solid ${pokemon.species.color.name}`,
               }}
-              className="sticky top-0 flex h-[500px] min-w-[520px] items-center justify-center rounded-3xl bg-red-600 shadow-lg"
+              className="flex h-[300px] w-full max-w-[320px] items-center justify-center rounded-3xl bg-red-600 shadow-lg lg:sticky lg:top-0 lg:h-[500px] lg:min-w-[520px]"
             >
               <img
                 src={pokemon.sprites.front_default}
                 alt={`${pokemon.name} pokémon`}
-                className="h-[500px] w-[520px]"
+                className="h-[300px] w-full max-w-[320px] lg:h-[500px] lg:w-[520px] lg:max-w-[520px]"
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-semibold text-secondary-foreground">
+              <span className="text-xl font-semibold text-secondary-foreground lg:text-2xl">
                 #{pokemon.id}
               </span>
 
-              <h1 className="w-full text-5xl font-bold tracking-wide">
+              <h1 className="w-full text-4xl font-bold tracking-wide lg:text-5xl">
                 {pokemon.name
                   .charAt(0)
                   .toLocaleUpperCase()
@@ -232,7 +231,7 @@ export function PokemonPage() {
                 ))}
               </div>
 
-              <p className="mt-6 text-base leading-snug text-muted-foreground">
+              <p className="mt-6 text-sm leading-snug text-muted-foreground lg:text-base">
                 {description}
               </p>
             </div>
@@ -240,7 +239,7 @@ export function PokemonPage() {
 
           <div className="mt-10 flex flex-col gap-6">
             <h3 className="text-3xl font-semibold">Overview</h3>
-            <div className=" grid grid-cols-5 gap-20">
+            <div className=" grid grid-cols-1 gap-6 lg:grid-cols-5 lg:gap-20">
               {attributes.map((attr) => (
                 <PokemonAttribute
                   key={attr.name}
@@ -263,7 +262,7 @@ export function PokemonPage() {
 
           <div className="mt-10 flex flex-col gap-6">
             <h3 className="text-3xl font-semibold">Abilities detail</h3>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
               {abilitiesDetail.map((ability) => (
                 <Card key={ability.name}>
                   <CardHeader>
@@ -282,7 +281,7 @@ export function PokemonPage() {
 
           <div className="mt-10 flex flex-col gap-6">
             <h3 className="text-3xl font-semibold">Base Statistics</h3>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
               <Card>
                 <CardContent className="mt-10">
                   <PokemonBaseStatisticsRadarChart
