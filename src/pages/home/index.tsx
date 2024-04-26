@@ -1,4 +1,5 @@
 import { useQueries, useQuery } from '@tanstack/react-query';
+import { KeyboardEvent } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSearchParams } from 'react-router-dom';
 import { z } from 'zod';
@@ -17,8 +18,20 @@ export function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const currentPage = z.coerce.number().parse(searchParams.get('page') ?? '1');
+  const pokemonNameFromSearchParams = searchParams.get('pokemonName');
 
   let isPokemonsLoading = true;
+
+  const {
+    data: pokemonFromSearch,
+    isLoading: isLoadingPokemonsFromSearch,
+    isError: pokemonFromSearchError,
+  } = useQuery({
+    queryKey: ['pokemon', pokemonNameFromSearchParams],
+    queryFn: () => getPokemonByName(pokemonNameFromSearchParams!),
+    staleTime: 1000 * 60 * 10, // 10 min,
+    enabled: !!pokemonNameFromSearchParams,
+  });
 
   const { data: pokemonsInfoResponse, isLoading: isLoadingPokemonsName } =
     useQuery({
@@ -32,12 +45,13 @@ export function Home() {
       ? pokemonsInfoResponse.pokemonsName.map((name) => ({
           queryKey: ['pokemon', name],
           queryFn: () => getPokemonByName(name),
-          staleTime: 1000 * 60 * 10, // 10 min
+          staleTime: 1000 * 60 * 10, // 10 min,
+          enabled: !!pokemonsInfoResponse,
         }))
       : [],
   });
 
-  const pokemons: Pokemon[] = [];
+  let pokemons: Pokemon[] = [];
 
   if (results.length > 0) {
     results.forEach((result) => {
@@ -67,6 +81,22 @@ export function Home() {
     isPokemonsLoading = false;
   }
 
+  if (pokemonFromSearch) {
+    const pokemon: Pokemon = {
+      id: pokemonFromSearch.id,
+      name: pokemonFromSearch.name,
+      sprites: pokemonFromSearch.sprites,
+      types: pokemonFromSearch.types,
+      abilities: pokemonFromSearch.abilities,
+      stats: pokemonFromSearch.stats,
+      weight: pokemonFromSearch.weight,
+      height: pokemonFromSearch.height,
+      species: pokemonFromSearch.species,
+    };
+
+    pokemons = [pokemon];
+  }
+
   function handlePaginate(newPage: number) {
     setSearchParams((prev) => {
       prev.set('page', newPage.toString());
@@ -75,7 +105,23 @@ export function Home() {
     });
   }
 
-  if (isLoadingPokemonsName || isPokemonsLoading) {
+  function handleSearch(e: KeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Enter') {
+      const searchPokemonName = (e.target as HTMLInputElement).value.trim();
+      setSearchParams((prev) => {
+        prev.set('pokemonName', searchPokemonName);
+        prev.delete('page');
+
+        return prev;
+      });
+    }
+  }
+
+  if (
+    isLoadingPokemonsName ||
+    isPokemonsLoading ||
+    isLoadingPokemonsFromSearch
+  ) {
     return (
       <div className="h-screen">
         <Loading />
@@ -83,7 +129,7 @@ export function Home() {
     );
   }
 
-  if (!pokemonsInfoResponse) {
+  if (!pokemonsInfoResponse || pokemonFromSearchError) {
     return <NotFound />;
   }
 
@@ -101,6 +147,17 @@ export function Home() {
           <Input
             placeholder="Find your pokémon..."
             className=" w-3/5 rounded-full"
+            onKeyDown={handleSearch}
+            defaultValue={pokemonNameFromSearchParams ?? ''}
+            onChange={(e) => {
+              if (e.target.value === '') {
+                setSearchParams((prev) => {
+                  prev.delete('pokemonName');
+
+                  return prev;
+                });
+              }
+            }}
           />
         </div>
 
@@ -110,13 +167,15 @@ export function Home() {
           ))}
         </div>
 
-        <div className="mt-6 w-full px-20">
-          <Pagination
-            currentPage={currentPage}
-            totalCount={pokemonsInfoResponse.count}
-            onPageChange={handlePaginate}
-          />
-        </div>
+        {!pokemonNameFromSearchParams && (
+          <div className="mt-6 w-full px-36">
+            <Pagination
+              currentPage={currentPage}
+              totalCount={pokemonsInfoResponse.count}
+              onPageChange={handlePaginate}
+            />
+          </div>
+        )}
       </div>
     </>
   );
