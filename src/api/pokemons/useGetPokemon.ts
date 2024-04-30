@@ -11,22 +11,10 @@ const getPokemon = async (pokemonName: string): Promise<IPokemon> => {
 		const response: AxiosResponse<IPokemon> = await api.get(`${QUERY_KEYS.POKEMON}/${pokemonName}`);
 		const pokemon = response.data;
 
-		// const pokemonTypes: string[] = returnPokemonTypesNames(types);
-		// const pokemonColor: string = handlePokemonTypeColor(pokemonTypes[0]);
-
-		// const pokemon: any = {
-		// 	id,
-		// 	name,
-		// 	image: sprites.other['official-artwork'].front_default,
-		// 	number: `#${id.toString().padStart(3, '0')}`,
-		// 	types: pokemonTypes,
-		// 	color: pokemonColor
-		// };
-
 		return pokemon;
 	} catch(error) {
-		toast.error('Erro ao buscar pokemons!', { toastId: 'pokemons-error' });
-		throw new Error('Erro ao buscar pokemons');
+		toast.error('Ops! We didn\'t find that pokemon.', { toastId: 'pokemons-error' });
+		throw new Error('Error getting pokemon');
 	}
 }; 
 

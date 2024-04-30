@@ -7,6 +7,7 @@
   background-repeat: no-repeat;
   background-position: top right 0px ;
   background-size: 100px;
+  overflow: hidden;
 }
 .back-button {
   display: flex;
@@ -121,5 +122,75 @@
 
 .pokemon-bottom-section .ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #000 !important;
-  text-shadow: 0 0 2.25px currentcolor !important;
+  text-shadow: 0 0 1.25px currentcolor !important;
+}
+
+.pokemon-description {
+  font-size: 18px;
+  max-width: 564px;
+  line-height: 1.5;
+  margin: 0px auto;
+  padding: 0px 16px;
+  text-align: center;
+  color: #000;
+  margin-top: 16px;
+}
+
+.pokemon-physical-details {
+  background-color: #fff;
+  box-shadow: rgba(0,0,0,0.1) 0px 0px 8px;
+  border-radius: 16px;
+  margin: 0px auto;
+  margin-top: 32px;
+  margin-bottom: 48px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: flex-start;
+  width: fit-content;
+  max-width: 400px;
+  width: 100%;
+  align-self: center;
+  gap: 40px;
+}
+
+.pokemon-card-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.pokemon-card-info:first-child::after {
+  content: ' ';
+  height: 120%;
+  width: 1px;
+  background-color: rgba(0,0,0,0.1);
+  position: absolute;
+  right: -20px;
+  top: -10%;
+}
+
+.pokemon-card-info h3 {
+  margin: 0px;
+  color: rgba(0,0,0, 0.2);
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: 600;
+}
+
+.pokemon-card-info p {
+  margin: 0px;
+  font-size: 16px;
+  margin-top: 4px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pokemon-stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 564px;
+  margin: 0px auto;
+  margin-top: 16px;
 }

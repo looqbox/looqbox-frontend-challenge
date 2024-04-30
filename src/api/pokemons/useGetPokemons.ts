@@ -13,7 +13,7 @@ const getPokemonsDetails = async (pokemons: IPokemonList[]): Promise<IPokemon[]>
 			const response = await api.get(pokemon.url);
 			return response.data;
 		})
-	)
+	);
 };
 
 const getPokemons = async (offset: number): Promise<IPokemon[]> => {
@@ -23,8 +23,8 @@ const getPokemons = async (offset: number): Promise<IPokemon[]> => {
 
 		return getPokemonsDetails(pokemons);
 	} catch(error) {
-		toast.error('Erro ao buscar pokemons!', { toastId: 'pokemons-error' });
-		throw new Error('Erro ao buscar pokemons');
+		toast.error('Ops! There was a problem finding pokemons.', { toastId: 'pokemons-error' });
+		throw new Error('Error getting pokemons');
 	}
 }; 
 

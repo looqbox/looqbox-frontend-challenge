@@ -1,34 +1,72 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { Image, Tabs } from 'antd';
+import { Image, Progress, Tabs } from 'antd';
 import { SwapLeftOutlined } from '@ant-design/icons';
 
 import { useGetPokemon } from '../../api/pokemons/useGetPokemon';
-import { handleIDToNumber, handlePokemonTypeColor } from '../../util/helpers';
-import { IPokemonType } from '../../types/models';
+import { convertHeightToFeet, convertWeightToPounds, handleIDToNumber, handlePokemonTypeColor, pickRandPokemonDescriptionText } from '../../util/helpers';
+import { IBaseStats, IPokemonType } from '../../types/models';
 
 import pokeball from '../../assets/images/gray-pokeball.svg';
 
 import './styles.css';
+import { useGetPokemonSpecies } from '../../api/pokemons/useGetPokemonSpecies';
 
 const PokemonDetails = () => {
 	const { name } = useParams();
-	const { data: pokemon } = useGetPokemon(name || '');
+	const { data: pokemon, isLoading: isPokemonLoading } = useGetPokemon(name || '');
+	const { data: species } = useGetPokemonSpecies({endPoint: pokemon?.species.url || '', enabled: !isPokemonLoading});
+	species && console.log(species);
+	pokemon && console.log(pokemon);
+
 	const navigate = useNavigate();
 
-  const handleGoBack = () => {
-    navigate(-1);
-  };
+	const handleGoBack = () => {
+		navigate(-1);
+	};
 
+	const tabAbout = (
+		<div className="container">
+			<p className='pokemon-description'>{species && pickRandPokemonDescriptionText(species?.flavor_text_entries)}</p>
+			<div className="pokemon-physical-details">
+				<div className="pokemon-card-info">
+					<h3>Height</h3>
+					<p>{convertHeightToFeet(pokemon?.height || 0)}</p>
+				</div>
+				<div className="pokemon-card-info">
+					<h3>Weight</h3>
+					<p>{convertWeightToPounds(pokemon?.weight || 0)}</p>
+				</div>
+			</div>
+		</div>
+	);
+
+	const tabBaseStats = (
+		<div className='container'>
+			<div className="pokemon-stats-container">
+				{
+					pokemon?.stats.map((stat: IBaseStats, index: number) => (
+						<div key={index} className="pokemon-stat">
+							<p>{stat.stat.name}</p>
+							<p>{stat.base_stat}</p>
+						</div>
+					))
+				}
+				<Progress percent={30} />
+				<Progress percent={100} />
+			</div>
+		</div>
+	);
+	
 	const tabs = [
 		{
 			key: 'about-pokemon',
 			label: 'About',
-			children: 'Content of Tab Pane 1',
+			children: tabAbout,
 		},
 		{
 			key: '2',
 			label: 'Base stats',
-			children: 'Content of Tab Pane 2',
+			children: tabBaseStats,
 		},
 		{
 			key: '3',
@@ -43,7 +81,7 @@ const PokemonDetails = () => {
 	];
 
 	return (
-		<section style={{backgroundColor: handlePokemonTypeColor(pokemon?.types[0].type.name)}} className='pokemon-details'>
+		<section style={{backgroundColor: handlePokemonTypeColor(pokemon?.types[0].type.name || 'default')}} className='pokemon-details'>
 			<img src={pokeball} alt='Gray pokeball' className='pokeball-background'/>
 			<div className="pokemon-top-section-wrapper">
 				<div className="container">

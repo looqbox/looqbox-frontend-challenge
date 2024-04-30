@@ -8,7 +8,6 @@ import './styles.css';
 
 export default function HomePage() {
 	const { data: pokemons, isLoading } = useGetPokemons(0);
-	console.log(pokemons);
 	
 	return (
 		<section>

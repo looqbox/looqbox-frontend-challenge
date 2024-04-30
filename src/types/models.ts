@@ -4,7 +4,7 @@ export interface IPokemonType {
 		name: string,
 		url: string
 	}
-};
+}
 
 export interface ISprite {
   other: {
@@ -21,19 +21,45 @@ export interface ISpecies {
   name: string,
   url: string
 }
+
+export interface IPokemonDescriptionText {
+  flavor_text: string,
+  language: {
+    name: string
+  }
+}
+
+export interface ISpeciesData {
+  flavor_text_entries: IPokemonDescriptionText[]
+}
+
+export interface IBaseStat {
+  name: string,
+  url: number
+}
+
+export interface IBaseStats {
+  base_stat: number,
+  stat: IBaseStat
+}
+
+
 export interface IPokemon {
   id: number,
   name: string,
   sprites: ISprite,
   number: string,
-  types: IPokemonType[]
-  // species: ISpecies
-};
+  types: IPokemonType[],
+  species: ISpecies,
+  height: number,
+  weight: number,
+  stats: IBaseStats[]
+}
 
 export interface IPokemonList {
   name: string,
   url: string
-};
+}
 
 // {
 //   "abilities": [

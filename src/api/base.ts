@@ -5,7 +5,7 @@ const {
 } = import.meta.env;
 
 const api = axios.create({
-  baseURL: VITE_APP_API_URL
+	baseURL: VITE_APP_API_URL
 });
 
 export default api;
