@@ -193,4 +193,34 @@
   max-width: 564px;
   margin: 0px auto;
   margin-top: 16px;
+  padding-bottom: 40px;
+}
+.pokemon-stat {
+  display: flex;
+  align-items: center;
+}
+
+.pokemon-stat p {
+  margin: 0px;
+  margin-right: 12px;
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(0,0,0, 0.8);
+}
+
+.ant-progress-inner, .ant-progress-bg {
+  height: 20px !important;
+  border-radius: 4px !important;
+  width: 0%;
+}
+
+.ant-progress-text {
+  line-height: 12px;
+  position: absolute;
+  left: 0px;
+  font-size: 12px;
+  top: calc(50% + 2px);
+  transform: translateY(-50%);
+  color: #fff !important;
 }

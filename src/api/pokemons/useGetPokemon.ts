@@ -20,8 +20,7 @@ const getPokemon = async (pokemonName: string): Promise<IPokemon> => {
 
 export const useGetPokemon = (pokemonName: string) => {
 	return useQuery({
-		queryKey: [QUERY_KEYS.POKEMON],
-		queryFn: () => getPokemon(pokemonName),
-		retry: 2
+		queryKey: [QUERY_KEYS.POKEMON, pokemonName],
+		queryFn: () => getPokemon(pokemonName)
 	});
 };

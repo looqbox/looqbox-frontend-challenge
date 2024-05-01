@@ -10,13 +10,14 @@ import pokeball from '../../assets/images/gray-pokeball.svg';
 
 import './styles.css';
 import { useGetPokemonSpecies } from '../../api/pokemons/useGetPokemonSpecies';
+import { useGetEvolutionChain } from '../../api/pokemons/useGetEvolutionChain';
+import EvolutionChain from './components/evolution-chain';
 
 const PokemonDetails = () => {
 	const { name } = useParams();
 	const { data: pokemon, isLoading: isPokemonLoading } = useGetPokemon(name || '');
-	const { data: species } = useGetPokemonSpecies({endPoint: pokemon?.species.url || '', enabled: !isPokemonLoading});
-	// species && console.log(species);
-	// pokemon && console.log(pokemon);
+	const { data: species, isLoading: isSpeciesLoading } = useGetPokemonSpecies({endPoint: pokemon?.species.url || '', enabled: !isPokemonLoading});
+	const { data: evolutions } = useGetEvolutionChain({endPoint: species?.evolution_chain.url || '', enabled: !isSpeciesLoading});
 
 	const navigate = useNavigate();
 
@@ -47,13 +48,19 @@ const PokemonDetails = () => {
 					pokemon?.stats.map((stat: IBaseStats, index: number) => (
 						<div key={index} className="pokemon-stat">
 							<p>{stat.stat.name}</p>
-							<p>{stat.base_stat}</p>
+							<Progress percent={Math.floor((stat.base_stat / 255) * 100)} status="active" strokeColor={handlePokemonTypeColor(pokemon?.types[0].type.name || 'default')}/>
 						</div>
 					))
 				}
-				<Progress percent={30} />
-				<Progress percent={100} />
 			</div>
+		</div>
+	);
+
+	const tabEvolution = (
+		<div>
+			<EvolutionChain 
+				chain={evolutions || []}
+			/>
 		</div>
 	);
 	
@@ -64,20 +71,15 @@ const PokemonDetails = () => {
 			children: tabAbout,
 		},
 		{
-			key: '2',
+			key: 'base-stats',
 			label: 'Base stats',
 			children: tabBaseStats,
 		},
 		{
-			key: '3',
+			key: 'evolution',
 			label: 'Evolution',
-			children: 'Content of Tab Pane 3',
-		},
-		{
-			key: '4',
-			label: 'Moves',
-			children: 'Content of Tab Pane 3',
-		},
+			children: tabEvolution,
+		}
 	];
 
 	return (
@@ -107,7 +109,7 @@ const PokemonDetails = () => {
 				</div>
 			</div>
 			<div className='pokemon-bottom-section'>
-				<Tabs defaultActiveKey="1" items={tabs} />;
+				<Tabs defaultActiveKey="base-stats" items={tabs} />;
 			</div>
 		</section>
 	);

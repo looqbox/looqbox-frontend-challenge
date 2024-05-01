@@ -35,7 +35,6 @@ export const convertHeightToFeet = (heightInDecimeters: number) => {
 	const heightInMeters = heightInDecimeters / 10;
 	const heightInFeet = heightInDecimeters * 0.328084;
 
-
 	return `${heightInMeters.toFixed(2)}m/${heightInFeet.toFixed(2)}ft`;
 };
   
@@ -53,4 +52,4 @@ export const getPokemonsDetails = async (pokemons: IPokemonList[]): Promise<IPok
 			return response.data;
 		})
 	);
-}
+};

@@ -12,11 +12,9 @@ interface IProps {
 }
 
 const getPokemonSpecies = async (endPoint: string): Promise<ISpeciesData> => {
-
 	try {
 		const response: AxiosResponse<ISpeciesData> = await api.get(endPoint);
 		const pokemon = response.data;
-
 		return pokemon;
 	} catch(error) {
 		toast.error('Ops! We didnt find this specie.', { toastId: 'species-error' });
@@ -28,8 +26,7 @@ export const useGetPokemonSpecies = ({endPoint, enabled}: IProps) => {
 	
 	return useQuery({
 		enabled: enabled,
-		queryKey: [QUERY_KEYS.SPECIES],
-		queryFn: () => getPokemonSpecies(endPoint),
-		retry: 2
+		queryKey: [QUERY_KEYS.SPECIES, endPoint],
+		queryFn: () => getPokemonSpecies(endPoint)
 	});
 };
