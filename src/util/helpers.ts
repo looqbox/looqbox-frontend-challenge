@@ -1,4 +1,5 @@
-import { IPokemonDescriptionText, IPokemonType } from '../types/models';
+import api from '../api/base';
+import { IPokemon, IPokemonDescriptionText, IPokemonList, IPokemonType } from '../types/models';
 import { POKEMON_TYPE_COLORS } from './tokens';
 
 export const handlePokemonTypeColor = (pokemonMainType: string) => {
@@ -44,3 +45,12 @@ export const convertWeightToPounds = (weightInHectograms: number) => {
 
 	return `${weightInKilograms.toFixed(2)}kg/${weightInPounds.toFixed(2)}lbs`;
 };
+
+export const getPokemonsDetails = async (pokemons: IPokemonList[]): Promise<IPokemon[]> => {
+	return await Promise.all(
+		pokemons?.map(async (pokemon: IPokemonList) => {
+			const response = await api.get(pokemon.url);
+			return response.data;
+		})
+	);
+}

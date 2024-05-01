@@ -25,6 +25,7 @@ const getPokemonSpecies = async (endPoint: string): Promise<ISpeciesData> => {
 }; 
 
 export const useGetPokemonSpecies = ({endPoint, enabled}: IProps) => {
+	
 	return useQuery({
 		enabled: enabled,
 		queryKey: [QUERY_KEYS.SPECIES],

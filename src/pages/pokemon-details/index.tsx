@@ -15,8 +15,8 @@ const PokemonDetails = () => {
 	const { name } = useParams();
 	const { data: pokemon, isLoading: isPokemonLoading } = useGetPokemon(name || '');
 	const { data: species } = useGetPokemonSpecies({endPoint: pokemon?.species.url || '', enabled: !isPokemonLoading});
-	species && console.log(species);
-	pokemon && console.log(pokemon);
+	// species && console.log(species);
+	// pokemon && console.log(pokemon);
 
 	const navigate = useNavigate();
 

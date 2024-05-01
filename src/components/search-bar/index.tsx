@@ -1,41 +1,66 @@
-import { useState } from 'react';
 import { AutoComplete, Input } from 'antd';
-import axios from 'axios';
+
+import { IPokemon, IPokemonList } from '../../types/models';
+import { useGetAllPokemons } from '../../api/pokemons/useGetAllPokemons';
 
 import './styles.css';
+import { ISearchOption } from '../../types';
+import { useState } from 'react';
+import { getPokemonsDetails } from '../../util/helpers';
 
-const SearchBar = () => {
-	const [options, setOptions] = useState<any>([]);
+export interface IValues {
+	search: string;
+	options?: ISearchOption[];
+	formatedPokemons: IPokemon[];
+};
+export interface ISearchBarProps {
+	onSelect: (value: string) => void;
+	onSubmit: (values: IValues) => void;
+	setIsLoading: (value: boolean) => void;
+};
 
-	const fetchPokemons = async (query: any) => {
-		try {
-			const response = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1000');
-			const pokemons = response.data.results;
-			const filteredPokemons = pokemons.filter((pokemon: any) => pokemon.name.startsWith(query.toLowerCase()));
-			return filteredPokemons.map((pokemon: any) => ({ value: pokemon.name, label: pokemon.name }));
-		} catch (error) {
-			console.error('Error fetching Pokemon:', error);
-			return [];
-		}
-	};
+const SearchBar = (props: ISearchBarProps) => {
+	const [values, setValues] = useState<IValues>({
+		search: '',
+		options: [],
+		formatedPokemons: []
+	});
 
-	const handleSearch = async (value: any) => {
-		const results = value ? await fetchPokemons(value.toLowerCase()) : [];
-		setOptions(results);
+	const { data: pokemons } = useGetAllPokemons();
+
+	const { onSelect, onSubmit, setIsLoading } = props;
+
+	const handleSearch = async (value: string) => {
+		const filteredPokemons = pokemons?.filter((pokemon: IPokemonList) => pokemon.name.startsWith(value.toLowerCase())) || [];
+		const optionResults = value ? filteredPokemons.map((pokemon: IPokemonList) => ({ label: pokemon.name, value: pokemon.url })) : [];
+		
+		setIsLoading(true);
+		const pokemonsDetails = await getPokemonsDetails(filteredPokemons);
+		setIsLoading(false);
+
+		setValues({search: value, options: optionResults, formatedPokemons: pokemonsDetails});
+
+		if(!value) onSubmit({search: '', formatedPokemons: []});
 	};
 
 	return (
 		<AutoComplete
 			popupMatchSelectWidth={252}
 			style={{
-				width: 300,
+				width: 320,
 			}}
-			options={options}
-			// onSelect={onSelect}
+			options={values.options}
+			onSelect={(_, option) => onSelect(option.label)}
 			onSearch={handleSearch}
 			className='search-bar'
 		>
-			<Input.Search size="large" placeholder="Search for pokemons" enterButton />
+			<Input.Search 
+				size="large" 
+				placeholder="Search for pokemons" 
+				enterButton  
+				onPressEnter={() => onSubmit(values)}
+				onSearch={() => onSubmit(values)}
+			/>
 		</AutoComplete>
 	);
 };

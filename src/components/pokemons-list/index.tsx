@@ -1,19 +1,19 @@
 import { Col, Row } from 'antd';
 
 import PokemonCard from '../pokemon-card';
-import PokemonsListLoader from '../pokemons-list-loader';
 import { IPokemon } from '../../types/models';
 
+import './styles.css';
+
 interface IProps {
-	pokemons: IPokemon[],
-	isLoading: boolean
+	pokemons: IPokemon[]
 }
 
 const PokemonsList = (props: IProps) => {
-	const { pokemons, isLoading } = props;
+	const { pokemons } = props;
 
 	return (
-		<div>
+		<div className='pokemons-list-wrapper'>
 			<Row gutter={[16, 24]}>
 				{pokemons.length > 0 
 					? pokemons.map((pokemon: IPokemon, index: number) => (
@@ -32,7 +32,6 @@ const PokemonsList = (props: IProps) => {
 						<p>Nenhum pokemon encontrado</p>
 					)
 				}
-				{isLoading && <PokemonsListLoader/>}
 			</Row>
 		</div>
 	);

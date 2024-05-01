@@ -29,3 +29,8 @@ export interface IAPIResponse<T> {
 	previous: string | null,
 	results: T[]
 }
+
+export interface ISearchOption {
+	value: string;
+	label: string;
+}

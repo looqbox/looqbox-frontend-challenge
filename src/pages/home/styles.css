@@ -31,3 +31,6 @@
 .pokemons-list-container {
   padding-bottom: 40px;
 }
+.infinite-scroll-anchor {
+  height: 40px;
+}
