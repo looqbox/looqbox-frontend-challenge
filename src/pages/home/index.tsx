@@ -12,6 +12,7 @@ import { IPokemon } from '../../types/models';
 import logo from '../../assets/images/gray-pokeball.svg';
 
 import './styles.css';
+import { Row } from 'antd';
 export interface IValues {
 	search: string;
 	formatedPokemons: IPokemon[];
@@ -37,6 +38,7 @@ export default function HomePage() {
 	return (
 		<section>
 			<div className="tags-list-container">
+				<img src={logo} alt='Gray gray-pokeball' className='gray-pokeball-background'/>
 				<div className="container">
 					<h1>What Pokemon <br></br>are you looking for ?</h1>
 					<SearchBar
@@ -45,7 +47,9 @@ export default function HomePage() {
 						setIsLoading={setIsSearchLoading}
 					/>
 				</div>
-				<img src={logo} alt='Gray gray-pokeball' className='gray-pokeball-background'/>
+				<Row>
+					
+				</Row>
 			</div>
 			<div className="container pokemons-list-container">
 				{handleRenderedList?.map((page: IPokemon[], index) => (
