@@ -46,3 +46,29 @@
   top: 50%;
   transform: translate(100%, -100%);
 }
+
+@media(max-width: 991px) {
+  .evolution-chain-container .ant-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .evolution-chain-container .anticon {
+    bottom: -8px;
+    right: 50%;
+    transform: translate(50%, 50%) rotate(90deg);
+  }
+  .evolution-pokemon-card p {
+    margin-top: 24px;
+  }
+  .evolution-pokemon-card .ant-image {
+    width: 180px;
+  }
+  .pokemon-stat p {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .pokemons-name-and-number-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

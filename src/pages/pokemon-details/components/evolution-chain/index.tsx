@@ -20,7 +20,7 @@ function EvolutionChain(props: IProps) {
     return (
       <Col 
         key={pokemonName + '-evolutes'} 
-        span={8} 
+        lg={8}
       >
         <div className={`evolution-pokemon-card`} style={{animationDelay: `${index*0.2}s`}}>
           {index + 1 != chain.length && <SwapRightOutlined style={{fontSize: 40}} className='evolution-direction'/>}
