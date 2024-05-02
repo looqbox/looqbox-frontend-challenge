@@ -1,9 +1,8 @@
 import { Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import BlankLayout from '../components/template/Blank-layout';
-
 import { DefaultRoute, AppRoutes } from './routes';
+import NotFoundLayout from '../components/template/not-found';
 
 const Router = () => {
 	const FinalRoute = (props: { route: any }) => {
@@ -28,12 +27,6 @@ const Router = () => {
 		))
 	);
 
-	const notFound = (
-		<BlankLayout>
-			<h2>NÃO ENCONTRADO</h2>
-		</BlankLayout>
-	);
-
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -46,7 +39,7 @@ const Router = () => {
 				{ResolveRoutes()}
 				<Route 
 					path='*' 
-					element={notFound}
+					element={<NotFoundLayout/>}
 				/>
 			</Routes>
 		</BrowserRouter>

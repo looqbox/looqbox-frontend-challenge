@@ -138,7 +138,7 @@ aside button:hover {
 }
 @media (min-width: 476px){
   .container{
-    width: 100%;
+    width: calc(100% - 30px);
   }
 }
 @media (min-width: 768px){

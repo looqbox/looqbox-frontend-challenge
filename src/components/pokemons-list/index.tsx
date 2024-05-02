@@ -3,6 +3,8 @@ import { Col, Row } from 'antd';
 import PokemonCard from '../pokemon-card';
 import { IPokemon } from '../../types/models';
 
+import notFoundImage from '../../assets/images/not-found.png';
+
 import './styles.css';
 
 interface IProps {
@@ -11,6 +13,13 @@ interface IProps {
 
 const PokemonsList = (props: IProps) => {
 	const { pokemons } = props;
+
+	const notFound = (
+		<div className='not-found-container'>
+			<img src={notFoundImage} />
+			<h3>Hm... Snorlax não encontrou nenhum pokemon com esse nome!</h3>
+		</div>
+	);
 
 	return (
 		<div className='pokemons-list-wrapper'>
@@ -29,7 +38,7 @@ const PokemonsList = (props: IProps) => {
 						</Col>
 					))
 					: (
-						<p>Nenhum pokemon encontrado</p>
+						notFound
 					)
 				}
 			</Row>

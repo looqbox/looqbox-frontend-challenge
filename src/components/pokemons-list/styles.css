@@ -1,3 +1,20 @@
 .pokemons-list-wrapper {
     margin-top: 16px;
 }
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.not-found-container h3 {
+    text-align: center;
+    font-size: 18px;
+    line-height: 140%;
+    color: #161b25;
+    padding: 0px 15px;
+    margin: 0px auto;
+}
+.not-found-container img {
+    width: 240px;
+    max-width: 100%;
+}
