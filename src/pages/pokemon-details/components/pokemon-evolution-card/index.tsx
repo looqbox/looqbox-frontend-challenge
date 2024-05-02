@@ -5,8 +5,6 @@ import { useGetPokemon } from '../../../../api/pokemons/useGetPokemon';
 
 import pokeBall from '../../../../assets/images/gray-pokeball.svg';
 
-import './styles.css';
-
 interface IProps {
   pokemonName: string,
   index: number,
