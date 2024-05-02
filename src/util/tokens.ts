@@ -1,7 +1,7 @@
 export const POKEMON_TYPE_COLORS:{[key: string]: string} = {
 	default: '#A8A878',
-	grass: '#46D1B1',
-	fire: '#FB6C6C',
+	grass: '#78C851',
+	fire: '#FA6859',
 	water: '#7AC6FF',
 	bug: '#A8B820',
 	normal: '#A8A878',
