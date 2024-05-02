@@ -1,4 +1,4 @@
-.not-found-container {
+.not-found-screen {
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -7,26 +7,26 @@
     flex-direction: column;
 }
 
-.not-found-container h1 {
+.not-found-screen h1 {
     margin: 0px;
     margin-bottom: 16px;
 }
 
-.not-found-container p {
+.not-found-screen p {
     margin: 0px;
     margin-bottom: 40px;
 }
 
-.not-found-container .ant-btn {
+.not-found-screen .ant-btn {
     height: 56px;
 }
 
-.not-found-container img {
+.not-found-screen img {
     height: 200px;
     margin-bottom: 16px;
 }
 
-.not-found-container .ant-btn:hover {
+.not-found-screen .ant-btn:hover {
     border: 1px solid #0b0b0b;
     background-color: transparent !important;
 }

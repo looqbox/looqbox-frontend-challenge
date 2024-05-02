@@ -8,7 +8,7 @@ import './styles.css';
 const NotFoundLayout = () => {
 	const navigate = useNavigate();
 	return (
-		<div className="not-found-container">
+		<div className="not-found-screen">
 			<img src={notFoundImage} alt="Snorlax Sleeping" />
 			<h1>Página não encontrada!</h1>
 			<p>Não se preocupe! Sinta-se à vontade para explorar nossa pokedex.</p>

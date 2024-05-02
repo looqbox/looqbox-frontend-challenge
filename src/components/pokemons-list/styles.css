@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 .not-found-container h3 {
     text-align: center;
@@ -13,6 +14,7 @@
     color: #161b25;
     padding: 0px 15px;
     margin: 0px auto;
+    max-width: 320px;
 }
 .not-found-container img {
     width: 240px;
