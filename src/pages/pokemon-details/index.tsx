@@ -5,13 +5,14 @@ import { SwapLeftOutlined } from '@ant-design/icons';
 import { useGetPokemon } from '../../api/pokemons/useGetPokemon';
 import { convertHeightToFeet, convertWeightToPounds, handleIDToNumber, handlePokemonTypeColor, pickRandPokemonDescriptionText } from '../../util/helpers';
 import { IBaseStats, IPokemonType } from '../../types/models';
+import { useGetPokemonSpecies } from '../../api/pokemons/useGetPokemonSpecies';
+import { useGetEvolutionChain } from '../../api/pokemons/useGetEvolutionChain';
+
+import EvolutionChain from './components/evolution-chain';
 
 import pokeball from '../../assets/images/gray-pokeball.svg';
 
 import './styles.css';
-import { useGetPokemonSpecies } from '../../api/pokemons/useGetPokemonSpecies';
-import { useGetEvolutionChain } from '../../api/pokemons/useGetEvolutionChain';
-import EvolutionChain from './components/evolution-chain';
 
 const PokemonDetails = () => {
 	const { name } = useParams();

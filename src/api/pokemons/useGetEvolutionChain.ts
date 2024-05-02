@@ -9,7 +9,7 @@ import { IChain, IChainData } from '../../types/models';
 interface IProps {
   endPoint: string,
   enabled: boolean
-};
+}
 
 const handleChain = (chain: IChain) => {
 	const evolutionChain = [];

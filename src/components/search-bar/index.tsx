@@ -12,12 +12,12 @@ export interface IValues {
 	search: string;
 	options?: ISearchOption[];
 	formatedPokemons: IPokemon[];
-};
+}
 export interface ISearchBarProps {
 	onSelect: (value: string) => void;
 	onSubmit: (values: IValues) => void;
 	setIsLoading: (value: boolean) => void;
-};
+}
 
 const SearchBar = (props: ISearchBarProps) => {
 	const [values, setValues] = useState<IValues>({

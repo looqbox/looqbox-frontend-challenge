@@ -16,7 +16,7 @@ import { Row } from 'antd';
 export interface IValues {
 	search: string;
 	formatedPokemons: IPokemon[];
-};
+}
 
 export default function HomePage() {
 	const { data: pokemonPages, fetchNextPage, isFetchingNextPage } = useGetPokemons();
@@ -31,7 +31,7 @@ export default function HomePage() {
 
 	useEffect(() => {
 		if(inView && !values.search) setTimeout(fetchNextPage, 600);
-	}, [fetchNextPage, inView]);
+	}, [fetchNextPage, inView, values.search]);
 
 	const handleRenderedList = values.search ? [values.formatedPokemons] : pokemonPages?.pages;
 

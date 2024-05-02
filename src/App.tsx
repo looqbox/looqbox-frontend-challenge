@@ -16,7 +16,7 @@ const App = () => {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-      <Router />
+			<Router />
 		</QueryClientProvider>
 	);
 };
