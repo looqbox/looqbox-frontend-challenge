@@ -2,13 +2,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Image, Progress, Tabs } from 'antd';
 import { SwapLeftOutlined } from '@ant-design/icons';
 
-import { useGetPokemon } from '../../api/pokemons/useGetPokemon';
 import { convertHeightToFeet, convertWeightToPounds, handleIDToNumber, handlePokemonTypeColor, pickRandPokemonDescriptionText } from '../../util/helpers';
 import { IBaseStats, IPokemonType } from '../../types/models';
+import { useGetPokemon } from '../../api/pokemons/useGetPokemon';
 import { useGetPokemonSpecies } from '../../api/pokemons/useGetPokemonSpecies';
 import { useGetEvolutionChain } from '../../api/pokemons/useGetEvolutionChain';
 
 import EvolutionChain from './components/evolution-chain';
+import RadarChart from './components/radar-chart';
 
 import pokeball from '../../assets/images/gray-pokeball.svg';
 
@@ -57,14 +58,6 @@ const PokemonDetails = () => {
 		</div>
 	);
 
-	const tabEvolution = (
-		<div>
-			<EvolutionChain 
-				chain={evolutions || []}
-			/>
-		</div>
-	);
-	
 	const tabs = [
 		{
 			key: 'about-pokemon',
@@ -79,7 +72,12 @@ const PokemonDetails = () => {
 		{
 			key: 'evolution',
 			label: 'Evolution',
-			children: tabEvolution,
+			children: <EvolutionChain chain={evolutions || []}/>,
+		},
+		{
+			key: 'radar-chart',
+			label: 'Chart',
+			children: <RadarChart stats={pokemon?.stats || []} pokemonColor={handlePokemonTypeColor(pokemon?.types[0].type.name || 'default')}/>,
 		}
 	];
 

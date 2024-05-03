@@ -57,7 +57,6 @@ export interface IBaseStats {
   stat: IBaseStat
 }
 
-
 export interface IPokemon {
   id: number,
   name: string,
