@@ -193,6 +193,9 @@
   margin-top: 16px;
   padding-bottom: 40px;
 }
+.pokemon-stats-container .ant-progress-outer {
+  padding-inline-end: 0px !important;
+}
 .pokemon-stat {
   display: flex;
   align-items: center;
@@ -245,5 +248,13 @@
   }
   .pokemon-card-info:first-child::after {
     display: none;
+  }
+  .pokemon-stat p {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .pokemons-name-and-number-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
