@@ -69,6 +69,6 @@
   }
   .pokemons-name-and-number-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start !important;
   }
 }

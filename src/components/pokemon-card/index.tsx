@@ -9,33 +9,38 @@ import background from '../../assets/images/gray-pokeball.svg';
 import './styles.css';
 
 interface Iprops {
-  pokemon: IPokemon,
+  pokemonName: IPokemon['name'], 
+  pokemonTypes: IPokemon['types'], 
+  pokemonSprites: IPokemon['sprites'], 
+  pokemonID: IPokemon['id'],
   index: number,
-  customClass?: string
+  customClass?: string,
 }
 
 const PokemonCard = (props: Iprops) => {
-	const { pokemon, index, customClass } = props;
+	const { pokemonName, pokemonTypes, pokemonSprites, pokemonID, index, customClass } = props;
 	const navigate = useNavigate();
 
 	return (
 		<button 
 			className={`${customClass} pokemon-card`}
-			onClick={() => navigate('/pokemon/' + pokemon.name)}
+			onClick={() => navigate('/pokemon/' + pokemonName)}
 			style={{ 
-				backgroundColor: handlePokemonTypeColor(pokemon.types[0].type.name), 
+				backgroundColor: handlePokemonTypeColor(pokemonTypes?.length > 0 ? pokemonTypes[0].type.name : 'default'), 
 				animationDelay: handlePokemonCardAnimationDelay(index)
 			}} 
 		>
-			<Image src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} className="pokemon-img"/>
+			<Image src={pokemonSprites.other['official-artwork'].front_default} alt={pokemonName} className="pokemon-img"/>
 			<img src={background} alt="Gray gray-pokeball" className='pokemon-card-background'/>
-			<p className='pokemon-number'>{handleIDToNumber(pokemon.id)}</p>
-			<h2 className='pokemons-name'>{pokemon.name}</h2>
-			<div className='pokemon-types-container'>
-				{pokemon.types.map((pokemonType: IPokemonType, index: number) => (
-					<span key={`${pokemonType.type.name}-${index}`} className="pokemon-type">{pokemonType.type.name}</span>
-				))}
-			</div>
+			<p className='pokemon-number'>{handleIDToNumber(pokemonID)}</p>
+			<h2 className='pokemons-name'>{pokemonName ? pokemonName : 'Unknown Pokemon'}</h2>
+			{pokemonTypes?.length > 0 ? (
+				<div className='pokemon-types-container'>
+					{pokemonTypes.map((pokemonType: IPokemonType, index: number) => (
+						<span key={`${pokemonType.type.name}-${index}`} className="pokemon-type">{pokemonType.type.name}</span>
+					))}
+				</div>
+			) : <span key={`Unknown Type-${index}`} className="pokemon-type">Unknown Type</span>}
 		</button>
 	);
 };

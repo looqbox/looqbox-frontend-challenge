@@ -6,6 +6,6 @@ export default {
 		// process *.tsx files with ts-jest
 	},
 	moduleNameMapper: {
-		'.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
+		'.+.(css|styl|less|sass|scss|png|jpg|svg|ttf|woff|woff2)$': 'jest-transform-stub'
 	}
 };

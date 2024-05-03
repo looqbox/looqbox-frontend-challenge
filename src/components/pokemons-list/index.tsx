@@ -32,7 +32,10 @@ const PokemonsList = (props: IProps) => {
 							lg={8}
 						>
 							<PokemonCard 
-								pokemon={pokemon}
+								pokemonName={pokemon.name}
+								pokemonTypes={pokemon.types}
+								pokemonSprites={pokemon.sprites}
+								pokemonID={pokemon.id}
 								index={index} 
 							/>
 						</Col>
