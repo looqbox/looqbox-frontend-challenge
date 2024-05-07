@@ -44,6 +44,6 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 - Ant Design
 
 ## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
+- [React docs](https://react.dev/learn)
+- [PokeApi docs](https://pokeapi.co/docs/v2)
 - [Redux](https://redux.js.org/)
