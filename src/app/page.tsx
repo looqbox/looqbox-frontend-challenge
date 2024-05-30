@@ -1,7 +1,7 @@
 import PokemonList from '@/components/PokemonList/PokemonList'
 import PokemonTypes from '@/types/PokemonTypes'
 
-const Home = async () => {
+const HomePage = async () => {
     const kantoPokedexResponse = await fetch(
         `https://pokeapi.co/api/v2/pokedex/kanto`
     )
@@ -16,4 +16,4 @@ const Home = async () => {
     )
 }
 
-export default Home
+export default HomePage

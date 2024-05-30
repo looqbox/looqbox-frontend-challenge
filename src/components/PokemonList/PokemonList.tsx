@@ -4,6 +4,8 @@ import Image from 'next/image'
 import PokemonTypes from '@/types/PokemonTypes'
 import { Card, Input } from 'antd'
 import { useState } from 'react'
+import Link from 'next/link'
+import stringUtil from '@/utils/stringUtil/stringUtil'
 
 interface Props {
     kantoPokedex: PokemonTypes.Pokedex
@@ -41,12 +43,16 @@ const PokemonList = (props: Props) => {
                         <Card
                             key={pokemonEntry.entry_number}
                             className='col-span-12 sm:col-span-4 lg:col-span-3'
-                            title={`${pokemonEntry.pokemon_species.name
-                                .charAt(0)
-                                .toUpperCase()}${pokemonEntry.pokemon_species.name.substring(
-                                1
-                            )}`}
-                            extra={<a href='#'>More</a>}
+                            title={stringUtil.firstLetterUpper(
+                                pokemonEntry.pokemon_species.name
+                            )}
+                            extra={
+                                <Link
+                                    href={`/pokemon/${pokemonEntry.pokemon_species.name}`}
+                                >
+                                    Details
+                                </Link>
+                            }
                         >
                             <div className='w-full h-28 relative'>
                                 <Image
