@@ -1,4 +1,4 @@
-import PokemonList from '@/components/PokemonList/PokemonList'
+import PokemonList from '@/app/components/PokemonList/PokemonList'
 import PokemonTypes from '@/types/PokemonTypes'
 
 const HomePage = async () => {

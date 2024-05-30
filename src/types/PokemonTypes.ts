@@ -22,13 +22,14 @@ namespace PokemonTypes {
     }
 
     export interface PokemonStat {
-        base_state: number
+        base_stat: number
         stat: {
             name: string
         }
     }
 
     export interface PokemonType {
+        slot: number
         type: {
             name: string
         }
