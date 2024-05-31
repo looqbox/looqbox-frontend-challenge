@@ -1,0 +1,31 @@
+.unordered-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 32px;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
+
+  h1 {
+    color: #121212;
+  }
+}
+
+.pokemon-details {
+  span {
+    color: rgb(0, 0, 0, 0.45);
+  }
+}
+
+.content-container {
+  @media screen and (max-width: 768px) {
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

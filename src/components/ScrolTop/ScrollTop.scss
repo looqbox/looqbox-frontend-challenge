@@ -1,0 +1,30 @@
+.scroll-top-button {
+  visibility: hidden;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.scroll-top-button.show {
+  visibility: visible;
+  transform: scale(1);
+}
+
+.scroll-top-icon {
+  padding: 0.5rem;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  color: #399c62;
+  background-color: #ffffff;
+  border: 1px solid #399c62;
+  transition: all 0.3s ease;
+}
+
+.scroll-top-icon:hover {
+  transform: scale(1.1);
+  background-color: #399c62;
+  color: #ffffff;
+}
