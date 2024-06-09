@@ -1,0 +1,34 @@
+.lateralBar {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    background-color: #f86555;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: relative;
+    overflow: hidden;
+}
+
+.pokeballLogo {
+    width: 300px;
+    opacity: 0.5;
+    position: absolute;
+    right: -110px;
+    top: -110px;
+    z-index: 0;
+    animation: rotateLogo 24s linear infinite
+}
+
+@keyframes rotateLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
