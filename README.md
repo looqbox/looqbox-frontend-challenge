@@ -22,21 +22,24 @@ We use:
 - ⚠️ Do a final commit when you finish
 - When you're done send us a pull request
 
-You have **one week** to finish your test, we'll check the time with your "Initial" and "Final" Commits.
-
 # Guidelines
-You need to make a SPA that shows a list of pokemons, and search them, using the [Pokeapi](https://pokeapi.co/), your app needs to be dynamic, that means you **do not** reload the page to show anything new.
+You need to create a Single Page Application (SPA) that displays a list of Pokémon and allows users to search for them, using the [Pokeapi](https://pokeapi.co/docs/v2). Your app must be dynamic, meaning you **must not** reload the page to show new content.
 
-The pokeapi was chosen because of its simplicity to make the requests, as it is a open api, please **mind how many times you request data**
+The PokeAPI was chosen for its simplicity in making requests. Since it is an open API, please **be mindful of how many requests** you make.
 
-- In the main page you need a search bar and a loaded list of pokemons (random or just hardcoded)
-- Clicking on any pokemon shows a card/modal/page with that pokemon's info
-- Searching and pressing enter on the search bar will show the result instead of the list
-- Your app needs at least two different routes (/home /more for example -> be creative!)
+## Requirements:
 
-You can use any dependency you want, (axios, bootstrap, material ui...)
+- On the main page, include a search bar and a preloaded list of Pokémon.
+- Clicking on any Pokémon should display a card, modal, or page with that Pokémon’s information.
+- Typing in the search bar and pressing Enter should display the search result instead of the list.
+- Your app must include at least two different routes (e.g., /home, /details — be creative!).
+- Add a README file to document your project.
+
+You may use any libraries or dependencies you like (e.g., Axios, Bootstrap, Material UI...).
 
 ## Bonus points!
+- Pagination
+- Error handling
 - Documentation
 - Linting
 - Charts
@@ -44,6 +47,6 @@ You can use any dependency you want, (axios, bootstrap, material ui...)
 - Ant Design
 
 ## Useful links
-- [React docs](https://reactjs.org/docs/getting-started.html)
-- [PokeApi docs](https://pokeapi.co/docs/v2.html)
+- [React docs](https://react.dev/)
+- [PokeApi docs](https://pokeapi.co/docs/v2)
 - [Redux](https://redux.js.org/)
