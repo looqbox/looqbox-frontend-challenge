@@ -3,7 +3,6 @@ import { Box, CircularProgress, Stack, Typography, Button } from '@mui/material'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { POKEMON_URL } from '../config';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export default function PokemonDetails() {
     const [pokemon, setPokemon] = useState(null);

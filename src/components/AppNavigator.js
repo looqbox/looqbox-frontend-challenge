@@ -18,7 +18,7 @@ export default function AppNavigator({ onSearch }) {
           size="small"
           placeholder="Search Pokémon"
           onChange={(e) => onSearch(e.target.value)}
-          sx={{ backgroundColor: '#fff', borderRadius: 1, width: 300 }} // Ajuste a largura conforme necessário
+          sx={{ backgroundColor: '#fff', borderRadius: 1, width: 300 }}
         />
       </Toolbar>
     </AppBar>
