@@ -8,7 +8,7 @@ export default function AppNavigator({ onSearch }) {
       <Toolbar sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', marginRight: 2 }}>
           <Link to="/" style={{ textDecoration: 'none' }}>
-            <Typography sx={{ cursor: 'pointer', color: '#CDD1C4' }}>
+            <Typography sx={{ cursor: 'pointer', color: '#fafafa' }}>
               Pokedex
             </Typography>
           </Link>

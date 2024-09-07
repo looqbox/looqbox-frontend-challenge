@@ -13,9 +13,10 @@ export default function PokemonCard(props) {
                 "&:hover": {
                     backgroundColor: "rgb(190, 190, 190)"
                 },
-                width: '150px',
-                height: '220px',
-                margin: '10px'
+                width: { xs: '100%', sm: '150px' }, // Ajusta a largura do cartão
+                height: { xs: 'auto', sm: '220px' }, // Ajusta a altura do cartão
+                margin: '10px',
+                maxWidth: '150px' // Define um limite de largura
             }}
         >
             <Link 
@@ -27,7 +28,7 @@ export default function PokemonCard(props) {
                     component="img"
                     image={image}
                     alt={name}
-                    sx={{ width: '100%', height: '150px', objectFit: 'cover' }}
+                    sx={{ width: '100%', height: { xs: 'auto', sm: '150px' }, objectFit: 'cover' }}
                 />
                 <CardContent sx={{ textAlign: 'center', padding: '8px' }}>
                     <Typography variant="h6" noWrap>
