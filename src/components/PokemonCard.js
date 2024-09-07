@@ -14,8 +14,8 @@ export default function PokemonCard(props) {
                     backgroundColor: "rgb(190, 190, 190)"
                 },
                 width: '150px',
-                height: '220px', 
-                margin: '10px' 
+                height: '220px',
+                margin: '10px'
             }}
         >
             <Link 
