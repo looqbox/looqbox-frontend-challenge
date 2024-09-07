@@ -13,9 +13,9 @@ export default function PokemonCard(props) {
                 "&:hover": {
                     backgroundColor: "rgb(190, 190, 190)"
                 },
-                width: '150px', // Ajuste a largura dos cartões
-                height: '220px', // Ajuste a altura dos cartões
-                margin: '10px' // Adicione margens para espaçamento
+                width: '150px',
+                height: '220px',
+                margin: '10px'
             }}
         >
             <Link 
