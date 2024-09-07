@@ -7,7 +7,7 @@ import PokemonCard from '../components/PokemonCard';
 export default function Pokedex({ searchTerm }) {
   const [pokemonData, setPokemonData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 200;
+  const itemsPerPage = 150;
 
   useEffect(() => {
     axios.get(POKEMON_URL + "?limit=1000").then((response) => {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
@@ -20,7 +19,7 @@ const Footer = () => {
       }}
     >
       <a href="https://looqbox.com" target="_blank" rel="noopener noreferrer">
-        <img src={logo} alt="looqbox logo" style={{ height: '60px', cursor: 'pointer' }} />
+        <img src={"/assets/logo.png"} alt="looqbox logo" style={{ height: '60px', cursor: 'pointer' }} />
       </a>
     </Box>
   );

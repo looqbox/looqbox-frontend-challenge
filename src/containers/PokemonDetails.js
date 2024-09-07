@@ -24,10 +24,10 @@ export default function PokemonDetails() {
 
     return (
         <Box sx={{ textAlign: 'center', padding: '80px 0px 60px 0px' }}>
-            <Typography variant="h1" sx={{ color: '#30323D', textTransform: 'uppercase', fontFamily: 'Fantasy', marginTop: 8 }}>
+            <Typography variant="h1" sx={{ color: '#30323D', textTransform: 'uppercase', fontFamily: 'Fantasy', marginTop: 4 }}>
                 {name}
             </Typography>
-            <img src={sprites.front_default} alt={name} style={{ width: '500px', height: '500px' }} />
+            <img src={sprites.front_default} alt={name} style={{ width: '250px', height: '250px' }} />
             <Box sx={{ position: 'relative', paddingBottom: '50px' }}>
                 <hr style={{ height: '2px', width: '100%', backgroundColor: 'white', marginBottom: 20 }} />
                 <Stack direction="row" flexWrap="wrap" spacing={2} justifyContent="center">
