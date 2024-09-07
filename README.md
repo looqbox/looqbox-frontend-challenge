@@ -33,7 +33,8 @@ This project was developed for the Looqbox Frontend Challenge.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/pokemon-react-app.git
+   git clone https://github.com/carlsfi/looqbox-frontend-challenge
+
    ```
 
 2. Navigate to the project directory:
