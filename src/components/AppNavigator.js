@@ -1,14 +1,14 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Link } from '@mui/material';
+import { AppBar, Toolbar, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function AppNavigator() {
   return (
     <div>
-    {/* Posso remover o variant */}
-      <AppBar sx={{ backgroundColor: 'black' }} position="fixed"  variant='h6'>
+      <AppBar sx={{ backgroundColor: '#30323D' }} position="fixed">
         <Toolbar>
           <Link to="/" style={{ textDecoration: 'none' }}>
-            <Typography sx={{ cursor: 'pointer', color: 'white' }}>
+            <Typography sx={{ cursor: 'pointer', color: '#CDD1C4' }}>
               Pokedex
             </Typography>
           </Link>
