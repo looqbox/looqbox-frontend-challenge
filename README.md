@@ -39,7 +39,7 @@ This project was developed for the Looqbox Frontend Challenge.
 
 2. Navigate to the project directory:
    ```bash
-   cd pokemon-react-app
+   cd looqbox-frontend-challenge
    ```
 
 3. Install the dependencies:
