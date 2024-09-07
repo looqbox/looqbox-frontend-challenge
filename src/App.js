@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Pokedex from './containers/Pokedex';
 import AppNavigator from './components/AppNavigator';
 import PokemonDetails from './containers/PokemonDetails';
 
 export default function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+
   return (
     <Router>
-      <AppNavigator />
+      <AppNavigator onSearch={setSearchTerm} />
       <Routes>
-        <Route path="/" element={<Pokedex />} />
+        <Route path="/" element={<Pokedex searchTerm={searchTerm} />} />
         <Route path="/pokemon/:id" element={<PokemonDetails />} />
       </Routes>
     </Router>
