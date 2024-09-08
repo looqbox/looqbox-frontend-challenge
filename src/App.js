@@ -19,7 +19,7 @@ export default function App() {
         }}
       >
         <AppNavigator onSearch={setSearchTerm} />
-        <Box sx={{ flex: '1' }}>
+        <Box sx={{ flex: '1'}}>
           <Routes>
             <Route path="/" element={<Pokedex searchTerm={searchTerm} />} />
             <Route path="/pokemon/:id" element={<PokemonDetails />} />

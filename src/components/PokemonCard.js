@@ -13,10 +13,12 @@ export default function PokemonCard(props) {
                 "&:hover": {
                     backgroundColor: "rgb(190, 190, 190)"
                 },
-                width: { xs: '100%', sm: '150px' }, // Ajusta a largura do cartão
-                height: { xs: 'auto', sm: '220px' }, // Ajusta a altura do cartão
+                width: { xs: '100%', sm: '150px' },
+                height: { xs: 'auto', sm: '220px' },
                 margin: '10px',
-                maxWidth: '150px' // Define um limite de largura
+                maxWidth: '150px',
+                borderRadius: '16px',
+                boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.2)'
             }}
         >
             <Link 
@@ -31,7 +33,7 @@ export default function PokemonCard(props) {
                     sx={{ width: '100%', height: { xs: 'auto', sm: '150px' }, objectFit: 'cover' }}
                 />
                 <CardContent sx={{ textAlign: 'center', padding: '8px' }}>
-                    <Typography variant="h6" noWrap>
+                    <Typography variant="h6" noWrap sx={{color:'#5C80BC', textTransform: 'capitalize'}}>
                         {name}
                     </Typography>
                 </CardContent>
