@@ -9,13 +9,14 @@ const Footer = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100px',
+        height: '55px',
         backgroundColor: '#f8f8f8',
         padding: '15px',
         width: '100%',
-        boxShadow: '0px -2px 10px rgba(0, 0, 0, 0.1)',
-        marginTop: 'auto',
-        position: 'relative'
+        boxShadow: '0px -2px 10px rgba(0, 0, 0, 0.1)', 
+        bottom: 0,
+        left: 0,
+        zIndex: 1000
       }}
     >
       <a href="https://looqbox.com" target="_blank" rel="noopener noreferrer">
