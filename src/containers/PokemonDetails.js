@@ -6,6 +6,7 @@ import { POKEMON_URL } from '../config';
 
 export default function PokemonDetails() {
     const [pokemon, setPokemon] = useState(null);
+    const [generation, setGeneration] = useState(null);
     const { id } = useParams();
 
     useEffect(() => {
@@ -14,13 +15,18 @@ export default function PokemonDetails() {
                 setPokemon(response.data);
             }
         });
+        axios.get(`${POKEMON_URL}-species/${id}`).then((response) => {
+            if (response.status >= 200 && response.status < 300) {
+                setGeneration(response.data.generation.name);
+            }
+        });
     }, [id]);
 
-    if (!pokemon) {
+    if (!pokemon || !generation) {
         return <CircularProgress sx={{ marginTop: 100 }} />;
     }
 
-    const { name, sprites, height, weight, types } = pokemon;
+    const { name, sprites, height, weight, types, abilities } = pokemon;
 
     return (
         <Box sx={{ textAlign: 'center', padding: '80px 0px 60px 0px' }}>
@@ -41,6 +47,16 @@ export default function PokemonDetails() {
                             <strong>Weight:</strong>
                             <br />
                             {weight}kg
+                        </Typography>
+                        <Typography sx={{ color: '#4D5061', fontSize: '25px', marginBottom: 15 }}>
+                            <strong>Abilities:</strong>
+                            <br />
+                            {abilities.map((ability) => ability.ability.name).join(', ')}
+                        </Typography>
+                        <Typography sx={{ color: '#4D5061', fontSize: '25px', marginBottom: 15 }}>
+                            <strong>Generation:</strong>
+                            <br />
+                            {generation}
                         </Typography>
                     </Stack>
                     <Stack direction="row" spacing={4} flexWrap="wrap" justifyContent="center">
