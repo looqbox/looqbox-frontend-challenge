@@ -1,4 +1,3 @@
-
 # Pokémon React Application
 
 This is a Single Page Application (SPA) built with React, Material-UI, and TypeScript, using the PokeAPI to display a list of Pokémon. The app includes dynamic content loading, a search bar, and detailed Pokémon information.
@@ -11,16 +10,17 @@ This project was developed for the Looqbox Frontend Challenge.
 - **Search Functionality**: Users can search for a Pokémon by name using the search bar.
 - **Dynamic Routes**: Clicking on a Pokémon card will navigate to a detailed page with more information about the selected Pokémon.
 - **Responsive UI**: The app uses Material-UI components and is designed to work across devices.
-  
+
 ## Routes
 
-- **Home Route**: Displays the list of Pokémon.
-- **Details Route**: `/details/:id` displays detailed information for each Pokémon, including:
-  - Height and weight
-  - Type(s)
-  - Abilities
-  - Stats (like HP, Attack, Defense)
-  - Moves (limited to 10 moves)
+- **Home Route (`/`)**: Displays the list of Pokémon. The user can search for Pokémon and view their basic details.
+- **Details Route (`/pokemon/:id`)**: Displays detailed information for each Pokémon, including:
+  - **PokeAPI Sprite**: The Pokémon's default sprite from the PokeAPI.
+  - **Official Artwork**: The official artwork of the Pokémon.
+  - **Height and Weight**: The Pokémon's height and weight.
+  - **Abilities**: The Pokémon's abilities.
+  - **Types**: The Pokémon's types.
+  - **Generation**: The generation to which the Pokémon belongs.
 
 ## Technologies Used
 
@@ -34,7 +34,6 @@ This project was developed for the Looqbox Frontend Challenge.
 1. Clone the repository:
    ```bash
    git clone https://github.com/carlsfi/looqbox-frontend-challenge
-
    ```
 
 2. Navigate to the project directory:
@@ -59,21 +58,25 @@ This project was developed for the Looqbox Frontend Challenge.
 
 ## Project Structure
 
-- `src/components`: Contains reusable React components like `PokemonCard`, `PokemonDetails`, etc.
-- `src/pages`: Holds the main pages of the application such as the homepage and the Pokémon details page.
-- `src/services`: Axios services for fetching Pokémon data from the PokeAPI.
-- `src/App.tsx`: Main application file with route configuration.
+- `src/components`: Contains reusable React components like `PokemonCard`, `PokemonDetails`, `AppNavigator`, and `Footer`.
+- `src/containers`: Contains main pages of the application, such as `Pokedex` and `PokemonDetails`.
+- `src/config`: Configuration files for API URLs.
+- `src/App.js`: Main application file with route configuration.
+- `src/index.js`: Entry point for the React application.
+- `src/index.css`: Global styles for the application.
 
 ## Bonus Features Implemented
 
 - **Error Handling**: Shows a loading spinner while fetching data and displays an error message if something goes wrong.
 - **Styled Components**: The UI is styled using Material-UI's `sx` prop for styling flexibility.
-  
+- **Pagination**: Implemented pagination in the `Pokedex` component to manage the display of Pokémon.
+
 ## Future Improvements
 
-- **Pagination**: Implement pagination to limit the number of Pokémon displayed on the homepage.
+- **Enhanced Search**: Improve search functionality with advanced filtering options.
 - **Unit Testing**: Add unit tests using Jest or React Testing Library.
 - **Charts**: Visualize Pokémon stats using charts for better user experience.
+- **Performance Optimization**: Optimize the performance of the application for faster loading times.
 
 ## License
 
