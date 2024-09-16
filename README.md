@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# Pokédex App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação de **Pokédex** desenvolvida com **React**. A aplicação permite aos usuários ver, capturar e organizar os Pokémons disponíveis. Com três páginas principais, o usuário pode gerenciar sua Pokédex, pesquisar Pokémon e visualizar detalhes e estatísticas dos Pokémon capturados.
 
-## Available Scripts
+## Funcionalidades Principais
 
-In the project directory, you can run:
+### 1. **Página Home**
+   - Na **Home Page**, os usuários podem pesquisar qualquer Pokémon disponível.
+   - O sistema de **paginação** facilita a navegação entre diferentes Pokémon.
+   - Pesquise diretamente pelo nome do Pokémon desejado e visualize informações rápidas.
+   
+### 2. **Página Pokédex**
+   - A **Pokédex** armazena todos os Pokémon capturados pelo usuário.
+   - Pokémon capturados são salvos e persistidos no **LocalStorage**, garantindo que o progresso do usuário seja mantido, mesmo após recarregar a página ou fechar o navegador.
+   - Os Pokémon na Pokédex podem ser organizados e gerenciados pelo usuário.
 
-### `npm start`
+### 3. **Página de Detalhes do Pokémon**
+   - Na **Página de Detalhes**, os usuários podem visualizar informações detalhadas sobre cada Pokémon, incluindo:
+     - **Stats (estatísticas)**: HP, Ataque, Defesa, Velocidade e mais.
+     - **Movimentos**: Veja uma lista dos principais movimentos de cada Pokémon.
+     - **Imagens**: Visualize os Pokémon em diferentes ângulos e animações.
+   - Design responsivo e estilizado, garantindo uma boa experiência em dispositivos móveis e desktops.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tecnologias Utilizadas
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### **Frontend**
+- **React**: Framework utilizado para criar a interface e o gerenciamento de componentes da aplicação.
+- **Redux**: Utilizado para o gerenciamento de estado global, facilitando o controle e a manipulação dos dados dos Pokémon e da Pokédex.
+- **Chakra UI**: Biblioteca de componentes de interface usada para estilização dos componentes e garantir acessibilidade e responsividade.
+- **Styled Components**: Utilizado para a criação de estilos personalizados, mantendo o código CSS organizado e modularizado.
 
-### `npm test`
+### **Dados e Persistência**
+- **PokeAPI**: API externa utilizada para buscar informações detalhadas sobre os Pokémon.
+- **LocalStorage**: O armazenamento local é usado para salvar a Pokédex do usuário, garantindo que seus Pokémon capturados sejam mantidos após fechar o navegador.
+- **Redux**: Gerencia todo o estado da aplicação, como os Pokémon capturados, a lista de Pokémon disponíveis, e as informações detalhadas de cada Pokémon.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Estrutura do Projeto
 
-### `npm run build`
+A aplicação é composta por três páginas principais:
+1. **Home Page**: Exibe uma lista de Pokémon com opção de pesquisa e paginação.
+2. **Pokédex**: Mostra os Pokémon capturados pelo usuário, permitindo organização e gerenciamento.
+3. **Detalhes do Pokémon**: Exibe informações detalhadas sobre um Pokémon específico, incluindo estatísticas e movimentos.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Componentização
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+A aplicação foi projetada de forma modular e organizada, com os principais componentes reutilizáveis, o que facilita a manutenção e expansão da aplicação. Os principais componentes incluem:
+- **PokemonCard**: Componente que exibe informações básicas de cada Pokémon na listagem.
+- **Modal**: Componente modal para interações rápidas, como confirmação de captura ou remoção de um Pokémon.
+- **Header**: Cabeçalho comum em todas as páginas, com navegação entre a Home e a Pokédex.
