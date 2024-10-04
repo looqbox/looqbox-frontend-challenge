@@ -3,6 +3,10 @@ import styled from "styled-components";
 
 export const CardContainer = styled(Card)`
   width: 15rem;
+  min-height: 13rem !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   & .ant-card-head {
     display: flex;
@@ -36,5 +40,6 @@ export const InfoContainer = styled.div`
     color: ${(props) => props.theme["text-primary"]};
     font-size: 1rem;
     font-weight: 500;
+    text-transform: capitalize;
   }
 `;
