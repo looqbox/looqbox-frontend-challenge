@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Pokédex - Looqbox
 
-Currently, two official plugins are available:
+Projeto desenvolvido para vaga de estágio em front-end na Looqbox. A Pokedex foi criada utilizando ReactJS com TypeScript, Ant Design para a interface e Redux para o gerenciamento de estado. A aplicação consome dados de uma API pública, permitindo listar Pokémon, realizar buscas, navegar entre páginas e visualizar detalhes como habilidades e tipos. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Screenshots
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Home](src/assets/home.png)
+![Details](src/assets/details.png)
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Funcionalidades
+
+- Busca de dados na PokeAPI
+- Exibição da Lista de Pokémons
+- Filtragem da lista atraves de um Search
+- Tela que exibe detalhes do Pokemon selecionado
+
+
+
+
+## Instalação
+
+Instale e rode meu projeto na sua maquina
+
+```bash
+  git clone -repo
+  cd looqbox-frontend-challenge
+  npm install
+  npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+    
+## Aprendizados
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Construir essa Pokédex me ensinou bastante sobre Redux e Ant Design. Aprendi a gerenciar o estado da aplicação de forma centralizada utilizando a Store do Redux, o que tornou mais fácil controlar e compartilhar dados entre os componentes. Também me aprofundei no uso de componentes do Ant Design, como Layout, Content, Tag, Search e Pagination, que ajudaram a criar uma interface mais eficiente e organizada. Um dos desafios foi integrar esses recursos de forma coesa e garantir uma boa performance, algo que consegui superar implementando uma lógica de estado bem estruturada e uma navegação fluida.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+## Feedback
+
+Se você tiver algum feedback, por favor me deixe saber por meio de dayadiazprofisional@gmail.com
+
+
+## Autores
+
+- [@daya-diaz](https://www.github.com/daya-diaz)
+
