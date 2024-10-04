@@ -10,5 +10,6 @@ export const GlobalStyle = createGlobalStyle`
     :root{
         background-color: ${(props) => props.theme.background};
         font-family: "Manrope", sans-serif;
+        -webkit-font-smoothing: antialiased;
     }
 `;

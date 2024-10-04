@@ -5,15 +5,19 @@ import { queryClient } from "./lib/query-client";
 import { GlobalStyle } from "./styles/global-style";
 import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./styles/theme";
+import { ConfigProvider } from "antd";
+import { andtConfig } from "./lib/antd";
 
 export function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={defaultTheme}>
-          <RouterProvider router={appRouter} />
-          <GlobalStyle />
-        </ThemeProvider>
+        <ConfigProvider theme={andtConfig}>
+          <ThemeProvider theme={defaultTheme}>
+            <RouterProvider router={appRouter} />
+            <GlobalStyle />
+          </ThemeProvider>
+        </ConfigProvider>
       </QueryClientProvider>
     </>
   );
