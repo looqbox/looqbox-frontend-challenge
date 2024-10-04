@@ -1,10 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Dashboard } from "../pages/Dashboard";
+import { MainLayout } from "../pages/_layouts/MainLayout";
 
 export const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard />,
+    element: <MainLayout />,
+    children: [
+      {
+        path: "",
+        element: <Dashboard />,
+      },
+    ],
   },
   {
     path: "*",
