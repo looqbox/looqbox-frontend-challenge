@@ -1,0 +1,56 @@
+.card-container {
+  width: 304px;
+  padding: 16px 8px;
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 6px 13px -11px rgba(102, 102, 102, 0.7);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 200ms ease-in-out;
+}
+.card-container:hover {
+  border-color: #00C899;
+  box-shadow: 0 6px 13px -11px rgba(0, 0, 0, 0.7);
+}
+
+.card-infos{
+  h1 {
+    color: #363131;
+    font-size: 20px;
+  }
+
+  p {
+    color: #575757;
+    font-size: 14px;
+    width: 170px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;  
+    height: 60px; 
+  }
+}
+
+
+.card-image {
+  height: 100px;
+  width: 100px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,8 @@
+.header-container {
+  width: 100%;
+  display: flex;
+  background-color: transparent;
+  max-width: 2000px;
+  align-items: flex-end;
+  justify-content: space-between;
+}

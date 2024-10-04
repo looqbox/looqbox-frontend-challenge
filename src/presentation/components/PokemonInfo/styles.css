@@ -1,0 +1,50 @@
+.pokemon-info-container {
+  width: 160px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  color: #000;
+  border: 1px solid;
+}
+
+.pokemon-info-title {
+  font-weight: 600;
+}
+
+/* Cores específicas para cada variante */
+.pokemon-info-hp {
+  background-color: #ff627d; /* Cor para HP */
+  border-color: #ea4e68; /* Cor para HP */
+}
+
+.pokemon-info-attack {
+  background-color: #FF994D; /* Cor para Ataque */
+  border-color: #e88335; /* Cor para Ataque */
+}
+
+.pokemon-info-defense {
+  background-color: #EECD3D; /* Cor para Defesa */
+  border-color: #debd29; /* Cor para Defesa */
+}
+
+.pokemon-info-special-attack {
+  background-color: #85DDFF; /* Cor para Ataque Especial */
+  border-color: #67caf1; /* Cor para Ataque Especial */
+}
+
+.pokemon-info-special-defense {
+  background-color: #96DA83; /* Cor para Defesa Especial */
+  border-color: #80c96c; /* Cor para Defesa Especial */
+}
+
+.pokemon-info-speed {
+  background-color: #ff7db8; /* Cor para Velocidade */
+  border-color: #e6669f;
+}
+
+.pokemon-info-default {
+  background-color: #F6F8FC; /* Cor padrão */
+  border-color: #e0ebff;
+}
