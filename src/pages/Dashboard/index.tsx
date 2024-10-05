@@ -1,5 +1,10 @@
 import { Pagination } from "antd";
-import { DashboardContainer, ListContainer, SearchContainer } from "./styles";
+import {
+  DashboardContainer,
+  EmptySearchMessage,
+  ListContainer,
+  SearchContainer,
+} from "./styles";
 import { PokemonCard } from "@/components/PokemonCard";
 import { useSearchParams } from "react-router-dom";
 import { z } from "zod";
@@ -8,8 +13,10 @@ import { PokemonList, usePokemons } from "@/contexts/PokemonContext";
 import { useCallback, useEffect, useState } from "react";
 
 export function Dashboard() {
-  const { pokemons, total } = usePokemons();
+  const { pokemons, total, handleSearchPokemonByName } = usePokemons();
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [displayPokemons, setDisplayPokemons] = useState<PokemonList[]>([]);
 
   const pageIndex = z.coerce.number().parse(searchParams.get("page") ?? "1");
@@ -32,6 +39,15 @@ export function Dashboard() {
     getPokemonsByPage(pageIndex, pageSize);
   }, [getPokemonsByPage, pageIndex, pokemons, pageSize]);
 
+  useEffect(() => {
+    handleSearchPokemonByName(searchTerm);
+    setSearchParams((prev) => {
+      prev.set("page", "1");
+      return prev;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm, handleSearchPokemonByName]);
+
   function handlePageChange(page: number, pageSize: number) {
     setSearchParams((prev) => {
       prev.set("page", String(page));
@@ -44,13 +60,22 @@ export function Dashboard() {
     <DashboardContainer>
       <SearchContainer
         placeholder="Search pokémon name"
-        enterButton="Search"
         size="large"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      {displayPokemons.length === 0 ? (
-        <GridLoading />
-      ) : (
+      {displayPokemons.length === 0 && searchTerm !== "" && (
+        <>
+          <EmptySearchMessage>
+            Could not find any Pokémon with "{searchTerm}"
+          </EmptySearchMessage>
+        </>
+      )}
+
+      {displayPokemons.length === 0 && searchTerm === "" && <GridLoading />}
+
+      {displayPokemons.length > 0 && (
         <>
           <ListContainer>
             {displayPokemons.map((result) => (

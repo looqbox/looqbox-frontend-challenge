@@ -1,4 +1,4 @@
-import Search from "antd/es/input/Search";
+import { Input } from "antd";
 import styled from "styled-components";
 
 export const DashboardContainer = styled.main`
@@ -12,7 +12,7 @@ export const DashboardContainer = styled.main`
   justify-content: center;
 `;
 
-export const SearchContainer = styled(Search)`
+export const SearchContainer = styled(Input)`
   max-width: 900px;
 
   & input {
@@ -31,4 +31,9 @@ export const ListContainer = styled.div`
 
   max-height: 40rem;
   overflow-y: auto;
+`;
+
+export const EmptySearchMessage = styled.h2`
+  color: ${(props) => props.theme["text-secondary"]};
+  margin-top: 2rem;
 `;
