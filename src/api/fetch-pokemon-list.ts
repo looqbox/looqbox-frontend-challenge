@@ -1,6 +1,6 @@
 import { api } from "@/lib/axios";
 
-interface FetchPokemonListResponse {
+export interface FetchPokemonListResponse {
   count: number;
   next: string | null;
   previous: string | null;
@@ -10,15 +10,11 @@ interface FetchPokemonListResponse {
   }[];
 }
 
-interface FetchPokemonListParams {
-  page: number;
-}
-
-export async function fetchPokemonList({ page }: FetchPokemonListParams) {
+export async function fetchPokemonList() {
   const response = await api.get<FetchPokemonListResponse>("/pokemon", {
     params: {
-      offset: page * 20,
-      limit: 20,
+      offset: 0,
+      limit: 2000,
     },
   });
 

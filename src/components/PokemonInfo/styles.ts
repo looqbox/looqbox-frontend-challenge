@@ -34,8 +34,10 @@ export const DrawerContainer = styled(Drawer)`
 
   & .ant-drawer-body {
     background-color: ${(props) => {
-      //@ts-expect-error This prop is receiving the correct key type
-      return `${TypesColorMap[props["aria-describedby"]]}88`;
+      return `${
+        //@ts-expect-error This prop is receiving the correct key type
+        TypesColorMap[props["aria-describedby"]] ?? props.theme.background
+      }88`;
     }};
   }
 `;

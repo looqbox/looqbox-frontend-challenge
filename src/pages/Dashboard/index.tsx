@@ -1,28 +1,41 @@
 import { Pagination } from "antd";
 import { DashboardContainer, ListContainer, SearchContainer } from "./styles";
 import { PokemonCard } from "@/components/PokemonCard";
-import { useQuery } from "@tanstack/react-query";
-import { fetchPokemonList } from "@/api/fetch-pokemon-list";
 import { useSearchParams } from "react-router-dom";
 import { z } from "zod";
 import { GridLoading } from "@/components/GridLoading";
+import { PokemonList, usePokemons } from "@/contexts/PokemonContext";
+import { useCallback, useEffect, useState } from "react";
 
 export function Dashboard() {
+  const { pokemons, total } = usePokemons();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [displayPokemons, setDisplayPokemons] = useState<PokemonList[]>([]);
 
-  const pageIndex = z.coerce
+  const pageIndex = z.coerce.number().parse(searchParams.get("page") ?? "1");
+  const pageSize = z.coerce
     .number()
-    .transform((page) => page - 1)
-    .parse(searchParams.get("page") ?? "1");
+    .parse(searchParams.get("pageSize") ?? "20");
 
-  const { data, isLoading } = useQuery({
-    queryFn: () => fetchPokemonList({ page: pageIndex }),
-    queryKey: ["fetch-list", pageIndex],
-  });
+  const getPokemonsByPage = useCallback(
+    (page: number, pageSize: number) => {
+      if (pokemons) {
+        setDisplayPokemons(
+          pokemons.slice((page - 1) * pageSize, page * pageSize)
+        );
+      }
+    },
+    [pokemons]
+  );
 
-  function handlePageChange(page: number) {
+  useEffect(() => {
+    getPokemonsByPage(pageIndex, pageSize);
+  }, [getPokemonsByPage, pageIndex, pokemons, pageSize]);
+
+  function handlePageChange(page: number, pageSize: number) {
     setSearchParams((prev) => {
       prev.set("page", String(page));
+      prev.set("pageSize", String(pageSize));
       return prev;
     });
   }
@@ -35,12 +48,12 @@ export function Dashboard() {
         size="large"
       />
 
-      {isLoading ? (
+      {displayPokemons.length === 0 ? (
         <GridLoading />
       ) : (
         <>
           <ListContainer>
-            {data?.results.map((result) => (
+            {displayPokemons.map((result) => (
               <PokemonCard
                 key={result.name}
                 name={result.name}
@@ -51,11 +64,10 @@ export function Dashboard() {
 
           <Pagination
             align="center"
-            current={pageIndex + 1}
-            total={data?.count}
+            current={pageIndex}
+            total={total}
             onChange={handlePageChange}
-            showSizeChanger={false}
-            pageSize={20}
+            pageSize={pageSize}
           />
         </>
       )}

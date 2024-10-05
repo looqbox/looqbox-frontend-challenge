@@ -7,17 +7,20 @@ import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./styles/theme";
 import { ConfigProvider } from "antd";
 import { andtConfig } from "./lib/antd";
+import { PokemonContextProvider } from "./contexts/PokemonContext";
 
 export function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <ConfigProvider theme={andtConfig}>
-          <ThemeProvider theme={defaultTheme}>
-            <RouterProvider router={appRouter} />
-            <GlobalStyle />
-          </ThemeProvider>
-        </ConfigProvider>
+        <PokemonContextProvider>
+          <ConfigProvider theme={andtConfig}>
+            <ThemeProvider theme={defaultTheme}>
+              <RouterProvider router={appRouter} />
+              <GlobalStyle />
+            </ThemeProvider>
+          </ConfigProvider>
+        </PokemonContextProvider>
       </QueryClientProvider>
     </>
   );

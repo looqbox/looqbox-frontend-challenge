@@ -46,8 +46,6 @@ export function PokemonInfo({
     };
   });
 
-  console.log(data);
-
   return (
     <DrawerContainer
       width={700}
