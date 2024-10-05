@@ -1,21 +1,21 @@
 export interface Pokemon {
   id: number;
   name: string;
+  height: number;
+  weight: number;
+  location_area_encounters: string;
   abilities: Ability[];
   base_experience: number;
   cries: Cries;
   forms: Species[];
   game_indices: GameIndex[];
-  height: number;
   is_default: boolean;
-  location_area_encounters: string;
   moves: Move[];
   order: number;
   species: Species;
   sprites: Sprites;
   stats: Stat[];
   types: Type[];
-  weight: number;
 }
 
 export interface Ability {
@@ -25,7 +25,25 @@ export interface Ability {
 }
 
 export interface Species {
-  name: string;
+  name:
+    | "bug"
+    | "dark"
+    | "dragon"
+    | "electric"
+    | "fairy"
+    | "fighting"
+    | "fire"
+    | "flying"
+    | "ghost"
+    | "normal"
+    | "grass"
+    | "ground"
+    | "ice"
+    | "poison"
+    | "psychic"
+    | "rock"
+    | "steel"
+    | "water";
   url: string;
 }
 

@@ -35,6 +35,8 @@ export const InfoContainer = styled.div`
   width: 100%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 
   & p {
     color: ${(props) => props.theme["text-primary"]};
