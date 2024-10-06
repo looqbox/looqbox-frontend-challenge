@@ -105,12 +105,13 @@ export const BaseStatsContainer = styled(Container)`
   }
 `;
 
-export interface TypeTagProps {
-  type: keyof typeof TypesColorMap;
+export interface TypeProps {
+  type: keyof typeof TypesColorMap | undefined;
 }
 
-export const TypeTag = styled.span<TypeTagProps>`
-  background-color: ${(props) => TypesColorMap[props.type]};
+export const TypeTag = styled.span<TypeProps>`
+  background-color: ${(props) =>
+    props.type ? TypesColorMap[props.type] : props.theme.black};
   max-width: min-content;
   padding: 0.25rem 0.5rem;
   border-radius: 12px;
@@ -123,6 +124,12 @@ export const TypeTag = styled.span<TypeTagProps>`
   }
 `;
 
+export const TitleText = styled.h3<TypeProps>`
+  color: ${(props) =>
+    props.type ? TypesColorMap[props.type] : props.theme.black};
+  font-weight: bolder;
+`;
+
 export const ChartContainer = styled(Container)`
   width: 100%;
   height: 20rem;
@@ -131,4 +138,21 @@ export const ChartContainer = styled(Container)`
   justify-content: center;
   flex-direction: column;
   margin-bottom: 1rem;
+`;
+
+export const AbilitiesContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+`;
+
+export const Ability = styled.div`
+  margin-bottom: 0.5rem;
+
+  & span:nth-child(1) {
+    text-transform: capitalize;
+    font-size: medium;
+    display: block;
+    font-weight: 600;
+  }
 `;

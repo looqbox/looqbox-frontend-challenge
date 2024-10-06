@@ -1,5 +1,5 @@
 import { getPokemonDetails } from "@/api/get-pokemon-details";
-import { useQuery } from "@tanstack/react-query";
+import { useQueries, useQuery } from "@tanstack/react-query";
 import {
   BaseInfoContainer,
   ImageCarouselContainer,
@@ -9,6 +9,9 @@ import {
   Container,
   ChartContainer,
   TypesColorMap,
+  TitleText,
+  AbilitiesContainer,
+  Ability,
 } from "./styles";
 import { Skeleton, Spin } from "antd";
 import {
@@ -19,6 +22,8 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
+import { fetchPokemonAbility } from "@/api/fetch-pokemon-abilities";
+import { useCallback } from "react";
 
 interface PokemonInfoProps {
   isOpen: boolean;
@@ -37,6 +42,35 @@ export function PokemonInfo({
     queryFn: () => getPokemonDetails({ pokemonId }),
     queryKey: ["get-details", pokemonId],
     enabled: isOpen,
+  });
+
+  const abilitiesQueries = useCallback(() => {
+    if (data) {
+      const queries = data?.abilities.map((item) => {
+        return {
+          queryFn: () => fetchPokemonAbility(item.ability.name),
+          queryKey: ["fetch-ability", item.ability.name],
+          staletime: Infinity,
+        };
+      });
+
+      return {
+        queries,
+      };
+    }
+
+    return {
+      queries: [],
+    };
+  }, [data]);
+
+  const abilitiesFetchResults = useQueries(abilitiesQueries());
+
+  const abilitiesData = abilitiesFetchResults.map((item) => {
+    return {
+      data: item.data,
+      isLoading: item.isLoading,
+    };
   });
 
   const statsData = data?.stats.map((stat) => {
@@ -74,7 +108,7 @@ export function PokemonInfo({
         <BaseStatsContainer>
           <section>
             <div>
-              <h3>Height</h3>
+              <TitleText type={data?.types[0].type.name}>Height</TitleText>
               {!isLoading && data ? (
                 <span>{data.height / 10} m.</span>
               ) : (
@@ -82,7 +116,7 @@ export function PokemonInfo({
               )}
             </div>
             <div>
-              <h3>Weight</h3>
+              <TitleText type={data?.types[0].type.name}>Weight</TitleText>
               {!isLoading && data ? (
                 <span>{data.weight / 10} kg</span>
               ) : (
@@ -90,7 +124,9 @@ export function PokemonInfo({
               )}
             </div>
             <div>
-              <h3>Base Experience</h3>
+              <TitleText type={data?.types[0].type.name}>
+                Base Experience
+              </TitleText>
               {!isLoading && data ? (
                 <span>{data.base_experience}</span>
               ) : (
@@ -115,7 +151,7 @@ export function PokemonInfo({
       <ChartContainer>
         {!isLoading && data ? (
           <>
-            <h3>Base stats</h3>
+            <TitleText type={data?.types[0].type.name}>Base stats</TitleText>
             <ResponsiveContainer>
               <RadarChart outerRadius="80%" data={statsData}>
                 <PolarGrid />
@@ -135,6 +171,25 @@ export function PokemonInfo({
           <Spin size="large" />
         )}
       </ChartContainer>
+
+      <AbilitiesContainer>
+        <TitleText type={data?.types[0].type.name}>Abilities</TitleText>
+
+        <div>
+          {abilitiesData.map((item) => (
+            <>
+              {!item.isLoading && item.data ? (
+                <Ability>
+                  <span>{item?.data.name.replace("-", " ")}</span>
+                  <span>{item?.data.effect_entries[1]?.effect}</span>
+                </Ability>
+              ) : (
+                <Skeleton />
+              )}
+            </>
+          ))}
+        </div>
+      </AbilitiesContainer>
     </DrawerContainer>
   );
 }
