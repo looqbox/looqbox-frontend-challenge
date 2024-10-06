@@ -48,3 +48,11 @@ pnpm dev
 ```
 
 4. Access the development server at [http://localhost:5173/](http://localhost:5173/)
+
+## Unit tests
+
+Run unit tests with:
+
+```bash
+pnpm test
+```

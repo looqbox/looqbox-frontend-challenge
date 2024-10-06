@@ -1,5 +1,5 @@
 import { Pokemon } from "@/@types/Pokemon";
-import { api } from "@/lib/axios";
+import { api } from "@/lib/api";
 
 interface GetPokemonDetailsParams {
   pokemonId: number;
@@ -7,8 +7,6 @@ interface GetPokemonDetailsParams {
 
 export async function getPokemonDetails({
   pokemonId,
-}: GetPokemonDetailsParams) {
-  const response = await api.get<Pokemon>(`/pokemon/${pokemonId}`);
-
-  return response.data;
+}: GetPokemonDetailsParams): Promise<Pokemon> {
+  return api(`/pokemon/${pokemonId}`).then((result) => result.json());
 }

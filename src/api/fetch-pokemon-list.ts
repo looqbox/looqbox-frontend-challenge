@@ -1,4 +1,4 @@
-import { api } from "@/lib/axios";
+import { api } from "@/lib/api";
 
 export interface FetchPokemonListResponse {
   count: number;
@@ -10,13 +10,6 @@ export interface FetchPokemonListResponse {
   }[];
 }
 
-export async function fetchPokemonList() {
-  const response = await api.get<FetchPokemonListResponse>("/pokemon", {
-    params: {
-      offset: 0,
-      limit: 2000,
-    },
-  });
-
-  return response.data;
+export async function fetchPokemonList(): Promise<FetchPokemonListResponse> {
+  return api("/pokemon/?offset=0&limit=2000").then((result) => result.json());
 }
