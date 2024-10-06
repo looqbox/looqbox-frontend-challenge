@@ -1,7 +1,8 @@
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import { CardContainer, InfoContainer } from "./styles";
 import { Skeleton } from "antd";
 import { PokemonInfo } from "../PokemonInfo";
+import { AsyncImage } from "loadable-image";
 
 interface PokemonCardProps {
   name: string;
@@ -27,9 +28,11 @@ export function PokemonCard({ name, url }: PokemonCardProps) {
   return (
     <>
       <CardContainer onClick={openPokemonInfo} hoverable title={displayId}>
-        <Suspense fallback={<Skeleton.Image />}>
-          <img src={imageUrl} />
-        </Suspense>
+        <AsyncImage
+          src={imageUrl}
+          loader={<Skeleton.Image active />}
+          style={{ width: 100, height: 100 }}
+        />
         <InfoContainer>
           <p>{name}</p>
         </InfoContainer>

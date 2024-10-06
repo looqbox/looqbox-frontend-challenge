@@ -15,26 +15,29 @@ export interface PokemonList {
 }
 
 interface PokemonContextType {
-  pokemons: PokemonList[] | undefined;
-  total: number | undefined;
+  pokemons?: PokemonList[] | null;
+  total?: number | null;
   handleSearchPokemonByName: (input: string) => void;
 }
 
 const PokemonContext = createContext({} as PokemonContextType);
 
 export function PokemonContextProvider({ children }: { children: ReactNode }) {
-  const { data } = useQuery({
+  const { data, isError } = useQuery({
     queryFn: fetchPokemonList,
     queryKey: ["fetch-list"],
   });
 
   const pokemons = data?.results;
 
-  const [visiblePokemons, setVisiblePokemons] = useState<PokemonList[]>([]);
+  const [visiblePokemons, setVisiblePokemons] = useState<PokemonList[] | null>(
+    []
+  );
 
   useEffect(() => {
+    if (isError) setVisiblePokemons(null);
     if (pokemons) setVisiblePokemons(pokemons);
-  }, [pokemons]);
+  }, [pokemons, isError]);
 
   const handleSearchPokemonByName = useCallback(
     (input: string) => {
@@ -49,7 +52,7 @@ export function PokemonContextProvider({ children }: { children: ReactNode }) {
     [pokemons]
   );
 
-  const total = visiblePokemons.length;
+  const total = visiblePokemons && visiblePokemons.length;
 
   return (
     <PokemonContext.Provider

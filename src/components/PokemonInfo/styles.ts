@@ -156,3 +156,16 @@ export const Ability = styled.div`
     font-weight: 600;
   }
 `;
+
+export const ErrorContainer = styled.div`
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: ${(props) => props.theme["text-secondary"]};
+  font-weight: bold;
+  font-size: large;
+`;

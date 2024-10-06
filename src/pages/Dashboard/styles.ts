@@ -33,7 +33,7 @@ export const ListContainer = styled.div`
   overflow-y: auto;
 `;
 
-export const EmptySearchMessage = styled.h2`
+export const ErrorMessage = styled.h2`
   color: ${(props) => props.theme["text-secondary"]};
   margin-top: 2rem;
 `;

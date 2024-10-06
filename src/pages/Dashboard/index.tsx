@@ -1,7 +1,7 @@
 import { Pagination } from "antd";
 import {
   DashboardContainer,
-  EmptySearchMessage,
+  ErrorMessage,
   ListContainer,
   SearchContainer,
 } from "./styles";
@@ -65,35 +65,43 @@ export function Dashboard() {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      {displayPokemons.length === 0 && searchTerm !== "" && (
+      {!pokemons ? (
+        <ErrorMessage>
+          Could not fetch Pokémon list... Try again later
+        </ErrorMessage>
+      ) : (
         <>
-          <EmptySearchMessage>
-            Could not find any Pokémon with "{searchTerm}"
-          </EmptySearchMessage>
-        </>
-      )}
+          {displayPokemons.length === 0 && searchTerm !== "" && (
+            <>
+              <ErrorMessage>
+                Could not find any Pokémon with "{searchTerm}"
+              </ErrorMessage>
+            </>
+          )}
 
-      {displayPokemons.length === 0 && searchTerm === "" && <GridLoading />}
+          {displayPokemons.length === 0 && searchTerm === "" && <GridLoading />}
 
-      {displayPokemons.length > 0 && (
-        <>
-          <ListContainer>
-            {displayPokemons.map((result) => (
-              <PokemonCard
-                key={result.name}
-                name={result.name}
-                url={result.url}
+          {displayPokemons.length > 0 && total && (
+            <>
+              <ListContainer>
+                {displayPokemons.map((result) => (
+                  <PokemonCard
+                    key={result.name}
+                    name={result.name}
+                    url={result.url}
+                  />
+                ))}
+              </ListContainer>
+
+              <Pagination
+                align="center"
+                current={pageIndex}
+                total={total}
+                onChange={handlePageChange}
+                pageSize={pageSize}
               />
-            ))}
-          </ListContainer>
-
-          <Pagination
-            align="center"
-            current={pageIndex}
-            total={total}
-            onChange={handlePageChange}
-            pageSize={pageSize}
-          />
+            </>
+          )}
         </>
       )}
     </DashboardContainer>
