@@ -39,7 +39,7 @@ export function PokemonInfo({
   pokemonName,
   close,
 }: PokemonInfoProps) {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, fetchStatus } = useQuery({
     queryFn: () => getPokemonDetails({ pokemonId }),
     queryKey: ["get-details", pokemonId],
     enabled: isOpen,
@@ -90,7 +90,7 @@ export function PokemonInfo({
       onClose={close}
       aria-describedby={data?.types[0].type.name}
     >
-      {isError ? (
+      {fetchStatus === "paused" && !data ? (
         <ErrorContainer>
           Failed to fetch Pokémon details... Try again later
         </ErrorContainer>
