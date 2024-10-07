@@ -39,7 +39,7 @@ export function PokemonInfo({
   pokemonName,
   close,
 }: PokemonInfoProps) {
-  const { data, isLoading, fetchStatus } = useQuery({
+  const { data, isLoading, fetchStatus, isError } = useQuery({
     queryFn: () => getPokemonDetails({ pokemonId }),
     queryKey: ["get-details", pokemonId],
     enabled: isOpen,
@@ -90,7 +90,7 @@ export function PokemonInfo({
       onClose={close}
       aria-describedby={data?.types[0].type.name}
     >
-      {fetchStatus === "paused" && !data ? (
+      {(fetchStatus === "paused" || isError) && !data ? (
         <ErrorContainer>
           Failed to fetch Pokémon details... Try again later
         </ErrorContainer>
@@ -100,10 +100,16 @@ export function PokemonInfo({
             {!isLoading && data ? (
               <ImageCarouselContainer arrows infinite>
                 <div>
-                  <img src={data.sprites.front_default} />
+                  <img
+                    src={data.sprites.front_default}
+                    alt="Front default image"
+                  />
                 </div>
                 <div>
-                  <img src={data.sprites.back_default} />
+                  <img
+                    src={data.sprites.back_default}
+                    alt="Back default image"
+                  />
                 </div>
               </ImageCarouselContainer>
             ) : (

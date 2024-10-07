@@ -20,11 +20,11 @@ _Pokémon information card_
 
 - [pnpm](https://pnpm.io/): Node package manager
 - [Vite](https://vite.dev/guide/): Build tool to handle project building and development server;
+- [Vitest](https://vitest.dev/): Testing framework to write unit tests;
 - [AntDesign](https://ant.design/): Primary component library for building the interface;
 - [Styled Components](https://styled-components.com/): CSS-in-JS library to extend AntDesign and customise components;
 - [Tanstack Query](https://tanstack.com/): Asynchronous state management library to handle data fetching and caching;
 - [React Router Dom](https://reactrouter.com/en/main): Library to handle client-side routing;
-- [Axios](https://axios-http.com/docs/intro): Library to wrap HTTP requests;
 
 ## Running the project locally
 
