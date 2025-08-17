@@ -1,52 +1,109 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# Looqbox Frontend Challenge
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+Este projeto é uma solução para o desafio técnico frontend da Looqbox. Ele consiste em uma aplicação React moderna, utilizando TypeScript, Vite, Ant Design, Redux Toolkit, React Query, TailwindCSS e testes automatizados com Vitest e Testing Library.
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+## Vídeo de Demonstração
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+Confira o vídeo de demonstração da aplicação clicando na imagem abaixo:
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+[![Vídeo de Demonstração](https://i.postimg.cc/43bYpCQ0/Captura-de-tela-2025-08-17-011512.png)](https://youtu.be/HCTDbauTnVo)
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+## Índice
 
-# Guidelines
-You need to create a Single Page Application (SPA) that displays a list of Pokémon and allows users to search for them, using the [Pokeapi](https://pokeapi.co/docs/v2). Your app must be dynamic, meaning you **must not** reload the page to show new content.
+-   [Sobre o Projeto](#sobre-o-projeto)
+-   [Tecnologias Utilizadas](#tecnologias-utilizadas)
+-   [Como Rodar o Projeto](#como-rodar-o-projeto)
+-   [Scripts Disponíveis](#scripts-disponíveis)
+-   [Estrutura de Pastas](#estrutura-de-pastas)
+-   [Testes](#testes)
+-   [Padrões e Boas Práticas](#padrões-e-boas-práticas)
 
-The PokeAPI was chosen for its simplicity in making requests. Since it is an open API, please **be mindful of how many requests** you make.
+## Sobre o Projeto
 
-## Requirements:
+O objetivo do projeto é listar, filtrar e exibir detalhes de Pokémons consumindo a API pública [PokeAPI](https://pokeapi.co/). O usuário pode favoritar Pokémons, visualizar detalhes, filtrar por tipo, altura e peso, além de navegar por páginas.
 
-- On the main page, include a search bar and a preloaded list of Pokémon.
-- Clicking on any Pokémon should display a card, modal, or page with that Pokémon’s information.
-- Typing in the search bar and pressing Enter should display the search result instead of the list.
-- Your app must include at least two different routes (e.g., /home, /details — be creative!).
-- Add a README file to document your project.
+## Tecnologias Utilizadas
 
-You may use any libraries or dependencies you like (e.g., Axios, Bootstrap, Material UI...).
+-   [React 19](https://react.dev/)
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [Vite](https://vitejs.dev/)
+-   [Ant Design](https://ant.design/)
+-   [Redux Toolkit](https://redux-toolkit.js.org/)
+-   [React Query](https://tanstack.com/query/latest)
+-   [TailwindCSS](https://tailwindcss.com/)
+-   [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/)
 
-## Bonus points!
-- Pagination
-- Error handling
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
+## Como Rodar o Projeto
 
-## Useful links
-- [React docs](https://react.dev/)
-- [PokeApi docs](https://pokeapi.co/docs/v2)
-- [Redux](https://redux.js.org/)
+1. **Clone o repositório:**
+
+```sh
+git clone <url-do-repo>
+cd looqbox-frontend-challenge
+```
+
+2. **Instale as dependências:**
+
+```sh
+npm install
+```
+
+3. **Inicie o servidor de desenvolvimento:**
+
+```sh
+npm run dev
+```
+
+O app estará disponível em `http://localhost:5173` (ou porta informada no terminal).
+
+## Scripts Disponíveis
+
+-   `npm run dev` — Inicia o servidor de desenvolvimento
+-   `npm run build` — Gera a build de produção
+-   `npm run preview` — Visualiza a build de produção localmente
+-   `npm run test` — Executa todos os testes automatizados
+-   `npm run test:watch` — Executa os testes em modo watch
+-   `npm run lint` — Executa o linter
+
+## Estrutura de Pastas
+
+```
+├── src
+│   ├── @tests                # Todos os testes automatizados centralizados
+│   │   ├── components
+│   │   ├── hooks
+│   │   └── lib
+│   ├── components            # Componentes React reutilizáveis
+│   ├── hooks                 # Hooks customizados
+│   ├── lib                   # Redux, store, slices, utilitários
+│   ├── services              # Serviços de API
+│   ├── constants             # Constantes globais
+│   ├── @types                # Tipos TypeScript globais
+│   ├── pages                 # Páginas da aplicação
+│   └── router.tsx            # Configuração das rotas da aplicação
+├── public                    # Arquivos estáticos
+├── vite.config.ts            # Configuração do Vite
+├── vitest.config.ts          # Configuração do Vitest 
+└── README.md                 # Este arquivo
+```
+
+## Testes
+
+-   Os testes estão centralizados em `src/@tests` e cobrem componentes, hooks e lógica de estado.
+-   Para rodar os testes:
+    ```sh
+    npm run test
+    ```
+-   Para rodar em modo watch:
+    ```sh
+    npm run test:watch
+    ``` 
+
+## Padrões e Boas Práticas
+
+-   **Componentização:** Componentes pequenos, reutilizáveis e com responsabilidade única.
+-   **Tipagem Estrita:** Uso extensivo de TypeScript para segurança e clareza.
+-   **Gerenciamento de Estado:** Redux Toolkit para favoritos e React Query para dados remotos.
+-   **Estilização:** TailwindCSS para agilidade e consistência visual.
+-   **Testes:** Cobertura de lógica e UI, com mocks para dependências externas.
+-   **Aliases:** Imports com `@/` para facilitar a navegação e manutenção do código.
