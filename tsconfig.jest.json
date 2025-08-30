@@ -1,0 +1,9 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"module": "esnext",
+		"moduleResolution": "nodenext",
+		"types": ["vite/client", "react", "react-dom", "jest", "node"],
+		"resolveJsonModule": true
+	}
+}

@@ -1,0 +1,71 @@
+{
+	"sidebar": {
+		"company": {
+			"name": "Pokémon",
+			"description": "Um pokedex apenas"
+		},
+		"links": {
+			"pokedex": {
+				"title": "Pokedex",
+				"pokemons": "Pokémons"
+			},
+			"goods": {
+				"title": "Itens",
+				"berries": "Berries",
+				"items": "Itens"
+			},
+			"theme": {
+				"dark": "Tema escuro",
+				"light": "Tema claro"
+			}
+		}
+	},
+	"commons": {
+		"button": {
+			"playLatest": "Reproduzir Último Grito",
+			"playLegacy": "Reproduzir Grito Antigo"
+		},
+		"more": "mais",
+		"meter": "m",
+		"weightUnit": "kg",
+		"experience": "xp",
+		"filters": {
+			"searchPlaceholder": "Buscar pokémons por nome...",
+			"sort": {
+				"asc": "Ordenar Ascendente",
+				"desc": "Ordenar Descendente"
+			}
+		},
+		"fallbacks": {
+			"notFound": "Oops! Você encontrou um Pokémon raro... chamado Página em Construção! 🛠️ Ainda estamos treinando essa página antes dela evoluir."
+		}
+	},
+	"pokemons": {
+		"title": "Pokémons",
+		"description": "Um pokedex apenas",
+		"view": {
+			"cards": "Ver cards",
+			"table": "Ver tabela"
+		}
+	},
+	"pokemon": {
+		"species": "Espécie:",
+		"types": "Tipos",
+		"abilities": "Habilidades",
+		"moves": "Movimentos",
+		"cries": "Gritos",
+		"height": "Altura",
+		"weight": "Peso",
+		"experience": "Experiência",
+		"form": "Forma:",
+		"version": "Versão:"
+	},
+	"items": {
+		"title": "Itens",
+		"description": "Aqui os items de seu Pokemon"
+	},
+	"berries": {
+		"title": "Berries",
+		"description": "Aqui as berries de seu Pokemon"
+	}
+}

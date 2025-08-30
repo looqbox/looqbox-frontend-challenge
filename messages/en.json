@@ -1,0 +1,71 @@
+{
+	"sidebar": {
+		"company": {
+			"name": "Pokémon",
+			"description": "Just a pokedex"
+		},
+		"links": {
+			"pokedex": {
+				"title": "Pokedex",
+				"pokemons": "Pokémons"
+			},
+			"goods": {
+				"title": "Items",
+				"berries": "Berries",
+				"items": "Items"
+			},
+			"theme": {
+				"dark": "Dark theme",
+				"light": "Light theme"
+			}
+		}
+	},
+	"commons": {
+		"button": {
+			"playLatest": "Play Latest Cry",
+			"playLegacy": "Play Legacy Cry"
+		},
+		"more": "more",
+		"meter": "m",
+		"weightUnit": "kg",
+		"experience": "xp",
+		"filters": {
+			"searchPlaceholder": "Search pokémons by name...",
+			"sort": {
+				"asc": "Sort Ascending",
+				"desc": "Sort Descending"
+			}
+		},
+		"fallbacks": {
+			"notFound": "Oops! You found a rare Pokémon... called Under Construction Page! 🛠️ We're still training this page before it evolves."
+		}
+	},
+	"pokemons": {
+		"title": "Pokémons",
+		"description": "Just a pokedex",
+		"view": {
+			"cards": "View cards",
+			"table": "View table"
+		}
+	},
+	"pokemon": {
+		"species": "Species:",
+		"types": "Types",
+		"abilities": "Abilities",
+		"moves": "Moves",
+		"cries": "Cries",
+		"height": "Height",
+		"weight": "Weight",
+		"experience": "Experience",
+		"form": "Form:",
+		"version": "Version:"
+	},
+	"items": {
+		"title": "Items",
+		"description": "Here are your Pokémon's items"
+	},
+	"berries": {
+		"title": "Berries",
+		"description": "Here are your Pokémon's berries"
+	}
+}
