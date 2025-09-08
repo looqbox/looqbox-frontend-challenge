@@ -1,0 +1,30 @@
+{
+  "common": {
+    "return": "Voltar",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema",
+    "search_by_name": "Busque pelo nome",
+    "errors": {
+      "404": "Não encontrado",
+      "500": "Erro interno do servidor",
+      "Internal Server Error": "Erro interno do servidor",
+      "Not Found": "O recurso não foi encontrado"
+    }
+  },
+  "features": {
+    "pokemon": {
+      "id": "ID",
+      "type": "Tipo",
+      "species": "Espécie",
+      "base_experience": "Experiência base",
+      "height": "Altura",
+      "weight": "Peso",
+      "default": "Padrão",
+      "yes": "Sim",
+      "no": "Não",
+      "types": "Tipos",
+      "best_stat": "Melhor estatística"
+    }
+  }
+}
