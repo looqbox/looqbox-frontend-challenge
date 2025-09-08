@@ -1,52 +1,72 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# Looqbox FrontEnd Challenge | Pokedex
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+## Descrição do Projeto
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+Este projeto foi desenvolvido como solução para o **Looqbox Frontend Challenge**, utilizando a [PokeAPI](https://pokeapi.co/).  
+A aplicação é uma **Single Page Application (SPA)** em React que permite listar e buscar Pokémon, além de visualizar informações detalhadas sobre cada um.
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+## Screenshots
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+![](.github/pokemon_homepage_1.png)
+Página Home - Listagem de Pokemons
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+![](.github/pokemon_homepage_2.png)
+Página Home - Paginação
 
-# Guidelines
-You need to create a Single Page Application (SPA) that displays a list of Pokémon and allows users to search for them, using the [Pokeapi](https://pokeapi.co/docs/v2). Your app must be dynamic, meaning you **must not** reload the page to show new content.
+![](.github/pokemon_homepage_3.png)
+Página Home - Pesquisa de Pokemon
 
-The PokeAPI was chosen for its simplicity in making requests. Since it is an open API, please **be mindful of how many requests** you make.
+![](.github/pokemon_detailspage_2.png)
+Página Details - Detalhes do Pokemon (Charizard)
 
-## Requirements:
+![](.github/pokemon_detailspage_1.png)
+Página Details - Detalhes do Pokemon (Rayquaza)
 
-- On the main page, include a search bar and a preloaded list of Pokémon.
-- Clicking on any Pokémon should display a card, modal, or page with that Pokémon’s information.
-- Typing in the search bar and pressing Enter should display the search result instead of the list.
-- Your app must include at least two different routes (e.g., /home, /details — be creative!).
-- Add a README file to document your project.
+## Stack de Tecnologias
 
-You may use any libraries or dependencies you like (e.g., Axios, Bootstrap, Material UI...).
+- [React](https://react.dev/) – Biblioteca principal para construção da interface da aplicação.
+- [TypeScript](https://www.typescriptlang.org/) – Superset do JavaScript que adiciona tipagem estática.
+- [Vite](https://vite.dev/guide/) – Ferramenta de build e desenvolvimento rápido.
+- [React Router](https://reactrouter.com/) – Gerenciamento de rotas da aplicação.
+- [React Tanstack Query](https://tanstack.com/query/latest) – Controle de cache, requisições e estados assíncronos.
+- [Ant Design](https://ant.design/) – Biblioteca de componentes UI para estilização e usabilidade.
+- [Recharts](https://recharts.org/) – Biblioteca para gráficos, utilizada na exibição de estatísticas base dos Pokémons.
+- [Vitest](https://vitest.dev/) – Framework de testes unitários, integrado ao Vite.
+- [Tailwind CSS](https://tailwindcss.com/) – Framework de classes CSS para estilização rápida e responsiva.
 
-## Bonus points!
-- Pagination
-- Error handling
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
+## Rodando o projeto local
 
-## Useful links
-- [React docs](https://react.dev/)
-- [PokeApi docs](https://pokeapi.co/docs/v2)
-- [Redux](https://redux.js.org/)
+1. Clone o projeto em sua máquina com o Git:
+
+```bash
+git clone https://github.com/CristopherMartarello/looqbox-frontend-challenge.git
+```
+
+2. Entre na branch feature/pokedex para acessar o desafio:
+
+```bash
+cd looqbox-frontend-challenge
+git checkout feature/pokedex
+```
+
+3. Instale as dependências necessárias:
+
+```bash
+npm install
+```
+
+4. Rode o projeto em modo desenvolvimento:
+
+```bash
+npm run dev
+```
+
+5. Acesse o projeto em [http://localhost:5173/](http://localhost:5173/)
+
+## Testes Unitários
+
+Para rodar os testes unitários, utilize:
+
+```bash
+npm run test
+```
