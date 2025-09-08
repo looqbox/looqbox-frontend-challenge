@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@layer base {
+  h1 {
+    @apply text-2xl font-bold text-gray-900;
+  }
+
+  h2 {
+    @apply text-xl font-semibold text-gray-800;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@keyframes spin-pause {
+  0% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg); /* fica parado */
+  }
+}
+
+.animate-spin-pause {
+  animation: spin-pause 4s linear infinite;
+}
+
+.scroll-smooth::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-smooth::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+}
+.scroll-smooth::-webkit-scrollbar-track {
+  background-color: transparent;
+}
