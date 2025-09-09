@@ -1,52 +1,69 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# React + TypeScript + Vite
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+Currently, two official plugins are available:
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+## Expanding the ESLint configuration
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-# Guidelines
-You need to create a Single Page Application (SPA) that displays a list of Pokémon and allows users to search for them, using the [Pokeapi](https://pokeapi.co/docs/v2). Your app must be dynamic, meaning you **must not** reload the page to show new content.
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-The PokeAPI was chosen for its simplicity in making requests. Since it is an open API, please **be mindful of how many requests** you make.
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-## Requirements:
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-- On the main page, include a search bar and a preloaded list of Pokémon.
-- Clicking on any Pokémon should display a card, modal, or page with that Pokémon’s information.
-- Typing in the search bar and pressing Enter should display the search result instead of the list.
-- Your app must include at least two different routes (e.g., /home, /details — be creative!).
-- Add a README file to document your project.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-You may use any libraries or dependencies you like (e.g., Axios, Bootstrap, Material UI...).
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## Bonus points!
-- Pagination
-- Error handling
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
-
-## Useful links
-- [React docs](https://react.dev/)
-- [PokeApi docs](https://pokeapi.co/docs/v2)
-- [Redux](https://redux.js.org/)
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
