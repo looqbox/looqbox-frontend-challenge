@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { Layout, Typography, Grid } from 'antd';
+import { Layout, Typography, Grid, Button, Space } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
@@ -9,9 +10,14 @@ const { useBreakpoint } = Grid;
 const MainLayout: React.FC = () => {
     const navigate = useNavigate();
     const screens = useBreakpoint();
+    const { t, i18n } = useTranslation();
 
     const handleTitleClick = () => {
         navigate('/');
+    };
+
+    const changeLanguage = (lng: string) => {
+        i18n.changeLanguage(lng);
     };
 
     const contentStyle: CSSProperties = {
@@ -27,14 +33,18 @@ const MainLayout: React.FC = () => {
 
     return (
         <Layout style={{ minHeight: '100vh' }}>
-            <Header style={{ display: 'flex', alignItems: 'center' }}>
+            <Header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <Title
                     level={3}
                     style={{ color: 'white', margin: 0, cursor: 'pointer' }}
                     onClick={handleTitleClick}
                 >
-                    Looqbox Pokédex
+                    {t('common.appTitle')}
                 </Title>
+                <Space>
+                    <Button onClick={() => changeLanguage('pt-BR')}>PT</Button>
+                    <Button onClick={() => changeLanguage('en')}>EN</Button>
+                </Space>
             </Header>
             <Content style={contentStyle}>
                 <div style={innerContentStyle}>
@@ -42,7 +52,7 @@ const MainLayout: React.FC = () => {
                 </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
-                Looqbox Front-End Challenge ©{new Date().getFullYear()}
+                {t('common.footerText', { year: new Date().getFullYear() })}
             </Footer>
         </Layout>
     );

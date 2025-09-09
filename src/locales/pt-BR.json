@@ -1,0 +1,12 @@
+{
+    "common": {
+        "appTitle": "Pokédex da Looqbox",
+        "footerText": "Desafio Front-End Looqbox ©{{year}}"
+    },
+    "home": {
+        "title": "Lista de Pokémon"
+    },
+    "details": {
+        "title": "Detalhes do Pokémon"
+    }
+}
