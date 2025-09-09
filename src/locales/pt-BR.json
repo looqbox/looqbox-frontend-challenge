@@ -4,7 +4,11 @@
         "footerText": "Desafio Front-End Looqbox ©{{year}}"
     },
     "home": {
-        "title": "Lista de Pokémon"
+        "title": "Lista de Pokémon",
+        "error": {
+            "title": "Erro",
+            "fetchList": "Não foi possível buscar a lista de Pokémon. Por favor, tente novamente mais tarde."
+        }
     },
     "details": {
         "title": "Detalhes do Pokémon"

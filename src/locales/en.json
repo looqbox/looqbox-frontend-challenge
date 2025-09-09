@@ -4,7 +4,11 @@
         "footerText": "Looqbox Front-End Challenge ©{{year}}"
     },
     "home": {
-        "title": "Pokémon List"
+        "title": "Pokémon List",
+        "error": {
+            "title": "Error",
+            "fetchList": "Could not fetch the Pokémon list. Please try again later."
+        }
     },
     "details": {
         "title": "Pokémon Details"
