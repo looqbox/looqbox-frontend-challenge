@@ -1,7 +1,9 @@
 import type { CSSProperties } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { Layout, Typography, Grid, Button, Space } from 'antd';
+import { Layout, Typography, Grid, Button, Space, Switch } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { SunOutlined, MoonOutlined } from '@ant-design/icons';
+import { useTheme } from '../contexts/ThemeContext';
 
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
@@ -11,6 +13,7 @@ const MainLayout: React.FC = () => {
     const navigate = useNavigate();
     const screens = useBreakpoint();
     const { t, i18n } = useTranslation();
+    const { themeMode, toggleTheme } = useTheme();
 
     const handleTitleClick = () => {
         navigate('/');
@@ -41,9 +44,17 @@ const MainLayout: React.FC = () => {
                 >
                     {t('common.appTitle')}
                 </Title>
-                <Space>
-                    <Button onClick={() => changeLanguage('pt-BR')}>PT</Button>
-                    <Button onClick={() => changeLanguage('en')}>EN</Button>
+                <Space size="middle">
+                    <Switch
+                        checkedChildren={<SunOutlined />}
+                        unCheckedChildren={<MoonOutlined />}
+                        onChange={toggleTheme}
+                        checked={themeMode === 'light'}
+                    />
+                    <Space>
+                        <Button onClick={() => changeLanguage('pt-BR')}>PT</Button>
+                        <Button onClick={() => changeLanguage('en')}>EN</Button>
+                    </Space>
                 </Space>
             </Header>
             <Content style={contentStyle}>
