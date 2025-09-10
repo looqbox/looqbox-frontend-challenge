@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Typography, Row, Col, Spin, Alert } from 'antd';
+import { Typography, Row, Col, Spin, Alert, Pagination } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { getPokemons, getPokemonDetails } from '../services/pokeApi';
 import type { PokemonListItem } from '../types/pokemon.types';
@@ -18,23 +18,29 @@ const HomePage: React.FC = () => {
     const [loadingList, setLoadingList] = useState<boolean>(true);
     const [loadingSearch, setLoadingSearch] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-
-    const fetchInitialList = useCallback(async () => {
-        try {
-            setLoadingList(true);
-            setError(null);
-            const data = await getPokemons(INITIAL_LOAD_LIMIT, 0);
-            setPokemons(data.results);
-        } catch {
-            setError(t('home.error.fetchList'));
-        } finally {
-            setLoadingList(false);
-        }
-    }, [t]);
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [totalPokemons, setTotalPokemons] = useState<number>(0);
 
     useEffect(() => {
-        fetchInitialList();
-    }, [fetchInitialList]);
+        if (error) {
+            setError(null);
+        }
+
+        const fetchPokemonsForPage = async () => {
+            try {
+                setLoadingList(true);
+                const offset = (currentPage - 1) * INITIAL_LOAD_LIMIT;
+                const data = await getPokemons(INITIAL_LOAD_LIMIT, offset);
+                setPokemons(data.results);
+                setTotalPokemons(data.count);
+            } catch {
+                setError(t('home.error.fetchList'));
+            } finally {
+                setLoadingList(false);
+            }
+        };
+        fetchPokemonsForPage();
+    }, [currentPage, t, error]);
 
     const handleSearch = async (searchTerm: string) => {
         if (!searchTerm) return;
@@ -48,6 +54,10 @@ const HomePage: React.FC = () => {
         } finally {
             setLoadingSearch(false);
         }
+    };
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
     };
 
     const renderContent = () => {
@@ -93,6 +103,20 @@ const HomePage: React.FC = () => {
             <SearchBar onSearch={handleSearch} loading={loadingSearch} />
 
             {renderContent()}
+
+            {!error && !loadingList && pokemons.length > 0 && (
+                <Row justify="center" style={{ marginTop: 24 }}>
+                    <Pagination
+                        current={currentPage}
+                        total={totalPokemons}
+                        pageSize={INITIAL_LOAD_LIMIT}
+                        onChange={handlePageChange}
+                        showSizeChanger={false}
+                        showQuickJumper
+                        responsive
+                    />
+                </Row>
+            )}
         </>
     );
 };
