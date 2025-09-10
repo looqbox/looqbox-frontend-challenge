@@ -16,12 +16,12 @@ export const getPokemons = async (limit = INITIAL_LOAD_LIMIT, offset = 0) => {
     }
 };
 
-export const getPokemonByNameOrId = async (nameOrId: string) => {
+export const getPokemonDetails = async (nameOrId: string): Promise<PokemonDetails> => {
     try {
         const response = await axios.get<PokemonDetails>(`${API_BASE_URL}/pokemon/${nameOrId}`);
         return response.data;
     } catch (error) {
-        console.error(`Error fetching Pokémon "${nameOrId}":`, error);
+        console.error(`Error fetching Pokémon details for "${nameOrId}":`, error);
         throw error;
     }
 };

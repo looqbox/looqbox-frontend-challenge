@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Row, Col, Spin, Alert, Card, Button } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { getPokemonByNameOrId } from '../services/pokeApi';
+import { getPokemonDetails } from '../services/pokeApi';
 import type { PokemonDetails } from '../types/pokemon.types';
 import { PokemonImage } from '../components/details/PokemonImage';
 import { PokemonInfo } from '../components/details/PokemonInfo';
@@ -24,7 +24,7 @@ const DetailsPage: React.FC = () => {
             try {
                 setLoading(true);
                 setError(null);
-                const data = await getPokemonByNameOrId(pokemonName);
+                const data = await getPokemonDetails(pokemonName);
                 setPokemon(data);
             } catch {
                 setError(t('details.error.fetchDetails'));

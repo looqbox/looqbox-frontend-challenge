@@ -6,9 +6,12 @@
     },
     "home": {
         "title": "Pokémon List",
+        "searchPlaceholder": "Search Pokémon by name...",
+        "clearSearch": "Clear search and show all",
         "error": {
             "title": "Error",
-            "fetchList": "Could not fetch the Pokémon list. Please try again later."
+            "fetchList": "Could not fetch the Pokémon list. Please try again later.",
+            "notFound": "No Pokémon found with this name. Check the spelling and try again."
         }
     },
     "details": {
