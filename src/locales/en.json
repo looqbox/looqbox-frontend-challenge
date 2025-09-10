@@ -1,7 +1,8 @@
 {
     "common": {
         "appTitle": "Looqbox Pokédex",
-        "footerText": "Looqbox Front-End Challenge ©{{year}}"
+        "footerText": "Looqbox Front-End Challenge ©{{year}}",
+        "backButton": "Back"
     },
     "home": {
         "title": "Pokémon List",
@@ -11,6 +12,22 @@
         }
     },
     "details": {
-        "title": "Pokémon Details"
+        "title": "Pokémon Details",
+        "height": "Height",
+        "weight": "Weight",
+        "types": "Types",
+        "statsTitle": "Base Stats",
+        "error": {
+            "title": "Error",
+            "fetchDetails": "Could not fetch details for this Pokémon. It may not exist or the service is unavailable."
+        },
+        "stats": {
+            "hp": "HP",
+            "attack": "Attack",
+            "defense": "Defense",
+            "special-attack": "Special Attack",
+            "special-defense": "Special Defense",
+            "speed": "Speed"
+        }
     }
 }

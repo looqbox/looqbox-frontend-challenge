@@ -1,7 +1,8 @@
 {
     "common": {
         "appTitle": "Pokédex da Looqbox",
-        "footerText": "Desafio Front-End Looqbox ©{{year}}"
+        "footerText": "Desafio Front-End Looqbox ©{{year}}",
+        "backButton": "Voltar"
     },
     "home": {
         "title": "Lista de Pokémon",
@@ -11,6 +12,22 @@
         }
     },
     "details": {
-        "title": "Detalhes do Pokémon"
+        "title": "Detalhes do Pokémon",
+        "height": "Altura",
+        "weight": "Peso",
+        "types": "Tipos",
+        "statsTitle": "Status Base",
+        "error": {
+            "title": "Erro",
+            "fetchDetails": "Não foi possível buscar os detalhes deste Pokémon. Ele pode não existir ou o serviço está indisponível."
+        },
+        "stats": {
+            "hp": "HP",
+            "attack": "Ataque",
+            "defense": "Defesa",
+            "special-attack": "Ataque Especial",
+            "special-defense": "Defesa Especial",
+            "speed": "Velocidade"
+        }
     }
 }

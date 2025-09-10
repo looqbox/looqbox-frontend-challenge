@@ -9,7 +9,7 @@ import { INITIAL_LOAD_LIMIT } from '../config/constants';
 const { Title } = Typography;
 
 const HomePage: React.FC = () => {
-    const { t } = useTranslation('home');
+    const { t } = useTranslation();
     const [pokemons, setPokemons] = useState<PokemonListItem[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
                 const data = await getPokemons(INITIAL_LOAD_LIMIT, 0);
                 setPokemons(data.results);
             } catch {
-                setError(t('error.fetchList'));
+                setError(t('home.error.fetchList'));
             } finally {
                 setLoading(false);
             }
@@ -39,13 +39,13 @@ const HomePage: React.FC = () => {
     }
 
     if (error) {
-        return <Alert message={t('error.title')} description={error} type="error" showIcon />;
+        return <Alert message={t('home.error.title')} description={error} type="error" showIcon />;
     }
 
     return (
         <Row gutter={[16, 24]}>
             <Col span={24}>
-                <Title level={2}>{t('title')}</Title>
+                <Title level={2}>{t('home.title')}</Title>
             </Col>
             {pokemons.map((pokemon) => (
                 <Col xs={24} sm={12} md={8} lg={6} key={pokemon.name}>
