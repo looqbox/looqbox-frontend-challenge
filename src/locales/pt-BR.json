@@ -2,7 +2,9 @@
     "common": {
         "appTitle": "Pokédex da Looqbox",
         "footerText": "Desafio Front-End Looqbox ©{{year}}",
-        "backButton": "Voltar"
+        "backButton": "Voltar",
+        "errorTitle": "Algo deu errado",
+        "tryAgain": "Tentar Novamente"
     },
     "home": {
         "title": "Lista de Pokémon",

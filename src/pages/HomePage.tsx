@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Typography, Row, Col, Spin, Alert, Pagination } from 'antd';
+import { Typography, Row, Col, Spin, Pagination } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { getPokemons, getPokemonDetails } from '../services/pokeApi';
 import type { PokemonListItem } from '../types/pokemon.types';
 import { PokemonCard } from '../components/pokemon/PokemonCard';
 import { SearchBar } from '../components/common/SearchBar';
+import { ErrorDisplay } from '../components/common/ErrorDisplay';
 import { INITIAL_LOAD_LIMIT } from '../config/constants';
 
 const { Title } = Typography;
@@ -21,26 +22,24 @@ const HomePage: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [totalPokemons, setTotalPokemons] = useState<number>(0);
 
-    useEffect(() => {
-        if (error) {
+    const fetchPokemonsForPage = useCallback(async () => {
+        try {
+            setLoadingList(true);
             setError(null);
+            const offset = (currentPage - 1) * INITIAL_LOAD_LIMIT;
+            const data = await getPokemons(INITIAL_LOAD_LIMIT, offset);
+            setPokemons(data.results);
+            setTotalPokemons(data.count);
+        } catch {
+            setError(t('home.error.fetchList'));
+        } finally {
+            setLoadingList(false);
         }
+    }, [currentPage, t]);
 
-        const fetchPokemonsForPage = async () => {
-            try {
-                setLoadingList(true);
-                const offset = (currentPage - 1) * INITIAL_LOAD_LIMIT;
-                const data = await getPokemons(INITIAL_LOAD_LIMIT, offset);
-                setPokemons(data.results);
-                setTotalPokemons(data.count);
-            } catch {
-                setError(t('home.error.fetchList'));
-            } finally {
-                setLoadingList(false);
-            }
-        };
+    useEffect(() => {
         fetchPokemonsForPage();
-    }, [currentPage, t, error]);
+    }, [fetchPokemonsForPage]);
 
     const handleSearch = async (searchTerm: string) => {
         if (!searchTerm) return;
@@ -69,6 +68,10 @@ const HomePage: React.FC = () => {
             );
         }
 
+        if (error) {
+            return <ErrorDisplay error={error} onRetry={fetchPokemonsForPage} />;
+        }
+
         return (
             <Row gutter={[16, 24]}>
                 {pokemons.map((pokemon) => (
@@ -87,18 +90,6 @@ const HomePage: React.FC = () => {
                     <Title level={2} style={{ margin: 0 }}>{t('home.title')}</Title>
                 </Col>
             </Row>
-
-            {error && (
-                <Alert
-                    message={t('home.error.title')}
-                    description={error}
-                    type="error"
-                    showIcon
-                    closable
-                    onClose={() => setError(null)}
-                    style={{ marginBottom: 24 }}
-                />
-            )}
 
             <SearchBar onSearch={handleSearch} loading={loadingSearch} />
 

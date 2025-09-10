@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Row, Col, Spin, Alert, Card, Button } from 'antd';
+import { Row, Col, Spin, Card, Button } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { getPokemonDetails } from '../services/pokeApi';
 import type { PokemonDetails } from '../types/pokemon.types';
 import { PokemonImage } from '../components/details/PokemonImage';
 import { PokemonInfo } from '../components/details/PokemonInfo';
 import { PokemonStats } from '../components/details/PokemonStats';
+import { ErrorDisplay } from '../components/common/ErrorDisplay';
 
 const DetailsPage: React.FC = () => {
     const { pokemonName } = useParams<{ pokemonName: string }>();
@@ -18,22 +19,24 @@ const DetailsPage: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
+    const fetchDetails = useCallback(async () => {
         if (!pokemonName) return;
-        const fetchDetails = async () => {
-            try {
-                setLoading(true);
-                setError(null);
-                const data = await getPokemonDetails(pokemonName);
-                setPokemon(data);
-            } catch {
-                setError(t('details.error.fetchDetails'));
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchDetails();
+
+        try {
+            setLoading(true);
+            setError(null);
+            const data = await getPokemonDetails(pokemonName);
+            setPokemon(data);
+        } catch {
+            setError(t('details.error.fetchDetails'));
+        } finally {
+            setLoading(false);
+        }
     }, [pokemonName, t]);
+
+    useEffect(() => {
+        fetchDetails();
+    }, [fetchDetails]);
 
     if (loading) {
         return (
@@ -44,7 +47,7 @@ const DetailsPage: React.FC = () => {
     }
 
     if (error) {
-        return <Alert message={t('details.error.title')} description={error} type="error" showIcon />;
+        return <ErrorDisplay error={error} onRetry={fetchDetails} />;
     }
 
     if (!pokemon) return null;

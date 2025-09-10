@@ -2,7 +2,9 @@
     "common": {
         "appTitle": "Looqbox Pokédex",
         "footerText": "Looqbox Front-End Challenge ©{{year}}",
-        "backButton": "Back"
+        "backButton": "Back",
+        "errorTitle": "Something went wrong",
+        "tryAgain": "Try Again"
     },
     "home": {
         "title": "Pokémon List",
