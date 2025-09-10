@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
-import { ThemeProvider } from './contexts/ThemeContext';
+import { ThemeProvider } from './contexts/theme';
 import './i18n';
 
 import 'antd/dist/reset.css';

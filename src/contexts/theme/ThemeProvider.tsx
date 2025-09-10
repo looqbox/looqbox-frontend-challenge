@@ -1,18 +1,7 @@
-import React, { createContext, useState, useMemo, useEffect, useContext } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ConfigProvider, theme } from 'antd';
 import type { ThemeConfig } from 'antd';
-
-type ThemeMode = 'light' | 'dark';
-
-interface ThemeContextType {
-    themeMode: ThemeMode;
-    toggleTheme: () => void;
-}
-
-const ThemeContext = createContext<ThemeContextType>({
-    themeMode: 'dark',
-    toggleTheme: () => { },
-});
+import { ThemeContext, type ThemeMode } from './ThemeContext';
 
 const themeConfig: ThemeConfig = {
     token: {
@@ -54,4 +43,4 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     );
 };
 
-export const useTheme = () => useContext(ThemeContext);
+
