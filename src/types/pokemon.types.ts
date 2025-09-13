@@ -34,3 +34,8 @@ export interface PokemonDetails {
     types: PokemonType[];
     stats: PokemonStat[];
 }
+
+export interface PokemonTypeSlot {
+    slot: number;
+    pokemon: PokemonListItem;
+}

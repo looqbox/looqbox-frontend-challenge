@@ -21,7 +21,7 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ pokemon }) => {
             <div style={{ marginTop: 8, marginBottom: 16 }}>
                 {pokemon.types.map(({ type }) => (
                     <Tag key={type.name} color={POKEMON_TYPE_COLORS[type.name] || '#ccc'}>
-                        {type.name.toUpperCase()}
+                        {t(`pokemonTypes.${type.name}`)}
                     </Tag>
                 ))}
             </div>

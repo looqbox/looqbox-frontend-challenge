@@ -9,12 +9,36 @@
     "home": {
         "title": "Pokémon List",
         "searchPlaceholder": "Search Pokémon by name...",
+        "filterByType": "Filter by Type",
+        "filterByGeneration": "Filter by Generation",
         "clearSearch": "Clear search and show all",
+        "noResults": "No Results",
+        "noResultsSubtitle": "No Pokémon found with this name. Check the spelling and try again.",
         "error": {
             "title": "Error",
             "fetchList": "Could not fetch the Pokémon list. Please try again later.",
             "notFound": "No Pokémon found with this name. Check the spelling and try again."
         }
+    },
+    "pokemonTypes": {
+        "normal": "Normal",
+        "fire": "Fire",
+        "water": "Water",
+        "electric": "Electric",
+        "grass": "Grass",
+        "ice": "Ice",
+        "fighting": "Fighting",
+        "poison": "Poison",
+        "ground": "Ground",
+        "flying": "Flying",
+        "psychic": "Psychic",
+        "bug": "Bug",
+        "rock": "Rock",
+        "ghost": "Ghost",
+        "dragon": "Dragon",
+        "dark": "Dark",
+        "steel": "Steel",
+        "fairy": "Fairy"
     },
     "details": {
         "title": "Pokémon Details",
