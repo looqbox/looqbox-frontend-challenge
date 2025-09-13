@@ -1,20 +1,25 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Layout, Typography, theme } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { Layout, theme, Grid } from 'antd';
 import { LanguageSwitcher } from '../common/LanguageSwitcher';
 import { ThemeSwitcher } from '../common/ThemeSwitcher';
 
 const { Header } = Layout;
-const { Title } = Typography;
+const { useBreakpoint } = Grid;
 
 export const AppHeader: React.FC = () => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
   const { token } = theme.useToken();
+  const screens = useBreakpoint();
 
   const handleTitleClick = () => {
     navigate('/');
+  };
+
+  const logoStyle: React.CSSProperties = {
+    height: screens.xs ? '32px' : '40px',
+    width: 'auto',
+    cursor: 'pointer',
   };
 
   return (
@@ -24,15 +29,15 @@ export const AppHeader: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: token.colorBgElevated,
+        borderBottom: `1px solid ${token.colorBorderSecondary}`,
       }}
     >
-      <Title
-        level={3}
-        style={{ color: token.colorText, margin: 0, cursor: 'pointer' }}
+      <img
+        src="/pokedex-logo.png"
+        alt="Pokédex Logo"
+        style={logoStyle}
         onClick={handleTitleClick}
-      >
-        {t('common.appTitle')}
-      </Title>
+      />
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
         <LanguageSwitcher />
         <ThemeSwitcher />
