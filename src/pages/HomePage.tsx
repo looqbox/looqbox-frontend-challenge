@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Row, Col, Spin, Pagination } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { getPokemons, getPokemonDetails } from '../services/pokeApi';
-import type { PokemonListItem } from '../types/pokemon.types';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPokemons } from '../store/slices/pokemonSlice';
+import { getPokemonDetails } from '../services/pokeApi';
+import type { RootState, AppDispatch } from '../store/store';
 import { PokemonCard } from '../components/pokemon/PokemonCard';
 import { SearchBar } from '../components/common/SearchBar';
 import { ErrorDisplay } from '../components/common/ErrorDisplay';
@@ -14,42 +16,30 @@ const { Title } = Typography;
 const HomePage: React.FC = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
 
-    const [pokemons, setPokemons] = useState<PokemonListItem[]>([]);
-    const [loadingList, setLoadingList] = useState<boolean>(true);
-    const [loadingSearch, setLoadingSearch] = useState<boolean>(false);
-    const [error, setError] = useState<string | null>(null);
-    const [currentPage, setCurrentPage] = useState<number>(1);
-    const [totalPokemons, setTotalPokemons] = useState<number>(0);
+    const { list: pokemons, total: totalPokemons, status, error } = useSelector(
+        (state: RootState) => state.pokemon
+    );
 
-    const fetchPokemonsForPage = useCallback(async () => {
-        try {
-            setLoadingList(true);
-            setError(null);
-            const offset = (currentPage - 1) * INITIAL_LOAD_LIMIT;
-            const data = await getPokemons(INITIAL_LOAD_LIMIT, offset);
-            setPokemons(data.results);
-            setTotalPokemons(data.count);
-        } catch {
-            setError(t('home.error.fetchList'));
-        } finally {
-            setLoadingList(false);
-        }
-    }, [currentPage, t]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [loadingSearch, setLoadingSearch] = useState(false);
+    const [searchError, setSearchError] = useState<string | null>(null);
 
     useEffect(() => {
-        fetchPokemonsForPage();
-    }, [fetchPokemonsForPage]);
+        const offset = (currentPage - 1) * INITIAL_LOAD_LIMIT;
+        dispatch(fetchPokemons({ limit: INITIAL_LOAD_LIMIT, offset }));
+    }, [currentPage, dispatch]);
 
     const handleSearch = async (searchTerm: string) => {
         if (!searchTerm) return;
         try {
             setLoadingSearch(true);
-            setError(null);
+            setSearchError(null);
             await getPokemonDetails(searchTerm);
             navigate(`/pokemon/${searchTerm}`);
         } catch {
-            setError(t('home.error.notFound'));
+            setSearchError(t('home.error.notFound'));
         } finally {
             setLoadingSearch(false);
         }
@@ -60,7 +50,7 @@ const HomePage: React.FC = () => {
     };
 
     const renderContent = () => {
-        if (loadingList) {
+        if (status === 'loading') {
             return (
                 <Row justify="center" align="middle" style={{ minHeight: '300px' }}>
                     <Spin size="large" />
@@ -68,8 +58,8 @@ const HomePage: React.FC = () => {
             );
         }
 
-        if (error) {
-            return <ErrorDisplay error={error} onRetry={fetchPokemonsForPage} />;
+        if (status === 'failed') {
+            return <ErrorDisplay error={error || 'Unknown error'} onRetry={() => dispatch(fetchPokemons({ limit: INITIAL_LOAD_LIMIT, offset: (currentPage - 1) * INITIAL_LOAD_LIMIT }))} />;
         }
 
         return (
@@ -91,11 +81,18 @@ const HomePage: React.FC = () => {
                 </Col>
             </Row>
 
+            {searchError && (
+                <ErrorDisplay
+                    error={searchError}
+                    onRetry={() => setSearchError(null)}
+                />
+            )}
+
             <SearchBar onSearch={handleSearch} loading={loadingSearch} />
 
             {renderContent()}
 
-            {!error && !loadingList && pokemons.length > 0 && (
+            {status !== 'failed' && pokemons.length > 0 && (
                 <Row justify="center" style={{ marginTop: 24 }}>
                     <Pagination
                         current={currentPage}

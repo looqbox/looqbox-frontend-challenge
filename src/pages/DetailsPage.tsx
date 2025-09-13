@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Row, Col, Spin, Card, Button } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { getPokemonDetails } from '../services/pokeApi';
-import type { PokemonDetails } from '../types/pokemon.types';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPokemonDetails } from '../store/slices/pokemonSlice';
+import type { RootState, AppDispatch } from '../store/store';
 import { PokemonImage } from '../components/details/PokemonImage';
 import { PokemonInfo } from '../components/details/PokemonInfo';
 import { PokemonStats } from '../components/details/PokemonStats';
@@ -14,31 +15,25 @@ const DetailsPage: React.FC = () => {
     const { pokemonName } = useParams<{ pokemonName: string }>();
     const { t } = useTranslation();
     const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
 
-    const [pokemon, setPokemon] = useState<PokemonDetails | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
-
-    const fetchDetails = useCallback(async () => {
-        if (!pokemonName) return;
-
-        try {
-            setLoading(true);
-            setError(null);
-            const data = await getPokemonDetails(pokemonName);
-            setPokemon(data);
-        } catch {
-            setError(t('details.error.fetchDetails'));
-        } finally {
-            setLoading(false);
-        }
-    }, [pokemonName, t]);
+    const { details: pokemon, status, error } = useSelector(
+        (state: RootState) => state.pokemon
+    );
 
     useEffect(() => {
-        fetchDetails();
-    }, [fetchDetails]);
+        if (pokemonName) {
+            dispatch(fetchPokemonDetails(pokemonName));
+        }
+    }, [pokemonName, dispatch]);
 
-    if (loading) {
+    const handleRetry = () => {
+        if (pokemonName) {
+            dispatch(fetchPokemonDetails(pokemonName));
+        }
+    };
+
+    if (status === 'loading') {
         return (
             <Row justify="center" align="middle" style={{ minHeight: '300px' }}>
                 <Spin size="large" />
@@ -46,8 +41,8 @@ const DetailsPage: React.FC = () => {
         );
     }
 
-    if (error) {
-        return <ErrorDisplay error={error} onRetry={fetchDetails} />;
+    if (status === 'failed') {
+        return <ErrorDisplay error={error || t('details.error.fetchDetails')} onRetry={handleRetry} />;
     }
 
     if (!pokemon) return null;
