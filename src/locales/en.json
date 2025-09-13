@@ -1,66 +1,66 @@
 {
-    "common": {
-        "appTitle": "Looqbox Pokédex",
-        "footerText": "Looqbox Front-End Challenge ©{{year}}",
-        "backButton": "Back",
-        "errorTitle": "Something went wrong",
-        "tryAgain": "Try Again"
-    },
-    "home": {
-        "title": "Pokémon List",
-        "searchPlaceholder": "Search Pokémon by name...",
-        "filterByType": "Filter by Type",
-        "filterByGeneration": "Filter by Generation",
-        "clearSearch": "Clear search and show all",
-        "noResults": "No Results",
-        "noResultsSubtitle": "No Pokémon found with this name. Check the spelling and try again.",
-        "error": {
-            "title": "Error",
-            "fetchList": "Could not fetch the Pokémon list. Please try again later.",
-            "notFound": "No Pokémon found with this name. Check the spelling and try again."
-        }
-    },
-    "pokemonTypes": {
-        "normal": "Normal",
-        "fire": "Fire",
-        "water": "Water",
-        "electric": "Electric",
-        "grass": "Grass",
-        "ice": "Ice",
-        "fighting": "Fighting",
-        "poison": "Poison",
-        "ground": "Ground",
-        "flying": "Flying",
-        "psychic": "Psychic",
-        "bug": "Bug",
-        "rock": "Rock",
-        "ghost": "Ghost",
-        "dragon": "Dragon",
-        "dark": "Dark",
-        "steel": "Steel",
-        "fairy": "Fairy"
-    },
-    "details": {
-        "title": "Pokémon Details",
-        "height": "Height",
-        "weight": "Weight",
-        "types": "Types",
-        "statsTitle": "Base Stats",
-        "error": {
-            "title": "Error",
-            "fetchDetails": "Could not fetch details for this Pokémon. It may not exist or the service is unavailable."
-        },
-        "stats": {
-            "hp": "HP",
-            "attack": "Attack",
-            "defense": "Defense",
-            "special-attack": "Special Attack",
-            "special-defense": "Special Defense",
-            "speed": "Speed"
-        },
-        "statsView": {
-            "chart": "View in chart",
-            "bars": "View in bars"
-        }
+  "common": {
+    "appTitle": "Looqbox Pokédex",
+    "footerText": "Looqbox Front-End Challenge ©{{year}}",
+    "backButton": "Back",
+    "errorTitle": "Something went wrong",
+    "tryAgain": "Try Again"
+  },
+  "home": {
+    "title": "Pokémon List",
+    "searchPlaceholder": "Search Pokémon by name...",
+    "filterByType": "Filter by Type",
+    "filterByGeneration": "Filter by Generation",
+    "clearSearch": "Clear search and show all",
+    "noResults": "No Results",
+    "noResultsSubtitle": "No Pokémon found with this name. Check the spelling and try again.",
+    "error": {
+      "title": "Error",
+      "fetchList": "Could not fetch the Pokémon list. Please try again later.",
+      "notFound": "No Pokémon found with this name. Check the spelling and try again."
     }
+  },
+  "pokemonTypes": {
+    "normal": "Normal",
+    "fire": "Fire",
+    "water": "Water",
+    "electric": "Electric",
+    "grass": "Grass",
+    "ice": "Ice",
+    "fighting": "Fighting",
+    "poison": "Poison",
+    "ground": "Ground",
+    "flying": "Flying",
+    "psychic": "Psychic",
+    "bug": "Bug",
+    "rock": "Rock",
+    "ghost": "Ghost",
+    "dragon": "Dragon",
+    "dark": "Dark",
+    "steel": "Steel",
+    "fairy": "Fairy"
+  },
+  "details": {
+    "title": "Pokémon Details",
+    "height": "Height",
+    "weight": "Weight",
+    "types": "Types",
+    "statsTitle": "Base Stats",
+    "error": {
+      "title": "Error",
+      "fetchDetails": "Could not fetch details for this Pokémon. It may not exist or the service is unavailable."
+    },
+    "stats": {
+      "hp": "HP",
+      "attack": "Attack",
+      "defense": "Defense",
+      "special-attack": "Special Attack",
+      "special-defense": "Special Defense",
+      "speed": "Speed"
+    },
+    "statsView": {
+      "chart": "View in chart",
+      "bars": "View in bars"
+    }
+  }
 }

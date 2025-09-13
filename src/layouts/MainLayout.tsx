@@ -8,31 +8,31 @@ const { Content } = Layout;
 const { useBreakpoint } = Grid;
 
 const MainLayout: React.FC = () => {
-    const screens = useBreakpoint();
-    const { token } = theme.useToken();
+  const screens = useBreakpoint();
+  const { token } = theme.useToken();
 
-    const contentStyle: CSSProperties = {
-        padding: screens.xs ? '16px' : '24px 48px',
-    };
+  const contentStyle: CSSProperties = {
+    padding: screens.xs ? '16px' : '24px 48px',
+  };
 
-    const innerContentStyle: CSSProperties = {
-        background: token.colorBgContainer,
-        padding: screens.xs ? '16px' : 24,
-        borderRadius: token.borderRadiusLG,
-        minHeight: 'calc(100vh - 180px)',
-    };
+  const innerContentStyle: CSSProperties = {
+    background: token.colorBgContainer,
+    padding: screens.xs ? '16px' : 24,
+    borderRadius: token.borderRadiusLG,
+    minHeight: 'calc(100vh - 180px)',
+  };
 
-    return (
-        <Layout style={{ minHeight: '100vh' }}>
-            <AppHeader />
-            <Content style={contentStyle}>
-                <div style={innerContentStyle}>
-                    <Outlet />
-                </div>
-            </Content>
-            <AppFooter />
-        </Layout>
-    );
+  return (
+    <Layout style={{ minHeight: '100vh' }}>
+      <AppHeader />
+      <Content style={contentStyle}>
+        <div style={innerContentStyle}>
+          <Outlet />
+        </div>
+      </Content>
+      <AppFooter />
+    </Layout>
+  );
 };
 
 export default MainLayout;
