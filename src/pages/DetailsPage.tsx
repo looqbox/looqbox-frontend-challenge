@@ -1,21 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Row, Col, Spin, Card, Button } from 'antd';
-import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Row, Col, Spin, Card, Button, Segmented, Typography } from 'antd';
+import { ArrowLeftOutlined, BarChartOutlined, RadarChartOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPokemonDetails } from '../store/slices/pokemonSlice';
 import type { RootState, AppDispatch } from '../store/store';
 import { PokemonImage } from '../components/details/PokemonImage';
 import { PokemonInfo } from '../components/details/PokemonInfo';
 import { PokemonStats } from '../components/details/PokemonStats';
+import { PokemonStatsChart } from '../components/details/PokemonStatsChart';
 import { ErrorDisplay } from '../components/common/ErrorDisplay';
+
+const { Title } = Typography;
 
 const DetailsPage: React.FC = () => {
     const { pokemonName } = useParams<{ pokemonName: string }>();
     const { t } = useTranslation();
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
+
+    const [statsView, setStatsView] = useState<'chart' | 'bars'>('chart');
 
     const { details: pokemon, status, error } = useSelector(
         (state: RootState) => state.pokemon
@@ -45,7 +50,9 @@ const DetailsPage: React.FC = () => {
         return <ErrorDisplay error={error || t('details.error.fetchDetails')} onRetry={handleRetry} />;
     }
 
-    if (!pokemon) return null;
+    if (!pokemon) {
+        return null;
+    }
 
     return (
         <Row justify="center">
@@ -65,7 +72,25 @@ const DetailsPage: React.FC = () => {
                         </Col>
                         <Col xs={24} md={14}>
                             <PokemonInfo pokemon={pokemon} />
-                            <PokemonStats stats={pokemon.stats} />
+
+                            <Row justify="space-between" align="middle" style={{ marginTop: 24, marginBottom: 16 }}>
+                                <Title level={4} style={{ margin: 0 }}>
+                                    {t('details.statsTitle')}
+                                </Title>
+                                <Segmented
+                                    value={statsView}
+                                    onChange={(value) => setStatsView(value as 'chart' | 'bars')}
+                                    options={[
+                                        { value: 'chart', icon: <RadarChartOutlined />, title: t('details.statsView.chart') },
+                                        { value: 'bars', icon: <BarChartOutlined />, title: t('details.statsView.bars') },
+                                    ]}
+                                />
+                            </Row>
+
+                            {statsView === 'chart'
+                                ? <PokemonStatsChart stats={pokemon.stats} />
+                                : <PokemonStats stats={pokemon.stats} />
+                            }
                         </Col>
                     </Row>
                 </Card>

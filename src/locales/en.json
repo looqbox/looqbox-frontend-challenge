@@ -57,6 +57,10 @@
             "special-attack": "Special Attack",
             "special-defense": "Special Defense",
             "speed": "Speed"
+        },
+        "statsView": {
+            "chart": "View in chart",
+            "bars": "View in bars"
         }
     }
 }

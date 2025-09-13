@@ -57,6 +57,10 @@
             "special-attack": "Ataque Especial",
             "special-defense": "Defesa Especial",
             "speed": "Velocidade"
+        },
+        "statsView": {
+            "chart": "Visualizar em gráfico",
+            "bars": "Visualizar em barras"
         }
     }
 }

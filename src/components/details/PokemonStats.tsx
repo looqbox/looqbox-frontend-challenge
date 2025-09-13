@@ -3,7 +3,7 @@ import { Progress, Typography, theme } from 'antd';
 import { useTranslation } from 'react-i18next';
 import type { PokemonStat } from '../../types/pokemon.types';
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 const statNameMap: { [key: string]: string } = {
     'hp': 'hp',
@@ -24,9 +24,6 @@ export const PokemonStats: React.FC<PokemonStatsProps> = ({ stats }) => {
 
     return (
         <>
-            <Title level={4} style={{ marginTop: 24, marginBottom: 16 }}>
-                {t('details.statsTitle')}
-            </Title>
             {stats.map(({ stat, base_stat }) => {
                 const safeStatName = statNameMap[stat.name];
                 const translationKey = `details.stats.${safeStatName}` as const;
