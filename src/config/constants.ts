@@ -1,0 +1,1 @@
+export const INITIAL_LOAD_LIMIT = 20;

@@ -1,0 +1,66 @@
+{
+  "common": {
+    "appTitle": "Pokédex da Looqbox",
+    "footerText": "Desafio Front-End Looqbox ©{{year}}",
+    "backButton": "Voltar",
+    "errorTitle": "Algo deu errado",
+    "tryAgain": "Tentar Novamente"
+  },
+  "home": {
+    "title": "Lista de Pokémon",
+    "searchPlaceholder": "Buscar Pokémon por nome...",
+    "filterByType": "Filtrar por Tipo",
+    "filterByGeneration": "Filtrar por Geração",
+    "clearSearch": "Limpar busca e ver todos",
+    "noResults": "Nenhum Resultado",
+    "noResultsSubtitle": "Nenhum Pokémon encontrado com este nome. Verifique a ortografia e tente novamente.",
+    "error": {
+      "title": "Erro",
+      "fetchList": "Não foi possível buscar la lista de Pokémon. Por favor, tente novamente mais tarde.",
+      "notFound": "Nenhum Pokémon encontrado com este nome. Verifique a ortografia e tente novamente."
+    }
+  },
+  "pokemonTypes": {
+    "normal": "Normal",
+    "fire": "Fogo",
+    "water": "Água",
+    "electric": "Elétrico",
+    "grass": "Grama",
+    "ice": "Gelo",
+    "fighting": "Lutador",
+    "poison": "Veneno",
+    "ground": "Terra",
+    "flying": "Voador",
+    "psychic": "Psíquico",
+    "bug": "Inseto",
+    "rock": "Pedra",
+    "ghost": "Fantasma",
+    "dragon": "Dragão",
+    "dark": "Sombrio",
+    "steel": "Aço",
+    "fairy": "Fada"
+  },
+  "details": {
+    "title": "Detalhes do Pokémon",
+    "height": "Altura",
+    "weight": "Peso",
+    "types": "Tipos",
+    "statsTitle": "Status Base",
+    "error": {
+      "title": "Erro",
+      "fetchDetails": "Não foi possível buscar os detalhes deste Pokémon. Ele pode não existir ou o serviço está indisponível."
+    },
+    "stats": {
+      "hp": "HP",
+      "attack": "Ataque",
+      "defense": "Defesa",
+      "special-attack": "Ataque Especial",
+      "special-defense": "Defesa Especial",
+      "speed": "Velocidade"
+    },
+    "statsView": {
+      "chart": "Visualizar em gráfico",
+      "bars": "Visualizar em barras"
+    }
+  }
+}
