@@ -1,0 +1,14 @@
+{
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Uma semente estranha foi plantada em suas costas.",
+      "language": { "name": "pt" },
+      "version": { "name": "qualquer" }
+    },
+    {
+      "flavor_text": "A strange seed was planted on its back at birth.",
+      "language": { "name": "en" },
+      "version": { "name": "red" }
+    }
+  ]
+}
