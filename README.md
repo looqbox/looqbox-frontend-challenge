@@ -1,52 +1,65 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# Pokédex
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+Sistema desenvolvido em **React + TypeScript**, com foco em boas práticas de arquitetura de front-end, componentização e consumo de API.  
+A interface consome dados da [PokéAPI](https://pokeapi.co/) e permite **listar, buscar e visualizar detalhes de Pokémons**.
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+## Tecnologias e Ferramentas
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+- **React 19** com **TypeScript**
+- **Redux** para gerenciamento de estado
+- **React Router DOM** para navegação
+- **Ant Design** para componentes de UI
+- **Axios** para requisições HTTP
+- **Jest + Testing Library** para testes
+- **Prettier + ESLint** para padronização de código
+- **PokéAPI** como fonte de dados
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+## Estrutura do Projeto
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+```text
+src/
+├── api/ # Comunicação com API (axios + endpoints)
+├── components/ # Componentes reutilizáveis (Card, Tags, Stats etc.)
+├── pages/ # Páginas principais (Home e Details)
+├── store/ # Redux (slices + store)
+├── types/ # Definições de tipos TypeScript
+├── constants/ # Mapas de cores e constantes globais
+```
 
-# Guidelines
-You need to create a Single Page Application (SPA) that displays a list of Pokémon and allows users to search for them, using the [Pokeapi](https://pokeapi.co/docs/v2). Your app must be dynamic, meaning you **must not** reload the page to show new content.
+## Como Rodar o Projeto
 
-The PokeAPI was chosen for its simplicity in making requests. Since it is an open API, please **be mindful of how many requests** you make.
+### Pré-requisitos
+- Node.js 18+
+- npm ou yarn
 
-## Requirements:
+### Instalação
+```bash
+npm install
+```
 
-- On the main page, include a search bar and a preloaded list of Pokémon.
-- Clicking on any Pokémon should display a card, modal, or page with that Pokémon’s information.
-- Typing in the search bar and pressing Enter should display the search result instead of the list.
-- Your app must include at least two different routes (e.g., /home, /details — be creative!).
-- Add a README file to document your project.
+### Desenvolvimento
+```bash 
+npm start
+```
 
-You may use any libraries or dependencies you like (e.g., Axios, Bootstrap, Material UI...).
+### Build de produção
+```bash 
+npm run build
+```
 
-## Bonus points!
-- Pagination
-- Error handling
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
+### Testes
+```bash
+npm test
+```
 
-## Useful links
-- [React docs](https://react.dev/)
-- [PokeApi docs](https://pokeapi.co/docs/v2)
-- [Redux](https://redux.js.org/)
+## Funcionalidades
+
+### Home
+- Lista de Pokémons com paginação
+- Busca por nome (com fallback para lista inicial)
+- Skeletons durante carregamento
+
+### Detalhes
+- Informações completas (imagem, tipos, habilidades, peso, altura, stats)
+- Barras visuais para atributos
+- Tratamento de erro (Pokémon inexistente)
