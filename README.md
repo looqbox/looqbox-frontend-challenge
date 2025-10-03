@@ -1,52 +1,94 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# Pokedex Challenge
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+## 📌 Project Summary
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+This project was developed as a solution for the **Frontend Challenge**, using the [PokeAPI](https://pokeapi.co/).  
+The application is a **Single Page Application (SPA)** built with **ReactJS** that allows users to list and search for Pokémon, as well as view detailed information about each one.
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+---
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+## 📸 Screenshots
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+### Home Page (`/`)
 
-# Guidelines
-You need to create a Single Page Application (SPA) that displays a list of Pokémon and allows users to search for them, using the [Pokeapi](https://pokeapi.co/docs/v2). Your app must be dynamic, meaning you **must not** reload the page to show new content.
+Displays the initial list of Pokémon and a search bar.  
+![Home Screenshot](image.png)
 
-The PokeAPI was chosen for its simplicity in making requests. Since it is an open API, please **be mindful of how many requests** you make.
+### Pokémon Details (`/pokemon/:id`)
 
-## Requirements:
+Shows detailed information about a selected Pokémon.  
+![Details Screenshot](image-1.png)  
+![Details Moves Screenshot](image-2.png)
 
-- On the main page, include a search bar and a preloaded list of Pokémon.
-- Clicking on any Pokémon should display a card, modal, or page with that Pokémon’s information.
-- Typing in the search bar and pressing Enter should display the search result instead of the list.
-- Your app must include at least two different routes (e.g., /home, /details — be creative!).
-- Add a README file to document your project.
+---
 
-You may use any libraries or dependencies you like (e.g., Axios, Bootstrap, Material UI...).
+## 🛠 Technologies Used
 
-## Bonus points!
-- Pagination
-- Error handling
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
+- ⚡ [Vite](https://vitejs.dev/)
+- ⚛️ [React](https://reactjs.org/)
+- 🔄 [React Query](https://tanstack.com/query/latest) – Asynchronous state management
+- 🎨 [Ant Design](https://ant.design/) – UI components
+- 🎨 [TailwindCSS](https://tailwindcss.com/) – Utility-first styling
+- 📊 [Recharts](https://recharts.org/) – Charts and data visualization
+- 🧪 [Vitest](https://vitest.dev/) – Unit testing
+- 🟦 TypeScript – Static typing for safer code
 
-## Useful links
-- [React docs](https://react.dev/)
-- [PokeApi docs](https://pokeapi.co/docs/v2)
-- [Redux](https://redux.js.org/)
+---
+
+## 📂 Features
+
+- 🔍 Search for Pokémon by name
+- 📋 Initial Pokémon listing with dynamic loading
+- 📄 Detail page with individual information
+- 🛣️ Routes for `/` and `/pokemon/:id`
+- ✅ Dynamic SPA (no page reload)
+
+### ⭐ Additional Implemented Features (Bonus)
+
+- 🔢 Pagination
+- ⚠️ Error handling
+- 🧪 Unit tests with coverage
+- 🎨 Enhanced UI with **Ant Design**
+- 📊 Data visualization with **Recharts**
+- ⚠️ Linting
+
+---
+
+## 🖥️ How to Run the Project Locally
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/rodrigoacm10/looqbox-frontend-challenge
+   ```
+
+2. Checkout the pokedex branch:
+
+   ```bash
+   git checkout pokedex
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Run the project:
+   ```bash
+   npm run dev
+   ```
+
+## 🖥️ Running Tests
+
+To run unit tests:
+
+```bash
+npm run test
+```
+
+To run tests with coverage:
+
+```bash
+npm run coverage
+```
