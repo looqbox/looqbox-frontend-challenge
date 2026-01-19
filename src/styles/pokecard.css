@@ -1,0 +1,57 @@
+.pokecard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & .ant-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.pokecard__image--container {
+  padding: 1.5rem;
+  padding-bottom: 0px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100%;
+  height: 260px;
+
+  & img {
+    image-rendering: pixelated;
+  }
+}
+
+.pokecard__image--animated {
+  width: 75% !important;
+  animation: growAnimation 0.3s forwards;
+}
+
+@keyframes growAnimation {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pokecard__image--static {
+  width: 100% !important;
+  animation: shrinkAnimation 0.3s forwards;
+}
+
+@keyframes shrinkAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.85);
+  }
+}
