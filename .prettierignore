@@ -1,0 +1,7 @@
+dist
+node_modules
+coverage
+.vscode
+*.log
+.github
+README.md
