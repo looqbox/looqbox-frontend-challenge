@@ -1,7 +1,6 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Pagination, Space } from 'antd';
-import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
-import { fetchPokemonIndex } from '../../features/pokemon/pokemonThunks';
+import { useAppSelector } from '../../app/store/hooks';
 import { usePokemonIndexSearch } from '../../features/pokemon/hooks/usePokemonIndexSearch';
 import { PokemonSearch } from '../../components/PokemonSearch';
 import { usePokemonListQueryParams } from '../../features/pokemon/hooks/usePokemonListQueryParams';
@@ -9,13 +8,8 @@ import { usePokemonListQueryParams } from '../../features/pokemon/hooks/usePokem
 const PAGE_SIZE = 20;
 
 export function Pokemons() {
-  const dispatch = useAppDispatch();
   const { index, indexStatus, indexError } = useAppSelector((s) => s.pokemon);
   const qp = usePokemonListQueryParams({ withPage: true });
-
-  useEffect(() => {
-    if (indexStatus === 'idle') dispatch(fetchPokemonIndex());
-  }, [dispatch, indexStatus]);
 
   const search = usePokemonIndexSearch({
     index,
