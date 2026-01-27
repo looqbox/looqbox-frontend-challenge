@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
-import { fetchPokemonIndex } from '../../features/pokemon/pokemonThunks';
+import { useAppSelector } from '../../app/store/hooks';
 import { Space, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import Title from 'antd/es/typography/Title';
@@ -13,7 +11,6 @@ const DEFAULT_POKEMONS_LIMIT = 16;
 const SEARCH_POKEMONS_LIMIT = 20;
 
 export function Home() {
-  const dispatch = useAppDispatch();
   const { index, indexStatus, indexError } = useAppSelector((state) => state.pokemon);
   const qp = usePokemonListQueryParams({ withPage: false });
   const search = usePokemonIndexSearch({
@@ -23,10 +20,6 @@ export function Home() {
     pageSize: SEARCH_POKEMONS_LIMIT,
     defaultLimit: DEFAULT_POKEMONS_LIMIT,
   });
-
-  useEffect(() => {
-    if (indexStatus === 'idle') dispatch(fetchPokemonIndex());
-  }, [dispatch, indexStatus]);
 
   const loading = indexStatus === 'loading';
   const error = indexStatus === 'failed' ? (indexError ?? 'Failed to load index') : null;
