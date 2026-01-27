@@ -1,15 +1,20 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getPokemonByName, getPokemonPage, type PokemonDetails, type PokemonListResponse } from '../../services/pokeapi';
+import {
+  getPokemonByName,
+  getPokemonIndex,
+  type PokemonDetails,
+  type PokemonIndexItem,
+} from '../../services/pokeapi';
 
-export const fetchPokemonPage = createAsyncThunk<
-  PokemonListResponse,
-  { page: number; pageSize: number },
+export const fetchPokemonIndex = createAsyncThunk<
+  PokemonIndexItem[],
+  void,
   { rejectValue: string }
->('pokemon/fetchPokemonPage', async ({ page, pageSize }, { rejectWithValue }) => {
+>('pokemon/fetchPokemonIndex', async (_, { rejectWithValue }) => {
   try {
-    return await getPokemonPage({ page, pageSize });
+    return await getPokemonIndex();
   } catch (err) {
-    const message = err instanceof Error ? err.message : 'Failed to fetch pokémon list';
+    const message = err instanceof Error ? err.message : 'Failed to fetch pokémon index';
     return rejectWithValue(message);
   }
 });

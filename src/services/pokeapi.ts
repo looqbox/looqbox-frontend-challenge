@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+export type PokemonIndexItem = {
+  id: number;
+  name: string;
+};
+
 export type PokemonListItem = {
   name: string;
   url: string;
@@ -73,5 +78,28 @@ export async function getPokemonByName(name: string): Promise<PokemonDetails> {
   } catch (error) {
     console.error(`Error fetching Pokémon data for ${name}:`, error);
     throw error;
+  }
+}
+
+export function extractPokemonId(url: string): number {
+  const match = url.match(/\/pokemon\/(\d+)\//);
+  if (!match) return 0;
+  return Number(match[1]);
+}
+
+export async function getPokemonIndex(): Promise<PokemonIndexItem[]> {
+  try {
+    const response = await api.get<PokemonListResponse>('/pokemon', {
+      params: { limit: 2000, offset: 0 },
+    });
+
+    return response.data.results
+      .map((p) => ({
+        id: extractPokemonId(p.url),
+        name: p.name,
+      }))
+      .filter((p) => p.id > 0);
+  } catch {
+    throw new Error('Failed to fetch pokémon index');
   }
 }

@@ -1,14 +1,14 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { PokemonDetails, PokemonListItem } from '../../services/pokeapi';
-import { fetchPokemonDetails, fetchPokemonPage } from './pokemonThunks';
+import type { PokemonDetails, PokemonIndexItem } from '../../services/pokeapi';
+import { fetchPokemonDetails, fetchPokemonIndex } from './pokemonThunks';
 
 type Status = 'idle' | 'loading' | 'succeeded' | 'failed';
 
 type PokemonState = {
-  list: PokemonListItem[];
   total: number;
-  listStatus: Status;
-  listError: string | null;
+  index: PokemonIndexItem[];
+  indexStatus: Status;
+  indexError: string | null;
 
   detailsByName: Record<string, PokemonDetails>;
   detailsStatusByName: Record<string, Status>;
@@ -16,10 +16,10 @@ type PokemonState = {
 };
 
 const initialState: PokemonState = {
-  list: [],
   total: 0,
-  listStatus: 'idle',
-  listError: null,
+  index: [],
+  indexStatus: 'idle',
+  indexError: null,
 
   detailsByName: {},
   detailsStatusByName: {},
@@ -31,24 +31,23 @@ export const pokemonSlice = createSlice({
   initialState,
   reducers: {
     clearListError(state) {
-      state.listError = null;
+      state.indexError = null;
     },
   },
   extraReducers: (builder) => {
-    // List
+    // Index
     builder
-      .addCase(fetchPokemonPage.pending, (state) => {
-        state.listStatus = 'loading';
-        state.listError = null;
+      .addCase(fetchPokemonIndex.pending, (state) => {
+        state.indexStatus = 'loading';
+        state.indexError = null;
       })
-      .addCase(fetchPokemonPage.fulfilled, (state, action) => {
-        state.listStatus = 'succeeded';
-        state.total = action.payload.count;
-        state.list = action.payload.results;
+      .addCase(fetchPokemonIndex.fulfilled, (state, action) => {
+        state.indexStatus = 'succeeded';
+        state.index = action.payload;
       })
-      .addCase(fetchPokemonPage.rejected, (state, action) => {
-        state.listStatus = 'failed';
-        state.listError = action.payload ?? 'Failed to fetch pokémon list';
+      .addCase(fetchPokemonIndex.rejected, (state, action) => {
+        state.indexStatus = 'failed';
+        state.indexError = action.payload ?? 'Failed to fetch pokémon index';
       });
 
     // Details
