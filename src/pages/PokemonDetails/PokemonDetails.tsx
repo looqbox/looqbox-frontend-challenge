@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
 import { fetchPokemonDetails } from '../../features/pokemon/pokemonThunks';
+import { PokemonImage } from '../../components/PokemonImage/PokemonImage';
+import { formatPokemonName } from '../../shared/utils/formatPokemonName';
 
 export function PokemonDetails() {
   const dispatch = useAppDispatch();
@@ -26,18 +28,9 @@ export function PokemonDetails() {
   if (status === 'failed') return <div>{error}</div>;
 
   return (
-    <Card title={details.name}>
+    <Card title={formatPokemonName(details.name)}>
       <div>
-        <img
-          src={
-            details.sprites.other?.['official-artwork']?.front_default ??
-            details.sprites.front_default ??
-            ''
-          }
-          alt={details.name}
-          width={200}
-          height={200}
-        />
+        <PokemonImage id={details.id} name={formatPokemonName(details.name)} height={200} />
       </div>
 
       <div style={{ marginTop: 12 }}>

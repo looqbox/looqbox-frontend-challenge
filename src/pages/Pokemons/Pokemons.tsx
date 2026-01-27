@@ -1,35 +1,69 @@
-import { Card, Col, Row, Skeleton } from 'antd';
-import { Link } from 'react-router-dom';
-import { fetchPokemonPage } from '../../features/pokemon/pokemonThunks';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
+import { Pagination, Space } from 'antd';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
+import { fetchPokemonIndex } from '../../features/pokemon/pokemonThunks';
+import { usePokemonIndexSearch } from '../../features/pokemon/hooks/usePokemonIndexSearch';
+import { PokemonSearch } from '../../components/PokemonSearch';
+import { usePokemonListQueryParams } from '../../features/pokemon/hooks/usePokemonListQueryParams';
 
-const POKEMONS_PER_PAGE = 20;
+const PAGE_SIZE = 20;
 
 export function Pokemons() {
   const dispatch = useAppDispatch();
-  const { list, listStatus } = useAppSelector((state) => state.pokemon);
+  const { index, indexStatus, indexError } = useAppSelector((s) => s.pokemon);
+  const qp = usePokemonListQueryParams({ withPage: true });
 
   useEffect(() => {
-    dispatch(fetchPokemonPage({ page: 1, pageSize: POKEMONS_PER_PAGE }));
-  }, [dispatch]);
+    if (indexStatus === 'idle') dispatch(fetchPokemonIndex());
+  }, [dispatch, indexStatus]);
+
+  const search = usePokemonIndexSearch({
+    index,
+    query: qp.qParam,
+    page: qp.pageParam,
+    pageSize: PAGE_SIZE,
+  });
+
+  const loading = indexStatus === 'loading';
+  const error = indexStatus === 'failed' ? (indexError ?? 'Failed to load index') : null;
+
+  const title = useMemo(() => {
+    if (!qp.qParam.trim()) return 'All pokémon';
+    return `Results for “${qp.qParam}”`;
+  }, [qp.qParam]);
 
   return (
-    <section>
-      <h1>Pokemons</h1>
+    <section style={{ maxWidth: 1100, margin: '0 auto', padding: 16 }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
+        <PokemonSearch.Input
+          query={qp.inputValue}
+          onSubmitQuery={(next) => {
+            qp.setInputValue(next);
+            qp.submit(next);
+          }}
+          onClear={qp.clear}
+          placeholder="Search all pokémon (contains)"
+        />
 
-      <Row gutter={[16, 16]}>
-        {listStatus === 'succeeded' &&
-          list.map((p) => (
-            <Col key={p.name} xs={12} sm={8} md={6}>
-              <Link to={`/pokemon/${p.name}`}>
-                <Card hoverable title={p.name} />
-              </Link>
-            </Col>
-          ))}
-        {listStatus === 'loading' && <Skeleton active />}
-        {listStatus === 'failed' && <div>Não foi possivel carregar</div>}
-      </Row>
+        <PokemonSearch.Results
+          title={title}
+          loading={loading}
+          error={error}
+          items={search.paged}
+          showEmpty={!!qp.qParam.trim()}
+          emptyText="No matches found"
+          detailsPath={(name) => `/pokemon/${name}`}
+          extra={
+            <Pagination
+              current={qp.pageParam}
+              pageSize={PAGE_SIZE}
+              total={search.total}
+              onChange={qp.setPage}
+              showSizeChanger={false}
+            />
+          }
+        />
+      </Space>
     </section>
   );
 }
