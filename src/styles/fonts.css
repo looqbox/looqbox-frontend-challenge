@@ -1,0 +1,17 @@
+/* Nunito (variable) */
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito-Variable.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Luckiest Guy (regular) */
+@font-face {
+  font-family: "Luckiest Guy";
+  src: url("/fonts/Luckiest-Guy-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
