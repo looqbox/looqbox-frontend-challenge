@@ -104,7 +104,7 @@ export function PokemonDetails() {
               </Space>
 
               <div aria-label={`${displayName} image`}>
-                <PokemonImage id={details.id} name={displayName} height={220} />
+                <PokemonImage id={details.id} name={displayName} height={220} variant='artwork' priority />
               </div>
             </Space>
 

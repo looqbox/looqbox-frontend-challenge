@@ -8,6 +8,7 @@ type Props = {
   height?: number;
   padding?: number;
   variant?: 'artwork' | 'sprite';
+  priority?: boolean
   style?: React.CSSProperties;
 };
 
@@ -26,6 +27,7 @@ export function PokemonImage({
   height = 180,
   padding = 12,
   variant = 'artwork',
+  priority,
   style,
 }: Props) {
   const [attempt, setAttempt] = useState(0);
@@ -45,11 +47,12 @@ export function PokemonImage({
     <img
       src={src}
       alt={alt ?? name}
-      loading="lazy"
+      loading={priority ? 'eager' : 'lazy'}
+      fetchPriority={priority ? 'high' : 'auto'}
       onError={() => {
         setAttempt((prev) => (prev < urls.length - 1 ? prev + 1 : prev));
       }}
-      style={{ padding, height, objectFit: 'contain', ...style }}
+      style={{ padding, height, objectFit: 'contain', aspectRatio: '1 / 1', ...style }}
     />
   );
 }

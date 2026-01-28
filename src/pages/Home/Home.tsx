@@ -1,14 +1,14 @@
 import { useAppSelector } from '../../app/store/hooks';
-import { Space, Button } from 'antd';
+import { Space, Button, Typography } from 'antd';
 import { Link } from 'react-router-dom';
-import Title from 'antd/es/typography/Title';
 import { usePokemonIndexSearch } from '../../features/pokemon/hooks/usePokemonIndexSearch';
-import Paragraph from 'antd/es/typography/Paragraph';
 import { PokemonSearch } from '../../components/PokemonSearch';
 import { usePokemonListQueryParams } from '../../features/pokemon/hooks/usePokemonListQueryParams';
 
 const DEFAULT_POKEMONS_LIMIT = 16;
 const SEARCH_POKEMONS_LIMIT = 20;
+
+const { Title, Paragraph } = Typography;
 
 export function Home() {
   const { index, indexStatus, indexError } = useAppSelector((state) => state.pokemon);

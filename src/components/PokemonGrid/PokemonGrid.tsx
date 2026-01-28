@@ -12,12 +12,12 @@ type Props = {
 export function PokemonGrid({ items, detailsPath }: Props) {
   return (
     <Row gutter={[16, 16]}>
-      {items.map((p) => (
+      {items.map((p, index) => (
         <Col key={p.id} xs={12} sm={8} md={6}>
           <Link to={detailsPath(p.name)} aria-label={`Open details for ${formatPokemonName(p.name)}`}>
             <Card
               hoverable
-              cover={<PokemonImage id={p.id} name={formatPokemonName(p.name)} />}
+              cover={<PokemonImage id={p.id} name={formatPokemonName(p.name)} variant='artwork' priority={index === 0} />}
             >
               <Card.Meta title={formatPokemonName(p.name)} description={`#${p.id}`} />
             </Card>
