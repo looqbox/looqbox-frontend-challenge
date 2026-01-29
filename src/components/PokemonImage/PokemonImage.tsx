@@ -9,7 +9,7 @@ type Props = {
   height?: number;
   padding?: number;
   variant?: 'artwork' | 'sprite';
-  priority?: boolean
+  priority?: boolean;
   style?: React.CSSProperties;
 };
 

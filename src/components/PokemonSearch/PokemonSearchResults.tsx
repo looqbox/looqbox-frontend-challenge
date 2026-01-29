@@ -27,7 +27,7 @@ export function SearchEmptyState() {
           <Text type="secondary">Try adjusting your search or filters</Text>
         </div>
       }
-      className='pokemon-search-empty-state'
+      className="pokemon-search-empty-state"
     />
   );
 }
@@ -44,7 +44,15 @@ export function PokemonSearchResults({
   if (loading) return <Skeleton active />;
 
   if (error) {
-    return <Alert type="warning" showIcon title="Something went wrong" description={error} className='looq-alert looq-alert--warning' />;
+    return (
+      <Alert
+        type="warning"
+        showIcon
+        title="Something went wrong"
+        description={error}
+        className="looq-alert looq-alert--warning"
+      />
+    );
   }
 
   if (showEmpty && items.length === 0) {

@@ -6,7 +6,11 @@ import {
   type PokemonIndexItem,
 } from '../../services/pokeapi';
 import { getEvolutionChainByUrl, getPokemonSpeciesByName } from './api/pokemonApi';
-import { flattenEvolutionNames, toSpeciesStored, type PokemonSpeciesStored } from './utils/pokemonTransforms';
+import {
+  flattenEvolutionNames,
+  toSpeciesStored,
+  type PokemonSpeciesStored,
+} from './utils/pokemonTransforms';
 
 export const fetchPokemonIndex = createAsyncThunk<
   PokemonIndexItem[],

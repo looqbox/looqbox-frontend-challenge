@@ -1,17 +1,20 @@
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { AppLayout } from '../../components/AppLayout/AppLayout';
-import { Pokemons } from '../../pages/Pokemons/Pokemons';
-import { PokemonDetails } from '../../pages/PokemonDetails/PokemonDetails';
-import { Home } from '../../pages/Home/Home';
+
+const Home = lazy(() => import('../../pages/Home/Home'));
+const Pokemons = lazy(() => import('../../pages/Pokemons/Pokemons'));
+const PokemonDetails = lazy(() => import('../../pages/PokemonDetails/PokemonDetails'));
+
+const withSuspense = (node: React.ReactNode) => <Suspense fallback={<div></div>}>{node}</Suspense>;
 
 export const router = createBrowserRouter([
   {
     element: <AppLayout />,
     children: [
-      { path: '/', element: <Home /> },
-      { path: '/pokemons', element: <Pokemons /> },
-      { path: '/pokemon/:name', element: <PokemonDetails /> },
-      { path: '*', element: <div>404 Not Found</div> },
+      { path: '/', element: withSuspense(<Home />) },
+      { path: '/pokemons', element: withSuspense(<Pokemons />) },
+      { path: '/pokemon/:name', element: withSuspense(<PokemonDetails />) },
     ],
   },
 ]);

@@ -98,12 +98,15 @@ export const pokemonSlice = createSlice({
         state.speciesStatusByName[key] = 'loading';
         state.speciesErrorByName[key] = null;
       })
-      .addCase(fetchPokemonSpecies.fulfilled, (state, action: ReturnType<typeof fetchPokemonSpecies.fulfilled>) => {
-        const key = action.meta.arg.name.toLowerCase();
-        state.speciesByName[key] = action.payload;
-        state.speciesStatusByName[key] = 'succeeded';
-        state.speciesErrorByName[key] = null;
-      })
+      .addCase(
+        fetchPokemonSpecies.fulfilled,
+        (state, action: ReturnType<typeof fetchPokemonSpecies.fulfilled>) => {
+          const key = action.meta.arg.name.toLowerCase();
+          state.speciesByName[key] = action.payload;
+          state.speciesStatusByName[key] = 'succeeded';
+          state.speciesErrorByName[key] = null;
+        },
+      )
       .addCase(fetchPokemonSpecies.rejected, (state, action) => {
         const key = action.meta.arg.name.toLowerCase();
         state.speciesStatusByName[key] = 'failed';
@@ -117,12 +120,15 @@ export const pokemonSlice = createSlice({
         state.evolutionStatusByName[key] = 'loading';
         state.evolutionErrorByName[key] = null;
       })
-      .addCase(fetchPokemonEvolutionChain.fulfilled, (state, action: ReturnType<typeof fetchPokemonEvolutionChain.fulfilled>) => {
-        const key = action.meta.arg.name.toLowerCase();
-        state.evolutionByName[key] = action.payload;
-        state.evolutionStatusByName[key] = 'succeeded';
-        state.evolutionErrorByName[key] = null;
-      })
+      .addCase(
+        fetchPokemonEvolutionChain.fulfilled,
+        (state, action: ReturnType<typeof fetchPokemonEvolutionChain.fulfilled>) => {
+          const key = action.meta.arg.name.toLowerCase();
+          state.evolutionByName[key] = action.payload;
+          state.evolutionStatusByName[key] = 'succeeded';
+          state.evolutionErrorByName[key] = null;
+        },
+      )
       .addCase(fetchPokemonEvolutionChain.rejected, (state, action) => {
         const key = action.meta.arg.name.toLowerCase();
         state.evolutionStatusByName[key] = 'failed';

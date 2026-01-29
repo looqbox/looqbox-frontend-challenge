@@ -17,20 +17,54 @@
   font-weight: 700;
 }
 
-.type-tag--fire { color: #FF8713; }
-.type-tag--water { color: #68B5E5; }
-.type-tag--electric { color: #FFC700; }
-.type-tag--grass { color: #34C677; }
-.type-tag--ice { color: #77D3C3; }
-.type-tag--fighting { color: #E80011; }
-.type-tag--poison { color: #C645E1; }
-.type-tag--ground { color: #D17F46; }
-.type-tag--flying { color: #9FB9EB; }
-.type-tag--psychic { color: #FE7571; }
-.type-tag--bug { color: #A2C629; }
-.type-tag--rock { color: #D4AD30; }
-.type-tag--ghost { color: #7272D2; }
-.type-tag--dragon { color: #0A6DCA; }
-.type-tag--dark { color: #5D5F6A; }
-.type-tag--steel { color: #5AA7AA; }
-.type-tag--fairy { color: #F29FE5; }
+.type-tag--fire {
+  color: #ff8713;
+}
+.type-tag--water {
+  color: #68b5e5;
+}
+.type-tag--electric {
+  color: #ffc700;
+}
+.type-tag--grass {
+  color: #34c677;
+}
+.type-tag--ice {
+  color: #77d3c3;
+}
+.type-tag--fighting {
+  color: #e80011;
+}
+.type-tag--poison {
+  color: #c645e1;
+}
+.type-tag--ground {
+  color: #d17f46;
+}
+.type-tag--flying {
+  color: #9fb9eb;
+}
+.type-tag--psychic {
+  color: #fe7571;
+}
+.type-tag--bug {
+  color: #a2c629;
+}
+.type-tag--rock {
+  color: #d4ad30;
+}
+.type-tag--ghost {
+  color: #7272d2;
+}
+.type-tag--dragon {
+  color: #0a6dca;
+}
+.type-tag--dark {
+  color: #5d5f6a;
+}
+.type-tag--steel {
+  color: #5aa7aa;
+}
+.type-tag--fairy {
+  color: #f29fe5;
+}

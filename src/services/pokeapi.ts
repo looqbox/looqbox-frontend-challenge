@@ -1,4 +1,5 @@
 import axios from 'axios';
+import type { PokemonType } from '../shared/pokemon/types';
 
 export type PokemonIndexItem = {
   id: number;
@@ -30,14 +31,14 @@ export type PokemonDetails = {
   };
   types: Array<{
     slot: number;
-    type: { name: string };
+    type: { name: PokemonType };
   }>;
   abilities: Array<{
     ability: { name: string };
     is_hidden: boolean;
   }>;
   stats: Array<{
-    base_stat: number;  
+    base_stat: number;
     stat: { name: string };
   }>;
   height: number;

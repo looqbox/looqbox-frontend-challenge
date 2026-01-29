@@ -1,4 +1,4 @@
-import type { RootState } from "../../../app/store/store";
+import type { RootState } from '../../../app/store/store';
 
 export function selectPokemonIdByName(state: RootState, name: string): number | null {
   const normalized = name.trim().toLowerCase();

@@ -12,7 +12,7 @@ import { formatPokemonName } from '../../shared/utils/formatPokemonName';
 import type { Status } from './PokemonDetailsView';
 import { PokemonDetailsView } from './PokemonDetailsView';
 
-export function PokemonDetails() {
+export default function PokemonDetails() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { name } = useParams<{ name: string }>();

@@ -8,7 +8,7 @@ import { usePokemonListQueryParams } from '../../features/pokemon/hooks/usePokem
 const PAGE_SIZE = 20;
 const { Title, Paragraph } = Typography;
 
-export function Pokemons() {
+export default function Pokemons() {
   const { index, indexStatus, indexError } = useAppSelector((s) => s.pokemon);
   const qp = usePokemonListQueryParams({ withPage: true });
 
@@ -46,7 +46,6 @@ export function Pokemons() {
             qp.submit(next);
           }}
           onClear={qp.clear}
-          placeholder="Search all pokémon (contains)"
         />
 
         <PokemonSearch.Results
@@ -55,7 +54,6 @@ export function Pokemons() {
           error={error}
           items={search.paged}
           showEmpty={!!qp.qParam.trim()}
-          emptyText="No matches found"
           detailsPath={(name) => `/pokemon/${name}`}
           extra={
             <Pagination

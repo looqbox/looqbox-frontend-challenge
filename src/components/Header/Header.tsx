@@ -2,10 +2,45 @@ import { Button, Drawer, Menu, type MenuProps, Grid } from 'antd';
 import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
 import { useMemo, useState } from 'react';
+import looqBoxLogo from '../../assets/icons/looqbox_logo.svg';
 
 const { useBreakpoint } = Grid;
 
 type MenuItem = Required<MenuProps>['items'][number];
+
+const desktopItems: MenuItem[] = [
+  {
+    key: 'home',
+    className: 'menu-item-first',
+    label: (
+      <Link to="/">
+        <span className="menu-label" data-text="Home">
+          Home
+        </span>
+      </Link>
+    ),
+  },
+  {
+    key: '__logo',
+    className: 'menu-logo',
+    label: (
+      <div aria-hidden="true">
+        <img src={looqBoxLogo} alt="LooqDex" width={72} height={72} />
+      </div>
+    ),
+  },
+  {
+    key: 'pokemons',
+    className: 'menu-item-last',
+    label: (
+      <Link to="/pokemons">
+        <span className="menu-label" data-text="Pokédex">
+          Pokédex
+        </span>
+      </Link>
+    ),
+  },
+];
 
 export function Header() {
   const { pathname } = useLocation();
@@ -50,7 +85,7 @@ export function Header() {
       <header className="app-header app-header--mobile">
         <div className="mobile-bar">
           <Link to="/" className="mobile-logo" aria-label="Go to home">
-            <img src="/src/assets/icons/looqbox_logo.svg" alt="Looqbox" height={50} />
+            <img src={looqBoxLogo} alt="Looqbox" height={50} />
           </Link>
 
           <Button
@@ -72,7 +107,7 @@ export function Header() {
         >
           <div className="mobile-drawer">
             <div className="mobile-drawer__top">
-              <img src="/src/assets/icons/looqbox_logo.svg" alt="Looqbox" height={50} />
+              <img src={looqBoxLogo} alt="Looqbox" height={50} />
               <Button
                 type="text"
                 icon={<CloseOutlined />}
@@ -90,27 +125,12 @@ export function Header() {
 
   return (
     <header className="app-header">
-      <Menu mode="horizontal" selectedKeys={selectedKeys} className="desktop-menu">
-        <Menu.Item key="home" className="menu-item-first">
-          <Link to="/">
-            <span className="menu-label" data-text="Home">
-              Home
-            </span>
-          </Link>
-        </Menu.Item>
-
-        <div className="menu-logo" aria-hidden="true">
-          <img src="/src/assets/icons/looqbox_logo.svg" alt="" height={72} />
-        </div>
-
-        <Menu.Item key="pokemons" className="menu-item-last">
-          <Link to="/pokemons">
-            <span className="menu-label" data-text="Pokédex">
-              Pokédex
-            </span>
-          </Link>
-        </Menu.Item>
-      </Menu>
+      <Menu
+        mode="horizontal"
+        selectedKeys={selectedKeys}
+        items={desktopItems}
+        className="desktop-menu"
+      />
     </header>
   );
 }
