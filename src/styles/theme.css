@@ -1,0 +1,83 @@
+/* bg parallax */
+.app-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-parallax {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pokeball {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  background: url('/src/assets/img/pokeball_icon.webp') no-repeat center / contain;
+}
+
+@media (max-width: 768px) {
+  .pokeball {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+.pokeball-left {
+  left: -120px;
+  top: 20%;
+}
+
+.pokeball-right {
+  right: -140px;
+  bottom: 10%;
+}
+
+/* general */
+.section-container {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 16px;
+}
+
+.section-title {
+  font-family: 'Luckiest Guy', system-ui, sans-serif;
+  font-size: clamp(32px, 5vw, 64px) !important;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #ffcb05 !important;
+  /* stroke base */
+  -webkit-text-stroke: 2px #2a75bb;
+  margin: 0 0 8px;
+  letter-spacing: -2px !important;
+}
+
+.section-description {
+  font-size: 16px;
+  font-weight: 600;
+  color: #48494a;
+}
+
+/* Alert */
+.looq-alert {
+  border-radius: 14px;
+  border: 1px solid transparent;
+  padding: 14px 16px;
+}
+
+.looq-alert--warning {
+  background: rgba(255, 125, 26, 0.12);
+  border-color: rgba(255, 125, 26, 0.35);
+}
+
+.looq-alert--warning .ant-alert-message {
+  font-weight: 800;
+}
+
+.looq-alert--warning .ant-alert-description {
+  color: #3b3b3b;
+  font-weight: 600;
+}

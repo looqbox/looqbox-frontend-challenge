@@ -1,52 +1,137 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# LooqDex
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+LooqDex is a Single Page Application built for the **Looqbox Frontend Challenge**.
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+It allows users to search, browse and explore Pokémon data using the public **PokeAPI**, focusing on performance, usability and clean architecture — without page reloads.
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+---
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+### Tech Stack
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+- **React**
+- **TypeScript**
+- **Redux Toolkit**
+- **React Router**
+- **Ant Design**
+- **Axios**
+- **Vitest + Testing Library**
+- **ESLint + Prettier**
 
-# Guidelines
-You need to create a Single Page Application (SPA) that displays a list of Pokémon and allows users to search for them, using the [Pokeapi](https://pokeapi.co/docs/v2). Your app must be dynamic, meaning you **must not** reload the page to show new content.
+---
 
-The PokeAPI was chosen for its simplicity in making requests. Since it is an open API, please **be mindful of how many requests** you make.
+### Challenge Requirements
 
-## Requirements:
+This project fulfills all required items from the challenge:
 
-- On the main page, include a search bar and a preloaded list of Pokémon.
-- Clicking on any Pokémon should display a card, modal, or page with that Pokémon’s information.
-- Typing in the search bar and pressing Enter should display the search result instead of the list.
-- Your app must include at least two different routes (e.g., /home, /details — be creative!).
-- Add a README file to document your project.
+- Main page with a search bar and a preloaded Pokémon list
+- Search behavior: typing and pressing **Enter** replaces the list with results
+- Pokémon details view (SPA, no reloads)
+- Multiple routes using React Router
+- README documentation
 
-You may use any libraries or dependencies you like (e.g., Axios, Bootstrap, Material UI...).
+---
 
-## Bonus points!
+### Bonus Points Covered
+
 - Pagination
 - Error handling
 - Documentation
 - Linting
-- Charts
-- Unit Testing
+- Charts (stats visualization)
+- Unit testing
 - Ant Design
 
-## Useful links
-- [React docs](https://react.dev/)
-- [PokeApi docs](https://pokeapi.co/docs/v2)
-- [Redux](https://redux.js.org/)
+---
+
+### Features
+
+- **Home page** with featured Pokémon list
+- **Search by name** (case-insensitive, partial match)
+  - Press **Enter** to search and replace the default list with results
+  - Clear search to return to the default list
+- **Pokémon list page** with:
+  - Search
+  - Pagination
+  - URL query params support (`q` and `page`)
+- **Pokémon details page** with:
+  - Description, height, weight, abilities and types
+  - Base stats visualization
+  - Evolution chain navigation
+- **Image fallback strategy**
+  - Tries `artwork`, falls back to `sprite`, then placeholder
+- **Responsive layout**
+  - Works down to **280px** width
+
+---
+
+### Architecture Overview
+
+- **Redux Toolkit** manages shared state and caching (index, details, species and evolution).
+- The Pokémon **index is fetched once** and reused for searching and pagination, minimizing network requests.
+- Search and pagination logic are encapsulated in **custom hooks**, enabling reuse between pages.
+- Details page is structured with small, reusable components to keep the view layer clean.
+- URL query parameters keep search and pagination state navigable and shareable.
+
+---
+
+### Performance Notes
+
+- Cached index enables local search (reduced API calls).
+- Lazy loading for non-critical images and fixed image dimensions to avoid layout shift.
+- Production build is code-split by route to reduce initial bundle cost.
+
+---
+
+### Tests
+
+Unit tests were implemented using **Vitest** and **Testing Library**, focusing on:
+
+- Utility functions
+- Custom hooks
+- Reusable UI components
+
+Tests validate behavior and edge cases rather than implementation details.
+
+
+## Getting Started
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run in development
+
+```bash
+npm run dev
+```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+### Run tests
+
+```bash
+npm run test
+```
+
+### Run tests (CI mode)
+
+```bash
+npm run test:run
+```
+
+### Coverage
+
+```bash
+npm run test:coverage
+```

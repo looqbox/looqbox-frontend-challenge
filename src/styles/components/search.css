@@ -1,0 +1,59 @@
+.pokemon-search-container {
+  margin-top: 24px;
+}
+
+.pokemon-search-container .ant-input-search {
+  display: flex !important;
+  gap: 12px !important;
+}
+
+.pokemon-search-container .ant-input-affix-wrapper {
+  height: 45px !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 0 24px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.pokemon-search-container .ant-input-affix-wrapper::placeholder {
+  color: #babdbf !important;
+}
+
+.pokemon-search-container .ant-input-affix-wrapper-focused {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.pokemon-search-container .ant-btn {
+  height: 45px;
+  border-radius: 10px !important;
+  transition: all 0.3s ease;
+}
+
+.pokemon-search-container .ant-btn-icon {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.pokemon-search-container .ant-btn-icon svg {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.pokemon-search-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pokemon-search-empty-state .ant-empty-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon-search-empty-state .ant-empty-image img {
+  width: 70px;
+  height: 70px;
+}

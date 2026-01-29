@@ -1,0 +1,107 @@
+.app-header {
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.app-header .ant-menu {
+  background: transparent;
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+
+.app-header .ant-menu .menu-item-first {
+  margin-right: 10%;
+}
+
+.app-header .ant-menu .menu-logo {
+  position: absolute;
+  top: 12px;
+}
+
+.app-header .ant-menu .menu-logo::after {
+  display: none !important;
+}
+
+/* ================================
+   GRADIENT TEXT
+   ================================ */
+
+.app-header .menu-label {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+
+.app-header .menu-label::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, #ff7a18, #ffb347);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+.app-header .ant-menu-item:hover .menu-label::after {
+  opacity: 1;
+}
+
+.app-header .ant-menu-item-selected .menu-label::after {
+  opacity: 1;
+}
+
+/* =========================================
+   UNDERLINE GRADIENT
+   ========================================= */
+
+.app-header .ant-menu-horizontal > .ant-menu-item::after {
+  height: 2px;
+  border-bottom: none !important;
+  background: linear-gradient(90deg, #ff7a18, #ffb347);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.app-header .ant-menu-horizontal > .ant-menu-item:hover::after {
+  transform: scaleX(1);
+}
+
+.app-header .ant-menu-horizontal > .ant-menu-item-selected::after {
+  transform: scaleX(1);
+}
+
+.app-header--mobile .mobile-bar {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  padding: 0 16px;
+  position: relative;
+  z-index: 10;
+}
+
+.mobile-drawer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-drawer__top {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}

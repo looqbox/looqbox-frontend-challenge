@@ -1,0 +1,13 @@
+.pokemon-grid-container {
+  margin-top: 36px;
+}
+
+@media screen and (max-width: 600px) {
+  .pokemon-grid-container {
+    justify-content: center;
+  }
+
+  .pokemon-grid-col {
+    width: 100% !important;
+  }
+}
