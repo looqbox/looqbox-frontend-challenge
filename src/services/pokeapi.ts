@@ -37,13 +37,15 @@ export type PokemonDetails = {
     is_hidden: boolean;
   }>;
   stats: Array<{
-    base_stat: number;
+    base_stat: number;  
     stat: { name: string };
   }>;
+  height: number;
+  weight: number;
 };
 
 const BASE_URL = 'https://pokeapi.co/api/v2';
-const api = axios.create({
+export const api = axios.create({
   baseURL: BASE_URL,
   timeout: 10_000,
 });

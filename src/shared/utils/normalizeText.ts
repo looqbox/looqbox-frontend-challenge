@@ -12,3 +12,7 @@ export function normalizeText(value: string) {
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '');
 }
+
+export function normalize(name: string) {
+  return name.trim().toLowerCase();
+}

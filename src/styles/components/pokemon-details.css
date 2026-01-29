@@ -1,0 +1,224 @@
+.pokemon-details-card {
+  position: relative;
+  border-radius: 22px;
+  padding: 72px 84px;
+}
+
+.pokemon-details-card .back-btn-container {
+  position: absolute;
+  left: 32px;
+  top: 28px;
+}
+
+.back-btn-container path {
+  transition: all 0.3s ease;
+}
+
+.back-btn-container:hover path,
+.back-btn-container:focus path {
+  fill: #ff6d1b;
+}
+
+.pokemon-details-top {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.pokemon-details-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 260px;
+}
+
+.pokemon-details-title {
+  font-family: 'Luckiest Guy', system-ui, sans-serif;
+  font-size: clamp(44px, 5vw, 64px) !important;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: #ffcb05 !important;
+  -webkit-text-stroke: 2px #2a75bb;
+  letter-spacing: -2px !important;
+  margin: 0 !important;
+}
+
+.pokemon-details-info .ant-typography-secondary {
+  font-size: 14px !important;
+}
+
+.pokemon-details-description {
+  margin: 20px 0 0 !important;
+  max-width: 420px;
+  color: #4b4b4b;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.pokemon-details-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.metric {
+  background: #f6f8fc;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokemon-details-abilities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.ability-pill {
+  background: #f6f8fc;
+  border-radius: 10px;
+  padding: 10px 12px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.pokemon-details-stats {
+  margin: 80px 0;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 24px;
+  align-items: start;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 18px;
+}
+
+.stat-ring--hp .ant-progress-circle-path {
+  stroke: #34c677 !important;
+}
+
+.stat-ring--speed .ant-progress-circle-path {
+  stroke: #ffcc03 !important;
+}
+
+.stat-ring--attack .ant-progress-circle-path {
+  stroke: #ef2139 !important;
+}
+
+.stat-ring--defense .ant-progress-circle-path {
+  stroke: #fe7571 !important;
+}
+
+.stat-ring--special-attack .ant-progress-circle-path {
+  stroke: #bd5bf6 !important;
+}
+
+.stat-ring--special-defense .ant-progress-circle-path {
+  stroke: #2aaaed !important;
+}
+
+.ant-progress-circle-path {
+  stroke: red !important;
+}
+
+.stat-ring {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.stat-label {
+  font-weight: 800;
+  color: #3a3a3a;
+}
+
+.capture-rate {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.capture-rate .ant-progress-circle-path {
+  stroke: #ff6d1b !important;
+}
+
+.evolution-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 60px;
+  padding: 14px 0;
+  flex-wrap: wrap;
+}
+
+.evolution-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.evolution-arrow {
+  font-size: 28px;
+  font-weight: 800;
+  color: #2a2a2a;
+}
+
+.evolution-label {
+  text-align: center;
+  font-weight: 800;
+  margin-top: 6px;
+}
+
+@media (max-width: 900px) {
+  .pokemon-details-card {
+    padding: 60px 40px;
+  }
+
+  .pokemon-details-top {
+    grid-template-columns: 1fr;
+  }
+
+  .pokemon-details-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .pokemon-details-card {
+    padding: 32px 16px;
+  }
+
+  .pokemon-details-metrics,
+  .pokemon-details-abilities,
+  .stats-grid,
+  .evolution-item {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .evolution-row {
+    align-items: center !important;
+    gap: 20px !important;
+    flex-direction: column;
+  }
+
+  .evolution-arrow {
+    rotate: 90deg;
+  }
+
+  .pokemon-details-card .back-btn-container {
+    left: 16px;
+    top: 16px;
+  }
+}
