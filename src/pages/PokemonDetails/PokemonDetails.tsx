@@ -51,7 +51,14 @@ export function PokemonDetails() {
   }, [dispatch, normalized, details, status]);
 
   if (!normalized) {
-    return <Alert type="warning" showIcon title="Invalid Pokémon name" />;
+    return (
+      <Alert
+        type="warning"
+        showIcon
+        title="Invalid Pokémon name"
+        className="looq-alert looq-alert--warning"
+      />
+    );
   }
 
   if (status === 'failed') {
@@ -64,6 +71,7 @@ export function PokemonDetails() {
             showIcon
             title="Failed to load Pokémon details"
             description={error ?? 'Unknown error'}
+            className="looq-alert"
           />
           <Button
             type="primary"
@@ -104,7 +112,13 @@ export function PokemonDetails() {
               </Space>
 
               <div aria-label={`${displayName} image`}>
-                <PokemonImage id={details.id} name={displayName} height={220} variant='artwork' priority />
+                <PokemonImage
+                  id={details.id}
+                  name={displayName}
+                  height={220}
+                  variant="artwork"
+                  priority
+                />
               </div>
             </Space>
 

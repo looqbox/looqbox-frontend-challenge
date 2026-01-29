@@ -14,6 +14,10 @@ export function AppLayout() {
 
   return (
     <div className="app-container">
+      <div className="bg-parallax">
+        <span className="pokeball pokeball-left" />
+        <span className="pokeball pokeball-right" />
+      </div>
       <Header />
       <Outlet />
     </div>

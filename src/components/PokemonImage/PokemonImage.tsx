@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react';
-import placeholder from '../../assets/pokemon_placeholder.png';
+import placeholder from '../../assets/img/pokemon_placeholder.webp';
 
 type Props = {
   id?: number | null;
   name: string;
   alt?: string;
+  width?: number;
   height?: number;
   padding?: number;
   variant?: 'artwork' | 'sprite';
@@ -24,6 +25,7 @@ export function PokemonImage({
   id,
   name,
   alt,
+  width = 220,
   height = 180,
   padding = 12,
   variant = 'artwork',
@@ -52,7 +54,9 @@ export function PokemonImage({
       onError={() => {
         setAttempt((prev) => (prev < urls.length - 1 ? prev + 1 : prev));
       }}
-      style={{ padding, height, objectFit: 'contain', aspectRatio: '1 / 1', ...style }}
+      width={width}
+      height={height}
+      style={{ padding, width, height, objectFit: 'contain', aspectRatio: '1 / 1', ...style }}
     />
   );
 }

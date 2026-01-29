@@ -14,6 +14,15 @@ createRoot(document.getElementById('root')!).render(
         theme={{
           token: {
             fontFamily: 'Nunito, system-ui, sans-serif',
+            colorPrimary: '#ff6d1b',
+            colorInfo: '#ff6d1b',
+            borderRadius: 12,
+          },
+          components: {
+            Button: {
+              colorPrimaryHover: '#ff833b',
+              colorPrimaryActive: '#e85f14',
+            },
           },
         }}
       >

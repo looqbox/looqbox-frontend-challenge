@@ -1,4 +1,6 @@
 @import './fonts.css';
+@import './theme.css';
+@import './components/_components.css';
 
 *,
 *::before,
@@ -13,12 +15,17 @@ body {
 }
 
 body {
-  font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #fafafa;
+  font-family:
+    'Nunito',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background-color: #f6f8fc;
   color: #1f1f1f;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}   
+}
 
 a {
   color: inherit;

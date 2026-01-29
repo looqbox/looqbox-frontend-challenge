@@ -43,12 +43,14 @@ export function PokemonSearchInput({ placeholder, query, onSubmitQuery, onClear 
   }
 
   return (
-    <SearchBar
-      value={value}
-      placeholder={placeholder ?? 'Search by name (e.g., pikachu, mr mime)'}
-      onChange={handleChange}
-      onSearch={submit}
-      onClear={clear}
-    />
+    <div className="pokemon-search-container">
+      <SearchBar
+        value={value}
+        placeholder={placeholder ?? 'Search by name (e.g., pikachu, mr mime)'}
+        onChange={handleChange}
+        onSearch={submit}
+        onClear={clear}
+      />
+    </div>
   );
 }
