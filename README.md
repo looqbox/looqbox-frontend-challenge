@@ -77,6 +77,6 @@ Bonus points:
 
 - Minimal dependencies: I preferred to use only the antd libraries to retain full control over layout behavior and styling.
 - Component organization: I used a component organization strategy that separates concerns between logical and presentational components, making the codebase easier to maintain and extend.
-- Inspiration: The visual identity was inspired by ![Design inspiration](https://dribbble.com/shots/15128634-Pokemon-Pokedex-Website-Redesign-Concept)
+- Inspiration: The visual identity was inspired by:
 
 ![Design inspiration](https://cdn.dribbble.com/userupload/30658222/file/original-8b4161c80979570ab0070a85bee765f7.gif)
