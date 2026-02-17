@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --background: hsl(220 20% 97%);
+  --primary: hsl(0 72% 51%);
+  --primary-foreground: hsl(0 0% 100%);
+  --muted-foreground: hsl(220 10% 46%);
+  --card-foreground: hsl(220 20% 10%);
+  --border: hsl(220 13% 88%);
+
+  --type-normal: hsl(48 10% 58%);
+  --type-fire: hsl(18 82% 56%);
+  --type-water: hsl(220 68% 55%);
+  --type-electric: hsl(48 90% 55%);
+  --type-grass: hsl(120 46% 48%);
+  --type-ice: hsl(195 60% 70%);
+  --type-fighting: hsl(2 60% 46%);
+  --type-poison: hsl(290 46% 44%);
+  --type-ground: hsl(38 50% 58%);
+  --type-flying: hsl(250 60% 70%);
+  --type-psychic: hsl(340 72% 58%);
+  --type-bug: hsl(80 60% 42%);
+  --type-rock: hsl(44 30% 48%);
+  --type-ghost: hsl(265 30% 40%);
+  --type-dragon: hsl(260 70% 55%);
+  --type-dark: hsl(240 6% 28%);
+  --type-steel: hsl(220 10% 62%);
+  --type-fairy: hsl(340 50% 68%);
+
+  --hp: hsl(0 72% 51%);
+  --attack: hsl(18 82% 56%);
+  --defense: hsl(220 68% 55%);
+  --special-attack: hsl(290 46% 44%);
+  --special-defense: hsl(120 46% 48%);
+  --speed: hsl(48 90% 55%);
+}
