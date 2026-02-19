@@ -1,52 +1,103 @@
+# Looqbox FrontEnd Challenge
+
 ### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+This project is a solution for the FrontEnd technical challenge proposed by Looqbox. It consists of a Single Page Application (SPA) that consumes the PokeAPI to provide a dynamic interface for listing and searching Pokémon.
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+## Objective
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+The primary goal of this project is to build a robust application using ReactJS, demonstrating proficiency in state management, routing, and external API consumption. The application allows users to view a preloaded list, search by name or ID, and access detailed information for each Pokémon without reloading the page.
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+## Project Structure
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+The project follows a modular architecture to ensure a clear separation of concerns:
 
-# Guidelines
-You need to create a Single Page Application (SPA) that displays a list of Pokémon and allows users to search for them, using the [Pokeapi](https://pokeapi.co/docs/v2). Your app must be dynamic, meaning you **must not** reload the page to show new content.
+```text
+.
+├── src/
+    ├── assets/          # Media files and icons
+    ├── components/
+    │   ├── common/      # Shared UI components like Error and Empty states
+    │   └── pokemon/     # Domain-specific Pokémon components
+    ├── config/          # Theme configurations and Design Tokens
+    ├── context/         # React Contexts for global theme management
+    ├── hooks/           # Custom hooks for Redux and UI logic
+    ├── pages/           # High-level views (Home and Details)
+    ├── routes/          # Routing configuration
+    ├── services/        # API communication layer
+    ├── store/           # Global state management with Redux Toolkit
+    ├── types/           # TypeScript interface and type definitions
+    └── utils/           # Utility functions for formatting and color mapping
 
-The PokeAPI was chosen for its simplicity in making requests. Since it is an open API, please **be mindful of how many requests** you make.
+```
 
-## Requirements:
+## Stack and Libraries
 
-- On the main page, include a search bar and a preloaded list of Pokémon.
-- Clicking on any Pokémon should display a card, modal, or page with that Pokémon’s information.
-- Typing in the search bar and pressing Enter should display the search result instead of the list.
-- Your app must include at least two different routes (e.g., /home, /details — be creative!).
-- Add a README file to document your project.
+- **ReactJS & TypeScript**
+- **Redux Toolkit**
+- **Ant Design (antd)**
+- **React Router Dom**
+- **Recharts**
+- **Vite**
 
-You may use any libraries or dependencies you like (e.g., Axios, Bootstrap, Material UI...).
+## Features
 
-## Bonus points!
-- Pagination
-- Error handling
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
+- **Dynamic Search**
+- **Pagination**
+- **Dark Mode**
+- **Error Handling**
+- **Data Visualization**
 
-## Useful links
-- [React docs](https://react.dev/)
-- [PokeApi docs](https://pokeapi.co/docs/v2)
-- [Redux](https://redux.js.org/)
+## Missing
+
+- **80% coverage for tests**
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 18 or higher recommended)
+- Yarn or NPM
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd looqbox-frontend-challenge
+
+```
+
+3. Install the dependencies:
+
+```bash
+yarn install
+
+```
+
+### Running the Project
+
+To start the development server, run:
+
+```bash
+yarn dev
+
+```
+
+The application will be available at `http://localhost:5173`.
+
+### Building for Production
+
+To create an optimized production build, run:
+
+```bash
+yarn build
+
+```
