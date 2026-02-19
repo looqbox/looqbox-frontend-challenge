@@ -1,0 +1,114 @@
+.pokemonListRow {
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+}
+
+.pokemonListImage {
+  width: inherit;
+}
+
+.pokemonListCard {
+  min-height: 385px;
+
+  @media (max-width: 768px) {
+    min-height: 320px;
+  }
+}
+
+.typeImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+
+  @media (max-width: 768px) {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.pokemonTypesSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.typeTitle {
+  text-align: center;
+  color: yellow;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 20px;
+  text-shadow: 2px 2px 8px rgb(0, 28, 104);
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+}
+
+.typeBadge {
+  display: flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+  user-select: none;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 4px 8px;
+  }
+}
+
+.typeFilterLabel {
+  color: #fff;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    gap: 6px;
+    padding: 4px 10px;
+  }
+}
+
+.typeFilterClear {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.pokemonPaginationWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 28px;
+
+  @media (max-width: 768px) {
+    padding: 10px 0 18px;
+  }
+}

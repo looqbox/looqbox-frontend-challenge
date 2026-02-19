@@ -1,0 +1,79 @@
+.homeRow {
+  min-height: auto;
+  margin: 40px;
+
+  @media (max-width: 768px) {
+    margin: 12px;
+    row-gap: 12px;
+  }
+
+  @media (max-width: 480px) {
+    margin: 8px;
+  }
+}
+
+.carouselContent {
+  margin: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #fff;
+}
+
+.carouselContainer {
+  box-shadow: 0px -1px 20px 5px rgb(0 0 0 / 64%);
+}
+
+.carouselImage {
+  width: 100%;
+  object-fit: cover;
+  height: 500px;
+
+  @media (max-width: 768px) {
+    height: 240px;
+  }
+
+  @media (max-width: 480px) {
+    height: 200px;
+  }
+}
+
+.searchContainer {
+  color: rgb(0, 28, 104);
+  background-color: #02040a8f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px -1px 20px 5px rgb(0 0 0 / 64%);
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    padding: 14px;
+    gap: 12px;
+    min-height: 200px;
+    margin-top: 20px;
+  }
+}
+
+.searchTitle {
+  text-align: center;
+  color: rgb(0, 28, 104);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgb(0, 28, 104);
+  color: yellow;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
+}

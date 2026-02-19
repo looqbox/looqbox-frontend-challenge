@@ -1,0 +1,41 @@
+.pokemonCard {
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0px -1px 20px 5px rgb(0 0 0 / 64%);
+}
+
+.pokemonImageContainer {
+  background: linear-gradient(181deg, #000000eb 0%, #ff0000ad, #ffffff 100%);
+  border-radius: 12px 12px 0 0;
+}
+
+.pokemonImage {
+  max-width: 300px;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+
+  @media (max-width: 992px) {
+    max-width: 240px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 200px;
+  }
+}
+
+.pokemonName {
+  margin-top: 16px;
+
+  @media (max-width: 768px) {
+    font-size: 22px !important;
+  }
+}
+
+.pokemonId {
+  font-size: 18px;
+  color: #888;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}

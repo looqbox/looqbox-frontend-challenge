@@ -1,0 +1,42 @@
+.pokemonInfoCard {
+  margin-top: 16px;
+  border-radius: 12px;
+  box-shadow: 0px -1px 20px 5px rgb(0 0 0 / 64%);
+}
+
+.pokemonSubloading {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.pokemonEvolutionList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.evolutionChip {
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  color: #615454;
+  border-radius: 999px;
+  padding: 6px 10px;
+  text-transform: capitalize;
+  cursor: pointer;
+
+  &:hover {
+    color: #fdcf00;
+  }
+
+  @media (max-width: 768px) {
+    padding: 5px 9px;
+    font-size: 12px;
+  }
+}
+
+.evolutionChipActive {
+  background: #001c68;
+  color: #fff;
+  border-color: #001c68;
+}

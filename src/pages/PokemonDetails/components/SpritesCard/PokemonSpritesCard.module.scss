@@ -1,0 +1,27 @@
+.pokemonInfoCard {
+  margin-top: 16px;
+  border-radius: 12px;
+  box-shadow: 0px -1px 20px 5px rgb(0 0 0 / 64%);
+}
+
+.pokemonSprites {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sprite {
+  width: 96px;
+  height: 96px;
+  image-rendering: pixelated;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: #f5f5f5;
+
+  @media (max-width: 768px) {
+    width: 76px;
+    height: 76px;
+  }
+}

@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+:global {
+  * {
+    font-family: "Press Start 2P", system-ui, sans-serif !important;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}

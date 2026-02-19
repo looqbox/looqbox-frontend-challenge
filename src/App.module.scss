@@ -1,0 +1,24 @@
+:global(body) {
+  position: relative;
+  background-color: rgba(5, 5, 5, 0.178);
+}
+
+:global(body::before) {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("./assets/images/background.jpg");
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.mainContent {
+  padding-top: 100px;
+  min-height: calc(100vh - 100px);
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding-top: 70px;
+    min-height: calc(100vh - 70px);
+  }
+}

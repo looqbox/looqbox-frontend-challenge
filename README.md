@@ -1,52 +1,116 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# Pokédex SPA - Looqbox Challenge
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
-
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
-
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+A Single Page Application built with React to search and browse Pokémon using the [PokeAPI](https://pokeapi.co/docs/v2).
 
 ## Stack
-We use:
-- ReactJS
-- Redux
+
+- React
 - TypeScript
-- AntDesign
-
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
-
-# Guidelines
-You need to create a Single Page Application (SPA) that displays a list of Pokémon and allows users to search for them, using the [Pokeapi](https://pokeapi.co/docs/v2). Your app must be dynamic, meaning you **must not** reload the page to show new content.
-
-The PokeAPI was chosen for its simplicity in making requests. Since it is an open API, please **be mindful of how many requests** you make.
-
-## Requirements:
-
-- On the main page, include a search bar and a preloaded list of Pokémon.
-- Clicking on any Pokémon should display a card, modal, or page with that Pokémon’s information.
-- Typing in the search bar and pressing Enter should display the search result instead of the list.
-- Your app must include at least two different routes (e.g., /home, /details — be creative!).
-- Add a README file to document your project.
-
-You may use any libraries or dependencies you like (e.g., Axios, Bootstrap, Material UI...).
-
-## Bonus points!
-- Pagination
-- Error handling
-- Documentation
-- Linting
-- Charts
-- Unit Testing
+- Redux Toolkit
+- React Router
 - Ant Design
+- Ant Design Charts
+- Vitest (unit testing)
 
-## Useful links
-- [React docs](https://react.dev/)
-- [PokeApi docs](https://pokeapi.co/docs/v2)
-- [Redux](https://redux.js.org/)
+## Features
+
+### Main requirements
+
+- Home page includes:
+  - name search (`Enter` key or `Start` button)
+  - preloaded Pokémon list
+- Clicking a Pokémon opens the details page
+- SPA routing without page reload:
+  - `/` (Home)
+  - `/pokemon/:name` (Details)
+  - `*` (NotFound)
+
+### Bonus features implemented
+
+- Mobile version available (responsive layout)
+- Pagination on the main list
+- Pagination on type-filtered results
+- Friendly error handling for name search
+- Linting with ESLint
+- Stats chart in details page (`Pie`)
+- Unit tests for slice and thunks
+- UI built with Ant Design
+
+## Project structure (summary)
+
+```txt
+src/
+  pages/
+    Home/
+      components/
+        searchPokemon/
+        pokeList/
+    PokemonDetails/
+  store/
+    pokemon/
+      slice.ts
+      selectors.ts
+      thunks.ts
+      types.ts
+```
+
+## Application flow
+
+- **Home**
+  - name search via Redux thunk `searchPokemonByName`
+  - type filter via `fetchPokemonByType`
+  - pagination using `page`, `pageSize`, and `total`
+- **Details**
+  - loads Pokémon based on route (`/pokemon/:name`)
+  - displays official artwork, types, sprites, and status chart
+
+## Scripts
+
+```bash
+# development
+npm run dev
+
+# production build
+npm run build
+
+# preview build
+npm run preview
+
+# lint
+npm run lint
+
+# unit tests
+npm test
+npm run test:watch
+npm run test:coverage
+```
+
+## Running locally
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start development server:
+
+```bash
+npm run dev
+```
+
+3. Open the URL shown in terminal (usually `http://localhost:5173`).
+
+## Unit tests
+
+Main test files:
+
+- `src/store/pokemon/slice.test.ts`
+- `src/store/pokemon/thunks.test.ts`
+
+They cover reducers, async actions, error handling, and payload mapping.
+
+## Notes
+
+- Name search handles PokeAPI `404` with a friendly message: `Pokémon not found`.
+- Images use a fallback to avoid broken sprites when some URLs fail.

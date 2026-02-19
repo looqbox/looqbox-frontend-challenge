@@ -1,0 +1,80 @@
+.pokemonInfoCard {
+  margin-top: 16px;
+  border-radius: 12px;
+  box-shadow: 0px -1px 20px 5px rgb(0 0 0 / 64%);
+}
+
+.pokemonSubloading {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.pokemonAboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.pokemonAboutItem {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #615454;
+
+  span {
+    font-size: 10px;
+    opacity: 0.8;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      font-size: 9px;
+    }
+  }
+
+  strong {
+    font-size: 12px;
+    text-transform: capitalize;
+
+    @media (max-width: 768px) {
+      font-size: 11px;
+    }
+  }
+}
+
+.pokemonFlavorText {
+  display: block;
+  color: #615454;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.pokemonAbilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.abilityTag {
+  background: #001c68 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.pokemonAboutItemFull {
+  grid-column: 1 / -1;
+
+  @media (max-width: 768px) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .pokemonAboutGrid {
+    grid-template-columns: 1fr;
+  }
+}
