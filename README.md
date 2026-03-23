@@ -1,52 +1,115 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# ⚡ Pokédex SPA
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+A modern, fully-featured Single Page Application for browsing and searching Pokémon, built with React + TypeScript and powered by [PokéAPI](https://pokeapi.co).
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+---
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
+##  Getting Started
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+### Installation
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+```bash
+# Clone the repository
+git clone https://github.com/username/pokedex-spa.git
+cd pokedex-spa
 
-# Guidelines
-You need to create a Single Page Application (SPA) that displays a list of Pokémon and allows users to search for them, using the [Pokeapi](https://pokeapi.co/docs/v2). Your app must be dynamic, meaning you **must not** reload the page to show new content.
+# Install dependencies
+npm install
 
-The PokeAPI was chosen for its simplicity in making requests. Since it is an open API, please **be mindful of how many requests** you make.
+# Start development server
+npm start
+```
 
-## Requirements:
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- On the main page, include a search bar and a preloaded list of Pokémon.
-- Clicking on any Pokémon should display a card, modal, or page with that Pokémon’s information.
-- Typing in the search bar and pressing Enter should display the search result instead of the list.
-- Your app must include at least two different routes (e.g., /home, /details — be creative!).
-- Add a README file to document your project.
+---
 
-You may use any libraries or dependencies you like (e.g., Axios, Bootstrap, Material UI...).
+## 📁 Project Structure
 
-## Bonus points!
-- Pagination
-- Error handling
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
+```
+src/
+├── components/        # Reusable UI components
+│   ├── Navbar.tsx
+│   ├── PokemonCard.tsx
+│   ├── SearchBar.tsx
+│   ├── TypeBadge.tsx
+│   ├── StatBar.tsx
+│   ├── StatsChart.tsx
+│   └── ErrorMessage.tsx
+├── pages/             # Route-level pages
+│   ├── Home.tsx
+│   ├── Details.tsx
+│   ├── About.tsx
+│   └── NotFound.tsx
+├── hooks/             # Custom React hooks
+│   └── usePokemon.ts
+├── services/          # API layer
+│   └── pokemonService.ts
+├── types/             # TypeScript interfaces
+│   └── index.ts
+├── utils/             # Utility functions + constants
+│   └── index.ts
+```
+---
 
-## Useful links
-- [React docs](https://react.dev/)
-- [PokeApi docs](https://pokeapi.co/docs/v2)
-- [Redux](https://redux.js.org/)
+##  Routes
+
+| Route            | Description                              |
+| ---------------- | ---------------------------------------- |
+| `/`              | Redirects to `/home`                     |
+| `/home`          | Main list with search bar and pagination |
+| `/details/:name` | Detailed Pokémon page                    |
+| `/about`         | Project info and tech stack              |
+| `*`              | 404 Not Found                            |
+
+---
+
+##  Features
+
+### Core Requirements
+- ✅ **SPA** — No page reloads, all navigation handled client-side via React Router v6
+- ✅ **Search bar** — Type and press Enter to search by name
+- ✅ **Preloaded list** — 20 Pokémon loaded on the home page
+- ✅ **Pokémon detail card** — Click any card to navigate to `/details/:name`
+- ✅ **Multiple routes** — `/home`, `/details/:name`, `/about`
+
+### Bonus Features
+- ✅ **Pagination** — Browse all Pokémons across pages
+- ✅ **Error handling** — User-friendly error messages for failed fetches and invalid searches
+- ✅ **Documentation** — This README
+- ✅ **Linting** — ESLint with TypeScript + React Hooks rules
+- ✅ **Charts** — Radar chart (Recharts) and stat bars on the detail page
+- ✅ **Ant Design** — Ant Design 5 used throughout the UI
+
+---
+
+##  Linting
+
+```bash
+# Check for lint errors
+npm run lint
+
+# Auto-fix fixable errors
+npm run lint:fix
+```
+
+---
+
+##  Build for Production
+
+```bash
+npm run build
+```
+
+Outputs optimized files to the `build/` directory.
+
+---
+
+##  API
+
+This app uses [PokéAPI](https://pokeapi.co) — a free, open RESTful Pokémon API.
+
+Key endpoints used:
+- `GET /pokemon?limit=20&offset=0` — paginated list
+- `GET /pokemon/{name}` — Pokémon details
+- `GET /pokemon-species/{id}` — Species info (description, legendary status)
