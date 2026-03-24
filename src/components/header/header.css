@@ -1,0 +1,34 @@
+.app-header {
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+
+  background: transparent;
+  padding: 0;
+}
+
+.app-header .app-header-brand {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.app-header .app-header-brand-divider {
+  width: 2px;
+  height: 36.8px;
+  background-color: var(--black);
+}
+
+.app-header .app-header-brand img {
+  width: 100px;
+}
+
+.app-header .app-header-brand-title {
+  letter-spacing: 0.18px;
+  margin: 0 !important;
+}

@@ -1,0 +1,96 @@
+.pokemon-featured {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokemon-featured img {
+  width: 100%;
+  height: 100%;
+
+
+  object-fit: contain;
+}
+
+.pokemon-featured-normal {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-fighting {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-flying {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-poison {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-ground {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-rock {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-bug {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-ghost {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-steel {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-fire {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-water {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-electric {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #FEE173 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-grass {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-psychic {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-ice {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-dragon {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-dark {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-fairy {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-stellar {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}
+
+.pokemon-featured-unknown {
+  background: radial-gradient(48.52% 48.52% at 50% 50%, #88B989 40%, #F6F5EE 100%);
+}

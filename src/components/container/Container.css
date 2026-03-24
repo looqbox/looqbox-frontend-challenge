@@ -1,0 +1,38 @@
+.app-container {
+  width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-inline: var(--spacing-2);
+}
+
+@media (min-width: 576px) {
+  .app-container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .app-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .app-container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .app-container {
+    max-width: 1320px;
+  }
+}

@@ -1,0 +1,15 @@
+.info-card {
+  width: fit-content;
+  padding: var(--spacing-3) var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--white);
+}
+
+.info-card .info-card-title {
+  font-weight: 600;
+  margin: 0 !important;
+}
+
+.info-card .info-card-description {
+  font-size: 0.875rem;
+}

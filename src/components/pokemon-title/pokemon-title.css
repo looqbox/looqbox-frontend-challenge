@@ -1,0 +1,35 @@
+.pokemon-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.pokemon-title-header {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.pokemon-title-name {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin: 0;
+  color: var(--black);
+}
+
+.pokemon-title-number {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray);
+}
+
+.pokemon-title-tags {
+  display: flex;
+  gap: var(--spacing-1);
+}
+
+.pokemon-title-tag {
+  text-transform: capitalize;
+  margin-inline-end: 0;
+  font-size: 0.875rem;
+}
