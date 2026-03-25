@@ -1,52 +1,35 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+Looqbox Frontend Challenge - Pokedex SPA
 
-# Looqbox FrontEnd Challenge
-![Looqbox](https://github.com/looqbox/looqbox-frontend-challenge/blob/master/logo.png)
+Projeto desenvolvido para o Desafio Técnico para a vaga de Frontend Developer da Looqbox.
+Pokédex virtual: Pesquisa de Pokémons com base nos dados retornados da PokeAPI. Interface dinâmica e responsiva.
 
-## Challenge
-In this challenge you will need to build a **S**ingle **P**age **A**pplication using ReactJS and a provided api
+Stack e ferramentas:
+* React + Typescript
+* React Router
+* Redux Toolkit
+* Ant Design
+* Tailwind CSS
 
-We will not use anything from your project other than evaluate your skills and you are free to use it in your portfolio
 
-## Stack
-We use:
-- ReactJS
-- Redux
-- TypeScript
-- AntDesign
+Implementação:
 
-## Submitting
-- Make a fork of this repository
-- Create your branch
-- ⚠️ Do a initial Commit when you start
-- ⚠️ Do a final commit when you finish
-- When you're done send us a pull request
+- Para gerenciamento de estado, utilizei o Redux, guardando o estado inicial de tela (os 20 pokemons da home) e, dessa forma, evitando requisições desnecessárias à API (economia de dados). Isso foi útil em pesquisas e retornos para a home.
 
-# Guidelines
-You need to create a Single Page Application (SPA) that displays a list of Pokémon and allows users to search for them, using the [Pokeapi](https://pokeapi.co/docs/v2). Your app must be dynamic, meaning you **must not** reload the page to show new content.
+- Conforme solicitado no desafio, a barra de pesquisas que implementei retorna o resultado após o Enter do usuário. Isso está explicado no seu placeholder. Também implementei um estado de "Keep typing" para orientar o usuário enquanto digita, melhorando a interatividade com a plataforma.
 
-The PokeAPI was chosen for its simplicity in making requests. Since it is an open API, please **be mindful of how many requests** you make.
+-Implementei uma tratativa de erro global para as buscas: Se a busca falha ou o pokemon digitado nao existe, um modal AntD é exibido, permitindo que o usuário pesquise novamente (retorno para a home instantâneo, sem recarregar a aplicação).
 
-## Requirements:
+- Rotas do projeto:
+* /:Home (com grid e paginação)
+* /pokemon/:name (detalhes)
 
-- On the main page, include a search bar and a preloaded list of Pokémon.
-- Clicking on any Pokémon should display a card, modal, or page with that Pokémon’s information.
-- Typing in the search bar and pressing Enter should display the search result instead of the list.
-- Your app must include at least two different routes (e.g., /home, /details — be creative!).
-- Add a README file to document your project.
 
-You may use any libraries or dependencies you like (e.g., Axios, Bootstrap, Material UI...).
+Para rodar, você deve:
+1- instalar as dependências (npm install / yarn install)
+2- rodar o projeto em modo dev (npm run dev / yarn dev)
 
-## Bonus points!
-- Pagination
-- Error handling
-- Documentation
-- Linting
-- Charts
-- Unit Testing
-- Ant Design
 
-## Useful links
-- [React docs](https://react.dev/)
-- [PokeApi docs](https://pokeapi.co/docs/v2)
-- [Redux](https://redux.js.org/)
+Extras:
+- Plataforma responsiva
+- Tipagem de interfaces
+- Paginação integrada
