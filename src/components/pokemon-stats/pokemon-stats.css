@@ -1,0 +1,10 @@
+.pokemon-stats-item-label {
+  min-width: 150px;
+  text-transform: capitalize;
+  color: var(--gray);
+  margin: 0 !important;
+}
+
+.pokemon-stats-item-value {
+  min-width: 40px;
+}
