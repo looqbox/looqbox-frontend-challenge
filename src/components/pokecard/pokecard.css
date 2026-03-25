@@ -1,6 +1,10 @@
 .pokecard {
-  width: 240px;
+  width: 100%;
   border-radius: var(--radius-md);
+}
+
+.pokecard-link {
+  width: 100%;
 }
 
 .pokecard-image-container {
@@ -31,6 +35,11 @@
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .pokecard-title {

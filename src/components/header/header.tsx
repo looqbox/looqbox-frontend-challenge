@@ -14,7 +14,7 @@ export function Header() {
             <img src='/images/pokemon-logo.png' alt='Pokémon Logo' />
             <div className='app-header-brand-divider' />
             <Typography.Title level={4} className='app-header-brand-title'>
-              Pokedex
+              Pokédex
             </Typography.Title>
           </div>
         </Link>

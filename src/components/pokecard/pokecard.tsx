@@ -7,7 +7,7 @@ import './pokecard.css'
 
 export function Pokecard({ image, title, url }: PokecardProps) {
   return (
-    <Link to={url}>
+    <Link className='pokecard-link' to={url}>
       <Card className='pokecard' hoverable>
         <Flex vertical align='center' justify='center'>
           <div className='pokecard-image-container'>

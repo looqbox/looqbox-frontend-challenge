@@ -17,7 +17,7 @@ export function PokemonStats({ stats }: PokemonStatsProps) {
     <Section title='Status'>
       <Flex vertical gap='small'>
         {stats.map(stat => (
-          <Flex align='center' gap='middle' key={stat.baseStat}>
+          <Flex key={stat.statName} align='center' gap='middle'>
             <Typography.Title
               level={5}
               type='secondary'
@@ -32,7 +32,9 @@ export function PokemonStats({ stats }: PokemonStatsProps) {
               percent={stat.baseStat}
               status={getStatus(stat.baseStat)}
               showInfo={false}
-              strokeWidth={10}
+              size={{
+                height: 10,
+              }}
             />
           </Flex>
         ))}

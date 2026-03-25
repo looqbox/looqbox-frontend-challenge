@@ -58,21 +58,12 @@ export default [
       'no-useless-constructor': 'off',
       'no-empty-function': 'off',
       'lines-between-class-members': 'off',
-      '@typescript-eslint/naming-convention': [
-        'error',
-        {
-          selector: 'interface',
-          format: ['PascalCase'],
-          custom: {
-            regex: '^[A-Z]',
-            match: true,
-          },
-        },
-      ],
       'import/extensions': [
         'error',
         'ignorePackages',
         {
+          js: 'never',
+          jsx: 'never',
           ts: 'never',
           tsx: 'never',
         },

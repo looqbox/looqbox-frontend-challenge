@@ -16,6 +16,8 @@ describe('PokemonFeatured', () => {
       <PokemonFeatured name='Pikachu' image='pikachu.png' type='electric' />
     )
 
-    expect(container.firstChild).toHaveClass('pokemon-featured-electric')
+    expect(container.firstChild).toHaveStyle(
+      'background: radial-gradient(48.52% 48.52% at 50% 50%, #F1DE8C 40%, #F6F5EE 100%)'
+    )
   })
 })

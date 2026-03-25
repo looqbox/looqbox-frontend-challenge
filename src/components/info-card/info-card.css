@@ -1,5 +1,4 @@
 .info-card {
-  width: fit-content;
   padding: var(--spacing-3) var(--spacing-6);
   box-shadow: var(--shadow-sm);
   background-color: var(--white);

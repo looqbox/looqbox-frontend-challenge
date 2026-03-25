@@ -1,4 +1,4 @@
-import type { PokemonType } from '../pokemon-featured/pokemon-featured.types'
+import type { PokemonType } from '@/services/types'
 
 export type PokemonTitleProps = {
   name: string
