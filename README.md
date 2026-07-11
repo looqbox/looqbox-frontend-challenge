@@ -1,22 +1,25 @@
-# 🚀 Onboarding: Guia de Viagem pela Pokédex
+# Guia de bolso para projetos de software (Pokédex)
 
-> "O lixo de uns é o tesouro de outros."  
-> No desenvolvimento, o que muitos negligenciam (documentação, clareza e facilidade de revisão), eu trato como prioridade. Este projeto não é apenas um consumo de API; é um reflexo de como organizo meu pensamento e facilito a vida de quem trabalha comigo.
+Bem-vindo(a)!    
+Pokédex, lista de Pokémons... De novo? Bom, sim e não. É óbvio que este projeto não é sobre código complexo (nem deveria), grandes arquiteturas e novos padrões de desenvolvimento. Até porquê se fosse eu não teria feito uma Pokédex. Mas você já se perguntou quais elementos formam um bom projeto de software?  
 
-Bem-vindo(a)! Se você é dev, gestor ou até mesmo leigo (e vou me esforçar pra alcançar você), este guia foi feito para que você não perca tempo tentando entender tudo *o que* eu fiz, mas sim para que possamos discutir *por que* tomei cada decisão.
+Vou te perguntar de outra forma. Porquê quando você acessa esse tipo de projeto, tão simples, você ainda pode encontrar, com bastante frequência, um código nada intuitivo e fácil de manter?
 
-## 📌 Sumário
+Eu posso chutar uma razão: porquê para que um projetos simples ou complexo, tanto faz, possa ser fácil de mudar e satisfatório para o(s) usuário(s), esse projeto **depende da preparação e simplicidade do idealizador e abordagem pragmática e simplicidade do desenvolvedor.** Nessa matemática, simplicidade conta em dobro.  
 
-* [✨ Funcionalidades](#-funcionalidades)
-* [🧠 Decisões Técnicas](#-decisões-técnicas-lógica-tecnologias-e-paradigmas)
-* [🛠️ Tech Stack](#%EF%B8%8F-tech-stack)
-* [🚀 Próximos Passos (Roadmap)](#-próximos-passos-roadmap)
-* [🏁 Como rodar e revisar o projeto](#-como-rodar-e-revisar-o-projeto)
-* [🍮 Pausa para o Café](#-pausa-para-o-café)
+Este projeto tenta provar esse argumento e oferecer um guia de bolso para caso você se esqueça, absorto no código e reuniões diárias, do que realmente importa para projetos de software fluírem bem, junto com você. 
+
+## Sumário
+
+* [Funcionalidades](#funcionalidades)
+* [Decisões Técnicas](#decisões-técnicas---e-porquê)
+* [Tecnologias usadas](#tecnologias-usadas)
+* [Próximos Passos (Roadmap)](#próximos-passos-roadmap)
+* [Como rodar e revisar o projeto](#como-rodar-e-revisar-o-projeto)
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 Aqui está o resumo das funcionalidades implementadas.
 
@@ -28,7 +31,7 @@ Aqui está o resumo das funcionalidades implementadas.
 * **🖼️ Fallback de Imagem:** Tratativa para Pokémons sem foto oficial com a clássica imagem do *"Quem é esse Pokémon?"*.
 <img width="263" height="324" alt="image" src="https://github.com/user-attachments/assets/09ff6571-5fcc-4d5b-9c82-078c0ad1475c" />
 
-### 🏆 Bonus!
+### Bonus!
 
 Os seguintes itens extras que garantem a robustez do projeto:
 
@@ -38,7 +41,7 @@ Os seguintes itens extras que garantem a robustez do projeto:
 * [ ] **Charts (incompleto):** Visualização de stats com Recharts.
 * [x] **Unit Testing:** Lógica central testada com Vitest.
 
-## 🧠 Decisões técnicas (lógica, tecnologias e paradigmas)
+## Decisões técnicas – e porquê
 
 Minha maior decisão técnica foi separar as responsabilidades da `PokemonsList`. Segui uma arquitetura **inspirada no MVC (Model-View-Controller)** adaptada ao ecossistema React.
 
@@ -47,15 +50,13 @@ Minha maior decisão técnica foi separar as responsabilidades da `PokemonsList`
 ### 1. A Camada de Serviço (Service Layer)
 Isolei toda a comunicação externa e as regras de negócio em `src/services/pokedex.ts`.
 
-* **Por que?** Desacoplamento total. Se a PokéAPI mudar seu contrato ou se precisarmos trocar a biblioteca de fetch, a interface do usuário permanece intacta.
+* **Por que?** Desacoplamento total. Se a PokéAPI mudar seus tipos, métodos etc ou se precisarmos trocar a biblioteca de fetch, a interface do usuário permanece intacta.
 
-* **O Ganho**: O código de negócio - as leis que regem o mundo real - não "vaza" para os componentes. Isso facilita a criação de Mocks para testes e centraliza a fonte única da verdade.
+### 2. Separação entre tratamento dos dados e renderização 
 
-### 2. Separação de Preocupações (Smart Hook + Context)
+Deleguei o controle do fluxo de dados (loading, erro, filtragem e fetching) para um **hook personalizado integrado ao Context**.
 
-Deleguei o controle de fluxo de dados (loading, erro, filtragem e fetching) para um **Custom Hook integrado ao Context**.
-
-* **O Ganho:** A `PokemonsList` foca 100% na "View". Ela não sabe como os dados chegam; ela apenas os renderiza da melhor forma visual. Isso reduz a carga cognitiva e torna o código altamente testável.
+* **Por que?** A `PokemonsList` foca 100% na "View". Ela não sabe como os dados chegam; ela apenas os renderiza da melhor forma visual. Isso torna o código altamente testável e fácil de manter.
 
 ### 3. UX na busca por Pokémon
 
@@ -64,9 +65,9 @@ Deleguei o controle de fluxo de dados (loading, erro, filtragem e fetching) para
 <img width="519" alt="image" src="https://github.com/user-attachments/assets/596c1d1c-a4dd-4aa3-8390-b2c1a9ef4e6a" />
 
 
-## 🛠️ Tech Stack
+## Tecnologias usadas
 
-> **Disclaimer:** Toda decisão técnica serve apenas para este snapshot do projeto. Não tenho remorso em mudar de ideia caso os requisitos mudem. A melhor decisão é a que resolve o problema do negócio com a ferramenta certa.
+> **Atenção:** Toda decisão técnica serve apenas para este snapshot do projeto. Não me preocupo em mudar de ideia, caso os requisitos e contexto mudem. A melhor decisão é a que resolve o problema do negócio com a ferramenta que traz menos colaterais indesejáveis. 
 
 | Tecnologia | Por que usei? |
 | --- | --- |
@@ -77,11 +78,11 @@ Deleguei o controle de fluxo de dados (loading, erro, filtragem e fetching) para
 | **Vitest** | Rapidez e ótima DX para garantir que o "coração" da lógica esteja seguro, com bons testes automatizados. |
 | **pokenode-ts** | Recomendação oficial da PokéAPI. Tipagem *built-in* que facilita a integração e paginação, além de função de cache configurado com Axios. |
 
-#### 💡 Destaque Técnico: Arquivos `.d.ts`
+#### Detalhe para os tipos - arquivos `.d.ts`
 
-Utilizei arquivos de definição de tipos específicos para não "sujar" o código de produção com tipos que não geram código executável, mantendo a compilação limpa e eficiente. Além de um contrato único do formato dos dados para toda a aplicação se basear.
+Utilizei arquivos de definição de tipos específicos para não "sujar" o código de produção com tipos que não geram código executável.
 
-## 🚀 Próximos Passos (Roadmap)
+## Próximos Passos (Roadmap)
 
 Se eu tivesse mais tempo (ou para uma V2), meu foco seria:
 
@@ -89,7 +90,7 @@ Se eu tivesse mais tempo (ou para uma V2), meu foco seria:
 * **Paginação:** Dessa forma a página inicial pode mostrar mais Pokémons e o usuário navegar na vasta coleção que existe. O módulo `pokenode-ts` facilita esse processo ainda mais.
 * **Busca por termo incompleto (fuzzy search):** Eu percebi que a PokéAPI não permite pesquisar dessa forma nativamente, como um _fuzzy search_. A aplicação hoje busca por termos exatos, mas seria muito legal implementar isso de alguma forma no futuro. As soluções que pensei eram desnecessariamente complexas...
 
-## 🏁 Como rodar e revisar o projeto:
+## Como rodar e revisar o projeto:
 
 1. Clone o repositório:
 
@@ -121,7 +122,7 @@ Se eu tivesse mais tempo (ou para uma V2), meu foco seria:
    http://localhost:3000
    ```
 
-## 🧪 Testes
+## Testes
 
 Para executar os testes, utilize o comando:
 
@@ -133,11 +134,4 @@ npm test
 
 ---
 
-## 🍮 Pausa para o Café
-
-Se este projeto fosse um doce, seria um **pudim**: clássico, mas que exige a técnica certa para não ficar cheio de furinhos (bugs). Sou um desenvolvedor apaixonado por cultura japonesa, corredor amador e alguém que acredita que código limpo é, acima de tudo, um gesto de respeito aos meus colegas de equipe.
-
----
-
-Fim.  
-_Esse quam videri_
+O código limpo, simples e bem planejado é, acima de tudo, um gesto de respeito aos colegas de equipe e usuários do sistema.
